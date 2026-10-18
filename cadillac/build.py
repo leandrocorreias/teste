@@ -916,6 +916,49 @@ def op_edition(pr, year):
 <p class="note">{e(MODEL["operacao"]["note"])}</p></section>"""
 
 
+def broadcast_block(depth):
+    p = rel(depth)
+    data = MODEL["transmissoes"]
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    how = "".join(
+        f'<article><span class="step-i">{icon(ic)}</span><h3>{e(title)}</h3><p>{e(txt)}</p></article>'
+        for title, txt, ic in data["como_medir"])
+    rows = []
+    for r in data["registros"]:
+        pr = by_slug[r["project"]]
+        href = f'{p}projetos/{pr["slug"]}/' + (f'{r["year"]}/' if r["year"] else "")
+        if r["metrica"]:
+            metric = (f'<span class="val">{e(r["metrica"])}</span>'
+                      f'<small>lido em {e(r["capturado_em"])}</small>')
+        else:
+            metric = '<span class="val pend">a medir</span>'
+        link = (f'<a href="{e(r["url"])}" target="_blank" rel="noopener noreferrer">'
+                f'abrir {icon("open_in_new")}</a>' if r["url"] else
+                '<span class="tag-wait">URL a registrar</span>')
+        fonte = ""
+        if r["fonte"]:
+            label, url = r["fonte"]
+            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                     f'{e(label)} {icon("open_in_new")}</a>')
+        rows.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}{' ' + str(r['year']) if r['year'] else ''}</a>
+<small>{e(r['o_que'])}</small></th>
+<td>{e(r['parceiro'])}<small>{e(r['canal'])}</small></td>
+<td>{metric}</td><td>{link}</td><td>{fonte or '—'}</td></tr>""")
+    pend = sum(1 for r in data["registros"] if not r["metrica"])
+    return f"""<section class="container reach-section" id="transmissoes"><hr class="rule">
+<h2 class="section-title">O QUE FOI<br><em>AO AR.</em></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="charts"><div class="chart-card span-2"><h3>Transmissões por evento e parceiro</h3>
+<p class="chart-sub">{plural(pend, 'linha aguarda', 'linhas aguardam')} a leitura na plataforma.</p>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Parceiro e canal</th><th scope="col">Audiência</th><th scope="col">Registro</th><th scope="col">Referência</th></tr></thead>
+<tbody>{''.join(rows)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver o registro e a referência.</p></div></div>
+<h3 class="cases-title">Como cada número é lido</h3>
+<div class="method">{how}</div>
+<p class="note">{e(data['note'])}</p></section>"""
+
+
 def page_data():
     depth, p = 1, rel(1)
     trail_html, trail_ld = crumbs(depth, [("Dados", None)])
@@ -941,7 +984,7 @@ def page_data():
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
 <section class="container data-stats">{panels_html}</section>
-{audience_blocks(depth)}
+{audience_blocks(depth)}\n{broadcast_block(depth)}
 <section class="container charts">
 <div class="chart-card"><h3>Edições catalogadas por ano</h3>
 <p class="chart-sub">Quantas edições de projeto têm página própria em cada ano do acervo.</p>

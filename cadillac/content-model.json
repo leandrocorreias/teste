@@ -1280,6 +1280,11 @@
         "Alcance digital",
         "Streams, transmissões e visualizações. Nunca somado ao público presente.",
         "movie"
+      ],
+      "transmissao": [
+        "Audiência de transmissão",
+        "Visualizações e audiência das transmissões, lidas na própria plataforma. Nunca somadas ao público presente nem aos streams de música.",
+        "movie"
       ]
     },
     "entries": [
@@ -1399,16 +1404,6 @@
         "source": null
       },
       {
-        "project": "vert-battle",
-        "year": 2026,
-        "family": "digital",
-        "value": null,
-        "label": "Audiência da transmissão da CBSk",
-        "basis": "",
-        "counts": true,
-        "source": null
-      },
-      {
         "project": "tamo-junto-bb",
         "year": 2025,
         "family": "presencial",
@@ -1467,6 +1462,46 @@
         "basis": "",
         "counts": true,
         "source": null
+      },
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "family": "transmissao",
+        "value": null,
+        "label": "Finais da etapa de Belo Horizonte, canal da CBSk",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2025,
+        "family": "transmissao",
+        "value": null,
+        "label": "Transmissão do festival de Fortaleza",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "family": "transmissao",
+        "value": null,
+        "label": "Transmissão da competição de bodyboard",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "dominguinho",
+        "year": null,
+        "family": "transmissao",
+        "value": null,
+        "label": "Especial exibido pela TV Globo",
+        "basis": "",
+        "counts": true,
+        "source": null
       }
     ],
     "method": [
@@ -1474,7 +1509,8 @@
       "Público presente, atletas e alcance digital são três totais separados. Somar os três produziria um número inflado e indefensável.",
       "Projeção divulgada antes do evento nunca entra em total: projeção não é realizado.",
       "Público relatado por dia é contado uma vez enquanto o número de dias não for confirmado.",
-      "Quando houver bilheteria, catraca, contagem de credencial ou relatório de plataforma com data de captura, a linha passa de declarado para verificado."
+      "Quando houver bilheteria, catraca, contagem de credencial ou relatório de plataforma com data de captura, a linha passa de declarado para verificado.",
+      "Audiência de transmissão é lida na própria plataforma, com a URL exata e a data da captura. Visualização de vídeo não é pessoa, e número de TV aberta só entra com relatório da emissora."
     ]
   },
   "operacao": {
@@ -1653,5 +1689,108 @@
       }
     },
     "note": "Os campos em branco dependem de dado que fica com a produção: planilha de credenciamento, mapa de equipe, contrato de locação do espaço e lista de fornecedores. Preencha em operacao.fichas no content-model.json e rode o gerador."
+  },
+  "transmissoes": {
+    "lede": "Todo evento aqui teve parceiro de transmissão. Esta é a lista do que foi ao ar, com o que é preciso registrar para que o número se sustente: a URL exata, a data da transmissão, a métrica e o dia em que ela foi lida.",
+    "como_medir": [
+      [
+        "YouTube e plataformas abertas",
+        "Visualizações públicas do vídeo, com print ou link e a data da leitura. Pico de simultâneos e tempo médio só saem do painel do canal — peça ao dono do canal.",
+        "movie"
+      ],
+      [
+        "TV aberta e TV paga",
+        "Audiência domiciliar e alcance só entram com relatório da emissora ou do instituto de medição. Nunca estimar a partir de share de programa ou de bolão.",
+        "public"
+      ],
+      [
+        "Transmissão em rede social",
+        "Visualizações e alcance do post, lidos no painel da conta que publicou, com data da captura. Alcance de post não é pessoa única.",
+        "campaign"
+      ],
+      [
+        "Regra que vale para todas",
+        "Visualização não é pessoa, e a mesma pessoa pode aparecer em três plataformas. Por isso audiência de transmissão nunca entra no mesmo total do público presente.",
+        "insights"
+      ]
+    ],
+    "registros": [
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "parceiro": "Confederação Brasileira de Skate",
+        "canal": "Canal oficial da CBSk no YouTube",
+        "o_que": "Finais da etapa de Belo Horizonte, 12 e 13 de setembro",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "parceiro": "Confederação Brasileira de Skate",
+        "canal": "Canal oficial da CBSk no YouTube",
+        "o_que": "Etapas de São Paulo e Maceió",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": null
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2025,
+        "parceiro": "Banco do Brasil e emissoras parceiras",
+        "canal": "A confirmar com o patrocinador",
+        "o_que": "Festival de Fortaleza e encerramento do Circuito BB de Surfe",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": [
+          "Imprensa BB, encerramento do Circuito de Surfe",
+          "https://imprensa.bb.com.br/circuito-bb-de-surfe-encerra-temporada-em-fortaleza-durante-o-festival-tamo-junto-bb/"
+        ]
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2024,
+        "parceiro": "Banco do Brasil",
+        "canal": "A confirmar com o patrocinador",
+        "o_que": "Edição de Natal, Arena das Dunas",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": null
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "parceiro": "IBC World Tour",
+        "canal": "Transmissão e vídeos do circuito mundial",
+        "o_que": "Competição de bodyboard da 14ª edição",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": [
+          "IBC World Tour",
+          "https://ibcworldtour.com/the-itacoatiara-pro-2026-kicks-off-its-14th-edition-with-massive-conditions-in-brazil/"
+        ]
+      },
+      {
+        "project": "dominguinho",
+        "year": null,
+        "parceiro": "TV Globo",
+        "canal": "Programação da emissora",
+        "o_que": "Especial Dominguinho exibido em 2026",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": null
+      }
+    ],
+    "note": "Nenhuma contagem foi lida ainda. Para cada linha, o que falta é a URL do vídeo ou o relatório da emissora e a data da leitura. Preencha em transmissoes.registros no content-model.json: a linha passa a mostrar o número, a plataforma e quando foi medido."
   }
 }

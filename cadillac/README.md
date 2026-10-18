@@ -70,6 +70,13 @@ Incorporação do dossiê consolidado de outubro de 2026.
   edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
   hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
   listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Transmissões**: `/dados/#transmissoes` lista o que foi ao ar por evento e parceiro — CBSk
+  no YouTube para o Vert Battle, IBC World Tour no Itacoatiara, Banco do Brasil e emissoras no
+  Tamo Junto BB, TV Globo no especial do Dominguinho — com a coluna da audiência, a URL do
+  registro e a referência. Nenhuma contagem foi lida: o ambiente bloqueia o acesso às
+  plataformas. Cada linha espera a URL exata e a data da leitura, em `transmissoes.registros`.
+  A audiência de transmissão é uma grandeza própria no bloco de alcance: nunca soma com
+  público presente nem com streams de música.
 - **Ficha de operação**: cada projeto ganhou um bloco de porte (cidades, modalidades, maior
   público, equipe, fornecedores, dias de montagem) e cada edição uma ficha completa
   (inscritos, público, capacidade do local, equipe em operação, fornecedores, dias de evento

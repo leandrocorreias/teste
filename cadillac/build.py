@@ -30,7 +30,7 @@ NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
     ("Na Mídia", "na-midia/", "na-midia", "description"),
     ("Dados", "dados/", "dados", "insights"),
-    ("Atuação", "#atuacao", "atuacao", "engineering"),
+    ("Atuação", "atuacao/", "atuacao", "engineering"),
     ("Cadillac", "#sobre", "sobre", "verified"),
 ]
 
@@ -156,7 +156,7 @@ def footer(depth):
     links = [("Projetos", home + "projetos/", "stacked_bar_chart"),
              ("Na Mídia", home + "na-midia/", "description"),
              ("Dados", home + "dados/", "insights"),
-             ("Atuação", home + "#atuacao", "engineering"),
+             ("Atuação", home + "atuacao/", "engineering"),
              ("Cadillac", home + "#sobre", "verified"),
              ("Contato", home + "#contato", "mail")]
     nav = "".join(f'<a href="{u}">{icon(i)} {l}</a>' for l, u, i in links)
@@ -384,9 +384,10 @@ def page_home():
                "url": BASE + "/", "inLanguage": "pt-BR"}
     cards = "".join(card(pr, 0, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
     services = "".join(
-        f'<div class="service-row"><span class="svc-i">{icon(ic)}</span><h3>{e(title)}</h3>'
-        f'<p>{e(desc)}</p><span class="card-arrow">{icon("arrow_outward")}</span></div>'
-        for title, desc, ic in MODEL["services"])
+        f'<a class="service-row" href="./atuacao/#{a["slug"]}">'
+        f'<span class="svc-i">{icon(a["icon"])}</span><h3>{e(a["title"])}</h3>'
+        f'<p>{e(a["lede"])}</p><span class="card-arrow">{icon("arrow_outward")}</span></a>'
+        for a in MODEL["atuacao"]["areas"])
     highlights = []
     for pr in PROJECTS[-3:]:
         cat = CATS[pr["category"]]
@@ -424,7 +425,8 @@ def page_home():
 <section class="container services" id="atuacao">
 <hr class="rule">
 <h2 class="section-title">DA IDEIA À<br><em>EXPERIÊNCIA.</em></h2>
-<div class="service-list">{services}</div></section>
+<div class="service-list">{services}</div>
+<div class="section-end"><a class="pill-link" href="./atuacao/">Como a gente trabalha, com casos {icon('arrow_outward')}</a></div></section>
 <section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
 <hr class="rule">
@@ -778,6 +780,70 @@ def page_data():
                       "dados/", [ld, trail_ld]) + header(depth, "dados") + body + footer(depth))
 
 
+def page_atuacao():
+    depth, p = 1, rel(1)
+    data = MODEL["atuacao"]
+    trail_html, trail_ld = crumbs(depth, [("Atuação", None)])
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+
+    method = "".join(
+        f'<article><span class="step-i">{icon(ic)}</span><h3>{e(title)}</h3><p>{e(text)}</p></article>'
+        for title, text, ic in data["method"])
+
+    sections, index = [], []
+    for a in data["areas"]:
+        index.append(f'<a class="chip" href="#{a["slug"]}">{icon(a["icon"])} {e(a["title"])}</a>')
+        items = "".join(f'<li>{icon("arrow_forward")} {e(d)}</li>' for d in a["deliverables"])
+        cases = []
+        for c in a["cases"]:
+            label, url = c["source"]
+            if url == "dados":
+                link = f'<a href="{p}dados/">Metodologia e indicadores {icon("arrow_outward")}</a>'
+            else:
+                link = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                        f'{e(label)} {icon("open_in_new")}</a>')
+            pr = by_slug.get(c["project"]) if c["project"] else None
+            if pr:
+                href = f'{p}projetos/{pr["slug"]}/' + (f'{c["year"]}/' if c["year"] else "")
+                page = (f'<a href="{href}">{icon("arrow_outward")} '
+                        f'{e(pr["name"])}{" " + str(c["year"]) if c["year"] else ""}</a>')
+            else:
+                page = ""
+            cases.append(f"""<article class="case"><h4>{e(c["title"])}</h4><p>{e(c["text"])}</p>
+<div class="case-links">{page}{link}</div></article>""")
+        sections.append(f"""<section class="container area" id="{a["slug"]}"><hr class="rule">
+<div class="area-head"><span class="svc-i">{icon(a["icon"])}</span>
+<div><h2>{e(a["title"])}<span class="orange">.</span></h2><p class="lede">{e(a["lede"])}</p></div></div>
+<div class="area-body"><div class="area-text">{"".join(f"<p>{e(t)}</p>" for t in a["paragraphs"])}</div>
+<div class="area-list"><h3>O que entregamos</h3><ul>{items}</ul></div></div>
+<h3 class="cases-title">Casos no acervo</h3>
+<div class="cases">{"".join(cases)}</div></section>""")
+
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><h1>ATUAÇÃO<span class="orange">.</span></h1>
+<p class="lede">{e(data["lede"])}</p>
+<div class="chips area-index">{"".join(index)}</div></section>
+<section class="container method-section"><hr class="rule">
+<h2 class="section-title">COMO UM PROJETO<br><em>SAI DO PAPEL.</em></h2>
+<div class="method">{method}</div></section>
+{"".join(sections)}
+<section class="container related"><hr class="rule">
+<h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
+<p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
+<div class="section-end"><a class="pill-link" href="{p}projetos/">Explorar os projetos {icon('arrow_outward')}</a></div>
+<p class="note">Os casos descrevem o que está documentado em fonte pública. Onde a atribuição depende de contrato ou ficha técnica ainda em validação, o texto diz isso em vez de afirmar autoria.</p>
+</section></main>"""
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Atuação",
+          "url": f"{BASE}/atuacao/", "inLanguage": "pt-BR",
+          "about": [{"@type": "Service", "name": a["title"], "description": a["lede"]}
+                    for a in data["areas"]]}
+    return write("atuacao/index.html",
+                 head(depth, "Atuação | O que fazemos e como | Cadillac Produções",
+                      "Produção executiva, esportes e circuitos, cultura, marcas e conteúdo: "
+                      "o que a Cadillac faz em cada frente, com casos documentados do acervo.",
+                      "atuacao/", [ld, trail_ld]) + header(depth, "atuacao") + body + footer(depth))
+
+
 def page_404():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
@@ -796,7 +862,7 @@ def page_404():
 
 
 def page_sitemap():
-    urls = ["", "projetos/", "na-midia/", "dados/"]
+    urls = ["", "projetos/", "atuacao/", "na-midia/", "dados/"]
     for pr in PROJECTS:
         urls.append(f"projetos/{pr['slug']}/")
         for y in pr["years"]:
@@ -814,7 +880,7 @@ def page_sitemap():
 
 
 def main():
-    written = [page_home(), page_projects(), page_press(), page_data(), page_404()]
+    written = [page_home(), page_projects(), page_atuacao(), page_press(), page_data(), page_404()]
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

@@ -118,6 +118,7 @@ body.nav-open{overflow:hidden}
 .service-row{display:grid;grid-template-columns:54px 1.1fr 1fr 44px;align-items:center;gap:18px;
   padding:clamp(24px,3vw,38px) 0;border-bottom:1px solid var(--border);transition:var(--t)}
 .service-row:hover{background:var(--paper-2)}
+.service-row:hover h3{color:var(--orange-ink)}
 .service-row>.svc-i{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:50%}
 .service-row h3{margin:0}
 .service-row p{margin:0;color:var(--muted);font-size:14px}
@@ -289,6 +290,48 @@ body.nav-open{overflow:hidden}
 .empty-state.show{display:block}
 .work-card[hidden]{display:none}
 
+/* 7b. Atuação -------------------------------------------------------------- */
+.area-index{margin-top:clamp(26px,4vw,40px)}
+.area-index .chip{background:var(--white)}
+.area-index .chip:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.area-index .chip:hover .cd-icon{color:var(--orange)}
+.method-section,.area{padding-bottom:clamp(60px,9vw,120px)}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border)}
+.method article{background:var(--paper);padding:clamp(20px,2.6vw,28px);display:flex;
+  flex-direction:column;gap:12px}
+.method h3{font-size:clamp(21px,2.2vw,27px);margin:0}
+.method p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.65}
+.step-i,.svc-i{display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;
+  border:1px solid var(--border);border-radius:50%;background:var(--white)}
+.area-head{display:flex;gap:clamp(14px,2vw,22px);align-items:flex-start;
+  margin:clamp(22px,3vw,34px) 0 clamp(22px,3vw,34px)}
+.area-head h2{font-size:clamp(34px,5vw,74px);margin:0 0 14px}
+.area-head .lede{margin:0;font-size:clamp(16px,1.8vw,20px);color:var(--ink-2)}
+.area-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+  gap:clamp(24px,4vw,56px);align-items:start}
+.area-text p{font-size:clamp(16px,1.7vw,18px);color:var(--ink-2)}
+.area-list{background:var(--white);border:1px solid var(--border);padding:clamp(20px,2.6vw,28px)}
+.area-list h3{font-size:clamp(17px,1.8vw,21px);margin:0 0 16px}
+.area-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.area-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.55}
+.area-list .cd-icon{font-size:17px;color:var(--orange-ink);margin-top:1px}
+.cases-title{font-size:clamp(19px,2vw,24px);margin:clamp(34px,5vw,56px) 0 18px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.case{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--border-strong);
+  padding:clamp(20px,2.4vw,26px);display:flex;flex-direction:column;gap:12px}
+.case h4{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(19px,2vw,24px);
+  line-height:1.05;margin:0}
+.case p{margin:0;font-size:14px;line-height:1.65;color:var(--ink-2)}
+.case-links{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:6px}
+.case-links a{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase}
+.case-links a:first-child{color:var(--ink)}
+.case-links a:last-child{color:var(--orange-ink)}
+.case-links a:hover{color:var(--orange)}
+.case-links .cd-icon{font-size:17px}
+a.service-row{color:inherit}
+
 /* 8. Dados e gráficos ---------------------------------------------------- */
 .data-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;
   padding-bottom:clamp(50px,7vw,90px)}
@@ -366,6 +409,7 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   .nav,.contact-nav{display:none}
   .hamburger{display:flex}
   .service-row{grid-template-columns:44px minmax(0,1fr) 36px;row-gap:6px}
+  .area-head{flex-direction:column}
   .service-row p{grid-column:2;grid-row:2}
   .service-row>.card-arrow{grid-column:3;grid-row:1}
   .statement-grid{grid-template-columns:1fr}

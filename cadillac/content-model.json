@@ -561,5 +561,237 @@
       "João Gomes, Jota.pê e Mestrinho na turnê Dominguinho",
       "https://billboard.com.br/joao-gomes-turne-dominguinho/"
     ]
-  ]
+  ],
+  "atuacao": {
+    "lede": "A Cadillac trabalha nas cinco frentes abaixo. Elas raramente aparecem isoladas: um circuito esportivo precisa de produção executiva, um festival precisa de ativação de marca, e tudo precisa ficar registrado. Cada frente traz os casos do acervo que a ilustram, com a fonte do que é afirmado.",
+    "method": [
+      [
+        "Estruturação",
+        "Antes do evento existe o projeto: escopo, orçamento, cronograma, habilitação e, quando é o caso, enquadramento em lei de incentivo e captação.",
+        "description"
+      ],
+      [
+        "Operação",
+        "Fornecedores, equipes, licenças, logística, montagem e o plano de contingência do que pode dar errado — porque sempre há algo.",
+        "engineering"
+      ],
+      [
+        "Execução",
+        "O evento no ar: atletas, artistas, público, marcas e imprensa no mesmo lugar, cada um com a sua necessidade e o seu horário.",
+        "festival"
+      ],
+      [
+        "Registro",
+        "O que fica depois. Documentação, prestação de contas, acervo e as páginas deste portal, com fonte para cada afirmação.",
+        "verified"
+      ]
+    ],
+    "areas": [
+      {
+        "slug": "producao-executiva",
+        "title": "Produção executiva",
+        "icon": "engineering",
+        "lede": "Coordenação, operação e entrega de projetos de ponta a ponta.",
+        "paragraphs": [
+          "É a frente que sustenta todas as outras. Começa muito antes da montagem: desenho do projeto, orçamento, cronograma, contratação de fornecedores e equipes, licenças e autorizações, e a documentação que um patrocinador, um órgão público ou um edital vai exigir depois.",
+          "Em projetos incentivados, inclui a estruturação para captação — etapa em que o projeto é aprovado por um valor que ainda precisa ser captado no mercado. São duas coisas diferentes, e este portal publica as duas com esse cuidado."
+        ],
+        "deliverables": [
+          "Desenho de projeto, orçamento e cronograma",
+          "Estruturação para captação e enquadramento em leis de incentivo",
+          "Contratação e coordenação de fornecedores e equipes",
+          "Licenças, autorizações e interlocução com o poder público",
+          "Prestação de contas e documentação do que foi entregue"
+        ],
+        "cases": [
+          {
+            "project": "itacoatiara-pro",
+            "year": 2022,
+            "title": "Itacoatiara Pro 2022: projeto aprovado para captação",
+            "text": "Publicação estadual identifica a Cadillac como proponente do projeto. O valor aprovado para captação foi de R$ 1.352.190 — valor autorizado, distinto do efetivamente captado.",
+            "source": [
+              "Publicação oficial do projeto 23397",
+              "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+            ]
+          },
+          {
+            "project": "festival-de-tribos-juruti",
+            "year": 2018,
+            "title": "Juruti 2018: contratação com ente público",
+            "text": "Ficha do Tribunal de Contas dos Municípios do Pará registra a Cadillac como contratada para a apresentação artística de André Frateschi, no valor de R$ 72.000. O registro documenta o objeto contratado, não a produção integral do festival.",
+            "source": [
+              "Contrato e ficha do TCM-PA",
+              "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "esportes-e-circuitos",
+        "title": "Esportes e circuitos",
+        "icon": "skateboarding",
+        "lede": "Eventos, competições e comunidades esportivas.",
+        "paragraphs": [
+          "Competição tem regra, federação, julgamento, ranking e calendário. Um circuito itinerante acrescenta a isso a repetição: a mesma operação precisa funcionar em cidades diferentes, com equipamentos, públicos e parceiros locais diferentes, mantendo o padrão da disputa.",
+          "A frente cobre a produção da etapa, a relação com a confederação e com os atletas, a estrutura de competição e a integração do evento esportivo com programação cultural e com o calendário de outras propriedades."
+        ],
+        "deliverables": [
+          "Produção de etapas e de circuitos itinerantes",
+          "Relação com confederação, árbitros e atletas",
+          "Estrutura de competição, pista e área de prova",
+          "Integração entre modalidades no mesmo festival",
+          "Calendário de temporada e ligação entre etapas"
+        ],
+        "cases": [
+          {
+            "project": "vert-battle",
+            "year": 2025,
+            "title": "Vert Battle 2025: quatro cidades, uma temporada",
+            "text": "O circuito teve etapas em Goiânia, Niterói, Curitiba e Fortaleza, e a imprensa identificou a Cadillac como produtora do evento. A final da temporada foi realizada dentro da programação do Tamo Junto BB, em Fortaleza.",
+            "source": [
+              "Lance, produção do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          },
+          {
+            "project": "vert-battle",
+            "year": 2026,
+            "title": "Vert Battle 2026: temporada em andamento",
+            "text": "A temporada teve etapa em Belo Horizonte em setembro e etapa em São Paulo programada para 17 e 18 de outubro, no Centro Esportivo Tietê. O circuito foi criado em 2016 por Rony Gomes.",
+            "source": [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          },
+          {
+            "project": "itacoatiara-pro",
+            "year": 2026,
+            "title": "Itacoatiara Pro 2026: mudança de formato",
+            "text": "Na 14ª edição, realizada de 22 de maio a 7 de junho em Niterói, o skate passou ao formato Street, no Skatepark São Francisco — uma decisão de formato que reorganiza pista, julgamento e programação.",
+            "source": [
+              "Waves, Itacoatiara Pro 2026",
+              "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "cultura-e-entretenimento",
+        "title": "Cultura e entretenimento",
+        "icon": "festival",
+        "lede": "Festivais, apresentações e experiências culturais.",
+        "paragraphs": [
+          "Esporte e cultura dividem o mesmo público e, muitas vezes, o mesmo fim de semana. Esta frente cuida da programação artística: curadoria e contratação de atrações, rider técnico, palco, som e luz, e o encaixe dos shows no cronograma de competição.",
+          "Inclui também projetos de formação e de arte urbana, em que a entrega não é só o evento, mas a oficina, a residência e o que permanece no território depois que a estrutura é desmontada."
+        ],
+        "deliverables": [
+          "Curadoria e contratação de atrações",
+          "Rider técnico, palco, som e luz",
+          "Programação artística integrada à esportiva",
+          "Coordenação artística de projetos culturais",
+          "Oficinas, residências e ações de formação"
+        ],
+        "cases": [
+          {
+            "project": "itacoatiara-pro",
+            "year": null,
+            "title": "Itacoatiara Pro: competição e programação cultural",
+            "text": "O festival reúne surfe, skate, vela e parapente com programação cultural em Niterói, com edições catalogadas em 2022, 2025 e 2026 neste acervo.",
+            "source": [
+              "Site oficial",
+              "https://itacoatiarapro.com.br/"
+            ]
+          },
+          {
+            "project": "arte-em-circuito",
+            "year": null,
+            "title": "Arte em Circuito: coordenação artística",
+            "text": "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente do projeto.",
+            "source": [
+              "Arte de Toda Gente, institucional",
+              "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "marcas-e-ativacoes",
+        "title": "Marcas e ativações",
+        "icon": "campaign",
+        "lede": "Conexão entre patrocínio, conteúdo e público.",
+        "paragraphs": [
+          "Patrocínio não se resolve com logotipo em banner. A frente trabalha o que a marca faz dentro do evento: o espaço que ela ocupa, a experiência que oferece ao público, as modalidades e atrações que fazem sentido para ela e as entregas combinadas em contrato, que depois precisam ser comprovadas.",
+          "Um recurso recorrente é aproximar propriedades: levar a final de um circuito para dentro de um festival patrocinado entrega, de uma vez, disputa de alto nível ao festival e público de festival ao circuito."
+        ],
+        "deliverables": [
+          "Desenho de ativação dentro do evento",
+          "Integração entre propriedades esportivas e festivais patrocinados",
+          "Operação de áreas de marca e experiências de público",
+          "Cumprimento e comprovação de entregas contratuais",
+          "Relação com a imprensa e registro da repercussão"
+        ],
+        "cases": [
+          {
+            "project": "tamo-junto-bb",
+            "year": 2025,
+            "title": "Tamo Junto BB Fortaleza: esporte, música e marca",
+            "text": "A edição de Fortaleza reuniu skate, surfe, vôlei de praia, corrida, games e programação musical em um festival patrocinado pelo Banco do Brasil. A última etapa do Vert Battle 2025 aconteceu dentro do festival. Há menção pública de profissional de produção associando a Cadillac à edição.",
+            "source": [
+              "Programação oficial, Fortaleza",
+              "https://tamojuntobb.com.br/fortaleza/"
+            ]
+          },
+          {
+            "project": "tamo-junto-bb",
+            "year": 2024,
+            "title": "Tamo Junto BB Natal 2024",
+            "text": "Edição realizada em Natal, no Rio Grande do Norte, identificada em material do próprio patrocinador. A relação exata de obrigações operacionais da Cadillac depende dos instrumentos contratuais correspondentes.",
+            "source": [
+              "Banco do Brasil, festival",
+              "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "conteudo-e-audiovisual",
+        "title": "Conteúdo e audiovisual",
+        "icon": "movie",
+        "lede": "Narrativas e documentação de experiências.",
+        "paragraphs": [
+          "Evento é efêmero; o registro não. Esta frente cuida do que sobra: captação de imagem, acervo organizado por edição, material para imprensa e patrocinador, e a narrativa que explica o projeto para quem não estava lá.",
+          "Este portal é o exemplo mais direto do método: cada projeto tem página, cada edição tem os fatos que estão documentados, e cada afirmação tem link para a fonte. Onde o dado depende de contrato, ficha técnica ou autorização em validação, isso é dito na própria página em vez de ser arredondado para um número bonito."
+        ],
+        "deliverables": [
+          "Captação de imagem e organização de acervo por edição",
+          "Material para imprensa, patrocinador e prestação de contas",
+          "Documentação editorial com fonte verificável",
+          "Curadoria de repercussão na imprensa",
+          "Portal e páginas por projeto e por edição"
+        ],
+        "cases": [
+          {
+            "project": null,
+            "year": null,
+            "title": "Este portal: documentação com fonte",
+            "text": "Sete projetos, oito edições com página própria e dezenove referências públicas catalogadas, cada uma com link para a publicação original. Nenhuma métrica de audiência é publicada sem metodologia e fonte.",
+            "source": [
+              "Metodologia e indicadores",
+              "dados"
+            ]
+          },
+          {
+            "project": "dominguinho",
+            "year": null,
+            "title": "Dominguinho: cobertura e alcance de um projeto musical",
+            "text": "A turnê de João Gomes, Jota.pê e Mestrinho teve cobertura da Billboard Brasil e especial exibido pela TV Globo. A participação da Cadillac foi informada pela direção do projeto e aguarda ficha técnica independente — e fica registrada assim até que haja documento.",
+            "source": [
+              "Billboard Brasil, turnê Dominguinho",
+              "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

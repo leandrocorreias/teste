@@ -27,6 +27,7 @@ index.html                     home
 projetos/                      acervo com filtros por área, ano e busca
 projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
+atuacao/                       as cinco frentes de trabalho, com casos do acervo
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
 404.html                       página de erro
@@ -68,6 +69,12 @@ partir do modelo de conteúdo: edições por ano, projetos por área, registros 
 por projeto, matriz de cobertura projeto × ano com link para cada edição e tabela de
 valores em registros públicos. Os gráficos são SVG inline de série única, com rótulo
 direto, foco por teclado e `title` acessível; sem biblioteca externa.
+
+**Atuação.** A seção de competências da home era só título e uma linha, com uma
+seta que não levava a lugar nenhum. Cada frente ganhou conteúdo próprio em
+`/atuacao/`: o que é, o que entregamos e os casos do acervo que a ilustram, cada
+caso com link para a página do projeto e para a fonte pública. Os cinco itens da
+home agora levam à seção correspondente.
 
 **Identidade.** O logotipo oficial da Cadillac substituiu o lettering improvisado
 em `Barlow Condensed` do cabeçalho e do rodapé. A partir do arquivo oficial em preto

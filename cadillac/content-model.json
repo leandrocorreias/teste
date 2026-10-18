@@ -64,6 +64,7 @@
       "years": [
         2026,
         2025,
+        2024,
         2022
       ],
       "editions": {
@@ -111,6 +112,21 @@
               "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
             ]
           }
+        },
+        "2024": {
+          "period": "2024",
+          "place": "Niterói, RJ",
+          "note": "Participação de Bob Burnquist registrada pela imprensa",
+          "datas": {
+            "inicio": "2024-01-01",
+            "fim": "2024-12-31",
+            "precisao": "ano",
+            "status": "a confirmar",
+            "fonte": [
+              "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
+              "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
+            ]
+          }
         }
       },
       "facts": {
@@ -132,6 +148,11 @@
           "A Cadillac foi registrada como proponente do projeto 23397 em ato estadual.",
           "O valor total informado foi de R$ 1.373.190, dos quais R$ 1.352.190 aprovados para captação.",
           "Aprovação para captação não equivale a recurso captado nem a titularidade do evento."
+        ],
+        "2024": [
+          "Publicação de 2024 documenta a participação de Bob Burnquist no festival.",
+          "A cobertura descreve um fim de semana com música, cultura de rua e skate na programação.",
+          "Esta edição entrou no acervo a partir do rastreamento das participações de Bob Burnquist; data exata, modalidades e resultados ainda precisam ser levantados."
         ]
       },
       "sources": [
@@ -189,6 +210,16 @@
           [
             "Publicação oficial do projeto 23397",
             "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+          ],
+          [
+            "Prefeitura de Niterói, premiação do Itacoatiara Pro",
+            "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+          ]
+        ],
+        "2024": [
+          [
+            "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
+            "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
           ]
         ]
       },
@@ -793,8 +824,9 @@
       "editions": {},
       "records": [
         "A Prefeitura de Niterói registrou a presença de Bob Burnquist no Itacoatiara Pro em 2022.",
-        "Publicações de 2024 documentam sua participação no festival.",
-        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente.",
+        "Publicação de 2024 documenta nova participação dele no mesmo festival, em um fim de semana com música, cultura de rua e skate — são dois eventos distintos, com dois anos distintos.",
+        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente pelo Instituto IBB.",
+        "Somadas, são três frentes documentadas: duas edições do Itacoatiara Pro e o Arte em Circuito.",
         "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos.",
         "Cada participação precisa ser individualizada por data, atividade, produção responsável e crédito, antes de virar case."
       ],
@@ -816,8 +848,12 @@
       "yearsources": {},
       "faq": [
         [
-          "Bob Burnquist participou do Itacoatiara Pro?",
-          "Sim. A Prefeitura de Niterói registrou sua presença em 2022 e publicações de 2024 documentam sua participação."
+          "Em quantos eventos do acervo Bob Burnquist aparece?",
+          "Em três frentes documentadas: o Itacoatiara Pro de 2022, o Itacoatiara Pro de 2024 e o projeto Arte em Circuito."
+        ],
+        [
+          "O que a edição de 2024 tem de diferente?",
+          "Ela entrou no acervo justamente pelo rastreamento das participações dele. A cobertura descreve música, cultura de rua e skate no fim de semana do festival."
         ],
         [
           "Qual a ligação da Cadillac com o Arte em Circuito?",
@@ -828,7 +864,39 @@
           "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos."
         ]
       ],
-      "amounts": []
+      "amounts": [],
+      "participacoes": {
+        "titulo": "Onde ele aparece no acervo",
+        "itens": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2024,
+            "papel": "Participação registrada pela imprensa",
+            "fonte": [
+              "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
+              "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
+            ]
+          },
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Presença registrada pela Prefeitura de Niterói",
+            "fonte": [
+              "Prefeitura de Niterói, premiação do Itacoatiara Pro",
+              "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+            ]
+          },
+          {
+            "projeto": "arte-em-circuito",
+            "ano": null,
+            "papel": "Consultor e artista residente pelo Instituto IBB",
+            "fonte": [
+              "Arte de Toda Gente, institucional",
+              "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+            ]
+          }
+        ]
+      }
     },
     {
       "slug": "arte-em-circuito",
@@ -2046,7 +2114,8 @@
           null,
           ""
         ]
-      }
+      },
+      "itacoatiara-pro-2024": {}
     },
     "note": "Os campos em branco dependem de dado que fica com a produção: planilha de credenciamento, mapa de equipe, contrato de locação do espaço e lista de fornecedores. Preencha em operacao.fichas no content-model.json e rode o gerador."
   },
@@ -2284,7 +2353,7 @@
           ]
         ],
         "fonte": [
-          "Prefeitura de Niterói",
+          "Prefeitura de Niterói, premiação do Itacoatiara Pro",
           "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
         ]
       },
@@ -2298,6 +2367,18 @@
         "fonte": [
           "Contrato e ficha do TCM-PA",
           "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+        ]
+      },
+      "itacoatiara-pro-2024": {
+        "personalidades": [
+          [
+            "Bob Burnquist",
+            "participação registrada pela imprensa em 2024"
+          ]
+        ],
+        "fonte": [
+          "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
+          "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
         ]
       }
     },

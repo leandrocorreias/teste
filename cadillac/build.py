@@ -631,6 +631,7 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    sections.append(participacoes_block(pr, depth))
     sections.append(cast_block(pr))
     sections.append(op_project(pr))
     sections.append(f"""<section class="container sources">
@@ -1011,6 +1012,30 @@ def op_tiles(values, scope_key, order):
 <strong>{shown}</strong><span>{e(label)}</span>
 <small>{e(basis or help_text)}</small></div>""")
     return f'<div class="op-grid">{"".join(tiles)}</div>'
+
+
+def participacoes_block(pr, depth):
+    """Para páginas de pessoa ou coletivo: onde ela aparece no acervo."""
+    data = pr.get("participacoes")
+    if not data:
+        return ""
+    p = rel(depth)
+    by_slug = {x["slug"]: x for x in PROJECTS}
+    linhas = []
+    for item in data["itens"]:
+        alvo = by_slug[item["projeto"]]
+        href = f'{p}projetos/{alvo["slug"]}/' + (f'{item["ano"]}/' if item["ano"] else "")
+        quando = str(item["ano"]) if item["ano"] else "Histórico"
+        label, url = item["fonte"]
+        linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(alvo['name'])}{' ' + str(item['ano']) if item['ano'] else ''}</a></th>
+<td>{quando}</td><td>{e(item['papel'])}</td>
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Quando</th><th scope="col">Papel</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver papel e fonte.</p></section>"""
 
 
 def op_project(pr):

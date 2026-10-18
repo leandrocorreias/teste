@@ -31,6 +31,10 @@ na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
 404.html                       página de erro
 assets/site.css, site.js       estilo e comportamento, sem dependências de framework
+assets/logo-cadillac*.png      logotipo oficial, versões escura e branca
+assets/favicon-*.png           ícones de aba e de atalho
+assets/og-cadillac.jpg         imagem de compartilhamento 1200x630
+tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
@@ -64,6 +68,13 @@ partir do modelo de conteúdo: edições por ano, projetos por área, registros 
 por projeto, matriz de cobertura projeto × ano com link para cada edição e tabela de
 valores em registros públicos. Os gráficos são SVG inline de série única, com rótulo
 direto, foco por teclado e `title` acessível; sem biblioteca externa.
+
+**Identidade.** O logotipo oficial da Cadillac substituiu o lettering improvisado
+em `Barlow Condensed` do cabeçalho e do rodapé. A partir do arquivo oficial em preto
+foram gerados, em `assets/`, a versão escura (cabeçalho, fundo papel), a versão branca
+(rodapé, fundo escuro), os favicons de 32px e 180px e a imagem Open Graph 1200×630 —
+o portal não tinha `og:image`, então o compartilhamento em redes e WhatsApp saía sem
+imagem. Para regerar os derivados a partir de um arquivo novo, veja `tools/logos.py`.
 
 **Desempenho e SEO.** Fonte carregada por `<link>` com `preconnect` em vez de
 `@import` encadeado no CSS; imagens como `<img loading="lazy">` com texto alternativo

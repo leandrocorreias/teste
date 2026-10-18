@@ -95,9 +95,16 @@ def head(depth, title, desc, path, jsonld=(), extra=""):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{e(url)}">
+<meta property="og:image" content="{BASE}/assets/og-cadillac.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo da Cadillac Produções e Filmes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{BASE}/assets/og-cadillac.jpg">
+<link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="{p}assets/favicon-180.png">
 {fonts}
 <link rel="stylesheet" href="{p}assets/site.css">
 <script defer src="{p}assets/site.js"></script>
@@ -116,7 +123,7 @@ def header(depth, active=""):
     mob.append(f'<a href="{home}#contato">Contato {icon("chevron_right")}</a>')
     return f"""<body><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header"><div class="header-inner">
-<a class="logo" href="{home}" aria-label="Cadillac, página inicial"><span class="logo-symbol">C<span>.</span></span><span class="logo-name">CADILLAC<small>PRODUÇÕES &amp; FILMES</small></span></a>
+<a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>
 <nav class="nav" aria-label="Menu principal">{''.join(desk)}</nav>
 <a class="contact-nav" href="{home}#contato">Vamos conversar {icon('arrow_outward')}</a>
 <button class="hamburger" id="menuToggle" aria-expanded="false" aria-label="Abrir menu" aria-controls="mobileNav">{icon('menu')}</button>
@@ -154,7 +161,7 @@ def footer(depth):
              ("Contato", home + "#contato", "mail")]
     nav = "".join(f'<a href="{u}">{icon(i)} {l}</a>' for l, u, i in links)
     return f"""<footer class="footer"><div class="container foot-top">
-<a class="footer-logo" href="{home}">CADILLAC<span>.</span></a>
+<a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"><span>Produções &amp; Filmes</span></a>
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
 <div class="container foot-bottom"><span>© 2026 {e(SITE['name'])} Ltda.</span>
 <span>Informações documentais e imagens de terceiros identificadas por suas fontes. Layout original da Cadillac.</span>

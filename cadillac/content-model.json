@@ -1,0 +1,565 @@
+{
+  "version": "7",
+  "updated": "2026-10-18",
+  "site": {
+    "name": "Cadillac Produções e Filmes",
+    "short": "Cadillac",
+    "url": "https://cadillacproducoes.com.br",
+    "email": "contato@cadillacproducoes.com.br",
+    "tagline": "Produção de eventos, projetos esportivos e culturais no Brasil.",
+    "base_year": 2013
+  },
+  "categories": {
+    "esporte": {
+      "label": "Esporte e circuitos",
+      "icon": "skateboarding"
+    },
+    "festival": {
+      "label": "Festivais e experiências",
+      "icon": "festival"
+    },
+    "musica": {
+      "label": "Música e turnês",
+      "icon": "music_note"
+    },
+    "cultura": {
+      "label": "Cultura e formação",
+      "icon": "palette"
+    }
+  },
+  "projects": [
+    {
+      "slug": "itacoatiara-pro",
+      "name": "Itacoatiara Pro",
+      "kind": "Festival multiesportivo",
+      "category": "festival",
+      "location": "Niterói, Rio de Janeiro",
+      "period": "2022—2026",
+      "theme": "wave",
+      "desc": "Esporte, cultura e território se encontram em uma das praias mais emblemáticas do Brasil.",
+      "intro": "Itacoatiara Pro reúne competições de surfe, skate, vela e parapente com programação cultural em Niterói. Esta página organiza o histórico por edição, com fatos documentados e links para as fontes originais de cada informação.",
+      "image": {
+        "url": "https://www.mango-surf.com/assets/images/uploads/2026/06/large/matias-diaz-en-air-reverse-sur-la-section-au-large-ditacoatiara-itacoatiara-pro-2026-journee-4-0tiaq8.jpg",
+        "alt": "Manobra aérea de surfe em Itacoatiara durante o Itacoatiara Pro 2026",
+        "credit": "Foto: Mango Surf / reportagem 2026 · direitos a validar"
+      },
+      "years": [
+        2026,
+        2025,
+        2022
+      ],
+      "editions": {
+        "2026": {
+          "period": "22 de maio a 7 de junho de 2026",
+          "place": "Niterói, RJ",
+          "note": "14ª edição"
+        },
+        "2025": {
+          "period": "2025",
+          "place": "Niterói, RJ",
+          "note": "13ª edição"
+        },
+        "2022": {
+          "period": "2022",
+          "place": "Niterói, RJ",
+          "note": "Projeto aprovado para captação"
+        }
+      },
+      "facts": {
+        "2026": [
+          "A 14ª edição ocorreu de 22 de maio a 7 de junho em Niterói.",
+          "O skate passou ao formato Street, no Skatepark São Francisco.",
+          "Reportagem da Waves identifica Giuliano Lara como idealizador e cita Bill Aquino e Alexandre Rangel como sócios na realização."
+        ],
+        "2025": [
+          "A edição de 2025 foi divulgada como a 13ª edição do festival.",
+          "A programação reuniu modalidades esportivas e atrações culturais."
+        ],
+        "2022": [
+          "A Cadillac foi identificada como proponente do projeto Itacoatiara Pro 2022 em publicação estadual.",
+          "O valor aprovado para captação foi de R$ 1.352.190, distinto do valor efetivamente captado."
+        ]
+      },
+      "sources": [
+        [
+          "Site oficial",
+          "https://itacoatiarapro.com.br/"
+        ],
+        [
+          "Itacoatiara Pro 2026, Waves",
+          "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+        ]
+      ],
+      "yearsources": {
+        "2026": [
+          [
+            "Festival 2026",
+            "https://itacoatiarapro.com.br/festival/"
+          ],
+          [
+            "Modalidade skate 2026",
+            "https://itacoatiarapro.com.br/skate/"
+          ],
+          [
+            "Waves, Itacoatiara Pro 2026",
+            "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+          ]
+        ],
+        "2025": [
+          [
+            "Portal oficial do festival",
+            "https://itacoatiarapro.com.br/"
+          ]
+        ],
+        "2022": [
+          [
+            "Publicação oficial do projeto 23397",
+            "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "Onde acontece o Itacoatiara Pro?",
+          "Na praia de Itacoatiara e em equipamentos esportivos de Niterói, no Rio de Janeiro."
+        ],
+        [
+          "Quais modalidades integram o festival?",
+          "Os registros públicos citam surfe, skate, vela e parapente, além de programação cultural."
+        ],
+        [
+          "Qual é a relação da Cadillac com o projeto?",
+          "Publicação estadual identifica a Cadillac como proponente da edição de 2022. Para os demais anos, as atribuições são publicadas somente quando há documento verificável."
+        ]
+      ],
+      "amounts": [
+        {
+          "label": "Valor aprovado para captação, edição 2022",
+          "value": 1352190,
+          "note": "Valor autorizado em publicação oficial. Não corresponde ao valor captado nem a receita da Cadillac.",
+          "source": [
+            "Publicação oficial do projeto 23397",
+            "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "vert-battle",
+      "name": "Vert Battle",
+      "kind": "Circuito de skate vertical",
+      "category": "esporte",
+      "location": "Brasil",
+      "period": "2025—2026",
+      "theme": "vert",
+      "desc": "Progressão, amplitude e cultura do skate em uma plataforma de competição itinerante.",
+      "intro": "O Vert Battle leva o skate vertical a diferentes cidades brasileiras em etapas pontuadas. O acervo reúne as temporadas documentadas, as etapas identificadas em fontes públicas e a cobertura esportiva de cada ano.",
+      "image": {
+        "url": "https://static.wixstatic.com/media/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg/v1/fill/w_1000%2Ch_667%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg",
+        "alt": "Skatista em manobra na rampa vertical durante etapa do Vert Battle",
+        "credit": "Foto: Jornale / Vert Battle 2025 · direitos a validar"
+      },
+      "years": [
+        2026,
+        2025
+      ],
+      "editions": {
+        "2026": {
+          "period": "Setembro e outubro de 2026",
+          "place": "Belo Horizonte, MG e São Paulo, SP",
+          "note": "Temporada em andamento"
+        },
+        "2025": {
+          "period": "2025",
+          "place": "Goiânia, Niterói, Curitiba e Fortaleza",
+          "note": "Circuito com quatro etapas"
+        }
+      },
+      "facts": {
+        "2026": [
+          "A temporada teve etapa em Belo Horizonte em setembro.",
+          "A etapa de São Paulo foi programada para 17 e 18 de outubro, no Centro Esportivo Tietê.",
+          "O evento foi criado em 2016 por Rony Gomes."
+        ],
+        "2025": [
+          "O circuito teve etapas em Goiânia, Niterói, Curitiba e Fortaleza.",
+          "A final de 2025 integrou a programação do Tamo Junto BB em Fortaleza.",
+          "A imprensa identificou a Cadillac como produtora do evento."
+        ]
+      },
+      "sources": [
+        [
+          "Confederação Brasileira de Skate",
+          "https://cbsk.com.br/"
+        ],
+        [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      ],
+      "yearsources": {
+        "2026": [
+          [
+            "CBSk, etapa de Belo Horizonte",
+            "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+          ],
+          [
+            "CBSk, calendário",
+            "https://cbsk.com.br/eventos/2168"
+          ]
+        ],
+        "2025": [
+          [
+            "Lance, produção do Vert Battle",
+            "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "O que é o Vert Battle?",
+          "Um circuito itinerante de skate vertical com etapas em diferentes cidades brasileiras, criado em 2016 por Rony Gomes."
+        ],
+        [
+          "Quem produz o circuito?",
+          "A imprensa esportiva identificou a Cadillac como produtora da temporada de 2025."
+        ],
+        [
+          "Onde consultar resultados oficiais?",
+          "Nas publicações da Confederação Brasileira de Skate, linkadas em cada edição."
+        ]
+      ],
+      "amounts": []
+    },
+    {
+      "slug": "tamo-junto-bb",
+      "name": "Tamo Junto BB",
+      "kind": "Festival de esporte e música",
+      "category": "festival",
+      "location": "Brasil",
+      "period": "2024—2025",
+      "theme": "festival",
+      "desc": "Uma experiência que conecta modalidades esportivas, música, cultura e marcas.",
+      "intro": "O Tamo Junto BB combina esporte, música e ativação de marca em grandes cidades brasileiras. O acervo documenta as edições identificadas, a programação divulgada e os créditos de produção disponíveis publicamente.",
+      "image": null,
+      "years": [
+        2025,
+        2024
+      ],
+      "editions": {
+        "2025": {
+          "period": "2025",
+          "place": "Fortaleza, CE",
+          "note": "Recebeu a final do Vert Battle 2025"
+        },
+        "2024": {
+          "period": "2024",
+          "place": "Natal, RN",
+          "note": "Edição identificada em material do patrocinador"
+        }
+      },
+      "facts": {
+        "2025": [
+          "A edição de Fortaleza reuniu skate, surfe, vôlei de praia, corrida, games e programação musical.",
+          "A última etapa do Vert Battle 2025 ocorreu dentro do festival.",
+          "Há menção pública de profissional de produção associando a Cadillac à edição de Fortaleza."
+        ],
+        "2024": [
+          "A edição de 2024 ocorreu em Natal, Rio Grande do Norte.",
+          "A relação exata de obrigações operacionais da Cadillac deve ser documentada a partir dos instrumentos correspondentes."
+        ]
+      },
+      "sources": [
+        [
+          "Festival Tamo Junto BB",
+          "https://tamojuntobb.com.br/fortaleza/"
+        ],
+        [
+          "Banco do Brasil, esportes",
+          "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+        ]
+      ],
+      "yearsources": {
+        "2025": [
+          [
+            "Programação oficial, Fortaleza",
+            "https://tamojuntobb.com.br/fortaleza/"
+          ],
+          [
+            "Crédito público de produção",
+            "https://pt.linkedin.com/posts/rafaela-coelho-mattos-9752b9126_produ%C3%A7%C3%A3o-no-tamo-junto-bb-realizado-em-fortaleza-activity-7422370387214315520-DzxX"
+          ]
+        ],
+        "2024": [
+          [
+            "Banco do Brasil, festival",
+            "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "O que é o Tamo Junto BB?",
+          "Um festival de esporte e música patrocinado pelo Banco do Brasil, com edições em diferentes capitais."
+        ],
+        [
+          "Quais modalidades integram a edição de Fortaleza?",
+          "A programação divulgada cita skate, surfe, vôlei de praia, corrida e games, além de shows."
+        ],
+        [
+          "Qual foi a participação da Cadillac?",
+          "Há menção pública de profissional de produção associando a Cadillac à edição de Fortaleza. O escopo contratual depende de documentação."
+        ]
+      ],
+      "amounts": []
+    },
+    {
+      "slug": "festival-de-tribos-juruti",
+      "name": "Festival de Tribos de Juruti",
+      "kind": "Produção artística",
+      "category": "cultura",
+      "location": "Juruti, Pará",
+      "period": "2018",
+      "theme": "culture",
+      "desc": "Um registro documental da trajetória da Cadillac na produção cultural brasileira.",
+      "intro": "O registro mais antigo catalogado neste portal. A ficha pública do Tribunal de Contas dos Municípios do Pará documenta a contratação da Cadillac para uma apresentação artística no festival.",
+      "image": null,
+      "years": [
+        2018
+      ],
+      "editions": {
+        "2018": {
+          "period": "2018",
+          "place": "Juruti, PA",
+          "note": "Contratação registrada em ficha pública"
+        }
+      },
+      "facts": {
+        "2018": [
+          "Registro do TCM-PA identifica a Cadillac como contratada para apresentação artística de André Frateschi.",
+          "O valor identificado na ficha pública é de R$ 72.000.",
+          "O registro não confirma a produção integral do festival pela Cadillac."
+        ]
+      },
+      "sources": [
+        [
+          "Tribunal de Contas dos Municípios do Pará",
+          "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+        ]
+      ],
+      "yearsources": {
+        "2018": [
+          [
+            "Contrato e ficha do TCM-PA",
+            "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "O que a ficha pública comprova?",
+          "A contratação da Cadillac para a apresentação artística de André Frateschi no festival de 2018."
+        ],
+        [
+          "A Cadillac produziu o festival inteiro?",
+          "O registro não sustenta essa afirmação. Ele documenta apenas o objeto contratado."
+        ]
+      ],
+      "amounts": [
+        {
+          "label": "Valor da contratação registrada, 2018",
+          "value": 72000,
+          "note": "Valor do objeto contratado conforme ficha pública do TCM-PA.",
+          "source": [
+            "Contrato e ficha do TCM-PA",
+            "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dominguinho",
+      "name": "Dominguinho: João Gomes, Mestrinho e Jota.pê",
+      "kind": "Música, encontros e turnê",
+      "category": "musica",
+      "location": "Turnê nacional",
+      "period": "2026",
+      "theme": "music",
+      "desc": "Turnê, encontros e a trajetória de um projeto que levou a música brasileira a novos públicos.",
+      "intro": "A turnê Dominguinho reúne João Gomes, Jota.pê e Mestrinho em shows de música brasileira. A Cadillac informa atuação no projeto; o escopo exato permanece em validação documental.",
+      "image": {
+        "url": "https://www.portaltela.com/s.01k8r8f7wx8pm/2026/05/17785983126a0341a8e7f43_1778598312_3x2_md.jpg",
+        "alt": "João Gomes, Mestrinho e Jota.pê no projeto Dominguinho",
+        "credit": "Foto: Portal Tela / Dominguinho · direitos a validar"
+      },
+      "years": [],
+      "editions": {},
+      "records": [
+        "A turnê reúne João Gomes, Jota.pê e Mestrinho em shows de música brasileira.",
+        "A cobertura da Billboard lista, entre outras, Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal na turnê de 2026.",
+        "A TV Globo exibiu especial Dominguinho com os três artistas.",
+        "A participação da Cadillac foi informada pela direção do projeto a este portal e aguarda ficha técnica independente."
+      ],
+      "facts": {},
+      "sources": [
+        [
+          "Billboard Brasil, turnê Dominguinho",
+          "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+        ],
+        [
+          "gshow, especial na TV Globo",
+          "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
+        ]
+      ],
+      "yearsources": {},
+      "faq": [
+        [
+          "O que é o Dominguinho?",
+          "Projeto musical protagonizado por João Gomes, Jota.pê e Mestrinho, com turnê nacional e internacional."
+        ],
+        [
+          "Quais cidades receberam a turnê em 2026?",
+          "A cobertura da Billboard lista, entre outras, Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal."
+        ],
+        [
+          "Qual o trabalho da Cadillac?",
+          "A participação foi informada pela direção do projeto a este portal; a ficha técnica e as entregas específicas ainda dependem de validação."
+        ]
+      ],
+      "amounts": []
+    },
+    {
+      "slug": "bob-burnquist",
+      "name": "Bob Burnquist, skate e projetos culturais",
+      "kind": "Esporte, arte e legado",
+      "category": "esporte",
+      "location": "Brasil",
+      "period": "2022—2025",
+      "theme": "vert",
+      "desc": "O esporte também transforma cidades: conexões entre skate, cultura, educação e produção.",
+      "intro": "Os registros públicos ligam Bob Burnquist ao Itacoatiara Pro em 2022 e 2024 e ao Arte em Circuito, no qual Bill Aquino/Cadillac consta na coordenação artística. Esta página reúne os vínculos documentados, sem afirmar titularidade sobre os eventos.",
+      "image": null,
+      "years": [],
+      "editions": {},
+      "records": [
+        "A Prefeitura de Niterói registrou a presença de Bob Burnquist no Itacoatiara Pro em 2022.",
+        "Publicações de 2024 documentam sua participação no festival.",
+        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente.",
+        "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos."
+      ],
+      "facts": {},
+      "sources": [
+        [
+          "Arte de Toda Gente, institucional",
+          "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+        ],
+        [
+          "Prefeitura de Niterói, premiação do Itacoatiara Pro",
+          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+        ],
+        [
+          "Caderno Pop, cultura de rua e skate",
+          "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
+        ]
+      ],
+      "yearsources": {},
+      "faq": [
+        [
+          "Bob Burnquist participou do Itacoatiara Pro?",
+          "Sim. A Prefeitura de Niterói registrou sua presença em 2022 e publicações de 2024 documentam sua participação."
+        ],
+        [
+          "Qual a ligação da Cadillac com o Arte em Circuito?",
+          "O projeto Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente."
+        ],
+        [
+          "São eventos próprios da Cadillac?",
+          "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos."
+        ]
+      ],
+      "amounts": []
+    },
+    {
+      "slug": "arte-em-circuito",
+      "name": "Arte em Circuito: skate, cultura e formação",
+      "kind": "Cultura e esporte",
+      "category": "cultura",
+      "location": "Brasil",
+      "period": "Histórico público",
+      "theme": "culture",
+      "desc": "O encontro entre arte urbana, educação, skate e experiências criativas.",
+      "intro": "O Arte em Circuito integrou iniciativas culturais com participação de Bob Burnquist e coordenação artística creditada a Bill Aquino/Cadillac na página institucional do Arte de Toda Gente.",
+      "image": null,
+      "years": [],
+      "editions": {},
+      "records": [
+        "O projeto integrou iniciativas culturais de arte urbana, skate e formação.",
+        "A coordenação artística é creditada a Bill Aquino/Cadillac na página institucional do Arte de Toda Gente.",
+        "Bob Burnquist aparece como consultor e artista residente pelo Instituto IBB."
+      ],
+      "facts": {},
+      "sources": [
+        [
+          "Arte de Toda Gente, institucional",
+          "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+        ]
+      ],
+      "yearsources": {},
+      "faq": [
+        [
+          "Quem coordenou a área artística?",
+          "A página institucional de Arte de Toda Gente identifica Bill Aquino/Cadillac na coordenação artística."
+        ],
+        [
+          "Quem participou do projeto?",
+          "Bob Burnquist aparece como consultor e artista residente pelo Instituto IBB."
+        ]
+      ],
+      "amounts": []
+    }
+  ],
+  "services": [
+    [
+      "Produção executiva",
+      "Coordenação, operação e entrega de projetos de ponta a ponta.",
+      "engineering"
+    ],
+    [
+      "Esportes e circuitos",
+      "Eventos, competições e comunidades esportivas.",
+      "skateboarding"
+    ],
+    [
+      "Cultura e entretenimento",
+      "Festivais, apresentações e experiências culturais.",
+      "festival"
+    ],
+    [
+      "Marcas e ativações",
+      "Conexão entre patrocínio, conteúdo e público.",
+      "campaign"
+    ],
+    [
+      "Conteúdo e audiovisual",
+      "Narrativas e documentação de experiências.",
+      "movie"
+    ]
+  ],
+  "featured_press": [
+    [
+      "Waves",
+      "Itacoatiara Pro 2026 reúne elite mundial em Niterói",
+      "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+    ],
+    [
+      "CBSk",
+      "Vert Battle encerra etapa inédita em Belo Horizonte",
+      "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+    ],
+    [
+      "Billboard Brasil",
+      "João Gomes, Jota.pê e Mestrinho na turnê Dominguinho",
+      "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+    ]
+  ]
+}

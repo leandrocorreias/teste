@@ -478,6 +478,17 @@ a.service-row{color:inherit}
 .reach-table td small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--muted);margin-top:4px}
 
+/* Selo de situação da data */
+.selo{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.11em;
+  text-transform:uppercase;font-weight:700;padding:5px 9px;border:1px solid var(--border);
+  border-radius:var(--r-pill);background:var(--white);color:var(--ink-2);white-space:nowrap}
+.selo .cd-icon{font-size:15px}
+.selo-confirmada{border-color:var(--ink);color:var(--ink)}
+.selo-confirmada .cd-icon{color:var(--orange-ink)}
+.selo-inferida,.selo-parcial,.selo-a-confirmar{color:var(--muted)}
+.taglist .selo{padding:9px 14px;font-size:11px}
+.reach-table .selo{margin-top:4px}
+
 /* 9. Utilitários --------------------------------------------------------- */
 .material-symbols-outlined.cd-icon{font-family:'Material Symbols Outlined';font-weight:400;
   font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;

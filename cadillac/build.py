@@ -596,7 +596,9 @@ def page_project(pr):
         rows = []
         for y in pr["years"]:
             ed = pr.get("editions", {}).get(str(y), {})
-            note = " · ".join(x for x in [ed.get("period"), ed.get("place"), ed.get("note")] if x)
+            txt, dias = periodo(ed.get("datas"))
+            note = " · ".join(x for x in [txt or ed.get("period"), ed.get("place"),
+                                          plural(dias, "dia", "dias") if dias else None] if x)
             rows.append(f"""<a class="year-row" href="{p}projetos/{slug}/{y}/">
 <span class="yr">{y}</span><span><strong>{e(pr['name'])} {y}</strong>
 <span class="yr-note">{e(note) if note else 'Edição catalogada'}</span></span>
@@ -670,11 +672,17 @@ def page_edition(pr, year):
     facts_html = "".join(f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}</p></div>'
                          for i, t in enumerate(facts, start=1))
     sources = pr["yearsources"].get(ystr, [])
-    meta_tags = [f'<span>{icon("calendar_month")} {e(ed.get("period", ystr))}</span>']
+    datas = ed.get("datas")
+    txt_periodo, dias_evento = periodo(datas)
+    meta_tags = [f'<span>{icon("calendar_month")} {e(txt_periodo or ed.get("period", ystr))}</span>']
+    if dias_evento:
+        meta_tags.append(f'<span>{icon("description")} {plural(dias_evento, "dia de evento", "dias de evento")}</span>')
     if ed.get("place"):
         meta_tags.append(f'<span>{icon("place")} {e(ed["place"])}</span>')
     if ed.get("note"):
         meta_tags.append(f'<span>{icon("verified")} {e(ed["note"])}</span>')
+    if datas:
+        meta_tags.append(selo_data(datas))
 
     years_sorted = sorted(pr["years"])  # cronológico, para anterior e próxima
     idx = years_sorted.index(year)
@@ -710,6 +718,7 @@ def page_edition(pr, year):
 <div><h2>O QUE MARCOU<br>ESTA EDIÇÃO.</h2></div>
 <div><p>Esta página é um registro editorial em atualização contínua. Apresentamos somente informações sustentadas por referências identificáveis, com prioridade para documentos oficiais e fontes da organização.</p>
 <p>{e(pr['intro'])}</p></div></section>
+{etapas_block(pr, year)}
 <section class="container facts-section">
 <hr class="rule">
 <h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
@@ -783,6 +792,76 @@ def page_press():
                       "Repercussão dos projetos Cadillac na imprensa: reportagens, documentos oficiais "
                       "e referências públicas organizadas por projeto.",
                       "na-midia/", [ld, trail_ld]) + header(depth, "na-midia") + body + footer(depth))
+
+
+MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+         "agosto", "setembro", "outubro", "novembro", "dezembro"]
+
+
+def dia_mes(iso, com_ano=False):
+    a, m, d = (int(x) for x in iso.split("-"))
+    return f"{d} de {MESES[m - 1]}" + (f" de {a}" if com_ano else "")
+
+
+def periodo(datas):
+    """Texto do período conforme a precisão do que está documentado."""
+    if not datas:
+        return None, None
+    i, f, prec = datas["inicio"], datas["fim"], datas["precisao"]
+    ano = i[:4]
+    if prec == "ano":
+        return f"Ano de {ano}", None
+    if prec == "mes":
+        im, fm = int(i[5:7]), int(f[5:7])
+        txt = f"{MESES[im - 1]} a {MESES[fm - 1]} de {ano}" if im != fm else f"{MESES[im - 1]} de {ano}"
+        return txt[0].upper() + txt[1:], None
+    from datetime import date
+    d1, d2 = date.fromisoformat(i), date.fromisoformat(f)
+    dias = (d2 - d1).days + 1
+    if d1 == d2:
+        txt = dia_mes(i, com_ano=True)
+    elif (d1.year, d1.month) == (d2.year, d2.month):
+        liga = "e" if dias == 2 else "a"
+        txt = f"{d1.day} {liga} {dia_mes(f, com_ano=True)}"
+    else:
+        txt = f"{dia_mes(i)} a {dia_mes(f, com_ano=True)}"
+    return txt, dias
+
+
+def selo_data(datas):
+    if not datas:
+        return ""
+    rotulo, _, ic = MODEL["datas"]["status"][datas["status"]]
+    return f'<span class="selo selo-{datas["status"].replace(" ", "-")}">{icon(ic)} {e(rotulo)}</span>'
+
+
+def etapas_block(pr, year):
+    ed = pr.get("editions", {}).get(str(year), {})
+    etapas = ed.get("etapas")
+    if not etapas:
+        return ""
+    linhas = []
+    for et in etapas:
+        if et["inicio"]:
+            txt, dias = periodo({"inicio": et["inicio"], "fim": et["fim"], "precisao": "dia"})
+            quando = e(txt) + (f' · {plural(dias, "dia", "dias")}' if dias else "")
+        else:
+            quando = '<span class="val pend">data a confirmar</span>'
+        rotulo, _, ic = MODEL["datas"]["status"][et["status"]]
+        fonte = ""
+        if et.get("fonte"):
+            label, url = et["fonte"]
+            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                     f'{e(label)} {icon("open_in_new")}</a>')
+        linhas.append(f"""<tr><th scope="row">{e(et['nome'])}</th><td>{quando}</td>
+<td><span class="selo selo-{et['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
+<td>{fonte or '—'}</td></tr>""")
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">CALENDÁRIO<br><em>DA TEMPORADA.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Etapa</th><th scope="col">Quando</th><th scope="col">Situação da data</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver a situação e a fonte.</p></section>"""
 
 
 def big(n):
@@ -1016,18 +1095,22 @@ def events_table(depth):
             for chave in ("artistas", "atletas", "personalidades"):
                 nomes += [n for n, _ in elenco[key].get(chave, [])]
         destaque = (", ".join(nomes[:4]) + (" e outros" if len(nomes) > 4 else "")) if nomes else "—"
+        txt, dias = periodo(ed.get("datas"))
+        quando = (f'{e(txt)}<small>{selo_data(ed.get("datas"))}'
+                  f'{" · " + plural(dias, "dia", "dias") if dias else ""}</small>'
+                  if txt else '<span class="val pend">a confirmar</span>')
         linhas.append(f"""<tr><th scope="row"><a href="{p}projetos/{pr['slug']}/{year}/">{e(pr['name'])} {year}</a>
-<small>{e(ed.get('period', str(year)))}</small></th>
+<small>{plural(inscritos, 'inscrito', 'inscritos') if inscritos else 'inscritos a levantar'}</small></th>
+<td>{quando}</td>
 <td>{e(ed.get('place', pr['location']))}</td>
 <td>{pub}</td>
-<td>{big(inscritos) if inscritos else '<span class="val pend">—</span>'}</td>
 <td>{e(destaque)}</td></tr>""")
     return f"""<section class="container reach-section" id="eventos"><hr class="rule">
 <h2 class="section-title">EVENTO<br><em>POR EVENTO.</em></h2>
 <p class="body-copy">Cada edição com data, local, público, inscritos e quem esteve em cena. Da mais recente para a mais antiga.</p>
 <div class="charts"><div class="chart-card span-2">
 <div class="table-wrap"><table class="amounts reach-table">
-<thead><tr><th scope="col">Edição</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Inscritos</th><th scope="col">Em cena</th></tr></thead>
+<thead><tr><th scope="col">Edição</th><th scope="col">Quando</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Em cena</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver público, inscritos e elenco.</p></div></div></section>"""
 

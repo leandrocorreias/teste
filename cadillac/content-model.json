@@ -70,17 +70,47 @@
         "2026": {
           "period": "22 de maio a 7 de junho de 2026",
           "place": "Niterói, RJ",
-          "note": "14ª edição · etapa do IBC World Tour"
+          "note": "14ª edição · etapa do IBC World Tour",
+          "datas": {
+            "inicio": "2026-05-22",
+            "fim": "2026-06-07",
+            "precisao": "dia",
+            "status": "confirmada",
+            "fonte": [
+              "Waves, Itacoatiara Pro 2026",
+              "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+            ]
+          }
         },
         "2025": {
           "period": "30 de maio a 15 de junho de 2025",
           "place": "Niterói, RJ",
-          "note": "13ª edição"
+          "note": "13ª edição",
+          "datas": {
+            "inicio": "2025-05-30",
+            "fim": "2025-06-15",
+            "precisao": "dia",
+            "status": "divulgada",
+            "fonte": [
+              "Portal oficial do festival",
+              "https://itacoatiarapro.com.br/"
+            ]
+          }
         },
         "2022": {
           "period": "2022",
           "place": "Niterói, RJ",
-          "note": "Projeto aprovado para captação"
+          "note": "Projeto aprovado para captação",
+          "datas": {
+            "inicio": "2022-01-01",
+            "fim": "2022-12-31",
+            "precisao": "ano",
+            "status": "a confirmar",
+            "fonte": [
+              "Publicação oficial do projeto 23397",
+              "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+            ]
+          }
         }
       },
       "facts": {
@@ -229,12 +259,97 @@
         "2026": {
           "period": "Setembro a outubro de 2026",
           "place": "Belo Horizonte, São Paulo e Maceió",
-          "note": "Temporada em andamento"
+          "note": "Temporada em andamento",
+          "datas": {
+            "inicio": "2026-09-12",
+            "fim": "2026-10-31",
+            "precisao": "dia",
+            "status": "confirmada",
+            "fonte": [
+              "CBSk, calendário",
+              "https://cbsk.com.br/eventos/2168"
+            ]
+          },
+          "etapas": [
+            {
+              "nome": "Belo Horizonte, MG",
+              "inicio": "2026-09-12",
+              "fim": "2026-09-13",
+              "status": "confirmada",
+              "fonte": [
+                "CBSk, etapa de Belo Horizonte",
+                "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+              ]
+            },
+            {
+              "nome": "São Paulo, SP — Centro Esportivo Tietê",
+              "inicio": "2026-10-17",
+              "fim": "2026-10-18",
+              "status": "anunciada",
+              "fonte": [
+                "CBSk, etapa de São Paulo",
+                "https://cbsk.com.br/noticia/sao-paulo-sp-recebe-segunda-etapa-do-vert-battle-2026-dias-17-e-18-de-outubro"
+              ]
+            },
+            {
+              "nome": "Maceió, AL",
+              "inicio": "2026-10-30",
+              "fim": "2026-10-31",
+              "status": "anunciada",
+              "fonte": [
+                "CBSk, calendário",
+                "https://cbsk.com.br/eventos/2168"
+              ]
+            }
+          ]
         },
         "2025": {
           "period": "2025",
           "place": "Goiânia, Niterói, Curitiba e Fortaleza",
-          "note": "Final dentro do Tamo Junto BB"
+          "note": "Final dentro do Tamo Junto BB",
+          "datas": {
+            "inicio": "2025-01-01",
+            "fim": "2025-12-14",
+            "precisao": "ano",
+            "status": "parcial",
+            "fonte": [
+              "Programação oficial, Fortaleza",
+              "https://tamojuntobb.com.br/fortaleza/"
+            ]
+          },
+          "etapas": [
+            {
+              "nome": "Goiânia, GO",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
+              "fonte": null
+            },
+            {
+              "nome": "Niterói, RJ — 2ª etapa",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
+              "fonte": null
+            },
+            {
+              "nome": "Curitiba, PR",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
+              "fonte": null
+            },
+            {
+              "nome": "Fortaleza, CE — final, dentro do Tamo Junto BB",
+              "inicio": "2025-12-10",
+              "fim": "2025-12-14",
+              "status": "inferida",
+              "fonte": [
+                "Programação oficial, Fortaleza",
+                "https://tamojuntobb.com.br/fortaleza/"
+              ]
+            }
+          ]
         }
       },
       "facts": {
@@ -319,12 +434,32 @@
         "2025": {
           "period": "10 a 14 de dezembro de 2025",
           "place": "Fortaleza, CE",
-          "note": "Recebeu a final do Vert Battle e o encerramento do Circuito BB de Surfe"
+          "note": "Recebeu a final do Vert Battle e o encerramento do Circuito BB de Surfe",
+          "datas": {
+            "inicio": "2025-12-10",
+            "fim": "2025-12-14",
+            "precisao": "dia",
+            "status": "confirmada",
+            "fonte": [
+              "Programação oficial, Fortaleza",
+              "https://tamojuntobb.com.br/fortaleza/"
+            ]
+          }
         },
         "2024": {
           "period": "2024",
           "place": "Arena das Dunas, Natal, RN",
-          "note": "Edição identificada em material do patrocinador"
+          "note": "Edição identificada em material do patrocinador",
+          "datas": {
+            "inicio": "2024-01-01",
+            "fim": "2024-12-31",
+            "precisao": "ano",
+            "status": "a confirmar",
+            "fonte": [
+              "Banco do Brasil, festival",
+              "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+            ]
+          }
         }
       },
       "facts": {
@@ -408,7 +543,17 @@
         "2018": {
           "period": "2018",
           "place": "Juruti, PA",
-          "note": "Contratação registrada em ficha pública"
+          "note": "Contratação registrada em ficha pública",
+          "datas": {
+            "inicio": "2018-01-01",
+            "fim": "2018-12-31",
+            "precisao": "ano",
+            "status": "a confirmar",
+            "fonte": [
+              "Contrato e ficha do TCM-PA",
+              "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+            ]
+          }
         }
       },
       "facts": {
@@ -473,7 +618,17 @@
         "2026": {
           "period": "Turnê 2026",
           "place": "Circuito nacional",
-          "note": "43 shows informados até agosto de 2026"
+          "note": "43 shows informados até agosto de 2026",
+          "datas": {
+            "inicio": "2026-01-01",
+            "fim": "2026-08-31",
+            "precisao": "mes",
+            "status": "parcial",
+            "fonte": [
+              "Billboard Brasil, turnê Dominguinho",
+              "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+            ]
+          }
         }
       },
       "records": [],
@@ -645,7 +800,14 @@
           "Porque o registro é recente e a documentação institucional ainda está sendo recuperada. Publicamos o que já está reportado e identificamos o que falta, em vez de preencher com suposição."
         ]
       ],
-      "amounts": []
+      "amounts": [],
+      "datas_projeto": {
+        "inicio": "2026-01-24",
+        "fim": "2026-01-24",
+        "precisao": "dia",
+        "status": "reportada",
+        "fonte": null
+      }
     }
   ],
   "services": [
@@ -2094,5 +2256,45 @@
       }
     },
     "note": "Nome em lista aqui significa participação registrada em fonte pública, não contrato com a Cadillac. Artistas, atletas e personalidades de outras edições entram conforme a ficha técnica de cada uma for recuperada."
+  },
+  "datas": {
+    "status": {
+      "confirmada": [
+        "Confirmada",
+        "Data publicada por organizador, entidade ou poder público",
+        "verified"
+      ],
+      "divulgada": [
+        "Divulgada",
+        "Data anunciada na programação oficial, sem confirmação posterior de realização nas mesmas datas",
+        "calendar_month"
+      ],
+      "anunciada": [
+        "Anunciada",
+        "Etapa futura com data já divulgada no calendário",
+        "calendar_month"
+      ],
+      "inferida": [
+        "Inferida",
+        "Deduzida de outro registro, com o raciocínio explicado na própria linha",
+        "insights"
+      ],
+      "parcial": [
+        "Parcial",
+        "Há datas de parte das etapas ou do período, não do conjunto",
+        "description"
+      ],
+      "reportada": [
+        "Reportada",
+        "Data citada em relato profissional, aguardando ficha técnica",
+        "description"
+      ],
+      "a confirmar": [
+        "A confirmar",
+        "Só o ano está documentado; dia e mês dependem da produção",
+        "search"
+      ]
+    },
+    "note": "Uma data só aparece como confirmada quando vem de organizador, entidade ou publicação oficial. Onde há apenas o ano, a página diz isso em vez de inventar um intervalo."
   }
 }

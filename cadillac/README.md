@@ -70,6 +70,11 @@ Incorporação do dossiê consolidado de outubro de 2026.
   edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
   hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
   listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Datas reais**: cada edição passou a ter data estruturada (`datas` em `editions`), com
+  início, fim, precisão e situação. O site escreve o período por extenso, calcula a duração em
+  dias e mostra um selo dizendo se a data é confirmada, divulgada, anunciada, inferida, parcial,
+  reportada ou a confirmar. Temporadas com mais de uma sede ganharam calendário de etapas com
+  data e fonte por etapa.
 - **Ordem cronológica invertida**: projetos e edições aparecem do mais recente para o mais
   antigo em todo o site — acervo, home, tabelas, matriz de cobertura e gráfico de edições por
   ano. A navegação entre edições continua cronológica, porque "anterior" e "próxima" só fazem

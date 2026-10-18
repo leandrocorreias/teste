@@ -445,8 +445,6 @@ def write(path, content):
 
 
 def page_home():
-    T = audience_totals()
-    pend = sum(t["pend"] for t in T.values())
     org = {"@context": "https://schema.org", "@type": "Organization",
            "name": SITE["name"], "url": BASE, "email": SITE["email"],
            "description": SITE["tagline"],
@@ -475,13 +473,6 @@ def page_home():
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></section>
-<section class="container"><div class="hero-metrics">
-<a href="./dados/#alcance"><strong>{curto(T['presencial']['sum'])}</strong><span>Público presente</span></a>
-<a href="./dados/#alcance"><strong>{curto(T['competicao']['sum'])}</strong><span>Atletas e artistas</span></a>
-<a href="./dados/#alcance"><strong>{curto(T['digital']['sum'])}</strong><span>Alcance digital</span></a>
-<a href="./projetos/"><strong>{M['projects']:02d}</strong><span>Projetos documentados</span></a>
-</div>
-<p class="hero-metrics-note">{icon('insights')}<span>Números declarados por organizadores, entidades e imprensa, somados por grandeza e nunca entre si. {plural(pend, 'registro ainda sem dado', 'registros ainda sem dado')} — veja a <a href="./dados/#alcance">tabela linha a linha</a>.</span></p></section>
 <section class="container showcase" id="projetos">
 <h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
@@ -785,17 +776,6 @@ def page_press():
 
 def big(n):
     return f"{n:,}".replace(",", ".")
-
-
-def curto(n):
-    """Forma curta para o topo da home: 36 mil, 300 mi."""
-    if n >= 1_000_000:
-        v = n / 1_000_000
-        return (f"{v:.1f}".replace(".", ",").rstrip("0").rstrip(",") + " mi")
-    if n >= 1000:
-        v = n / 1000
-        return (f"{v:.1f}".replace(".", ",").rstrip("0").rstrip(",") + " mil")
-    return big(n)
 
 
 def audience_totals():

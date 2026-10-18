@@ -58,6 +58,19 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* --- Âncoras: o salto ocorre antes do layout assentar ---------------- */
+  var ajustarAncora = function () {
+    if (!location.hash) return;
+    var alvo;
+    try { alvo = document.querySelector(location.hash); } catch (e) { return; }
+    if (alvo) alvo.scrollIntoView();   // respeita o scroll-margin-top do CSS
+  };
+  window.addEventListener('load', function () {
+    ajustarAncora();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarAncora);
+  });
+  window.addEventListener('hashchange', ajustarAncora);
+
   /* --- Filtro do acervo de projetos ------------------------------------ */
   var board = document.getElementById('projectBoard');
   if (board) {

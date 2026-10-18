@@ -42,10 +42,10 @@ NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
     ("Atuação", "atuacao/", "atuacao", "engineering"),
     ("Agenda", "agenda/", "agenda", "calendar_month"),
-    ("Na Mídia", "na-midia/", "na-midia", "description"),
+    ("Mídia", "na-midia/", "na-midia", "description"),
     ("Dados", "dados/", "dados", "insights"),
-    ("Ecossistema", "ecossistema/", "ecossistema", "public"),
-    ("Cadillac", "#sobre", "sobre", "verified"),
+    ("Cadillac", "atuacao/#sobre", "sobre", "verified"),
+    ("Contatos", "#contato", "contato", "mail"),
 ]
 
 
@@ -144,7 +144,6 @@ def header(depth, active=""):
         cur = ' aria-current="page"' if key == active else ""
         desk.append(f'<a href="{url}"{cur}>{label}</a>')
         mob.append(f'<a href="{url}"{cur}>{label} {icon("chevron_right")}</a>')
-    mob.append(f'<a href="{home}#contato">Contato {icon("chevron_right")}</a>')
     return f"""<body><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header"><div class="header-inner">
 <a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>
@@ -179,12 +178,11 @@ def footer(depth):
     home = p if depth else "./"
     links = [("Projetos", home + "projetos/", "stacked_bar_chart"),
              ("Atuação", home + "atuacao/", "engineering"),
-             ("Na Mídia", home + "na-midia/", "description"),
              ("Agenda", home + "agenda/", "calendar_month"),
+             ("Mídia", home + "na-midia/", "description"),
              ("Dados", home + "dados/", "insights"),
-             ("Ecossistema", home + "ecossistema/", "public"),
-             ("Cadillac", home + "#sobre", "verified"),
-             ("Contato", home + "#contato", "mail")]
+             ("Cadillac", home + "atuacao/#sobre", "verified"),
+             ("Contatos", home + "#contato", "mail")]
     nav = "".join(f'<a href="{u}">{icon(i)} {l}</a>' for l, u, i in links)
     return f"""<footer class="footer"><div class="container foot-top">
 <a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"><span>Produções &amp; Filmes</span></a>
@@ -1272,6 +1270,19 @@ def page_atuacao():
         f'<article><span class="step-i">{icon(ic)}</span><h3>{e(title)}</h3><p>{e(text)}</p></article>'
         for title, text, ic in data["method"])
 
+    eco = MODEL["ecossistema"]
+    papeis = "".join(
+        f'<article><span class="step-i">{icon(ic)}</span><h3>{e(t)}</h3><p>{e(d)}</p></article>'
+        for t, d, ic in eco["roles"])
+    eco_linhas = []
+    for nome, papel, onde, slug, nota, confirmado in eco["entities"]:
+        selo = (f'<span class="tag-ok">{icon("verified")} Fonte pública</span>' if confirmado
+                else f'<span class="tag-wait">{icon("description")} A confirmar</span>')
+        link = (f'<a href="{p}projetos/{slug}/">{e(onde)} {icon("arrow_outward")}</a>'
+                if slug else e(onde))
+        eco_linhas.append(f'<tr><th scope="row">{e(nome)}</th><td>{e(papel)}</td>'
+                          f'<td>{link}</td><td>{e(nota)}<small>{selo}</small></td></tr>')
+    eco_linhas = "".join(eco_linhas)
     sections, index = [], []
     for a in data["areas"]:
         index.append(f'<a class="chip" href="#{a["slug"]}">{icon(a["icon"])} {e(a["title"])}</a>')
@@ -1310,6 +1321,8 @@ def page_atuacao():
 <h3 class="cases-title">Casos no acervo</h3>
 <div class="cases">{"".join(cases)}</div></section>""")
 
+    index.append(f'<a class="chip" href="#sobre">{icon("verified")} A Cadillac</a>')
+    index.append(f'<a class="chip" href="#ecossistema">{icon("public")} Ecossistema</a>')
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>ATUAÇÃO<span class="orange">.</span></h1>
 <p class="lede">{e(data["lede"])}</p>
@@ -1318,6 +1331,29 @@ def page_atuacao():
 <h2 class="section-title">COMO UM PROJETO<br><em>SAI DO PAPEL.</em></h2>
 <div class="method">{method}</div></section>
 {"".join(sections)}
+<section class="container area" id="sobre"><hr class="rule">
+<div class="area-head"><span class="svc-i">{icon('verified')}</span>
+<div><h2>A Cadillac<span class="orange">.</span></h2>
+<p class="lede">{e(SITE['tagline'])}</p></div></div>
+<div class="area-body"><div class="area-text">{''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}</div>
+<div class="area-list"><h3>Identificação</h3><ul>
+<li>{icon('verified')} {e(SITE['legal'])}</li>
+<li>{icon('description')} CNPJ {SITE['cnpj']}</li>
+<li>{icon('calendar_month')} Desde {e(SITE['founded'])}</li>
+<li>{icon('place')} {e(SITE['origin'])}</li>
+<li>{icon('mail')} {e(SITE['email'])}</li></ul></div></div></section>
+<section class="container area" id="ecossistema"><hr class="rule">
+<div class="area-head"><span class="svc-i">{icon('public')}</span>
+<div><h2>Ecossistema<span class="orange">.</span></h2>
+<p class="lede">{e(MODEL['ecossistema']['lede'])}</p></div></div>
+<h3 class="cases-title">Cada um tem um papel</h3>
+<div class="method">{papeis}</div>
+<h3 class="cases-title">Quem aparece nos registros</h3>
+<div class="table-wrap"><table class="amounts eco-table">
+<thead><tr><th scope="col">Quem</th><th scope="col">Papel</th><th scope="col">Onde</th><th scope="col">O que o registro diz</th></tr></thead>
+<tbody>{eco_linhas}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver o papel e o registro.</p>
+<p class="note">{e(MODEL['ecossistema']['note'])}</p></section>
 <section class="container related"><hr class="rule">
 <h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
 <p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
@@ -1473,7 +1509,7 @@ def page_404():
 
 
 def page_sitemap():
-    urls = ["", "projetos/", "atuacao/", "agenda/", "na-midia/", "dados/", "ecossistema/"]
+    urls = ["", "projetos/", "atuacao/", "agenda/", "na-midia/", "dados/"]
     for pr in PROJECTS:
         urls.append(f"projetos/{pr['slug']}/")
         for y in pr["years"]:
@@ -1492,7 +1528,7 @@ def page_sitemap():
 
 def main():
     written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
-               page_data(), page_ecossistema(), page_404()]
+               page_data(), page_404()]
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

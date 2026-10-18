@@ -27,9 +27,8 @@ index.html                     home
 projetos/                      acervo com filtros por área, ano e busca
 projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
-atuacao/                       as cinco frentes de trabalho, com casos do acervo
+atuacao/                       frentes de trabalho, a empresa e o ecossistema
 agenda/                        todas as edições, etapas e shows em um calendário único
-ecossistema/                   quem é patrocinador, titular, produtora, entidade, fornecedor
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
@@ -42,6 +41,15 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## Menu
+
+Projetos · Atuação · Agenda · Mídia · Dados · Cadillac · Contatos
+
+"Cadillac" e "Ecossistema" deixaram de ser páginas e viraram seções de `/atuacao/`
+(`#sobre` e `#ecossistema`): a apresentação da empresa com razão social, CNPJ e
+fundação, e a tabela de papéis e entidades. "Na Mídia" virou "Mídia" no rótulo,
+mantendo a URL `/na-midia/`. "Contatos" entrou no menu.
 
 ## O que mudou na V8
 

@@ -628,7 +628,104 @@
               "Billboard Brasil, turnê Dominguinho",
               "https://billboard.com.br/joao-gomes-turne-dominguinho/"
             ]
-          }
+          },
+          "total_informado": [
+            43,
+            "Shows realizados na turnê até agosto de 2026, conforme reportagem",
+            [
+              "Billboard Brasil, turnê Dominguinho",
+              "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+            ]
+          ],
+          "shows": [
+            {
+              "cidade": "Fortaleza, CE",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            },
+            {
+              "cidade": "Natal, RN",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            },
+            {
+              "cidade": "Uberlândia, MG",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            },
+            {
+              "cidade": "Campinas, SP",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            },
+            {
+              "cidade": "Santos, SP",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            },
+            {
+              "cidade": "Porto Alegre, RS",
+              "data": null,
+              "local": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Billboard Brasil, turnê Dominguinho",
+                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              ]
+            }
+          ],
+          "relacionados": [
+            {
+              "o_que": "João Gomes e Jota.pê na programação musical do Tamo Junto BB",
+              "data": "2025-12-10",
+              "data_fim": "2025-12-14",
+              "local": "Fortaleza, CE",
+              "status": "confirmada",
+              "nota": "Apresentação dentro do festival, não registrada como data da turnê Dominguinho",
+              "fonte": [
+                "Programação oficial, Fortaleza",
+                "https://tamojuntobb.com.br/fortaleza/"
+              ]
+            },
+            {
+              "o_que": "Especial Dominguinho na TV Globo",
+              "data": null,
+              "data_fim": null,
+              "local": "Rede nacional",
+              "status": "a confirmar",
+              "nota": "Exibido em 2026; data exata a recuperar na grade da emissora",
+              "fonte": [
+                "gshow, especial na TV Globo",
+                "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
+              ]
+            }
+          ],
+          "note_shows": "A reportagem informa o total de 43 shows e cita seis cidades, sem a lista completa de datas. As 37 apresentações restantes e os dias de cada cidade dependem do mapa de turnê da produção."
         }
       },
       "records": [],

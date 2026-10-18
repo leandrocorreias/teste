@@ -41,6 +41,7 @@ ICON_SUBSET = ",".join(sorted([
 NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
     ("Atuação", "atuacao/", "atuacao", "engineering"),
+    ("Agenda", "agenda/", "agenda", "calendar_month"),
     ("Na Mídia", "na-midia/", "na-midia", "description"),
     ("Dados", "dados/", "dados", "insights"),
     ("Ecossistema", "ecossistema/", "ecossistema", "public"),
@@ -170,6 +171,7 @@ def footer(depth):
     links = [("Projetos", home + "projetos/", "stacked_bar_chart"),
              ("Atuação", home + "atuacao/", "engineering"),
              ("Na Mídia", home + "na-midia/", "description"),
+             ("Agenda", home + "agenda/", "calendar_month"),
              ("Dados", home + "dados/", "insights"),
              ("Ecossistema", home + "ecossistema/", "public"),
              ("Cadillac", home + "#sobre", "verified"),
@@ -661,6 +663,56 @@ def page_project(pr):
                       f"projetos/{slug}/", blocks, og_image=og_for(pr)) + header(depth, "projetos") + body + footer(depth))
 
 
+def shows_block(pr, year):
+    ed = pr.get("editions", {}).get(str(year), {})
+    shows = ed.get("shows")
+    if not shows:
+        return ""
+    total, nota_total, fonte_total = ed.get("total_informado", [None, "", None])
+    linhas = []
+    for sh in shows + []:
+        quando = (e(periodo({"inicio": sh["data"], "fim": sh["data"], "precisao": "dia"})[0])
+                  if sh.get("data") else '<span class="val pend">data a levantar</span>')
+        rotulo, _, ic = MODEL["datas"]["status"][sh["status"]]
+        label, url = sh["fonte"]
+        linhas.append(f"""<tr><th scope="row">{e(sh['cidade'])}</th><td>{quando}</td>
+<td>{e(sh.get('local') or '—')}</td>
+<td><span class="selo selo-{sh['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></td></tr>""")
+    rel = []
+    for r in ed.get("relacionados", []):
+        if r.get("data"):
+            txt, _ = periodo({"inicio": r["data"], "fim": r["data_fim"] or r["data"], "precisao": "dia"})
+            quando = e(txt)
+        else:
+            quando = '<span class="val pend">data a levantar</span>'
+        rotulo, _, ic = MODEL["datas"]["status"][r["status"]]
+        label, url = r["fonte"]
+        rel.append(f"""<tr><th scope="row">{e(r['o_que'])}<small>{e(r['nota'])}</small></th>
+<td>{quando}</td><td>{e(r['local'])}</td>
+<td><span class="selo selo-{r['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></td></tr>""")
+    cabecalho = ('<thead><tr><th scope="col">Cidade</th><th scope="col">Quando</th>'
+                 '<th scope="col">Local</th><th scope="col">Situação</th>'
+                 '<th scope="col">Fonte</th></tr></thead>')
+    painel = ""
+    if total:
+        falta = total - len(shows)
+        painel = f"""<div class="op-grid" style="margin-bottom:clamp(22px,3vw,32px)">
+<div class="op-tile">{icon('music_note')}<strong>{total}</strong><span>Shows informados</span><small>{e(nota_total)}</small></div>
+<div class="op-tile">{icon('place')}<strong>{len(shows):02d}</strong><span>Cidades citadas</span><small>Nomeadas na cobertura da imprensa</small></div>
+<div class="op-tile pend">{icon('search')}<strong>{falta}</strong><span>Apresentações sem registro</span><small>Dependem do mapa de turnê da produção</small></div>
+<div class="op-tile pend">{icon('calendar_month')}<strong>a levantar</strong><span>Datas por cidade</span><small>Nenhuma data individual foi publicada nas fontes recuperadas</small></div></div>"""
+    return f"""<section class="container reach-section" id="agenda"><hr class="rule">
+<h2 class="section-title">AGENDA<br><em>DA TURNÊ.</em></h2>
+{painel}
+<div class="table-wrap"><table class="amounts reach-table">{cabecalho}
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver local, situação e fonte.</p>
+{f'<h3 class="cases-title">Apresentações relacionadas</h3><div class="table-wrap"><table class="amounts reach-table">{cabecalho}<tbody>{"".join(rel)}</tbody></table></div>' if rel else ''}
+<p class="note">{e(ed.get('note_shows', ''))}</p></section>"""
+
+
 def page_edition(pr, year):
     depth, p = 3, rel(3)
     slug, ystr = pr["slug"], str(year)
@@ -719,6 +771,7 @@ def page_edition(pr, year):
 <div><p>Esta página é um registro editorial em atualização contínua. Apresentamos somente informações sustentadas por referências identificáveis, com prioridade para documentos oficiais e fontes da organização.</p>
 <p>{e(pr['intro'])}</p></div></section>
 {etapas_block(pr, year)}
+{shows_block(pr, year)}
 <section class="container facts-section">
 <hr class="rule">
 <h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
@@ -1112,7 +1165,8 @@ def events_table(depth):
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Edição</th><th scope="col">Quando</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Em cena</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>
-<p class="table-hint">Arraste a tabela para o lado para ver público, inscritos e elenco.</p></div></div></section>"""
+<p class="table-hint">Arraste a tabela para o lado para ver público, inscritos e elenco.</p></div></div>
+<div class="section-end"><a class="pill-link" href="{p}agenda/">Ver a agenda completa {icon('calendar_month')}</a></div></section>"""
 
 
 def page_data():
@@ -1301,6 +1355,93 @@ def page_ecossistema():
                       "ecossistema/", [ld, trail_ld]) + header(depth, "ecossistema") + body + footer(depth))
 
 
+def page_agenda():
+    """Toda edição, etapa e show num calendário único, do mais recente ao mais antigo."""
+    depth, p = 1, rel(1)
+    trail_html, trail_ld = crumbs(depth, [("Agenda", None)])
+    itens = []
+    for pr in PROJECTS:
+        href_pr = f'{p}projetos/{pr["slug"]}/'
+        for year in pr["years"]:
+            ed = pr["editions"].get(str(year), {})
+            href = f'{href_pr}{year}/'
+            etapas = ed.get("etapas") or []
+            shows = ed.get("shows") or []
+            if not etapas and not shows:
+                itens.append({"nome": f'{pr["name"]} {year}', "tipo": "Edição",
+                              "local": ed.get("place", pr["location"]), "href": href,
+                              "datas": ed.get("datas")})
+            for et in etapas:
+                itens.append({"nome": f'{pr["name"]} {year} · {et["nome"]}', "tipo": "Etapa",
+                              "local": et["nome"], "href": href,
+                              "datas": ({"inicio": et["inicio"], "fim": et["fim"], "precisao": "dia",
+                                         "status": et["status"]} if et["inicio"]
+                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                              "precisao": "ano", "status": et["status"]})})
+            for sh in shows:
+                itens.append({"nome": f'{pr["name"]} {year} · {sh["cidade"]}', "tipo": "Show",
+                              "local": sh["cidade"], "href": href,
+                              "datas": ({"inicio": sh["data"], "fim": sh["data"], "precisao": "dia",
+                                         "status": sh["status"]} if sh.get("data")
+                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                              "precisao": "ano", "status": sh["status"]})})
+            for r in ed.get("relacionados", []):
+                itens.append({"nome": f'{pr["name"]} · {r["o_que"]}', "tipo": "Relacionado",
+                              "local": r["local"], "href": href,
+                              "datas": ({"inicio": r["data"], "fim": r["data_fim"] or r["data"],
+                                         "precisao": "dia", "status": r["status"]} if r.get("data")
+                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                              "precisao": "ano", "status": r["status"]})})
+        if not pr["years"] and pr.get("datas_projeto"):
+            itens.append({"nome": pr["name"], "tipo": "Ação", "local": pr["location"],
+                          "href": href_pr, "datas": pr["datas_projeto"]})
+
+    exatos = [x for x in itens if x["datas"] and x["datas"]["precisao"] != "ano"]
+    sem_dia = [x for x in itens if not x["datas"] or x["datas"]["precisao"] == "ano"]
+    exatos.sort(key=lambda x: x["datas"]["inicio"], reverse=True)
+    sem_dia.sort(key=lambda x: (x["datas"]["inicio"] if x["datas"] else ""), reverse=True)
+
+    def linha(x):
+        txt, dias = periodo(x["datas"])
+        if x["datas"] and x["datas"]["precisao"] == "ano":
+            quando = f'<span class="val pend">{e(txt)}</span>'
+        else:
+            quando = e(txt) + (f'<small>{plural(dias, "dia", "dias")}</small>' if dias else "")
+        return (f'<tr><th scope="row"><a href="{x["href"]}">{e(x["nome"])}</a>'
+                f'<small>{e(x["tipo"])}</small></th><td>{quando}</td>'
+                f'<td>{e(x["local"])}</td><td>{selo_data(x["datas"])}</td></tr>')
+
+    cab = ('<thead><tr><th scope="col">O quê</th><th scope="col">Quando</th>'
+           '<th scope="col">Onde</th><th scope="col">Situação da data</th></tr></thead>')
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><h1>AGENDA<span class="orange">.</span></h1>
+<p class="lede">Toda edição, etapa de circuito e show em um calendário único, do mais recente para o mais antigo. Cada linha diz de onde veio a data.</p>
+<div class="metric-row">
+<div><strong>{len(itens):02d}</strong><span>Compromissos catalogados</span></div>
+<div><strong>{len(exatos):02d}</strong><span>Com dia e mês</span></div>
+<div><strong>{len(sem_dia):02d}</strong><span>Só com o ano</span></div>
+<div><strong>{M['span']}</strong><span>Período coberto</span></div></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">COM DATA<br><em>DEFINIDA.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">{cab}
+<tbody>{''.join(linha(x) for x in exatos)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver onde e a situação.</p></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">AINDA SEM<br><em>DIA E MÊS.</em></h2>
+<p class="body-copy">Aconteceram, mas só o ano está documentado. Cada uma destas linhas vira data exata com o cronograma, o contrato ou o mapa de turnê da edição.</p>
+<div class="table-wrap"><table class="amounts reach-table">{cab}
+<tbody>{''.join(linha(x) for x in sem_dia)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver onde e a situação.</p>
+<p class="note">{e(MODEL['datas']['note'])}</p></section></main>"""
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Agenda",
+          "url": f"{BASE}/agenda/", "inLanguage": "pt-BR"}
+    return write("agenda/index.html",
+                 head(depth, "Agenda | Todas as edições, etapas e shows | Cadillac Produções",
+                      "Calendário completo dos projetos Cadillac: edições, etapas de circuito e "
+                      "shows, com data, local e a procedência de cada informação.",
+                      "agenda/", [ld, trail_ld]) + header(depth, "agenda") + body + footer(depth))
+
+
 def page_404():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
@@ -1319,7 +1460,7 @@ def page_404():
 
 
 def page_sitemap():
-    urls = ["", "projetos/", "atuacao/", "na-midia/", "dados/", "ecossistema/"]
+    urls = ["", "projetos/", "atuacao/", "agenda/", "na-midia/", "dados/", "ecossistema/"]
     for pr in PROJECTS:
         urls.append(f"projetos/{pr['slug']}/")
         for y in pr["years"]:
@@ -1337,8 +1478,8 @@ def page_sitemap():
 
 
 def main():
-    written = [page_home(), page_projects(), page_atuacao(), page_press(), page_data(),
-               page_ecossistema(), page_404()]
+    written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
+               page_data(), page_ecossistema(), page_404()]
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

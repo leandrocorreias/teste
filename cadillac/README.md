@@ -28,6 +28,7 @@ projetos/                      acervo com filtros por área, ano e busca
 projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       as cinco frentes de trabalho, com casos do acervo
+agenda/                        todas as edições, etapas e shows em um calendário único
 ecossistema/                   quem é patrocinador, titular, produtora, entidade, fornecedor
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
 na-midia/                      referências agrupadas por projeto
@@ -70,6 +71,12 @@ Incorporação do dossiê consolidado de outubro de 2026.
   edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
   hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
   listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Página `/agenda/`**: reúne edições, etapas de circuito, shows de turnê e apresentações
+  relacionadas em um calendário único, separado entre o que tem dia e mês e o que só tem o
+  ano. Entrou no menu principal.
+- **Agenda da turnê Dominguinho**: a edição 2026 ganhou a lista de cidades citadas pela
+  imprensa, as apresentações relacionadas e um painel que mostra a distância entre os 43 shows
+  informados e as seis cidades nomeadas.
 - **Datas reais**: cada edição passou a ter data estruturada (`datas` em `editions`), com
   início, fim, precisão e situação. O site escreve o período por extenso, calcula a duração em
   dias e mostra um selo dizendo se a data é confirmada, divulgada, anunciada, inferida, parcial,

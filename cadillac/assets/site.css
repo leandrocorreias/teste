@@ -489,6 +489,12 @@ a.service-row{color:inherit}
 .taglist .selo{padding:9px 14px;font-size:11px}
 .reach-table .selo{margin-top:4px}
 
+/* Alvo de toque mínimo para links dentro de tabelas e listas */
+.amounts a,.reach-table a,.matrix a,.cast-source a,.case-links a,.foot-nav a,
+.crumbs a,.crumbs span[aria-current],.back{
+  display:inline-flex;align-items:center;gap:7px;min-height:24px}
+.amounts td a,.amounts th a{padding:2px 0}
+
 /* 9. Utilitários --------------------------------------------------------- */
 .material-symbols-outlined.cd-icon{font-family:'Material Symbols Outlined';font-weight:400;
   font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;

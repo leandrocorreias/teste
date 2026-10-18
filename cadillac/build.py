@@ -79,7 +79,16 @@ def plural(n, one, many):
 # --------------------------------------------------------------------------
 # blocos estruturais
 # --------------------------------------------------------------------------
+def encurta(texto, limite):
+    """Corta no limite sem partir palavra, para título e meta-descrição."""
+    if len(texto) <= limite:
+        return texto
+    corte = texto[:limite].rsplit(" ", 1)[0].rstrip(" ,.;:—-")
+    return corte + "…"
+
+
 def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
+    title, desc = encurta(title, 65), encurta(desc, 155)
     p = rel(depth)
     og = og_image or f"{BASE}/assets/og-cadillac.jpg"
     url = f"{BASE}/{path}" if path else f"{BASE}/"
@@ -659,8 +668,8 @@ def page_project(pr):
 {media(pr, 'banner', eager=True, depth=depth)}{metric}</section>
 {''.join(sections)}</main>"""
     return write(f"projetos/{slug}/index.html",
-                 head(depth, f"{pr['name']} | Histórico e edições | Cadillac Produções",
-                      f"{pr['name']}: histórico, edições, fatos documentados e fontes públicas. {pr['desc']}",
+                 head(depth, f"{pr['name']} | Cadillac Produções",
+                      f"{pr['name']}: {pr['desc']}",
                       f"projetos/{slug}/", blocks, og_image=og_for(pr)) + header(depth, "projetos") + body + footer(depth))
 
 
@@ -798,8 +807,8 @@ def page_edition(pr, year):
 <div class="year-links"><span>Navegar nas edições</span>{''.join(nav_links)}</div>
 <div class="year-links"><span>Outros anos</span>{other_html}</div></section></main>"""
     return write(f"projetos/{slug}/{year}/index.html",
-                 head(depth, f"{pr['name']} {year} | Fatos, cobertura e fontes | Cadillac Produções",
-                      f"{pr['name']} {year}: contexto, fatos documentados e fontes públicas sobre a edição.",
+                 head(depth, f"{pr['name']} {year} | Cadillac Produções",
+                      f"{pr['name']} {year}: datas, fatos documentados, elenco e fontes públicas da edição.",
                       f"projetos/{slug}/{year}/", [ld, trail_ld], og_image=og_for(pr, year))
                  + header(depth, "projetos") + body + footer(depth))
 

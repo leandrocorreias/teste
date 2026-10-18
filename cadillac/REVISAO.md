@@ -1,0 +1,118 @@
+# Revisão geral do portal Cadillac
+Auditoria de 18/10/2026 · 26 páginas · build V8
+
+Auditei as 26 páginas em cinco larguras (320, 390, 768, 1024 e 1440px), medindo
+estrutura, acessibilidade, SEO, peso, cobertura de conteúdo e navegação. Este
+documento separa o que **está resolvido**, o que **corrigi agora** e o que **depende
+de decisão ou de dado que só a produção tem**.
+
+---
+
+## 1. Estado técnico — sólido
+
+| Verificação | Resultado |
+|---|---|
+| Links internos quebrados | 0 em 26 páginas |
+| Transbordo horizontal | 0 em 320, 390, 768, 1024 e 1440px |
+| Erros de JavaScript | nenhum |
+| `h1` por página | exatamente 1 em todas |
+| Saltos de hierarquia de título | nenhum |
+| IDs duplicados | nenhum |
+| Imagens sem `alt` | 0 |
+| Links sem texto ou com texto vago | 0 |
+| Links externos sem `rel="noopener"` | 0 |
+| Títulos e descrições duplicados | nenhum |
+| Páginas sem canonical ou `og:image` | nenhuma |
+| Blocos JSON-LD válidos | 58 |
+| Peso por página | 265–298 KB em 10 requisições |
+
+## 2. Corrigido nesta revisão
+
+1. **Alvos de toque abaixo de 24px** — links de fonte dentro de tabelas, trilha de
+   navegação e o "voltar" das edições tinham 15 a 17px de altura. Abaixo do mínimo
+   da WCAG 2.5.8 para alvo que não está no meio de um parágrafo. Agora todos têm 24px.
+2. **Títulos e descrições longos demais** — sete títulos passavam de 70 caracteres e
+   seis descrições de 160, o que o Google corta. O gerador passou a encurtar sem
+   partir palavra, e os títulos de projeto e edição ficaram mais diretos.
+3. **Logotipo pesado** — servíamos 900px de largura para exibir no máximo 290px.
+   Reduzido para 600px: 110 KB viraram 79 KB, em toda página do site.
+
+## 3. O que falta de material — o maior buraco
+
+A estrutura está pronta e vazia em pontos que importam. Não é defeito de código: é
+dado que não existe em fonte pública.
+
+| Frente | Preenchido | Falta |
+|---|---|---|
+| Fotografia | 0 | todos os espaços: 8 capas de projeto, 10 de edição, 30 de galeria |
+| Audiência | 6 linhas | 17 linhas sem número |
+| Transmissões | 0 medidas | 6 registros sem leitura de plataforma |
+| Datas com dia e mês | 4 edições | 6 edições só com o ano |
+| Ficha de operação | 6 campos | equipe, fornecedores, dias de montagem e palcos em **todas** as 10 edições |
+
+**Os quatro campos que mais vendem porte estão 100% vazios**: equipe em operação,
+fornecedores, dias de montagem e palcos simultâneos. São os números que transformam
+"produzimos o Itacoatiara Pro" em "mobilizamos X pessoas e Y fornecedores em Z dias
+de montagem". Nenhum deles vem de imprensa — saem do mapa de equipe, da lista de
+fornecedores, do contrato de locação e do cronograma de produção.
+
+### Cobertura por projeto
+
+| Projeto | Edições | Registros | Fontes | FAQ | Elenco |
+|---|---|---|---|---|---|
+| Itacoatiara Pro | 4 | 16 | 11 | 4 | 3 edições |
+| Vert Battle | 2 | 9 | 5 | 3 | 2 edições |
+| Tamo Junto BB | 2 | 9 | 4 | 3 | 1 edição |
+| Dominguinho | 1 | 7 | 2 | 3 | 1 edição |
+| Bob Burnquist | — | 6 | 3 | 4 | 1 |
+| Festival de Tribos de Juruti | 1 | 4 | 1 | 2 | 1 |
+| Arte em Circuito | — | 4 | 1 | 2 | 1 |
+| CCBB no MAC Bahia | — | 4 | **0** | 1 | 1 |
+
+**CCBB no MAC Bahia é a única página sem nenhuma fonte pública.** Ela se sustenta só
+em relato profissional. Ou se recupera a ficha técnica institucional, ou essa página
+não deveria ir ao ar na primeira publicação.
+
+## 4. Organização — duas sobreposições a decidir
+
+1. **Agenda e Dados cobrem o mesmo terreno.** A tabela "evento por evento" em `/dados/`
+   e o calendário em `/agenda/` repetem data, local e evento. Proposta: `/agenda/` fica
+   com quando e onde; `/dados/` fica só com quanto — público, inscritos, elenco — e
+   linka para a agenda.
+2. **O menu tem sete itens** (Projetos, Atuação, Agenda, Na Mídia, Dados, Ecossistema,
+   Cadillac). Cabe no desktop com folga de 35px a 1100px, mas é muito para decidir
+   rápido. Proposta: manter Projetos, Atuação, Agenda e Dados no topo, e levar
+   Na Mídia e Ecossistema para dentro de Dados, como seções com âncora.
+
+## 5. Fluidez — o que atrapalha hoje
+
+- **Densidade de "a preencher".** São 299 marcações visíveis no site, 53 só em `/dados/`.
+  Para a equipe, é a lista de pendências. Para um patrocinador, pode passar a impressão
+  de portal inacabado. O interruptor `MOSTRAR_CAMPOS` no `build.py` já esconde os
+  caminhos técnicos; recomendo também esconder as linhas vazias na versão pública,
+  mantendo-as na interna.
+- **`/dados/` tem 1.035 nós de DOM**, quase o triplo das outras. São quatro tabelas
+  largas em sequência. Em celular, isso é muito rolar. Com a separação do item 4.1 o
+  problema se resolve sozinho.
+- **O 404 usa URLs absolutas** do domínio definitivo, por necessidade técnica. Em
+  staging ele aparece sem estilo. É esperado, mas vale saber antes de testar.
+
+## 6. Riscos antes de publicar
+
+1. **Direito de imagem** — nenhuma foto de terceiro é carregada hoje, e isso deve
+   continuar. As três prévias hotlinkadas foram removidas.
+2. **Marca** — o lettering "Cadillac" é idêntico ao da montadora. Se o arquivo não for
+   identidade própria registrada de vocês, vale a checagem jurídica.
+3. **E-mail de contato** — `contato@cadillacproducoes.com.br` é sugerido e precisa
+   existir antes da publicação.
+4. **Atribuições em validação** — Tamo Junto BB e Dominguinho estão descritos como
+   participação informada, não contratada. Manter assim até haver ficha técnica.
+
+## 7. Ordem de prioridade recomendada
+
+1. Fotografia oficial das capas de projeto (8 arquivos) — é o que mais muda a percepção.
+2. Equipe, fornecedores e dias de montagem das três edições mais recentes.
+3. Ficha técnica do CCBB no MAC Bahia, ou retirada da página.
+4. Datas exatas das seis edições que só têm o ano.
+5. Leitura das transmissões no canal da CBSk, com data de captura.
+6. Decisão sobre o item 4 (Agenda/Dados e menu).

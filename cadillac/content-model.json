@@ -60,11 +60,7 @@
       "theme": "wave",
       "desc": "Bodyboard, surfe, skate, cultura e território em uma das praias mais emblemáticas do Brasil.",
       "intro": "O Itacoatiara Pro conecta o cenário natural de Niterói a competições de bodyboard, surfe, skate, vela e parapente, com programação cultural e efeito direto sobre turismo e comércio da região. Cada edição aqui tem período, modalidades, resultados e fontes.",
-      "image": {
-        "url": "https://www.mango-surf.com/assets/images/uploads/2026/06/large/matias-diaz-en-air-reverse-sur-la-section-au-large-ditacoatiara-itacoatiara-pro-2026-journee-4-0tiaq8.jpg",
-        "alt": "Manobra aérea de surfe em Itacoatiara durante o Itacoatiara Pro 2026",
-        "credit": "Foto: Mango Surf / reportagem 2026 · direitos a validar"
-      },
+      "image": null,
       "years": [
         2026,
         2025,
@@ -224,11 +220,7 @@
       "theme": "vert",
       "desc": "Progressão, amplitude e cultura do skate em uma plataforma de competição itinerante.",
       "intro": "O Vert Battle leva a cultura e a técnica do skate vertical a etapas em diferentes cidades, combinando competição homologada, atletas de alto nível e público. Criado em 2016 por Rony Gomes, o circuito tem temporadas, formatos e sedes que mudam a cada ano.",
-      "image": {
-        "url": "https://static.wixstatic.com/media/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg/v1/fill/w_1000%2Ch_667%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg",
-        "alt": "Skatista em manobra na rampa vertical durante etapa do Vert Battle",
-        "credit": "Foto: Jornale / Vert Battle 2025 · direitos a validar"
-      },
+      "image": null,
       "years": [
         2026,
         2025
@@ -473,11 +465,7 @@
       "theme": "music",
       "desc": "Turnê, encontros e a trajetória de um projeto que levou a música brasileira a novos públicos.",
       "intro": "Dominguinho reúne João Gomes, Mestrinho e Jota.pê em um encontro musical de grande repercussão, conectando repertório brasileiro, apresentações ao vivo, registro audiovisual e presença forte nas plataformas de música.",
-      "image": {
-        "url": "https://www.portaltela.com/s.01k8r8f7wx8pm/2026/05/17785983126a0341a8e7f43_1778598312_3x2_md.jpg",
-        "alt": "João Gomes, Mestrinho e Jota.pê no projeto Dominguinho",
-        "credit": "Foto: Portal Tela / Dominguinho · direitos a validar"
-      },
+      "image": null,
       "years": [],
       "editions": {},
       "records": [
@@ -1256,6 +1244,237 @@
         "Skate dentro do MAC Bahia",
         "CCBB, ficha técnica institucional"
       ]
+    ],
+    "referencias_removidas": [
+      {
+        "projeto": "itacoatiara-pro",
+        "url_anterior": "https://www.mango-surf.com/assets/images/uploads/2026/06/large/matias-diaz-en-air-reverse-sur-la-section-au-large-ditacoatiara-itacoatiara-pro-2026-journee-4-0tiaq8.jpg",
+        "motivo": "Fotografia de terceiro sem licença, usada como prévia. Substituir por imagem oficial."
+      },
+      {
+        "projeto": "vert-battle",
+        "url_anterior": "https://static.wixstatic.com/media/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg/v1/fill/w_1000%2Ch_667%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01/b0f8fd_e517fa138436463fbf22a920c72b84bd~mv2.jpeg",
+        "motivo": "Fotografia de terceiro sem licença, usada como prévia. Substituir por imagem oficial."
+      },
+      {
+        "projeto": "dominguinho",
+        "url_anterior": "https://www.portaltela.com/s.01k8r8f7wx8pm/2026/05/17785983126a0341a8e7f43_1778598312_3x2_md.jpg",
+        "motivo": "Fotografia de terceiro sem licença, usada como prévia. Substituir por imagem oficial."
+      }
+    ]
+  },
+  "audiencia": {
+    "lede": "Quanta gente a Cadillac alcança. Esta página soma apenas números com origem identificada e nunca mistura grandezas diferentes: quem esteve presente, quem competiu e quem ouviu são contagens distintas.",
+    "families": {
+      "presencial": [
+        "Público presente",
+        "Pessoas que estiveram no evento, conforme contagem ou estimativa de quem organizou ou patrocinou.",
+        "groups"
+      ],
+      "competicao": [
+        "Atletas e artistas",
+        "Quem esteve na pista, no mar ou no palco.",
+        "skateboarding"
+      ],
+      "digital": [
+        "Alcance digital",
+        "Streams, transmissões e visualizações. Nunca somado ao público presente.",
+        "movie"
+      ]
+    },
+    "entries": [
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "family": "presencial",
+        "value": 6000,
+        "label": "Etapa de Belo Horizonte",
+        "basis": "Declarado pela CBSk",
+        "counts": true,
+        "source": [
+          "CBSk",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2024,
+        "family": "presencial",
+        "value": 30000,
+        "label": "Natal, público por dia",
+        "basis": "Relato de executivo do patrocinador, por dia, sem unicidade. Contado uma única vez, porque o número de dias não foi confirmado",
+        "counts": true,
+        "source": [
+          "Banco do Brasil",
+          "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+        ]
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "family": "competicao",
+        "value": 500,
+        "label": "Atletas inscritos",
+        "basis": "Declarado pela Prefeitura de Niterói",
+        "counts": true,
+        "source": [
+          "Prefeitura de Niterói",
+          "https://niteroi.rj.gov.br/prefeito-rodrigo-neves-participa-da-premiacao-do-campeonato-profissional-de-surfe-do-itacoatiara-pro-2026/"
+        ]
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "family": "presencial",
+        "value": 50000,
+        "label": "Projeção de visitantes",
+        "basis": "Projeção divulgada ANTES do evento. Não é público realizado e por isso não entra em nenhum total",
+        "counts": false,
+        "source": [
+          "Prefeitura de Niterói",
+          "https://niteroi.rj.gov.br/prefeito-rodrigo-neves-participa-da-premiacao-do-campeonato-profissional-de-surfe-do-itacoatiara-pro-2026/"
+        ]
+      },
+      {
+        "project": "dominguinho",
+        "year": null,
+        "family": "digital",
+        "value": 300000000,
+        "label": "Streams do projeto musical",
+        "basis": "Atribuído pela imprensa ao projeto nas plataformas. Não é audiência de evento nem resultado da Cadillac",
+        "counts": true,
+        "source": [
+          "Billboard Brasil",
+          "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+        ]
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2025,
+        "family": "presencial",
+        "value": null,
+        "label": "Público da 13ª edição",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2022,
+        "family": "presencial",
+        "value": null,
+        "label": "Público da edição",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "family": "presencial",
+        "value": null,
+        "label": "Público realizado da 14ª edição",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "vert-battle",
+        "year": 2025,
+        "family": "presencial",
+        "value": null,
+        "label": "Público somado das quatro etapas",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "family": "presencial",
+        "value": null,
+        "label": "Etapas de São Paulo e Maceió",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "family": "digital",
+        "value": null,
+        "label": "Audiência da transmissão da CBSk",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2025,
+        "family": "presencial",
+        "value": null,
+        "label": "Público de Fortaleza",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2024,
+        "family": "competicao",
+        "value": null,
+        "label": "Atletas e artistas em Natal",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "dominguinho",
+        "year": null,
+        "family": "presencial",
+        "value": null,
+        "label": "Público somado dos 43 shows",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "festival-de-tribos-juruti",
+        "year": 2018,
+        "family": "presencial",
+        "value": null,
+        "label": "Público da Festa dos Visitantes",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "arte-em-circuito",
+        "year": null,
+        "family": "presencial",
+        "value": null,
+        "label": "Participantes das oficinas e residências",
+        "basis": "",
+        "counts": true,
+        "source": null
+      },
+      {
+        "project": "ccbb-mac-bahia",
+        "year": null,
+        "family": "presencial",
+        "value": null,
+        "label": "Público da ação no museu",
+        "basis": "",
+        "counts": true,
+        "source": null
+      }
+    ],
+    "method": [
+      "Cada linha tem um responsável pelo número. Nada aqui é estimativa da Cadillac.",
+      "Público presente, atletas e alcance digital são três totais separados. Somar os três produziria um número inflado e indefensável.",
+      "Projeção divulgada antes do evento nunca entra em total: projeção não é realizado.",
+      "Público relatado por dia é contado uma vez enquanto o número de dias não for confirmado.",
+      "Quando houver bilheteria, catraca, contagem de credencial ou relatório de plataforma com data de captura, a linha passa de declarado para verificado."
     ]
   }
 }

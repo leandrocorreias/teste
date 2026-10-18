@@ -29,9 +29,7 @@ projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       as cinco frentes de trabalho, com casos do acervo
 ecossistema/                   quem é patrocinador, titular, produtora, entidade, fornecedor
-assets/capas/                  capas editoriais originais, geradas por tools/capas.py
-assets/og/                     imagem de compartilhamento por projeto e edição
-assets/fotos/                  acervo fotográfico; LEIA-ME.md lista o que falta
+assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
 404.html                       página de erro
@@ -66,13 +64,18 @@ Incorporação do dossiê consolidado de outubro de 2026.
   terceiros (com natureza e atribuição por linha) e contexto setorial de 2024.
 - **Tipografia V8**: Roboto Condensed nos títulos, Manrope no texto. Laranja da marca
   restaurado em #FF5900; textos pequenos sobre papel usam um laranja mais escuro para contraste.
-- **Capas editoriais originais**: `tools/capas.py` gera uma arte própria para cada projeto e
-  cada edição, na paleta da marca, com motivo distinto por tema — swell e sol para o
-  Itacoatiara Pro, transição de rampa para o Vert Battle, palco e varal de luzes para o Tamo
-  Junto BB, chevrons para Juruti, equalizador para o Dominguinho, parede de galeria para o
-  Arte em Circuito e escada com corrimão para o MAC Bahia. A arte é da casa: não usa
-  fotografia de terceiros e não tem pendência de licença. Cada projeto e edição ganhou também
-  a própria imagem Open Graph, com o logotipo aplicado.
+- **Espaços reservados para a fotografia oficial**: todo lugar que vai receber imagem mostra
+  um espaço nomeado, com o caminho exato do arquivo que ele espera, a proporção e o papel
+  editorial. São 8 na home, 8 no acervo, 1 banner por projeto, 1 banner e 3 de galeria por
+  edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
+  hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
+  listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Página de alcance**: `/dados/` abre com quanta gente a Cadillac alcança, em três totais
+  que nunca se misturam — público presente, atletas e artistas, alcance digital. Cada linha
+  tem o responsável pelo número e a base; as que faltam aparecem como "a preencher" em vez de
+  sumir. Projeção divulgada antes do evento fica fora dos totais, e público relatado por dia é
+  contado uma vez enquanto o número de dias não for confirmado. Para atualizar, edite
+  `audiencia.entries` em `content-model.json` e rode o gerador.
 - **Pipeline de fotos**: coloque o arquivo em `assets/fotos/` com o nome `<slug>.jpg` ou
   `<slug>-<ano>.jpg` e rode o gerador; a capa gráfica é trocada pela foto automaticamente.
   `assets/fotos/LEIA-ME.md` lista imagem por imagem o que falta e onde procurar.

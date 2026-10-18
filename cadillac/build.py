@@ -22,7 +22,7 @@ ICON_SUBSET = ",".join(sorted([
     "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
     "chevron_right", "close", "description", "engineering", "expand_more", "festival",
     "filter_list", "home", "insights", "mail", "menu", "movie", "music_note", "north",
-    "open_in_new", "palette", "place", "public", "search", "skateboarding",
+    "groups", "open_in_new", "palette", "photo_camera", "place", "public", "search", "skateboarding",
     "stacked_bar_chart", "verified",
 ]))
 
@@ -189,15 +189,14 @@ def source_list(sources):
 
 
 def photo_for(project, year=None):
-    """Imagem da capa: foto do acervo se existir, senão a capa editorial da marca."""
+    """Foto do acervo, se o arquivo já estiver em assets/fotos."""
     stems = [project["slug"] + (f"-{year}" if year else "")]
     if year:
         stems.append(project["slug"])
-    for folder in ("fotos", "capas"):
-        for stem in stems:
-            for ext in ("jpg", "jpeg", "png", "webp"):
-                if (ROOT / "assets" / folder / f"{stem}.{ext}").exists():
-                    return f"assets/{folder}/{stem}.{ext}", folder
+    for stem in stems:
+        for ext in ("jpg", "jpeg", "png", "webp"):
+            if (ROOT / "assets" / "fotos" / f"{stem}.{ext}").exists():
+                return f"assets/fotos/{stem}.{ext}"
     return None
 
 
@@ -208,16 +207,29 @@ def og_for(project, year=None):
     return None
 
 
+def slot(name, ratio, what, extra=""):
+    """Espaço reservado para a imagem oficial que ainda vai entrar."""
+    return (f'<div class="photo-slot {extra}" role="img" aria-label="Espaço reservado para '
+            f'imagem: {e(what)}"><span class="slot-mark">{icon("photo_camera")}</span>'
+            f'<strong>{e(what)}</strong><code>assets/fotos/{e(name)}</code>'
+            f'<small>{e(ratio)} · imagem oficial com direito de uso</small></div>')
+
+
 def media(project, classes="", eager=False, year=None, depth=0):
-    found = photo_for(project, year)
-    img = project.get("image")
-    if found:
-        local, kind = found
-        edicao = f", edição {year}" if year else ""
+    local = photo_for(project, year)
+    img = None
+    edicao = f", edição {year}" if year else ""
+    if local:
         img = {"url": rel(depth) + local,
-               "alt": (f"{project['name']}{edicao}" if kind == "fotos"
-                       else f"Capa editorial de {project['name']}{edicao}"),
-               "credit": "Acervo Cadillac" if kind == "fotos" else None}
+               "alt": f"{project['name']}{edicao}",
+               "credit": "Acervo Cadillac"}
+    elif not project.get("image"):
+        stem = project["slug"] + (f"-{year}" if year else "")
+        return slot(f"{stem}.jpg", "16:10 ou 3:2",
+                    f"{project['name']}{edicao}",
+                    "slot-banner" if "banner" in classes else "slot-card")
+    else:
+        img = project.get("image")
     theme = project.get("theme", "")
     inner = []
     if img:
@@ -694,9 +706,10 @@ def page_edition(pr, year):
 <hr class="rule">
 <h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
 <div class="gallery">
-<div class="gallery-slot wide">FOTO PRINCIPAL / 16:9<small>Espaço reservado. Crédito, titularidade e licença a validar antes da publicação.</small></div>
-<div class="gallery-slot">BASTIDORES / 4:5<small>Espaço reservado para imagem editorial autorizada.</small></div>
-<div class="gallery-slot">ATLETAS E PÚBLICO / 4:5<small>Espaço reservado para imagem editorial autorizada.</small></div></div></section>
+{slot(f'{slug}-{year}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide')}
+{slot(f'{slug}-{year}-02.jpg', '4:5', 'Bastidores')}
+{slot(f'{slug}-{year}-03.jpg', '4:5', 'Atletas e público')}</div>
+<p class="note">Os três espaços acima entram no ar assim que os arquivos forem colocados em <code>assets/fotos/</code> com esses nomes. Publique apenas imagem com direito de uso verificado.</p></section>
 <section class="container insights">
 <hr class="rule">
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
@@ -758,6 +771,75 @@ def page_press():
                       "na-midia/", [ld, trail_ld]) + header(depth, "na-midia") + body + footer(depth))
 
 
+def big(n):
+    return f"{n:,}".replace(",", ".")
+
+
+def audience_blocks(depth):
+    p = rel(depth)
+    data = MODEL["audiencia"]
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    fams = data["families"]
+    totals = {k: {"sum": 0, "n": 0, "pend": 0} for k in fams}
+    for x in data["entries"]:
+        t = totals[x["family"]]
+        if x["value"] is None:
+            t["pend"] += 1
+        elif x["counts"]:
+            t["sum"] += x["value"]
+            t["n"] += 1
+
+    panels = []
+    for key, (label, desc, ic) in fams.items():
+        t = totals[key]
+        panels.append(f"""<div class="data-panel reach">{icon(ic)}
+<div><strong>{big(t['sum'])}</strong><span>{e(label)}</span></div>
+<p class="reach-note">{plural(t['n'], 'registro somado', 'registros somados')} · {plural(t['pend'], 'linha a preencher', 'linhas a preencher')}</p></div>""")
+
+    rows = []
+    for x in sorted(data["entries"], key=lambda x: (x["project"], -(x["year"] or 0))):
+        pr = by_slug[x["project"]]
+        href = f'{p}projetos/{pr["slug"]}/' + (f'{x["year"]}/' if x["year"] else "")
+        fam = fams[x["family"]][0]
+        if x["value"] is None:
+            value = '<span class="val pend">a preencher</span>'
+            basis = '<span class="tag-wait">Número ainda não levantado</span>'
+            src = "—"
+        else:
+            value = f'<span class="val">{big(x["value"])}</span>'
+            if not x["counts"]:
+                value += '<small class="out">fora dos totais</small>'
+            basis = e(x["basis"])
+            label, url = x["source"]
+            src = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                   f'{e(label)} {icon("open_in_new")}</a>')
+        rows.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}{' ' + str(x['year']) if x['year'] else ''}</a>
+<small>{e(x['label'])}</small></th><td>{e(fam)}</td><td>{value}</td><td>{basis}</td><td>{src}</td></tr>""")
+
+    filled = [x for x in data["entries"] if x["value"] is not None and x["counts"]
+              and x["family"] == "presencial"]
+    chart = (bars_horizontal(
+        [(f'{by_slug[x["project"]]["name"][:22]} {x["year"] or ""}'.strip(), x["value"]) for x in filled],
+        ("pessoa", "pessoas"), w=620) if filled else "")
+    method = "".join(f'<li>{icon("arrow_forward")} {e(t)}</li>' for t in data["method"])
+    pend = sum(t["pend"] for t in totals.values())
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">QUANTA GENTE<br><em>A GENTE ALCANÇA.</em></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="data-stats reach-grid">{''.join(panels)}</div>
+<div class="charts"><div class="chart-card span-2"><h3>Linha a linha, com o responsável pelo número</h3>
+<p class="chart-sub">Cada registro mostra quem divulgou e o que o número mede. As linhas em branco são as que faltam levantar: preencha em <code>content-model.json</code> e rode o gerador.</p>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Grandeza</th><th scope="col">Número</th><th scope="col">Base</th><th scope="col">Quem divulgou</th></tr></thead>
+<tbody>{''.join(rows)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver a base e a fonte.</p></div>
+{f'<div class="chart-card span-2"><h3>Público presente por evento</h3><p class="chart-sub">Somente registros com número e origem. Projeções ficam de fora.</p><figure>{chart}<figcaption>Série única, em pessoas. Cresce conforme as linhas em branco forem preenchidas.</figcaption></figure></div>' if chart else ''}
+</div>
+<div class="area-list reach-method"><h3>Como este número é construído</h3><ul>{method}</ul></div>
+<p class="note">Hoje {plural(pend, 'linha depende', 'linhas dependem')} de dado que só a produção tem: bilheteria, contagem de credencial, relatório de plataforma ou laudo de público. Enquanto não chegam, o total mostra menos do que a Cadillac realmente alcançou — e é assim que deve ser, porque número sem origem não se defende em reunião de patrocínio.</p>
+</section>"""
+
+
 def page_data():
     depth, p = 1, rel(1)
     trail_html, trail_ld = crumbs(depth, [("Dados", None)])
@@ -783,6 +865,7 @@ def page_data():
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
 <section class="container data-stats">{panels_html}</section>
+{audience_blocks(depth)}
 <section class="container charts">
 <div class="chart-card"><h3>Edições catalogadas por ano</h3>
 <p class="chart-sub">Quantas edições de projeto têm página própria em cada ano do acervo.</p>
@@ -867,8 +950,11 @@ def page_atuacao():
             if pr:
                 found = photo_for(pr, c.get("year"))
                 if found:
-                    thumb = (f'<img class="case-thumb" src="{p}{found[0]}" alt="" '
+                    thumb = (f'<img class="case-thumb" src="{p}{found}" alt="" '
                              f'loading="lazy" decoding="async" width="1600" height="1000">')
+                else:
+                    stem = pr["slug"] + (f'-{c["year"]}' if c.get("year") else "")
+                    thumb = slot(f"{stem}.jpg", "16:10", "Imagem do case", "slot-thumb")
             if pr:
                 href = f'{p}projetos/{pr["slug"]}/' + (f'{c["year"]}/' if c["year"] else "")
                 page = (f'<a href="{href}">{icon("arrow_outward")} '

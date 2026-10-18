@@ -401,6 +401,37 @@ a.service-row{color:inherit}
 .table-hint{font-size:11px;color:var(--muted);margin:10px 0 0}
 @media(min-width:720px){.table-hint{display:none}}
 
+/* Espaços reservados para imagem oficial */
+.photo-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  text-align:center;padding:clamp(20px,3vw,34px);background:
+  repeating-linear-gradient(135deg,var(--paper-2) 0 10px,#e7e4dd 10px 20px);
+  border:2px dashed var(--border);color:var(--ink-2);min-height:clamp(220px,34vw,400px)}
+.photo-slot.slot-banner{min-height:clamp(240px,42vw,560px)}
+.photo-slot.slot-wide{grid-column:1/-1;min-height:clamp(200px,30vw,420px)}
+.photo-slot.slot-thumb{min-height:clamp(120px,14vw,170px);padding:14px;gap:6px}
+.photo-slot.slot-thumb strong{font-size:12px}
+.photo-slot.slot-thumb small,.photo-slot.slot-thumb .slot-mark{display:none}
+.slot-mark .cd-icon{font-size:30px;color:var(--muted)}
+.photo-slot strong{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(16px,2vw,24px);
+  line-height:1.05;max-width:22ch}
+.photo-slot code{font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--white);
+  border:1px solid var(--border);padding:6px 10px;color:var(--ink);overflow-wrap:anywhere;max-width:100%}
+.photo-slot small{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+
+/* Alcance e público */
+.reach-section{padding-bottom:clamp(60px,9vw,120px)}
+.reach-grid{padding-bottom:clamp(26px,4vw,40px)}
+.data-panel.reach{min-height:210px}
+.reach-note{margin:0;font-size:11px;line-height:1.5;color:#9c9994}
+.reach-table th[scope="row"]{min-width:200px}
+.reach-table th[scope="row"] small{display:block;font-weight:400;text-transform:none;letter-spacing:0;
+  color:var(--muted);font-size:12px;margin-top:4px}
+.reach-table .val.pend{font-family:var(--font-text);font-size:12px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em}
+.reach-table .out{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--orange-ink);margin-top:4px}
+.reach-method{margin-top:clamp(26px,4vw,40px);max-width:860px}
+
 /* 9. Utilitários --------------------------------------------------------- */
 .material-symbols-outlined.cd-icon{font-family:'Material Symbols Outlined';font-weight:400;
   font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;

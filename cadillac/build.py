@@ -66,8 +66,9 @@ def plural(n, one, many):
 # --------------------------------------------------------------------------
 # blocos estruturais
 # --------------------------------------------------------------------------
-def head(depth, title, desc, path, jsonld=(), extra=""):
+def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
     p = rel(depth)
+    og = og_image or f"{BASE}/assets/og-cadillac.jpg"
     url = f"{BASE}/{path}" if path else f"{BASE}/"
     blocks = "".join(
         f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>'
@@ -96,14 +97,14 @@ def head(depth, title, desc, path, jsonld=(), extra=""):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{e(url)}">
-<meta property="og:image" content="{BASE}/assets/og-cadillac.jpg">
+<meta property="og:image" content="{og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo da Cadillac Produções e Filmes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
-<meta name="twitter:image" content="{BASE}/assets/og-cadillac.jpg">
+<meta name="twitter:image" content="{og}">
 <link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="{p}assets/favicon-180.png">
 {fonts}
@@ -188,22 +189,35 @@ def source_list(sources):
 
 
 def photo_for(project, year=None):
-    """Foto local do acervo, se o arquivo já tiver sido colocado em assets/fotos."""
-    stem = project["slug"] + (f"-{year}" if year else "")
-    for ext in ("jpg", "jpeg", "png", "webp"):
-        f = ROOT / "assets" / "fotos" / f"{stem}.{ext}"
-        if f.exists():
-            return f"assets/fotos/{stem}.{ext}"
+    """Imagem da capa: foto do acervo se existir, senão a capa editorial da marca."""
+    stems = [project["slug"] + (f"-{year}" if year else "")]
+    if year:
+        stems.append(project["slug"])
+    for folder in ("fotos", "capas"):
+        for stem in stems:
+            for ext in ("jpg", "jpeg", "png", "webp"):
+                if (ROOT / "assets" / folder / f"{stem}.{ext}").exists():
+                    return f"assets/{folder}/{stem}.{ext}", folder
+    return None
+
+
+def og_for(project, year=None):
+    for stem in ([f'{project["slug"]}-{year}'] if year else []) + [project["slug"]]:
+        if (ROOT / "assets" / "og" / f"{stem}.jpg").exists():
+            return f"{BASE}/assets/og/{stem}.jpg"
     return None
 
 
 def media(project, classes="", eager=False, year=None, depth=0):
-    local = photo_for(project, year)
+    found = photo_for(project, year)
     img = project.get("image")
-    if local:
+    if found:
+        local, kind = found
+        edicao = f", edição {year}" if year else ""
         img = {"url": rel(depth) + local,
-               "alt": f"{project['name']}" + (f", edição {year}" if year else ""),
-               "credit": "Acervo Cadillac"}
+               "alt": (f"{project['name']}{edicao}" if kind == "fotos"
+                       else f"Capa editorial de {project['name']}{edicao}"),
+               "credit": "Acervo Cadillac" if kind == "fotos" else None}
     theme = project.get("theme", "")
     inner = []
     if img:
@@ -214,7 +228,7 @@ def media(project, classes="", eager=False, year=None, depth=0):
         )
     inner.append(f'<span class="media-code">CADILLAC / ACERVO</span>')
     inner.append(f'<span class="media-symbol">{e(project["name"].upper())}</span>')
-    if img:
+    if img and img.get("credit"):
         inner.append(f'<span class="source-credit">{e(img["credit"])}</span>')
     role = "" if img else ' role="img" aria-label="Capa editorial de ' + e(project["name"]) + '"'
     return (f'<div class="media-surface {theme} {classes}"{role}>' + "".join(inner) + "</div>")
@@ -618,7 +632,7 @@ def page_project(pr):
     return write(f"projetos/{slug}/index.html",
                  head(depth, f"{pr['name']} | Histórico e edições | Cadillac Produções",
                       f"{pr['name']}: histórico, edições, fatos documentados e fontes públicas. {pr['desc']}",
-                      f"projetos/{slug}/", blocks) + header(depth, "projetos") + body + footer(depth))
+                      f"projetos/{slug}/", blocks, og_image=og_for(pr)) + header(depth, "projetos") + body + footer(depth))
 
 
 def page_edition(pr, year):
@@ -696,7 +710,7 @@ def page_edition(pr, year):
     return write(f"projetos/{slug}/{year}/index.html",
                  head(depth, f"{pr['name']} {year} | Fatos, cobertura e fontes | Cadillac Produções",
                       f"{pr['name']} {year}: contexto, fatos documentados e fontes públicas sobre a edição.",
-                      f"projetos/{slug}/{year}/", [ld, trail_ld])
+                      f"projetos/{slug}/{year}/", [ld, trail_ld], og_image=og_for(pr, year))
                  + header(depth, "projetos") + body + footer(depth))
 
 
@@ -849,13 +863,19 @@ def page_atuacao():
                 link = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
                         f'{e(label)} {icon("open_in_new")}</a>')
             pr = by_slug.get(c["project"]) if c["project"] else None
+            thumb = ""
+            if pr:
+                found = photo_for(pr, c.get("year"))
+                if found:
+                    thumb = (f'<img class="case-thumb" src="{p}{found[0]}" alt="" '
+                             f'loading="lazy" decoding="async" width="1600" height="1000">')
             if pr:
                 href = f'{p}projetos/{pr["slug"]}/' + (f'{c["year"]}/' if c["year"] else "")
                 page = (f'<a href="{href}">{icon("arrow_outward")} '
                         f'{e(pr["name"])}{" " + str(c["year"]) if c["year"] else ""}</a>')
             else:
                 page = ""
-            cases.append(f"""<article class="case"><h4>{e(c["title"])}</h4><p>{e(c["text"])}</p>
+            cases.append(f"""<article class="case">{thumb}<h4>{e(c["title"])}</h4><p>{e(c["text"])}</p>
 <div class="case-links">{page}{link}</div></article>""")
         sections.append(f"""<section class="container area" id="{a["slug"]}"><hr class="rule">
 <div class="area-head"><span class="svc-i">{icon(a["icon"])}</span>

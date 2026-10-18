@@ -29,6 +29,8 @@ projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       as cinco frentes de trabalho, com casos do acervo
 ecossistema/                   quem é patrocinador, titular, produtora, entidade, fornecedor
+assets/capas/                  capas editoriais originais, geradas por tools/capas.py
+assets/og/                     imagem de compartilhamento por projeto e edição
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista o que falta
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
@@ -64,6 +66,13 @@ Incorporação do dossiê consolidado de outubro de 2026.
   terceiros (com natureza e atribuição por linha) e contexto setorial de 2024.
 - **Tipografia V8**: Roboto Condensed nos títulos, Manrope no texto. Laranja da marca
   restaurado em #FF5900; textos pequenos sobre papel usam um laranja mais escuro para contraste.
+- **Capas editoriais originais**: `tools/capas.py` gera uma arte própria para cada projeto e
+  cada edição, na paleta da marca, com motivo distinto por tema — swell e sol para o
+  Itacoatiara Pro, transição de rampa para o Vert Battle, palco e varal de luzes para o Tamo
+  Junto BB, chevrons para Juruti, equalizador para o Dominguinho, parede de galeria para o
+  Arte em Circuito e escada com corrimão para o MAC Bahia. A arte é da casa: não usa
+  fotografia de terceiros e não tem pendência de licença. Cada projeto e edição ganhou também
+  a própria imagem Open Graph, com o logotipo aplicado.
 - **Pipeline de fotos**: coloque o arquivo em `assets/fotos/` com o nome `<slug>.jpg` ou
   `<slug>-<ano>.jpg` e rode o gerador; a capa gráfica é trocada pela foto automaticamente.
   `assets/fotos/LEIA-ME.md` lista imagem por imagem o que falta e onde procurar.

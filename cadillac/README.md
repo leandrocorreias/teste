@@ -70,6 +70,25 @@ Incorporação do dossiê consolidado de outubro de 2026.
   edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
   hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
   listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Ordem cronológica invertida**: projetos e edições aparecem do mais recente para o mais
+  antigo em todo o site — acervo, home, tabelas, matriz de cobertura e gráfico de edições por
+  ano. A navegação entre edições continua cronológica, porque "anterior" e "próxima" só fazem
+  sentido assim.
+- **Elenco por edição**: bloco "Quem esteve em cena" com artistas, atletas e personalidades,
+  cada um com o papel e a fonte. Entram os nomes documentados: o line-up de Fortaleza, os
+  campeões de Belo Horizonte, o campeão do surfe e os sócios na realização do Itacoatiara,
+  Bob Burnquist, André Frateschi, os skatistas do MAC Bahia.
+- **Dominguinho com edição própria**: `/projetos/dominguinho/2026/` reúne os 43 shows, as
+  cidades da turnê, os 300 milhões de streams, o especial na TV Globo e o cruzamento com o
+  Tamo Junto BB de Fortaleza.
+- **`/dados/` virou página de evento**: abre com alcance, segue com a tabela evento por
+  evento — data, local, público, inscritos e elenco — e depois transmissões. Os indicadores
+  de acervo (registros documentados, fontes por projeto) saíram: descreviam o catálogo, não
+  os eventos.
+- **Estimativa por capacidade**: a linha de público aceita `tipo: "estimado"` com a conta
+  escrita (`capacidade × ocupação × dias`). Estimativa aparece marcada como tal, não entra no
+  total de público declarado, e número declarado tem prioridade sobre estimativa, que tem
+  prioridade sobre projeção.
 - **Transmissões**: `/dados/#transmissoes` lista o que foi ao ar por evento e parceiro — CBSk
   no YouTube para o Vert Battle, IBC World Tour no Itacoatiara, Banco do Brasil e emissoras no
   Tamo Junto BB, TV Globo no especial do Dominguinho — com a coluna da audiência, a URL do

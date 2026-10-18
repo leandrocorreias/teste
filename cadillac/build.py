@@ -16,7 +16,15 @@ MODEL = json.loads((ROOT / "content-model.json").read_text(encoding="utf-8"))
 SITE = MODEL["site"]
 BASE = SITE["url"].rstrip("/")
 CATS = MODEL["categories"]
-PROJECTS = MODEL["projects"]
+def _recencia(pr):
+    """Ano mais recente do projeto; sem edição, lê o fim do período."""
+    if pr["years"]:
+        return max(pr["years"])
+    digitos = [int(t) for t in __import__("re").findall(r"(20\d\d)", pr.get("period", ""))]
+    return max(digitos) if digitos else 0
+
+
+PROJECTS = sorted(MODEL["projects"], key=lambda pr: (-_recencia(pr), pr["name"]))
 
 # Modo de preenchimento: mostra, em cada campo vazio, o caminho exato no
 # content-model.json. Deixe False antes de publicar para o público.
@@ -301,7 +309,7 @@ def project_sources(project):
 
 
 def metrics():
-    years = sorted({y for pr in PROJECTS for y in pr["years"]})
+    years = sorted({y for pr in PROJECTS for y in pr["years"]}, reverse=True)
     all_sources = set()
     for pr in PROJECTS:
         all_sources |= project_sources(pr)
@@ -309,14 +317,15 @@ def metrics():
     for pr in PROJECTS:
         for y in pr["years"]:
             per_year[y] = per_year.get(y, 0) + 1
+    per_year = dict(sorted(per_year.items(), reverse=True))
     return {
         "projects": len(PROJECTS),
         "editions": sum(len(pr["years"]) for pr in PROJECTS),
         "years": years,
-        "span": f"{years[0]}–{str(years[-1])[2:]}" if years else "—",
+        "span": f"{years[-1]}–{str(years[0])[2:]}" if years else "—",
         "sources": len(all_sources),
         "facts": sum(project_facts(pr) for pr in PROJECTS),
-        "per_year": dict(sorted(per_year.items())),
+        "per_year": per_year,
         "categories": sorted({pr["category"] for pr in PROJECTS}),
     }
 
@@ -592,7 +601,7 @@ def page_project(pr):
 <span class="yr">{y}</span><span><strong>{e(pr['name'])} {y}</strong>
 <span class="yr-note">{e(note) if note else 'Edição catalogada'}</span></span>
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
-        chart = bars_horizontal([(str(y), len(pr["facts"].get(str(y), []))) for y in sorted(pr["years"])],
+        chart = bars_horizontal([(str(y), len(pr["facts"].get(str(y), []))) for y in sorted(pr["years"], reverse=True)],
                                 ("registro", "registros"), w=560, row=38)
         sections.append(f"""<section class="container timeline">
 <hr class="rule">
@@ -618,6 +627,7 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    sections.append(cast_block(pr))
     sections.append(op_project(pr))
     sections.append(f"""<section class="container sources">
 <hr class="rule">
@@ -666,7 +676,7 @@ def page_edition(pr, year):
     if ed.get("note"):
         meta_tags.append(f'<span>{icon("verified")} {e(ed["note"])}</span>')
 
-    years_sorted = sorted(pr["years"])
+    years_sorted = sorted(pr["years"])  # cronológico, para anterior e próxima
     idx = years_sorted.index(year)
     nav_links = []
     if idx > 0:
@@ -704,6 +714,7 @@ def page_edition(pr, year):
 <hr class="rule">
 <h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
 <div class="facts">{facts_html}</div></section>
+{cast_block(pr, year)}
 {op_edition(pr, year)}
 <section class="container gallery-section">
 <hr class="rule">
@@ -939,6 +950,88 @@ def broadcast_block(depth):
 <p class="note">{e(data['note'])}</p></section>"""
 
 
+def cast_block(pr, year=None, numero="05"):
+    """Quem esteve no palco, na pista e na linha de frente."""
+    data = MODEL["elenco"]
+    key = f'{pr["slug"]}-{year}' if year else pr["slug"]
+    bloco = data["por_edicao"].get(key) or (data["por_projeto"].get(pr["slug"]) if not year else None)
+    if not bloco:
+        return ""
+    grupos = [("artistas", "Artistas", "music_note"), ("atletas", "Atletas", "skateboarding"),
+              ("personalidades", "Personalidades", "groups")]
+    colunas = []
+    for chave, titulo, ic in grupos:
+        gente = bloco.get(chave)
+        if not gente:
+            continue
+        itens = "".join(f'<li><strong>{e(nome)}</strong><span>{e(papel)}</span></li>'
+                        for nome, papel in gente)
+        colunas.append(f"""<div class="cast-col"><h3>{icon(ic)} {titulo}</h3><ul>{itens}</ul></div>""")
+    fonte = ""
+    if bloco.get("fonte"):
+        label, url = bloco["fonte"]
+        fonte = (f'<p class="cast-source">Fonte: <a href="{e(url)}" target="_blank" '
+                 f'rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></p>')
+    return f"""<section class="container cast-section"><hr class="rule">
+<h2 class="section-title">QUEM ESTEVE<br><em>EM CENA.</em></h2>
+<div class="cast-grid">{''.join(colunas)}</div>{fonte}
+<p class="note">{e(data["note"])}</p></section>"""
+
+
+def events_table(depth):
+    """Uma linha por edição, da mais recente para a mais antiga."""
+    p = rel(depth)
+    op = MODEL["operacao"]["fichas"]
+    elenco = MODEL["elenco"]["por_edicao"]
+    aud = MODEL["audiencia"]["entries"]
+    linhas = []
+    edicoes = [(pr, y) for pr in PROJECTS for y in pr["years"]]
+    edicoes.sort(key=lambda t: (-t[1], t[0]["name"]))
+    for pr, year in edicoes:
+        key = f'{pr["slug"]}-{year}'
+        ed = pr.get("editions", {}).get(str(year), {})
+        ficha = op.get(key, {})
+        bruto = ficha.get("inscritos")
+        inscritos = bruto[0] if isinstance(bruto, list) else bruto
+        # número declarado vence estimativa, que vence projeção
+        prioridade = {"declarado": 0, "estimado": 1, "projecao": 2}
+        candidatos = sorted(
+            (x for x in aud if x["project"] == pr["slug"] and x["year"] == year
+             and x["family"] == "presencial" and x["value"]),
+            key=lambda x: prioridade.get(x.get("tipo", ""), 3))
+        publico = candidatos[0] if candidatos else None
+        if publico:
+            tipo = publico.get("tipo", "")
+            marca = {"declarado": "declarado", "estimado": "estimativa",
+                     "projecao": "projeção divulgada antes do evento"}.get(tipo, "")
+            classe = "val proj" if tipo == "projecao" else "val"
+            detalhe = (marca if tipo == "projecao"
+                       else f'{marca} · {e(publico["label"].lower())}')
+            pub = (f'<span class="{classe}">{big(publico["value"])}</span>'
+                   f'<small>{detalhe}</small>')
+        else:
+            pub = '<span class="val pend">a levantar</span>'
+        nomes = []
+        if key in elenco:
+            for chave in ("artistas", "atletas", "personalidades"):
+                nomes += [n for n, _ in elenco[key].get(chave, [])]
+        destaque = (", ".join(nomes[:4]) + (" e outros" if len(nomes) > 4 else "")) if nomes else "—"
+        linhas.append(f"""<tr><th scope="row"><a href="{p}projetos/{pr['slug']}/{year}/">{e(pr['name'])} {year}</a>
+<small>{e(ed.get('period', str(year)))}</small></th>
+<td>{e(ed.get('place', pr['location']))}</td>
+<td>{pub}</td>
+<td>{big(inscritos) if inscritos else '<span class="val pend">—</span>'}</td>
+<td>{e(destaque)}</td></tr>""")
+    return f"""<section class="container reach-section" id="eventos"><hr class="rule">
+<h2 class="section-title">EVENTO<br><em>POR EVENTO.</em></h2>
+<p class="body-copy">Cada edição com data, local, público, inscritos e quem esteve em cena. Da mais recente para a mais antiga.</p>
+<div class="charts"><div class="chart-card span-2">
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Edição</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Inscritos</th><th scope="col">Em cena</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver público, inscritos e elenco.</p></div></div></section>"""
+
+
 def page_data():
     depth, p = 1, rel(1)
     trail_html, trail_ld = crumbs(depth, [("Dados", None)])
@@ -963,25 +1056,18 @@ def page_data():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
-<section class="container data-stats">{panels_html}</section>
-{audience_blocks(depth)}\n{broadcast_block(depth)}
+{audience_blocks(depth)}
+{events_table(depth)}
+{broadcast_block(depth)}
 <section class="container charts">
-<div class="chart-card"><h3>Edições catalogadas por ano</h3>
-<p class="chart-sub">Quantas edições de projeto têm página própria em cada ano do acervo.</p>
+<div class="chart-card"><h3>Edições por ano</h3>
+<p class="chart-sub">Quantas edições a Cadillac tem documentadas em cada ano, do mais recente ao mais antigo.</p>
 <figure>{bars_vertical(per_year, ('edição', 'edições'))}
-<figcaption>Série única: edições catalogadas. Os anos sem barra não aparecem porque nenhuma edição foi catalogada neles nesta versão.</figcaption></figure></div>
+<figcaption>Série única. Ano sem barra é ano sem edição catalogada aqui, não ano sem evento.</figcaption></figure></div>
 <div class="chart-card"><h3>Projetos por área de atuação</h3>
 <p class="chart-sub">Distribuição do acervo entre esporte, festivais, música e cultura.</p>
 <figure>{bars_horizontal(cat_counts, ('projeto', 'projetos'), w=560)}
 <figcaption>Cada projeto é contado em uma única área, a predominante no registro.</figcaption></figure></div>
-<div class="chart-card"><h3>Registros documentados por projeto</h3>
-<p class="chart-sub">Fatos com fonte identificada em cada projeto, somando todas as edições.</p>
-<figure>{bars_horizontal(facts_by_project, ('registro', 'registros'), w=620)}
-<figcaption>Volume de documentação, não tamanho ou importância do evento.</figcaption></figure></div>
-<div class="chart-card"><h3>Fontes públicas por projeto</h3>
-<p class="chart-sub">Links únicos para documentos oficiais, sites de organização e imprensa.</p>
-<figure>{bars_horizontal(sources_by_project, ('fonte', 'fontes'), w=620)}
-<figcaption>URLs distintas. Uma mesma fonte citada em dois anos é contada uma vez.</figcaption></figure></div>
 <div class="chart-card span-2"><h3>Cobertura por projeto e ano</h3>
 <p class="chart-sub">Onde há edição documentada, a célula leva direto à página da edição.</p>
 {coverage_matrix(depth)}<p class="table-hint">Arraste a tabela para o lado para ver todos os anos.</p></div>

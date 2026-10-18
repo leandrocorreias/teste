@@ -466,17 +466,28 @@
       "desc": "Turnê, encontros e a trajetória de um projeto que levou a música brasileira a novos públicos.",
       "intro": "Dominguinho reúne João Gomes, Mestrinho e Jota.pê em um encontro musical de grande repercussão, conectando repertório brasileiro, apresentações ao vivo, registro audiovisual e presença forte nas plataformas de música.",
       "image": null,
-      "years": [],
-      "editions": {},
-      "records": [
-        "A turnê reúne João Gomes, Jota.pê e Mestrinho em shows de música brasileira.",
-        "A imprensa atribuiu ao projeto musical mais de 300 milhões de streams — métrica do projeto nas plataformas, não da Cadillac nem de um evento específico.",
-        "Reportagem de agosto de 2026 informou 43 shows realizados na turnê até aquela data.",
-        "A cobertura da Billboard lista, entre outras, Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal.",
-        "A TV Globo exibiu especial do projeto em 2026.",
-        "A participação da Cadillac foi informada pela direção do projeto e aguarda ficha técnica independente."
+      "years": [
+        2026
       ],
-      "facts": {},
+      "editions": {
+        "2026": {
+          "period": "Turnê 2026",
+          "place": "Circuito nacional",
+          "note": "43 shows informados até agosto de 2026"
+        }
+      },
+      "records": [],
+      "facts": {
+        "2026": [
+          "A turnê reúne João Gomes, Jota.pê e Mestrinho em shows de música brasileira.",
+          "Reportagem de agosto de 2026 informou 43 shows realizados na turnê até aquela data.",
+          "A cobertura da Billboard lista, entre outras, Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal.",
+          "A imprensa atribuiu ao projeto mais de 300 milhões de streams — métrica das plataformas, não de evento.",
+          "A TV Globo exibiu especial do projeto em 2026.",
+          "João Gomes também integrou a programação musical do Tamo Junto BB em Fortaleza, em dezembro de 2025.",
+          "A participação da Cadillac foi informada pela direção do projeto e aguarda ficha técnica independente."
+        ]
+      },
       "sources": [
         [
           "Billboard Brasil, turnê Dominguinho",
@@ -487,7 +498,18 @@
           "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
         ]
       ],
-      "yearsources": {},
+      "yearsources": {
+        "2026": [
+          [
+            "Billboard Brasil, turnê Dominguinho",
+            "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+          ],
+          [
+            "gshow, especial na TV Globo",
+            "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
+          ]
+        ]
+      },
       "faq": [
         [
           "O que é o Dominguinho?",
@@ -1299,7 +1321,9 @@
         "source": [
           "CBSk",
           "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
-        ]
+        ],
+        "tipo": "declarado",
+        "conta": ""
       },
       {
         "project": "tamo-junto-bb",
@@ -1312,7 +1336,9 @@
         "source": [
           "Banco do Brasil",
           "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
-        ]
+        ],
+        "tipo": "declarado",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1325,7 +1351,9 @@
         "source": [
           "Prefeitura de Niterói",
           "https://niteroi.rj.gov.br/prefeito-rodrigo-neves-participa-da-premiacao-do-campeonato-profissional-de-surfe-do-itacoatiara-pro-2026/"
-        ]
+        ],
+        "tipo": "declarado",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1338,7 +1366,9 @@
         "source": [
           "Prefeitura de Niterói",
           "https://niteroi.rj.gov.br/prefeito-rodrigo-neves-participa-da-premiacao-do-campeonato-profissional-de-surfe-do-itacoatiara-pro-2026/"
-        ]
+        ],
+        "tipo": "projecao",
+        "conta": ""
       },
       {
         "project": "dominguinho",
@@ -1351,7 +1381,9 @@
         "source": [
           "Billboard Brasil",
           "https://billboard.com.br/joao-gomes-turne-dominguinho/"
-        ]
+        ],
+        "tipo": "declarado",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1361,7 +1393,9 @@
         "label": "Público da 13ª edição",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1371,7 +1405,9 @@
         "label": "Público da edição",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1381,7 +1417,9 @@
         "label": "Público realizado da 14ª edição",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "vert-battle",
@@ -1391,7 +1429,9 @@
         "label": "Público somado das quatro etapas",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "vert-battle",
@@ -1401,7 +1441,9 @@
         "label": "Etapas de São Paulo e Maceió",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "tamo-junto-bb",
@@ -1411,7 +1453,9 @@
         "label": "Público de Fortaleza",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "tamo-junto-bb",
@@ -1421,17 +1465,9 @@
         "label": "Atletas e artistas em Natal",
         "basis": "",
         "counts": true,
-        "source": null
-      },
-      {
-        "project": "dominguinho",
-        "year": null,
-        "family": "presencial",
-        "value": null,
-        "label": "Público somado dos 43 shows",
-        "basis": "",
-        "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "festival-de-tribos-juruti",
@@ -1441,7 +1477,9 @@
         "label": "Público da Festa dos Visitantes",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "arte-em-circuito",
@@ -1451,7 +1489,9 @@
         "label": "Participantes das oficinas e residências",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "ccbb-mac-bahia",
@@ -1461,7 +1501,9 @@
         "label": "Público da ação no museu",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "vert-battle",
@@ -1471,7 +1513,9 @@
         "label": "Finais da etapa de Belo Horizonte, canal da CBSk",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "tamo-junto-bb",
@@ -1481,7 +1525,9 @@
         "label": "Transmissão do festival de Fortaleza",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "itacoatiara-pro",
@@ -1491,7 +1537,9 @@
         "label": "Transmissão da competição de bodyboard",
         "basis": "",
         "counts": true,
-        "source": null
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
       },
       {
         "project": "dominguinho",
@@ -1501,16 +1549,69 @@
         "label": "Especial exibido pela TV Globo",
         "basis": "",
         "counts": true,
+        "source": null,
+        "tipo": "pendente",
+        "conta": ""
+      },
+      {
+        "project": "vert-battle",
+        "year": 2026,
+        "family": "presencial",
+        "value": 12000,
+        "label": "Presenças na etapa de Belo Horizonte",
+        "tipo": "estimado",
+        "conta": "6.000 espectadores informados pela CBSk × 2 dias de competição",
+        "basis": "Estimativa de presenças a partir do número declarado pela entidade. Presenças não são pessoas únicas",
+        "counts": false,
+        "source": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "project": "tamo-junto-bb",
+        "year": 2024,
+        "family": "presencial",
+        "value": null,
+        "label": "Estimativa por capacidade da Arena das Dunas",
+        "tipo": "estimado",
+        "conta": "capacidade do estádio × taxa de ocupação × dias de festival",
+        "basis": "",
+        "counts": false,
+        "source": null
+      },
+      {
+        "project": "itacoatiara-pro",
+        "year": 2026,
+        "family": "presencial",
+        "value": null,
+        "label": "Estimativa por ocupação da orla",
+        "tipo": "estimado",
+        "conta": "extensão da praia × densidade por m² × dias de competição",
+        "basis": "",
+        "counts": false,
+        "source": null
+      },
+      {
+        "project": "dominguinho",
+        "year": 2026,
+        "family": "presencial",
+        "value": null,
+        "label": "Público somado dos 43 shows",
+        "tipo": "estimado",
+        "conta": "capacidade média das casas e arenas × ocupação × 43 shows",
+        "basis": "",
+        "counts": false,
         "source": null
       }
     ],
     "method": [
-      "Cada linha tem um responsável pelo número. Nada aqui é estimativa da Cadillac.",
-      "Público presente, atletas e alcance digital são três totais separados. Somar os três produziria um número inflado e indefensável.",
+      "Cada linha tem um responsável pelo número. Nada aqui é estimativa da Cadillac sem a conta à vista.",
+      "Público presente, atletas, alcance digital e audiência de transmissão são totais separados. Somar tudo produziria um número inflado e indefensável.",
+      "Estimativa por capacidade é permitida e fica marcada como estimativa, com a conta escrita na própria linha: capacidade do local × ocupação × dias. Ela não entra no total de público declarado.",
       "Projeção divulgada antes do evento nunca entra em total: projeção não é realizado.",
       "Público relatado por dia é contado uma vez enquanto o número de dias não for confirmado.",
-      "Quando houver bilheteria, catraca, contagem de credencial ou relatório de plataforma com data de captura, a linha passa de declarado para verificado.",
-      "Audiência de transmissão é lida na própria plataforma, com a URL exata e a data da captura. Visualização de vídeo não é pessoa, e número de TV aberta só entra com relatório da emissora."
+      "Quando houver bilheteria, catraca, credenciamento ou relatório de plataforma com data de captura, a linha passa de declarado para verificado."
     ]
   },
   "operacao": {
@@ -1792,5 +1893,206 @@
       }
     ],
     "note": "Nenhuma contagem foi lida ainda. Para cada linha, o que falta é a URL do vídeo ou o relatório da emissora e a data da leitura. Preencha em transmissoes.registros no content-model.json: a linha passa a mostrar o número, a plataforma e quando foi medido."
+  },
+  "elenco": {
+    "lede": "Quem esteve no palco, na pista e na linha de frente de cada edição, conforme os registros públicos.",
+    "por_edicao": {
+      "dominguinho-2026": {
+        "artistas": [
+          [
+            "João Gomes",
+            "voz e protagonista da turnê"
+          ],
+          [
+            "Mestrinho",
+            "sanfona e protagonista da turnê"
+          ],
+          [
+            "Jota.pê",
+            "voz e protagonista da turnê"
+          ]
+        ],
+        "fonte": [
+          "Billboard Brasil",
+          "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+        ]
+      },
+      "tamo-junto-bb-2025": {
+        "artistas": [
+          [
+            "João Gomes",
+            "show"
+          ],
+          [
+            "BaianaSystem",
+            "show"
+          ],
+          [
+            "Nação Zumbi",
+            "show"
+          ],
+          [
+            "L7nnon",
+            "show"
+          ],
+          [
+            "Rachel Reis",
+            "show"
+          ],
+          [
+            "Jota.pê",
+            "show"
+          ],
+          [
+            "Os Garotin",
+            "show"
+          ],
+          [
+            "Grupo Revelação",
+            "show"
+          ]
+        ],
+        "fonte": [
+          "Programação oficial, Fortaleza",
+          "https://tamojuntobb.com.br/fortaleza/"
+        ]
+      },
+      "vert-battle-2026": {
+        "atletas": [
+          [
+            "Thomas Augusto",
+            "campeão da etapa de Belo Horizonte"
+          ],
+          [
+            "Maria Luiza Santiago",
+            "campeã da etapa de Belo Horizonte"
+          ]
+        ],
+        "personalidades": [
+          [
+            "Rony Gomes",
+            "criador do circuito, em 2016"
+          ]
+        ],
+        "fonte": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      "vert-battle-2025": {
+        "atletas": [
+          [
+            "Khury",
+            "vencedor da etapa que antecedeu Niterói"
+          ]
+        ],
+        "fonte": [
+          "Lance, Vert Battle em Niterói",
+          "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+        ]
+      },
+      "itacoatiara-pro-2026": {
+        "atletas": [
+          [
+            "Vitor Ferreira",
+            "campeão do profissional de surfe"
+          ]
+        ],
+        "personalidades": [
+          [
+            "Giuliano Lara",
+            "idealizador do festival"
+          ],
+          [
+            "Bill Aquino",
+            "sócio na realização"
+          ],
+          [
+            "Alexandre Rangel",
+            "sócio na realização"
+          ]
+        ],
+        "fonte": [
+          "ge, Vitor Ferreira campeão",
+          "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
+        ]
+      },
+      "itacoatiara-pro-2022": {
+        "personalidades": [
+          [
+            "Bob Burnquist",
+            "presença registrada pela Prefeitura de Niterói"
+          ]
+        ],
+        "fonte": [
+          "Prefeitura de Niterói",
+          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+        ]
+      },
+      "festival-de-tribos-juruti-2018": {
+        "artistas": [
+          [
+            "André Frateschi",
+            "apresentação na Festa dos Visitantes"
+          ]
+        ],
+        "fonte": [
+          "Contrato e ficha do TCM-PA",
+          "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+        ]
+      }
+    },
+    "por_projeto": {
+      "ccbb-mac-bahia": {
+        "atletas": [
+          [
+            "Augusto Akio",
+            "skate"
+          ],
+          [
+            "Daniela Vitória",
+            "skate"
+          ],
+          [
+            "Davison Fortunato",
+            "skate"
+          ],
+          [
+            "SKTBR",
+            "coletivo citado na ação"
+          ]
+        ],
+        "fonte": null
+      },
+      "arte-em-circuito": {
+        "personalidades": [
+          [
+            "Bill Aquino",
+            "coordenação artística, creditada pelo Arte de Toda Gente"
+          ],
+          [
+            "Bob Burnquist",
+            "consultor e artista residente pelo Instituto IBB"
+          ]
+        ],
+        "fonte": [
+          "Arte de Toda Gente, institucional",
+          "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+        ]
+      },
+      "bob-burnquist": {
+        "personalidades": [
+          [
+            "Bob Burnquist",
+            "skatista, participações no Itacoatiara Pro em 2022 e 2024"
+          ]
+        ],
+        "fonte": [
+          "Prefeitura de Niterói",
+          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+        ]
+      }
+    },
+    "note": "Nome em lista aqui significa participação registrada em fonte pública, não contrato com a Cadillac. Artistas, atletas e personalidades de outras edições entram conforme a ficha técnica de cada uma for recuperada."
   }
 }

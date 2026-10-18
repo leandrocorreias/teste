@@ -438,6 +438,8 @@ def write(path, content):
 
 
 def page_home():
+    T = audience_totals()
+    pend = sum(t["pend"] for t in T.values())
     org = {"@context": "https://schema.org", "@type": "Organization",
            "name": SITE["name"], "url": BASE, "email": SITE["email"],
            "description": SITE["tagline"],
@@ -467,11 +469,12 @@ def page_home():
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></section>
 <section class="container"><div class="hero-metrics">
-<div><strong>{M['projects']:02d}</strong><span>Projetos documentados</span></div>
-<div><strong>{M['editions']:02d}</strong><span>Edições com página própria</span></div>
-<div><strong>{M['span']}</strong><span>Período coberto</span></div>
-<div><strong>{M['sources']:02d}</strong><span>Fontes públicas citadas</span></div>
-</div></section>
+<a href="./dados/#alcance"><strong>{curto(T['presencial']['sum'])}</strong><span>Público presente</span></a>
+<a href="./dados/#alcance"><strong>{curto(T['competicao']['sum'])}</strong><span>Atletas e artistas</span></a>
+<a href="./dados/#alcance"><strong>{curto(T['digital']['sum'])}</strong><span>Alcance digital</span></a>
+<a href="./projetos/"><strong>{M['projects']:02d}</strong><span>Projetos documentados</span></a>
+</div>
+<p class="hero-metrics-note">{icon('insights')}<span>Números declarados por organizadores, entidades e imprensa, somados por grandeza e nunca entre si. {plural(pend, 'registro ainda sem dado', 'registros ainda sem dado')} — veja a <a href="./dados/#alcance">tabela linha a linha</a>.</span></p></section>
 <section class="container showcase" id="projetos">
 <h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
@@ -775,19 +778,35 @@ def big(n):
     return f"{n:,}".replace(",", ".")
 
 
-def audience_blocks(depth):
-    p = rel(depth)
-    data = MODEL["audiencia"]
-    by_slug = {pr["slug"]: pr for pr in PROJECTS}
-    fams = data["families"]
-    totals = {k: {"sum": 0, "n": 0, "pend": 0} for k in fams}
-    for x in data["entries"]:
+def curto(n):
+    """Forma curta para o topo da home: 36 mil, 300 mi."""
+    if n >= 1_000_000:
+        v = n / 1_000_000
+        return (f"{v:.1f}".replace(".", ",").rstrip("0").rstrip(",") + " mi")
+    if n >= 1000:
+        v = n / 1000
+        return (f"{v:.1f}".replace(".", ",").rstrip("0").rstrip(",") + " mil")
+    return big(n)
+
+
+def audience_totals():
+    totals = {k: {"sum": 0, "n": 0, "pend": 0} for k in MODEL["audiencia"]["families"]}
+    for x in MODEL["audiencia"]["entries"]:
         t = totals[x["family"]]
         if x["value"] is None:
             t["pend"] += 1
         elif x["counts"]:
             t["sum"] += x["value"]
             t["n"] += 1
+    return totals
+
+
+def audience_blocks(depth):
+    p = rel(depth)
+    data = MODEL["audiencia"]
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    fams = data["families"]
+    totals = audience_totals()
 
     panels = []
     for key, (label, desc, ic) in fams.items():
@@ -823,7 +842,7 @@ def audience_blocks(depth):
         ("pessoa", "pessoas"), w=620) if filled else "")
     method = "".join(f'<li>{icon("arrow_forward")} {e(t)}</li>' for t in data["method"])
     pend = sum(t["pend"] for t in totals.values())
-    return f"""<section class="container reach-section"><hr class="rule">
+    return f"""<section class="container reach-section" id="alcance"><hr class="rule">
 <h2 class="section-title">QUANTA GENTE<br><em>A GENTE ALCANÇA.</em></h2>
 <p class="body-copy">{e(data['lede'])}</p>
 <div class="data-stats reach-grid">{''.join(panels)}</div>

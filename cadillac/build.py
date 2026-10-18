@@ -143,7 +143,7 @@ def header(depth, active=""):
         url = (home + target) if not target.startswith("#") else (home + target)
         cur = ' aria-current="page"' if key == active else ""
         desk.append(f'<a href="{url}"{cur}>{label}</a>')
-        mob.append(f'<a href="{url}"{cur}>{label} {icon("chevron_right")}</a>')
+        mob.append(f'<a href="{url}"{cur}>{label}</a>')
     return f"""<body><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header"><div class="header-inner">
 <a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>

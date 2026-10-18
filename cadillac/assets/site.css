@@ -362,6 +362,24 @@ a.service-row{color:inherit}
 .tag-ok{color:var(--orange-ink)}.tag-wait{color:var(--muted)}
 .tag-ok .cd-icon,.tag-wait .cd-icon{font-size:15px}
 
+/* Ficha de operação */
+.op-section{padding-bottom:clamp(60px,9vw,120px)}
+.op-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;
+  margin-top:clamp(22px,3vw,34px)}
+.op-tile{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--border-strong);
+  padding:clamp(18px,2.2vw,24px);display:flex;flex-direction:column;gap:8px}
+.op-tile .cd-icon{font-size:22px;color:var(--orange-ink)}
+.op-tile strong{font:800 clamp(30px,3.4vw,46px)/.9 var(--font-display);overflow-wrap:anywhere}
+.op-tile span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.op-tile small{font-size:12px;line-height:1.55;color:var(--muted)}
+.op-tile code{font:600 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--paper-2);
+  border:1px solid var(--border);padding:5px 7px;color:var(--ink-2);overflow-wrap:anywhere;margin-top:auto}
+.op-tile.pend{background:repeating-linear-gradient(135deg,var(--paper) 0 10px,#f1efe9 10px 20px);
+  border-top-color:var(--border)}
+.op-tile.pend .cd-icon{color:var(--muted)}
+.op-tile.pend strong{font-family:var(--font-text);font-size:13px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);line-height:1.3}
+
 /* 8. Dados e gráficos ---------------------------------------------------- */
 .data-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;
   padding-bottom:clamp(50px,7vw,90px)}

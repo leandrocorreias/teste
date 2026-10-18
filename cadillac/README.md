@@ -70,6 +70,15 @@ Incorporação do dossiê consolidado de outubro de 2026.
   edição, e 1 por case em Atuação. Nenhuma arte é inventada e nenhuma foto de terceiro é
   hotlinkada: as três prévias que vinham de portais de notícia foram retiradas e estão
   listadas em `assets/fotos/LEIA-ME.md` para substituição por material oficial.
+- **Ficha de operação**: cada projeto ganhou um bloco de porte (cidades, modalidades, maior
+  público, equipe, fornecedores, dias de montagem) e cada edição uma ficha completa
+  (inscritos, público, capacidade do local, equipe em operação, fornecedores, dias de evento
+  e de montagem, modalidades, palcos e transmissão). O campo sem dado aparece como
+  "a preencher" com o caminho exato no `content-model.json`, em vez de sumir.
+- **Interruptor `MOSTRAR_CAMPOS`** no topo do `build.py`: com `True`, os campos vazios e os
+  espaços de imagem exibem o caminho do arquivo ou da chave, para a equipe preencher. Troque
+  para `False` antes de publicar e os caminhos somem da página, ficando apenas no atributo
+  `title`.
 - **Página de alcance**: `/dados/` abre com quanta gente a Cadillac alcança, em três totais
   que nunca se misturam — público presente, atletas e artistas, alcance digital. Cada linha
   tem o responsável pelo número e a base; as que faltam aparecem como "a preencher" em vez de

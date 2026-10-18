@@ -18,6 +18,10 @@ BASE = SITE["url"].rstrip("/")
 CATS = MODEL["categories"]
 PROJECTS = MODEL["projects"]
 
+# Modo de preenchimento: mostra, em cada campo vazio, o caminho exato no
+# content-model.json. Deixe False antes de publicar para o público.
+MOSTRAR_CAMPOS = True
+
 ICON_SUBSET = ",".join(sorted([
     "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
     "chevron_right", "close", "description", "engineering", "expand_more", "festival",
@@ -209,9 +213,12 @@ def og_for(project, year=None):
 
 def slot(name, ratio, what, extra=""):
     """Espaço reservado para a imagem oficial que ainda vai entrar."""
-    return (f'<div class="photo-slot {extra}" role="img" aria-label="Espaço reservado para '
-            f'imagem: {e(what)}"><span class="slot-mark">{icon("photo_camera")}</span>'
-            f'<strong>{e(what)}</strong><code>assets/fotos/{e(name)}</code>'
+    caminho = f"assets/fotos/{name}"
+    chip = f"<code>{e(caminho)}</code>" if MOSTRAR_CAMPOS else ""
+    return (f'<div class="photo-slot {extra}" role="img" title="{e(caminho)}" '
+            f'aria-label="Espaço reservado para imagem: {e(what)}">'
+            f'<span class="slot-mark">{icon("photo_camera")}</span>'
+            f'<strong>{e(what)}</strong>{chip}'
             f'<small>{e(ratio)} · imagem oficial com direito de uso</small></div>')
 
 
@@ -620,6 +627,7 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    sections.append(op_project(pr))
     sections.append(f"""<section class="container sources">
 <hr class="rule">
 <h2>FONTES PARA IR ALÉM.</h2>{source_list(pr['sources'])}</section>""")
@@ -705,6 +713,7 @@ def page_edition(pr, year):
 <hr class="rule">
 <h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
 <div class="facts">{facts_html}</div></section>
+{op_edition(pr, year)}
 <section class="container gallery-section">
 <hr class="rule">
 <h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
@@ -857,6 +866,54 @@ def audience_blocks(depth):
 <div class="area-list reach-method"><h3>Como este número é construído</h3><ul>{method}</ul></div>
 <p class="note">Hoje {plural(pend, 'linha depende', 'linhas dependem')} de dado que só a produção tem: bilheteria, contagem de credencial, relatório de plataforma ou laudo de público. Enquanto não chegam, o total mostra menos do que a Cadillac realmente alcançou — e é assim que deve ser, porque número sem origem não se defende em reunião de patrocínio.</p>
 </section>"""
+
+
+def op_tiles(values, scope_key, order):
+    """Grade da ficha operacional. Campo sem dado aparece como 'a preencher'."""
+    campos = MODEL["operacao"]["campos"]
+    tiles = []
+    for key in order:
+        label, help_text, ic = campos[key]
+        raw = values.get(key)
+        value, basis = (raw if isinstance(raw, list) else (raw, "")) if raw else (None, "")
+        if value in (None, ""):
+            campo = f"{scope_key} · {key}"
+            chip = f"<code>{e(campo)}</code>" if MOSTRAR_CAMPOS else ""
+            tiles.append(f"""<div class="op-tile pend" title="{e(campo)}">{icon(ic)}
+<strong>a preencher</strong><span>{e(label)}</span>
+<small>{e(help_text)}</small>{chip}</div>""")
+        else:
+            shown = big(value) if isinstance(value, int) else e(value)
+            tiles.append(f"""<div class="op-tile">{icon(ic)}
+<strong>{shown}</strong><span>{e(label)}</span>
+<small>{e(basis or help_text)}</small></div>""")
+    return f'<div class="op-grid">{"".join(tiles)}</div>'
+
+
+def op_project(pr):
+    data = MODEL["operacao"]
+    perfil = dict(data["perfil"].get(pr["slug"], {}))
+    fichas = [v for k, v in data["fichas"].items() if k.startswith(pr["slug"] + "-")]
+    publicos = [f["publico"][0] for f in fichas if f.get("publico") and f["publico"][0]]
+    if publicos:
+        perfil.setdefault("publico", [max(publicos),
+                                      "Maior público registrado entre as edições catalogadas"])
+    order = ["cidades", "modalidades", "publico", "staff", "fornecedores", "dias_montagem"]
+    return f"""<section class="container op-section"><hr class="rule">
+<h2 class="section-title">PORTE DA<br><em>OPERAÇÃO.</em></h2>
+<p class="body-copy">O que este projeto mobiliza para acontecer. Os campos preenchidos têm origem identificada; os demais dependem de dado da produção.</p>
+{op_tiles(perfil, f'operacao.perfil.{pr["slug"]}', order)}</section>"""
+
+
+def op_edition(pr, year):
+    key = f'{pr["slug"]}-{year}'
+    ficha = MODEL["operacao"]["fichas"].get(key, {})
+    order = ["inscritos", "publico", "capacidade", "staff", "fornecedores",
+             "dias_evento", "dias_montagem", "modalidades", "palcos", "transmissao"]
+    return f"""<section class="container op-section"><hr class="rule">
+<h2 class="section-title">A OPERAÇÃO<br><em>DESTA EDIÇÃO.</em></h2>
+{op_tiles(ficha, f'operacao.fichas.{key}', order)}
+<p class="note">{e(MODEL["operacao"]["note"])}</p></section>"""
 
 
 def page_data():

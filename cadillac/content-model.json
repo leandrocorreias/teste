@@ -1476,5 +1476,182 @@
       "Público relatado por dia é contado uma vez enquanto o número de dias não for confirmado.",
       "Quando houver bilheteria, catraca, contagem de credencial ou relatório de plataforma com data de captura, a linha passa de declarado para verificado."
     ]
+  },
+  "operacao": {
+    "lede": "A ficha operacional de cada projeto e de cada edição: quanta gente se inscreve, quanta cabe, quanta trabalha para o evento acontecer e o que foi preciso montar.",
+    "campos": {
+      "inscritos": [
+        "Inscritos",
+        "atletas e participantes inscritos na edição",
+        "groups"
+      ],
+      "publico": [
+        "Público realizado",
+        "pessoas no evento, por contagem ou estimativa de quem organizou",
+        "groups"
+      ],
+      "capacidade": [
+        "Capacidade do local",
+        "lotação máxima da arena, praia ou equipamento",
+        "place"
+      ],
+      "staff": [
+        "Equipe em operação",
+        "pessoas trabalhando no pico da produção, entre equipe própria, fornecedores e voluntários",
+        "engineering"
+      ],
+      "fornecedores": [
+        "Fornecedores",
+        "empresas contratadas para estrutura, som, luz, transmissão, segurança e logística",
+        "campaign"
+      ],
+      "dias_evento": [
+        "Dias de evento",
+        "dias com programação aberta ao público",
+        "calendar_month"
+      ],
+      "dias_montagem": [
+        "Dias de montagem",
+        "dias de montagem e desmontagem da estrutura",
+        "engineering"
+      ],
+      "modalidades": [
+        "Modalidades",
+        "esportes e linguagens artísticas na programação",
+        "skateboarding"
+      ],
+      "palcos": [
+        "Palcos e arenas",
+        "estruturas simultâneas em operação",
+        "festival"
+      ],
+      "cidades": [
+        "Cidades",
+        "sedes da temporada ou da turnê",
+        "place"
+      ],
+      "transmissao": [
+        "Transmissão",
+        "canal ou plataforma que transmitiu",
+        "movie"
+      ]
+    },
+    "perfil": {
+      "itacoatiara-pro": {
+        "modalidades": [
+          5,
+          "Bodyboard, surfe, skate, vela e parapente, conforme registros públicos"
+        ],
+        "cidades": [
+          1,
+          "Niterói, RJ"
+        ]
+      },
+      "vert-battle": {
+        "cidades": [
+          6,
+          "Goiânia, Niterói, Curitiba, Fortaleza, Belo Horizonte e São Paulo, somando as temporadas catalogadas"
+        ],
+        "modalidades": [
+          1,
+          "Skate vertical"
+        ]
+      },
+      "tamo-junto-bb": {
+        "cidades": [
+          2,
+          "Natal e Fortaleza"
+        ],
+        "modalidades": [
+          5,
+          "Skate, surfe, vôlei de praia, corrida e games, além da programação musical"
+        ]
+      },
+      "dominguinho": {
+        "cidades": [
+          6,
+          "Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal, entre as divulgadas"
+        ]
+      },
+      "festival-de-tribos-juruti": {
+        "cidades": [
+          1,
+          "Juruti, PA"
+        ]
+      },
+      "ccbb-mac-bahia": {
+        "cidades": [
+          1,
+          "Salvador, BA"
+        ]
+      }
+    },
+    "fichas": {
+      "itacoatiara-pro-2026": {
+        "inscritos": [
+          500,
+          "Declarado pela Prefeitura de Niterói"
+        ],
+        "dias_evento": [
+          17,
+          "De 22 de maio a 7 de junho"
+        ],
+        "modalidades": [
+          5,
+          "Bodyboard, surfe, skate, vela e parapente"
+        ]
+      },
+      "itacoatiara-pro-2025": {
+        "dias_evento": [
+          17,
+          "De 30 de maio a 15 de junho"
+        ]
+      },
+      "vert-battle-2026": {
+        "publico": [
+          6000,
+          "Espectadores informados pela CBSk na etapa de Belo Horizonte"
+        ],
+        "dias_evento": [
+          2,
+          "12 e 13 de setembro, etapa de Belo Horizonte"
+        ],
+        "cidades": [
+          3,
+          "Belo Horizonte, São Paulo e Maceió"
+        ],
+        "transmissao": [
+          "Canal oficial da CBSk",
+          "Finais de Belo Horizonte"
+        ]
+      },
+      "vert-battle-2025": {
+        "cidades": [
+          4,
+          "Goiânia, Niterói, Curitiba e Fortaleza"
+        ]
+      },
+      "tamo-junto-bb-2025": {
+        "dias_evento": [
+          5,
+          "De 10 a 14 de dezembro"
+        ],
+        "modalidades": [
+          5,
+          "Skate, surfe, vôlei de praia, corrida e games"
+        ]
+      },
+      "tamo-junto-bb-2024": {
+        "publico": [
+          30000,
+          "Relato de executivo do patrocinador, por dia, sem unicidade"
+        ],
+        "capacidade": [
+          null,
+          ""
+        ]
+      }
+    },
+    "note": "Os campos em branco dependem de dado que fica com a produção: planilha de credenciamento, mapa de equipe, contrato de locação do espaço e lista de fornecedores. Preencha em operacao.fichas no content-model.json e rode o gerador."
   }
 }

@@ -22,15 +22,16 @@ ICON_SUBSET = ",".join(sorted([
     "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
     "chevron_right", "close", "description", "engineering", "expand_more", "festival",
     "filter_list", "home", "insights", "mail", "menu", "movie", "music_note", "north",
-    "open_in_new", "palette", "place", "search", "skateboarding", "stacked_bar_chart",
-    "verified",
+    "open_in_new", "palette", "place", "public", "search", "skateboarding",
+    "stacked_bar_chart", "verified",
 ]))
 
 NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
+    ("Atuação", "atuacao/", "atuacao", "engineering"),
     ("Na Mídia", "na-midia/", "na-midia", "description"),
     ("Dados", "dados/", "dados", "insights"),
-    ("Atuação", "atuacao/", "atuacao", "engineering"),
+    ("Ecossistema", "ecossistema/", "ecossistema", "public"),
     ("Cadillac", "#sobre", "sobre", "verified"),
 ]
 
@@ -76,7 +77,7 @@ def head(depth, title, desc, path, jsonld=(), extra=""):
         '<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        'family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700'
+        'family=Roboto+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700'
         '&display=swap">'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
         f'family=Material+Symbols+Outlined&amp;icon_names={ICON_SUBSET}&amp;display=block">'
@@ -154,9 +155,10 @@ def footer(depth):
     p = rel(depth)
     home = p if depth else "./"
     links = [("Projetos", home + "projetos/", "stacked_bar_chart"),
+             ("Atuação", home + "atuacao/", "engineering"),
              ("Na Mídia", home + "na-midia/", "description"),
              ("Dados", home + "dados/", "insights"),
-             ("Atuação", home + "atuacao/", "engineering"),
+             ("Ecossistema", home + "ecossistema/", "public"),
              ("Cadillac", home + "#sobre", "verified"),
              ("Contato", home + "#contato", "mail")]
     nav = "".join(f'<a href="{u}">{icon(i)} {l}</a>' for l, u, i in links)
@@ -171,6 +173,9 @@ def footer(depth):
 
 
 def source_list(sources):
+    if not sources:
+        return ('<p class="note">Nenhuma fonte pública recuperada até agora para este registro. '
+                'A ficha técnica institucional está sendo solicitada e entra aqui assim que chegar.</p>')
     rows = []
     for label, url in sources:
         rows.append(
@@ -182,8 +187,23 @@ def source_list(sources):
     return f'<div class="source-list">{"".join(rows)}</div>'
 
 
-def media(project, classes="", eager=False):
+def photo_for(project, year=None):
+    """Foto local do acervo, se o arquivo já tiver sido colocado em assets/fotos."""
+    stem = project["slug"] + (f"-{year}" if year else "")
+    for ext in ("jpg", "jpeg", "png", "webp"):
+        f = ROOT / "assets" / "fotos" / f"{stem}.{ext}"
+        if f.exists():
+            return f"assets/fotos/{stem}.{ext}"
+    return None
+
+
+def media(project, classes="", eager=False, year=None, depth=0):
+    local = photo_for(project, year)
     img = project.get("image")
+    if local:
+        img = {"url": rel(depth) + local,
+               "alt": f"{project['name']}" + (f", edição {year}" if year else ""),
+               "credit": "Acervo Cadillac"}
     theme = project.get("theme", "")
     inner = []
     if img:
@@ -225,8 +245,9 @@ def card(project, depth, eager=False):
     meta = (f'<span>{icon(cat["icon"])} {e(cat["label"])}</span>'
             f'<span>{icon("place")} {e(project["location"])}</span>'
             f'<span>{icon("calendar_month")} {e(project["period"])}</span>')
+    img = media(project, eager=eager, depth=depth)
     return f"""<a class="work-card" data-project data-categoria="{project['category']}" data-anos="{years}" data-busca="{e(search_blob)}" href="{p}projetos/{project['slug']}/">
-{media(project, eager=eager)}
+{img}
 <div class="card-info"><div><h3>{e(project['name'])}</h3><div class="card-meta">{meta}</div></div>
 <span class="card-arrow">{icon('arrow_outward')}</span></div></a>"""
 
@@ -348,6 +369,21 @@ def coverage_matrix(depth):
 <tbody>{"".join(rows)}</tbody></table></div>"""
 
 
+def declared_table(depth):
+    p = rel(depth)
+    rows = []
+    for d in MODEL["declared_metrics"]:
+        label, url = d["source"]
+        rows.append(f"""<tr><th scope="row"><a href="{p}{d['href']}">{e(d['event'])}</a></th>
+<td><span class="val">{e(d['value'])}</span><small>{e(d['what'])}</small></td>
+<td>{e(d['nature'])}</td>
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+    return f"""<div class="table-wrap"><table class="amounts declared">
+<caption>Números divulgados por organizadores, entidades, poder público ou imprensa. A Cadillac não os audita nem os apresenta como resultado próprio. Nunca some streams, público presencial e audiência de transmissão: são grandezas diferentes.</caption>
+<thead><tr><th scope="col">Evento</th><th scope="col">Número</th><th scope="col">Natureza e atribuição</th><th scope="col">Quem divulgou</th></tr></thead>
+<tbody>{"".join(rows)}</tbody></table></div>"""
+
+
 def amounts_table():
     rows = []
     for pr in PROJECTS:
@@ -400,9 +436,9 @@ def page_home():
         for i, (outlet, title, url) in enumerate(MODEL["featured_press"], start=1))
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero container">
-<div class="hero-big"><h1>A GENTE FAZ.<br>A GENTE RESOLVE.<br><em>O EXTRAORDINÁRIO ACONTECE.</em></h1>
+<div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</h1>
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
-<div class="hero-bottom"><p>Do primeiro rabisco ao último aplauso. A gente transforma desafios em experiências que movem pessoas, marcas e cidades.</p>
+<div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></section>
 <section class="container"><div class="hero-metrics">
 <div><strong>{M['projects']:02d}</strong><span>Projetos documentados</span></div>
@@ -420,8 +456,8 @@ def page_home():
 <div class="article-grid">{''.join(highlights)}</div></section>
 <section class="statement" id="sobre"><div class="container statement-grid">
 <div><h2>O IMPOSSÍVEL<br>NÃO ENTRA <em>NA PLANILHA.</em></h2>
-<p>A Cadillac reúne trajetória em produção artística, esportes e entretenimento. Este portal documenta cada projeto com contexto, edições, registros e fontes. O que merece ficar não termina quando o evento acaba.</p>
-<p>Cada afirmação publicada aqui tem origem identificada. Quando um dado depende de contrato, ficha técnica ou autorização ainda em validação, dizemos isso na própria página.</p></div></div></section>
+{''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}
+<p class="statement-meta">{e(SITE['legal'])} · CNPJ {SITE['cnpj']} · Desde {e(SITE['founded'])} · {e(SITE['origin'])}</p></div></div></section>
 <section class="container services" id="atuacao">
 <hr class="rule">
 <h2 class="section-title">DA IDEIA À<br><em>EXPERIÊNCIA.</em></h2>
@@ -577,7 +613,7 @@ def page_project(pr):
 <section class="project-hero container">
 <a class="back" href="{p}projetos/">{icon('arrow_back')} Todos os projetos</a>
 <div class="project-title"><h1>{e(pr['name'])}<span class="orange">.</span></h1><p>{e(pr['desc'])}</p></div>
-{media(pr, 'banner', eager=True)}{metric}</section>
+{media(pr, 'banner', eager=True, depth=depth)}{metric}</section>
 {''.join(sections)}</main>"""
     return write(f"projetos/{slug}/index.html",
                  head(depth, f"{pr['name']} | Histórico e edições | Cadillac Produções",
@@ -626,7 +662,7 @@ def page_edition(pr, year):
 <h1>{e(pr['name'])}<br><em>{year}.</em></h1>
 <p class="lede">{e(pr['desc'])}</p>
 <div class="taglist">{''.join(meta_tags)}</div>
-{media(pr, 'banner', eager=True)}
+{media(pr, 'banner', eager=True, year=year, depth=depth)}
 <div class="metric-row">
 <div><strong>{len(facts):02d}</strong><span>Fatos documentados</span></div>
 <div><strong>{len(sources):02d}</strong><span>Fontes desta edição</span></div>
@@ -727,6 +763,8 @@ def page_data():
     ]
     panels_html = "".join(f'<div class="data-panel">{icon(ic)}<div><strong>{v}</strong>'
                           f'<span>{l}</span></div></div>' for ic, v, l in panels)
+    sector_html = "".join(f'<div><strong>{e(v)}</strong><span>{e(l)}</span></div>'
+                          for v, l in MODEL["sector"]["items"])
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
@@ -751,10 +789,18 @@ def page_data():
 <div class="chart-card span-2"><h3>Cobertura por projeto e ano</h3>
 <p class="chart-sub">Onde há edição documentada, a célula leva direto à página da edição.</p>
 {coverage_matrix(depth)}<p class="table-hint">Arraste a tabela para o lado para ver todos os anos.</p></div>
+<div class="chart-card span-2"><h3>Números divulgados por terceiros</h3>
+<p class="chart-sub">Público, atletas, premiações e streams que aparecem em fontes públicas — com quem divulgou e o que cada número realmente mede.</p>
+{declared_table(depth)}
+<p class="table-hint">Arraste a tabela para o lado para ver a atribuição e a fonte.</p></div>
 <div class="chart-card span-2"><h3>Valores em registros públicos</h3>
 <p class="chart-sub">Os únicos valores financeiros que este portal publica são os que constam em documentos públicos, com a fonte ao lado.</p>
 {amounts_table()}<p class="table-hint">Arraste a tabela para o lado para ver valor e fonte.</p></div>
 </section>
+<section class="container sector"><hr class="rule">
+<h2 class="section-title">O SETOR EM QUE<br><em>A GENTE OPERA.</em></h2>
+<div class="hero-metrics">{sector_html}</div>
+<p class="note">{e(MODEL['sector']['note'])}</p></section>
 <section class="container sources">
 <hr class="rule">
 <h2>DADOS COM ORIGEM.</h2>
@@ -844,6 +890,43 @@ def page_atuacao():
                       "atuacao/", [ld, trail_ld]) + header(depth, "atuacao") + body + footer(depth))
 
 
+def page_ecossistema():
+    depth, p = 1, rel(1)
+    data = MODEL["ecossistema"]
+    trail_html, trail_ld = crumbs(depth, [("Ecossistema", None)])
+    roles = "".join(
+        f'<article><span class="step-i">{icon(ic)}</span><h3>{e(title)}</h3><p>{e(desc)}</p></article>'
+        for title, desc, ic in data["roles"])
+    rows = []
+    for name, role, where, slug, note, confirmed in data["entities"]:
+        status = (f'<span class="tag-ok">{icon("verified")} Fonte pública</span>' if confirmed
+                  else f'<span class="tag-wait">{icon("description")} A confirmar</span>')
+        link = f'<a href="{p}projetos/{slug}/">{e(where)} {icon("arrow_outward")}</a>' if slug else e(where)
+        rows.append(f"""<tr><th scope="row">{e(name)}</th><td>{e(role)}</td>
+<td>{link}</td><td>{e(note)}<small>{status}</small></td></tr>""")
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><h1>ECOSSISTEMA<span class="orange">.</span></h1>
+<p class="lede">{e(data["lede"])}</p></section>
+<section class="container method-section"><hr class="rule">
+<h2 class="section-title">CADA UM TEM<br><em>UM PAPEL.</em></h2>
+<div class="method">{roles}</div></section>
+<section class="container sources"><hr class="rule">
+<h2 class="section-title">QUEM APARECE<br><em>NOS REGISTROS.</em></h2>
+<div class="table-wrap"><table class="amounts eco-table">
+<caption>Relações identificadas em fonte pública ou informadas pela direção do projeto, organizadas por papel.</caption>
+<thead><tr><th scope="col">Quem</th><th scope="col">Papel</th><th scope="col">Onde</th><th scope="col">O que o registro diz</th></tr></thead>
+<tbody>{"".join(rows)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver o papel e o registro.</p>
+<p class="note">{e(data["note"])}</p></section></main>"""
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Ecossistema",
+          "url": f"{BASE}/ecossistema/", "inLanguage": "pt-BR"}
+    return write("ecossistema/index.html",
+                 head(depth, "Ecossistema | Parceiros, entidades e fornecedores | Cadillac Produções",
+                      "Quem é patrocinador, titular, organizador, produtora, entidade esportiva, "
+                      "órgão público, fornecedor, artista e imprensa em cada projeto do acervo Cadillac.",
+                      "ecossistema/", [ld, trail_ld]) + header(depth, "ecossistema") + body + footer(depth))
+
+
 def page_404():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
@@ -862,7 +945,7 @@ def page_404():
 
 
 def page_sitemap():
-    urls = ["", "projetos/", "atuacao/", "na-midia/", "dados/"]
+    urls = ["", "projetos/", "atuacao/", "na-midia/", "dados/", "ecossistema/"]
     for pr in PROJECTS:
         urls.append(f"projetos/{pr['slug']}/")
         for y in pr["years"]:
@@ -880,7 +963,8 @@ def page_sitemap():
 
 
 def main():
-    written = [page_home(), page_projects(), page_atuacao(), page_press(), page_data(), page_404()]
+    written = [page_home(), page_projects(), page_atuacao(), page_press(), page_data(),
+               page_ecossistema(), page_404()]
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

@@ -7,14 +7,14 @@
 /* 1. Tokens ------------------------------------------------------------- */
 :root{
   --black:#101010;--graphite:#1d1d1e;--ink:#1c1c1c;--ink-2:#55524e;--muted:#6d6a65;
-  --orange:#e94f00;--orange-ink:#c23f00;--paper:#f7f6f3;--paper-2:#eeece7;
+  --orange:#ff5900;--orange-ink:#bf3d00;--paper:#f7f6f3;--paper-2:#eeece7;
   --border:#d8d6d0;--border-strong:#1c1c1c;--white:#fff;
   --surface-dark:#171717;--grid:#cfcdc7;
   --max:1410px;--gutter:clamp(17px,4vw,52px);
   --r:4px;--r-pill:40px;
   --t:.22s cubic-bezier(.3,.7,.3,1);
-  --font-display:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
-  --font-text:'DM Sans',system-ui,Arial,sans-serif;
+  --font-display:'Roboto Condensed','Arial Narrow',Impact,sans-serif;
+  --font-text:'Manrope',system-ui,Arial,sans-serif;
 }
 
 /* 2. Base --------------------------------------------------------------- */
@@ -296,10 +296,9 @@ body.nav-open{overflow:hidden}
 .area-index .chip:hover{background:var(--ink);border-color:var(--ink);color:#fff}
 .area-index .chip:hover .cd-icon{color:var(--orange)}
 .method-section,.area{padding-bottom:clamp(60px,9vw,120px)}
-.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1px;
-  background:var(--border);border:1px solid var(--border)}
-.method article{background:var(--paper);padding:clamp(20px,2.6vw,28px);display:flex;
-  flex-direction:column;gap:12px}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.method article{background:var(--white);border:1px solid var(--border);
+  padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:12px}
 .method h3{font-size:clamp(21px,2.2vw,27px);margin:0}
 .method p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.65}
 .step-i,.svc-i{display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;
@@ -331,6 +330,20 @@ body.nav-open{overflow:hidden}
 .case-links a:hover{color:var(--orange)}
 .case-links .cd-icon{font-size:17px}
 a.service-row{color:inherit}
+
+.statement-meta{font-size:12px;letter-spacing:.06em;color:#8e8b86;margin:26px 0 0;text-transform:uppercase}
+.sector{padding-bottom:clamp(50px,7vw,90px)}
+.sector .hero-metrics{margin-bottom:22px}
+.declared th[scope="row"] a{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.declared th[scope="row"] a:hover{color:var(--orange-ink)}
+.amounts td small{display:block}
+.eco-table th[scope="row"]{font:700 14px/1.35 var(--font-text);letter-spacing:0;text-transform:none;
+  color:var(--ink);min-width:190px}
+.eco-table a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px}
+.tag-ok,.tag-wait{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.tag-ok{color:var(--orange-ink)}.tag-wait{color:var(--muted)}
+.tag-ok .cd-icon,.tag-wait .cd-icon{font-size:15px}
 
 /* 8. Dados e gráficos ---------------------------------------------------- */
 .data-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;

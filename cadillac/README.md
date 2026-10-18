@@ -1,4 +1,4 @@
-# CADILLAC / PORTAL — V7
+# CADILLAC / PORTAL — V8
 
 Portal estático multipágina, responsivo, com URL dedicada por projeto e por edição.
 Todas as páginas são geradas a partir de um único modelo de conteúdo.
@@ -28,6 +28,8 @@ projetos/                      acervo com filtros por área, ano e busca
 projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       as cinco frentes de trabalho, com casos do acervo
+ecossistema/                   quem é patrocinador, titular, produtora, entidade, fornecedor
+assets/fotos/                  acervo fotográfico; LEIA-ME.md lista o que falta
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
 404.html                       página de erro
@@ -39,6 +41,61 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## O que mudou na V8
+
+Incorporação do dossiê consolidado de outubro de 2026.
+
+- **Manchete aprovada**: "A gente faz o extraordinário acontecer", com o texto institucional,
+  a razão social, o CNPJ e a data de fundação no bloco sobre a empresa.
+- **Novo projeto**: CCBB leva skate ao MAC Bahia (2026). O acervo vai a oito projetos.
+- **Fatos por edição ampliados**: Itacoatiara Pro 2026 (IBC World Tour, Men's Prime Series com
+  US$ 35 mil, skate Street, Vitor Ferreira campeão, ≈500 atletas informados, patrocínio municipal
+  de R$ 2 mi cuja contraparte é a Associação de Bodyboard de Niterói); 2025 (13ª edição,
+  30/05–15/06); 2022 (valor total de R$ 1.373.190 e R$ 1.352.190 aprovados para captação);
+  Vert Battle 2026 (BH 12–13/09 com ≈6 mil espectadores e R$ 100 mil em premiação, campeões,
+  São Paulo 17–18/10, Maceió 30–31/10); Tamo Junto BB 2025 (10–14/12, line-up, Circuito BB de
+  Surfe) e 2024 (Arena das Dunas, >30 mil/dia relatado); Juruti 2018 (inexigibilidade
+  20181907001, contrato 003/2018, Festa dos Visitantes do XXIV Festival de Tribos);
+  Dominguinho (300 mi de streams, 43 shows, especial na TV Globo).
+- **Nova página `/ecossistema/`**: nove papéis definidos e catorze entidades classificadas, cada
+  uma marcada como fonte pública ou a confirmar.
+- **`/dados/` com três camadas**: indicadores do acervo (calculados), números divulgados por
+  terceiros (com natureza e atribuição por linha) e contexto setorial de 2024.
+- **Tipografia V8**: Roboto Condensed nos títulos, Manrope no texto. Laranja da marca
+  restaurado em #FF5900; textos pequenos sobre papel usam um laranja mais escuro para contraste.
+- **Pipeline de fotos**: coloque o arquivo em `assets/fotos/` com o nome `<slug>.jpg` ou
+  `<slug>-<ano>.jpg` e rode o gerador; a capa gráfica é trocada pela foto automaticamente.
+  `assets/fotos/LEIA-ME.md` lista imagem por imagem o que falta e onde procurar.
+
+### O que foi deliberadamente não publicado
+
+Três itens do dossiê ficaram fora das páginas por decisão editorial, e não por esquecimento:
+
+1. **Instrumentos do Banco do Brasil de maio de 2025** (202574212655, R$ 7.000.000 e
+   202574213287, R$ 6.982.500). Publicá-los no site da Cadillac sugere receita da empresa, o que
+   o próprio dossiê diz não estar demonstrado. Entram quando houver a íntegra e o objeto.
+2. **Inquérito civil do MPRN sobre Natal 2024** (04.23.2085.0000024/2025-55). Portaria de
+   instauração não comprova irregularidade, e o desfecho não foi localizado. É diligência
+   interna, não conteúdo de portal institucional.
+3. **COP30 e demais circuitos citados em relatos profissionais**, sem crédito ou contrato.
+
+### Pendências que não devem virar afirmação pública
+
+Titularidade de marcas e direitos (Itacoatiara Pro, Vert Battle, Tamo Junto BB); escopo
+contratual no Dominguinho e nos projetos com Bob Burnquist; natureza e pagamentos dos
+instrumentos do BB; desfecho do inquérito do MPRN; histórico integral de 2013–2021; URLs,
+datas e metodologia das métricas de alta audiência; relação jurídica entre Criativos e
+Cadillac; licenças de fotografia e direitos de transmissão.
+
+Solicitações úteis: Fala.BR (íntegra dos instrumentos do BB), MPRN (andamento do inquérito),
+Secretaria de Cultura do RJ (projeto 23397 e prestação de contas), Prefeitura de Niterói
+(processo 9900023702/2026 e contrato 030/2026), TCM-PA (íntegra do contrato 003/2018).
+
+### Benchmarks de referência
+
+Brasil: 213 Sports, Dream Factory, Effect Sport, IMM, V3A, Golden Goal, Sertões, N Sports.
+Exterior: IMG, SPORTFIVE, Octagon, Infront, CSM, Two Circles, On Location, Wasserman.
 
 ## O que mudou na V7
 

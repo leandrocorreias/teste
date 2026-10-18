@@ -207,8 +207,7 @@ def faq_block(project, number):
         f'<details><summary>{e(q)} {icon("expand_more")}</summary><p>{e(a)}</p></details>'
         for q, a in project["faq"]
     )
-    section = f"""<section class="container faq-section"><div class="section-kicker">
-<span>{number} / PERGUNTAS FREQUENTES</span><span>RESPOSTAS CURTAS E VERIFICÁVEIS</span></div>
+    section = f"""<section class="container faq-section"><hr class="rule">
 <h2 class="section-title">O QUE PERGUNTAM<br><em>SOBRE O PROJETO.</em></h2>
 <div class="faq-list">{rows}</div></section>"""
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -228,8 +227,7 @@ def card(project, depth, eager=False):
             f'<span>{icon("calendar_month")} {e(project["period"])}</span>')
     return f"""<a class="work-card" data-project data-categoria="{project['category']}" data-anos="{years}" data-busca="{e(search_blob)}" href="{p}projetos/{project['slug']}/">
 {media(project, eager=eager)}
-<div class="card-info"><div><span class="eyebrow">{e(project['kind'])} / {e(project['period'])}</span>
-<h3>{e(project['name'])}</h3><div class="card-meta">{meta}</div></div>
+<div class="card-info"><div><h3>{e(project['name'])}</h3><div class="card-meta">{meta}</div></div>
 <span class="card-arrow">{icon('arrow_outward')}</span></div></a>"""
 
 
@@ -392,17 +390,15 @@ def page_home():
     highlights = []
     for pr in PROJECTS[-3:]:
         cat = CATS[pr["category"]]
-        highlights.append(f"""<article><span class="eyebrow">{icon(cat['icon'])} {e(cat['label'])}</span>
+        highlights.append(f"""<article>
 <h3>{e(pr['name'])}</h3><p>{e(pr['desc'])}</p>
 <a class="pill-link" href="./projetos/{pr['slug']}/">Conhecer {icon('arrow_outward')}</a></article>""")
     press_html = "".join(
         f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-        f'<span class="article-idx">{i:02d} / {e(outlet.upper())}</span>'
-        f'<h3>{e(title)}</h3><small>{icon("open_in_new")} Cobertura externa</small></a>'
+        f'<h3>{e(title)}</h3><small>{icon("open_in_new")} {e(outlet)} · cobertura externa</small></a>'
         for i, (outlet, title, url) in enumerate(MODEL["featured_press"], start=1))
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero container">
-<div class="hero-meta"><span>PRODUÇÃO · ESPORTE · CULTURA</span><span>RIO DE JANEIRO, BRASIL / DESDE {SITE['base_year']}</span></div>
 <div class="hero-big"><h1>A GENTE FAZ.<br>A GENTE RESOLVE.<br><em>O EXTRAORDINÁRIO ACONTECE.</em></h1>
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>Do primeiro rabisco ao último aplauso. A gente transforma desafios em experiências que movem pessoas, marcas e cidades.</p>
@@ -414,31 +410,28 @@ def page_home():
 <div><strong>{M['sources']:02d}</strong><span>Fontes públicas citadas</span></div>
 </div></section>
 <section class="container showcase" id="projetos">
-<div class="section-kicker"><span>01 / EM DESTAQUE</span><span>UMA SELEÇÃO DO NOSSO UNIVERSO</span></div>
+<h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
 <div class="section-end"><a class="pill-link" href="./projetos/">Explorar o acervo completo {icon('arrow_outward')}</a></div></section>
 <section class="container editorial" id="historias">
-<div class="section-kicker"><span>02 / HISTÓRIAS</span><span>O QUE ESTÁ POR TRÁS DAS EXPERIÊNCIAS</span></div>
+<hr class="rule">
 <h2 class="section-title">HISTÓRIAS QUE <em>CONTINUAM.</em></h2>
 <div class="article-grid">{''.join(highlights)}</div></section>
 <section class="statement" id="sobre"><div class="container statement-grid">
-<span class="eyebrow">03 / SOBRE A CADILLAC</span>
 <div><h2>O IMPOSSÍVEL<br>NÃO ENTRA <em>NA PLANILHA.</em></h2>
 <p>A Cadillac reúne trajetória em produção artística, esportes e entretenimento. Este portal documenta cada projeto com contexto, edições, registros e fontes. O que merece ficar não termina quando o evento acaba.</p>
 <p>Cada afirmação publicada aqui tem origem identificada. Quando um dado depende de contrato, ficha técnica ou autorização ainda em validação, dizemos isso na própria página.</p></div></div></section>
 <section class="container services" id="atuacao">
-<div class="section-kicker"><span>04 / ATUAÇÃO</span><span>COMPETÊNCIAS E CONEXÕES</span></div>
+<hr class="rule">
 <h2 class="section-title">DA IDEIA À<br><em>EXPERIÊNCIA.</em></h2>
 <div class="service-list">{services}</div></section>
-<section class="dark-strip"><div class="container"><span class="eyebrow">CADILLAC / NOSSO OLHAR</span>
-<h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
+<section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
-<div class="section-kicker"><span>05 / NA MÍDIA</span><span>REGISTROS, REPORTAGENS E REFERÊNCIAS</span></div>
+<hr class="rule">
 <div class="editorial-header"><h2 class="section-title">HISTÓRIAS<br>QUE CIRCULAM.</h2>
 <a class="pill-link" href="./na-midia/">Ver todas as fontes {icon('arrow_outward')}</a></div>
 <div class="article-grid">{press_html}</div></section>
-<section class="contact" id="contato"><div class="container"><span class="eyebrow">06 / CONTATO</span>
-<h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>
+<section class="contact" id="contato"><div class="container"><h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>
 <p>Projetos, parcerias, imprensa ou produção.</p>
 <a class="contact-link" href="mailto:{SITE['email']}">{icon('mail')} FALE COM A CADILLAC</a>
 <div class="contact-ways"><a class="pill-link" href="./projetos/">Ver projetos {icon('arrow_outward')}</a>
@@ -475,8 +468,7 @@ def page_projects():
                               "url": f"{BASE}/projetos/{pr['slug']}/"}
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
-<section class="page-hero container"><span class="eyebrow">ACERVO CADILLAC / 01</span>
-<h1>PROJETOS<span class="orange">.</span></h1>
+<section class="page-hero container"><h1>PROJETOS<span class="orange">.</span></h1>
 <p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo. Filtre por área, por ano ou busque pelo nome do projeto.</p>
 <div class="metric-row">
 <div><strong>{M['projects']:02d}</strong><span>Projetos</span></div>
@@ -484,7 +476,7 @@ def page_projects():
 <div><strong>{M['facts']:02d}</strong><span>Registros documentados</span></div>
 <div><strong>{M['sources']:02d}</strong><span>Fontes citadas</span></div></div></section>
 <section class="container index-grid">
-<div class="section-kicker"><span>EXPLORAR PORTFÓLIO</span><span>{M['projects']:02d} PROJETOS DOCUMENTADOS</span></div>
+<h2 class="sr-only">Acervo de projetos</h2><hr class="rule">
 <div class="filters">
 <div class="filter-group"><span>Área de atuação</span><div class="chips">{''.join(cat_chips)}</div></div>
 <div class="filter-group"><span>Ano com edição catalogada</span><div class="chips">{''.join(year_chips)}</div></div>
@@ -518,7 +510,7 @@ def page_project(pr):
     sections, n = [], 1
 
     sections.append(f"""<section class="container detail-intro">
-<div><span class="eyebrow">{n:02d} / VISÃO GERAL</span><h2>UM PROJETO.<br>MUITAS HISTÓRIAS.</h2></div>
+<div><h2>UM PROJETO.<br>MUITAS HISTÓRIAS.</h2></div>
 <div><p>{e(pr['intro'])}</p>
 <div class="taglist"><span>{icon(cat['icon'])} {e(cat['label'])}</span>
 <span>{icon('festival')} {e(pr['kind'])}</span>
@@ -538,7 +530,7 @@ def page_project(pr):
         chart = bars_horizontal([(str(y), len(pr["facts"].get(str(y), []))) for y in sorted(pr["years"])],
                                 ("registro", "registros"), w=560, row=38)
         sections.append(f"""<section class="container timeline">
-<div class="section-kicker"><span>{n:02d} / HISTÓRICO</span><span>NAVEGUE POR ANO</span></div>
+<hr class="rule">
 <h2 class="section-title">TODAS AS<br><em>EDIÇÕES NO ACERVO.</em></h2>{''.join(rows)}
 <div class="charts" style="padding-top:clamp(34px,5vw,60px)"><div class="chart-card">
 <h3>Registros por edição</h3><p class="chart-sub">Quantidade de fatos com fonte identificada em cada ano catalogado.</p>
@@ -550,7 +542,7 @@ def page_project(pr):
             f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}</p></div>'
             for i, t in enumerate(pr.get("records", []), start=1))
         sections.append(f"""<section class="container facts-section">
-<div class="section-kicker"><span>{n:02d} / REGISTROS DOCUMENTADOS</span><span>{e(pr['period'])}</span></div>
+<hr class="rule">
 <h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
 <div class="facts">{facts}</div>
 <p class="note">Este projeto ainda não tem edições anuais catalogadas. Quando houver documentação por ano, cada edição ganha página própria com fontes.</p></section>""")
@@ -562,7 +554,7 @@ def page_project(pr):
         n += 1
 
     sections.append(f"""<section class="container sources">
-<div class="section-kicker"><span>{n:02d} / REFERÊNCIAS</span><span>FONTES PÚBLICAS E CRÉDITOS</span></div>
+<hr class="rule">
 <h2>FONTES PARA IR ALÉM.</h2>{source_list(pr['sources'])}</section>""")
     n += 1
 
@@ -570,7 +562,7 @@ def page_project(pr):
     related += [x for x in PROJECTS if x["slug"] != slug and x not in related]
     rel_cards = "".join(card(x, depth) for x in related[:2])
     sections.append(f"""<section class="container related">
-<div class="section-kicker"><span>{n:02d} / CONTINUE NAVEGANDO</span><span>PROJETOS RELACIONADOS</span></div>
+<hr class="rule">
 <h2 class="section-title">OUTRAS HISTÓRIAS<br><em>DO ACERVO.</em></h2>
 <div class="works-grid">{rel_cards}</div>
 <div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os projetos {icon('arrow_outward')}</a></div></section>""")
@@ -582,8 +574,7 @@ def page_project(pr):
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="project-hero container">
 <a class="back" href="{p}projetos/">{icon('arrow_back')} Todos os projetos</a>
-<div class="project-title"><span class="eyebrow">{e(pr['kind'])} / {e(pr['location'])}</span>
-<h1>{e(pr['name'])}<span class="orange">.</span></h1><p>{e(pr['desc'])}</p></div>
+<div class="project-title"><h1>{e(pr['name'])}<span class="orange">.</span></h1><p>{e(pr['desc'])}</p></div>
 {media(pr, 'banner', eager=True)}{metric}</section>
 {''.join(sections)}</main>"""
     return write(f"projetos/{slug}/index.html",
@@ -630,7 +621,6 @@ def page_edition(pr, year):
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="edition-hero container">
 <a class="back" href="{p}projetos/{slug}/">{icon('arrow_back')} Histórico de {e(pr['name'])}</a>
-<span class="eyebrow">{e(pr['kind'])} / EDIÇÃO {year}</span>
 <h1>{e(pr['name'])}<br><em>{year}.</em></h1>
 <p class="lede">{e(pr['desc'])}</p>
 <div class="taglist">{''.join(meta_tags)}</div>
@@ -641,26 +631,27 @@ def page_edition(pr, year):
 <div><strong>{year}</strong><span>Edição</span></div>
 <div><strong>{len(pr['years']):02d}</strong><span>Edições no acervo</span></div></div></section>
 <section class="container detail-intro">
-<div><span class="eyebrow">01 / CONTEXTO</span><h2>O QUE MARCOU<br>ESTA EDIÇÃO.</h2></div>
+<div><h2>O QUE MARCOU<br>ESTA EDIÇÃO.</h2></div>
 <div><p>Esta página é um registro editorial em atualização contínua. Apresentamos somente informações sustentadas por referências identificáveis, com prioridade para documentos oficiais e fontes da organização.</p>
 <p>{e(pr['intro'])}</p></div></section>
 <section class="container facts-section">
-<div class="section-kicker"><span>02 / FATOS DOCUMENTADOS</span><span>EDIÇÃO {year}</span></div>
+<hr class="rule">
+<h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
 <div class="facts">{facts_html}</div></section>
 <section class="container gallery-section">
-<div class="section-kicker"><span>03 / ACERVO VISUAL</span><span>IMAGENS COM AUTORIZAÇÃO</span></div>
+<hr class="rule">
 <h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
 <div class="gallery">
 <div class="gallery-slot wide">FOTO PRINCIPAL / 16:9<small>Espaço reservado. Crédito, titularidade e licença a validar antes da publicação.</small></div>
 <div class="gallery-slot">BASTIDORES / 4:5<small>Espaço reservado para imagem editorial autorizada.</small></div>
 <div class="gallery-slot">ATLETAS E PÚBLICO / 4:5<small>Espaço reservado para imagem editorial autorizada.</small></div></div></section>
 <section class="container insights">
-<div class="section-kicker"><span>04 / LEITURAS CADILLAC</span><span>CONTEXTO E INTERPRETAÇÃO</span></div>
+<hr class="rule">
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
 <p>Projetos como este articulam pessoas, território, produção e marcas. A leitura da Cadillac apresenta contexto e oportunidades do setor sem inventar métricas de público, resultados ou atribuições contratuais.</p>
 <a class="pill-link" href="{p}dados/">Explorar dados e métricas {icon('insights')}</a></div></section>
 <section class="container sources">
-<div class="section-kicker"><span>05 / EVIDÊNCIAS</span><span>REFERÊNCIAS DESTA EDIÇÃO</span></div>
+<hr class="rule">
 <h2>FONTES E DOCUMENTAÇÃO.</h2>{source_list(sources)}
 <div class="year-links"><span>Navegar nas edições</span>{''.join(nav_links)}</div>
 <div class="year-links"><span>Outros anos</span>{other_html}</div></section></main>"""
@@ -689,14 +680,14 @@ def page_press():
         total += len(uniq)
         hosts.update(host_of(u) for _, u in uniq)
         cat = CATS[pr["category"]]
-        groups.append(f"""<article class="press-group"><div class="section-kicker">
-<span>{icon(cat['icon'])} {e(pr['name'])}</span><span>{plural(len(uniq), 'FONTE', 'FONTES')}</span></div>
+        groups.append(f"""<article class="press-group"><hr class="rule">
+<h2 class="group-title">{e(pr['name'])}</h2>
+<p class="group-count">{icon(cat['icon'])} {plural(len(uniq), 'fonte catalogada', 'fontes catalogadas')}</p>
 {source_list(uniq)}
 <div class="year-links"><span>Contexto</span>
 <a href="{p}projetos/{pr['slug']}/">Página do projeto {icon('arrow_outward')}</a></div></article>""")
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
-<section class="page-hero container"><span class="eyebrow">EDITORIAL / IMPRENSA</span>
-<h1>NA MÍDIA<span class="orange">.</span></h1>
+<section class="page-hero container"><h1>NA MÍDIA<span class="orange">.</span></h1>
 <p class="lede">Histórias que ganharam as ruas, as arenas e a imprensa. Cada item aponta para a publicação original, agrupado pelo projeto a que se refere.</p>
 <div class="metric-row">
 <div><strong>{total:02d}</strong><span>Referências catalogadas</span></div>
@@ -704,7 +695,6 @@ def page_press():
 <div><strong>{M['projects']:02d}</strong><span>Projetos cobertos</span></div>
 <div><strong>{M['span']}</strong><span>Período</span></div></div></section>
 <section class="container sources">
-<div class="section-kicker"><span>REPERCUSSÃO</span><span>LINKS PARA AS PUBLICAÇÕES ORIGINAIS</span></div>
 {''.join(groups)}
 <p class="note">Reunimos links para as publicações originais e não reproduzimos matérias integrais nem fotografias jornalísticas sem licença. A citação de um veículo não implica parceria, patrocínio ou endosso.</p></section></main>"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Na Mídia",
@@ -736,8 +726,7 @@ def page_data():
     panels_html = "".join(f'<div class="data-panel">{icon(ic)}<div><strong>{v}</strong>'
                           f'<span>{l}</span></div></div>' for ic, v, l in panels)
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
-<section class="page-hero container"><span class="eyebrow">PESQUISA / INTELIGÊNCIA</span>
-<h1>DADOS<span class="orange">.</span></h1>
+<section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
 <section class="container data-stats">{panels_html}</section>
 <section class="container charts">
@@ -765,7 +754,7 @@ def page_data():
 {amounts_table()}<p class="table-hint">Arraste a tabela para o lado para ver valor e fonte.</p></div>
 </section>
 <section class="container sources">
-<div class="section-kicker"><span>BASE EDITORIAL</span><span>METODOLOGIA</span></div>
+<hr class="rule">
 <h2>DADOS COM ORIGEM.</h2>
 <p class="body-copy">Os indicadores desta página descrevem o conteúdo catalogado neste portal, não o total histórico de eventos da Cadillac. Cada número é calculado a partir do mesmo modelo de conteúdo que gera as páginas: um projeto é contado quando tem página própria, uma edição quando tem ano documentado, um registro quando tem fonte identificável e uma fonte quando tem URL pública.</p>
 <p class="body-copy">Informações sobre audiência, contratos, alcance ou impacto econômico só serão publicadas após identificação de metodologia e fonte verificável. Valores financeiros aparecem apenas como constam em documento público, com a natureza explicitada: valor aprovado para captação não é valor captado, e valor de objeto contratado não é receita.</p>
@@ -791,8 +780,7 @@ def page_data():
 
 def page_404():
     body = f"""<main id="conteudo"><span id="top"></span>
-<section class="container error-page"><span class="eyebrow">ERRO 404</span>
-<h1>404<span class="orange">.</span></h1>
+<section class="container error-page"><h1>404<span class="orange">.</span></h1>
 <p>A página que você procurou saiu de cartaz. O acervo continua no ar — siga por um destes caminhos.</p>
 <div class="error-actions">
 <a class="pill-link" href="./projetos/">Ver projetos {icon('arrow_outward')}</a>

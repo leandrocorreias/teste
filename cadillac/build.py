@@ -176,14 +176,14 @@ def crumbs(depth, trail):
 def footer(depth):
     p = rel(depth)
     home = p if depth else "./"
-    links = [("Projetos", home + "projetos/", "stacked_bar_chart"),
-             ("Atuação", home + "atuacao/", "engineering"),
-             ("Agenda", home + "agenda/", "calendar_month"),
-             ("Mídia", home + "na-midia/", "description"),
-             ("Dados", home + "dados/", "insights"),
-             ("Cadillac", home + "atuacao/#sobre", "verified"),
-             ("Contatos", home + "#contato", "mail")]
-    nav = "".join(f'<a href="{u}">{icon(i)} {l}</a>' for l, u, i in links)
+    links = [("Projetos", home + "projetos/"),
+             ("Atuação", home + "atuacao/"),
+             ("Agenda", home + "agenda/"),
+             ("Mídia", home + "na-midia/"),
+             ("Dados", home + "dados/"),
+             ("Cadillac", home + "atuacao/#sobre"),
+             ("Contatos", home + "#contato")]
+    nav = "".join(f'<a href="{u}">{l}</a>' for l, u in links)
     return f"""<footer class="footer"><div class="container foot-top">
 <a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"><span>Produções &amp; Filmes</span></a>
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>

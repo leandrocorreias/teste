@@ -554,12 +554,7 @@ def page_projects():
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>PROJETOS<span class="orange">.</span></h1>
-<p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo. Filtre por área, por ano ou busque pelo nome do projeto.</p>
-<div class="metric-row">
-<div><strong>{M['projects']:02d}</strong><span>Projetos</span></div>
-<div><strong>{M['editions']:02d}</strong><span>Edições com página</span></div>
-<div><strong>{M['facts']:02d}</strong><span>Registros documentados</span></div>
-<div><strong>{M['sources']:02d}</strong><span>Fontes citadas</span></div></div></section>
+<p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo. Filtre por área, por ano ou busque pelo nome do projeto.</p></section>
 <section class="container index-grid">
 <h2 class="sr-only">Acervo de projetos</h2><hr class="rule">
 <div class="filters">
@@ -586,11 +581,7 @@ def page_project(pr):
     cat = CATS[pr["category"]]
     trail_html, trail_ld = crumbs(depth, [("Projetos", p + "projetos/"), (pr["name"], None)])
     n_facts, n_sources = project_facts(pr), len(project_sources(pr))
-    metric = f"""<div class="metric-row">
-<div><strong>{len(pr['years']) or '—'}</strong><span>Edições catalogadas</span></div>
-<div><strong>{n_facts:02d}</strong><span>Registros documentados</span></div>
-<div><strong>{n_sources:02d}</strong><span>Fontes públicas</span></div>
-<div><strong>{e(pr['period'])}</strong><span>Período coberto</span></div></div>"""
+    metric = ""
 
     sections, n = [], 1
 
@@ -771,11 +762,7 @@ def page_edition(pr, year):
 <p class="lede">{e(pr['desc'])}</p>
 <div class="taglist">{''.join(meta_tags)}</div>
 {media(pr, 'banner', eager=True, year=year, depth=depth)}
-<div class="metric-row">
-<div><strong>{len(facts):02d}</strong><span>Fatos documentados</span></div>
-<div><strong>{len(sources):02d}</strong><span>Fontes desta edição</span></div>
-<div><strong>{year}</strong><span>Edição</span></div>
-<div><strong>{len(pr['years']):02d}</strong><span>Edições no acervo</span></div></div></section>
+</section>
 <section class="container detail-intro">
 <div><h2>O QUE MARCOU<br>ESTA EDIÇÃO.</h2></div>
 <div><p>Esta página é um registro editorial em atualização contínua. Apresentamos somente informações sustentadas por referências identificáveis, com prioridade para documentos oficiais e fontes da organização.</p>
@@ -840,11 +827,7 @@ def page_press():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>NA MÍDIA<span class="orange">.</span></h1>
 <p class="lede">Histórias que ganharam as ruas, as arenas e a imprensa. Cada item aponta para a publicação original, agrupado pelo projeto a que se refere.</p>
-<div class="metric-row">
-<div><strong>{total:02d}</strong><span>Referências catalogadas</span></div>
-<div><strong>{len(hosts):02d}</strong><span>Veículos e domínios</span></div>
-<div><strong>{M['projects']:02d}</strong><span>Projetos cobertos</span></div>
-<div><strong>{M['span']}</strong><span>Período</span></div></div></section>
+</section>
 <section class="container sources">
 {''.join(groups)}
 <p class="note">Reunimos links para as publicações originais e não reproduzimos matérias integrais nem fotografias jornalísticas sem licença. A citação de um veículo não implica parceria, patrocínio ou endosso.</p></section></main>"""
@@ -1450,11 +1433,7 @@ def page_agenda():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>AGENDA<span class="orange">.</span></h1>
 <p class="lede">Toda edição, etapa de circuito e show em um calendário único, do mais recente para o mais antigo. Cada linha diz de onde veio a data.</p>
-<div class="metric-row">
-<div><strong>{len(itens):02d}</strong><span>Compromissos catalogados</span></div>
-<div><strong>{len(exatos):02d}</strong><span>Com dia e mês</span></div>
-<div><strong>{len(sem_dia):02d}</strong><span>Só com o ano</span></div>
-<div><strong>{M['span']}</strong><span>Período coberto</span></div></div></section>
+</section>
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">COM DATA<br><em>DEFINIDA.</em></h2>
 <div class="table-wrap"><table class="amounts reach-table">{cab}

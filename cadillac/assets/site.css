@@ -216,12 +216,6 @@ body.nav-open{overflow:hidden}
 .project-title h1,.edition-hero h1{margin:20px 0;overflow-wrap:break-word}
 .banner{min-height:clamp(260px,46vw,620px)}
 .banner .media-symbol{font-size:clamp(44px,9vw,180px)}
-.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));
-  gap:1px;background:var(--border);border:1px solid var(--border);margin:clamp(30px,5vw,60px) 0 0}
-.metric-row div{background:var(--paper);padding:20px}
-.metric-row strong{display:block;font:800 clamp(32px,4vw,52px)/.85 var(--font-display)}
-.metric-row span{display:block;margin-top:9px;font-size:10px;letter-spacing:.13em;
-  text-transform:uppercase;font-weight:700;color:var(--muted)}
 .detail-intro{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
   gap:clamp(26px,5vw,70px);padding:clamp(60px,9vw,120px) 0}
 .detail-intro h2{font-size:clamp(38px,5.5vw,88px);margin:24px 0}

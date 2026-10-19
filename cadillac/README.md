@@ -50,6 +50,33 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V15: atletas, e os eventos pelos decks oficiais
+
+**Atletas** (`/atletas/`): 29 fichas, uma página por atleta, em três frentes — o squad BB
+citado no material do Tamo Junto, os confirmados no Campeonato Brasileiro de Skate Vertical
+e os convidados e internacionais. Cada ficha traz a trajetória documentada com a fonte em
+cada linha, a tabela de edições do acervo em que o atleta aparece e os outros nomes da
+mesma frente. Os nomes no bloco “Quem esteve em cena” de cada edição agora linkam para a
+ficha quando ela existe. A página entra no rodapé e no sitemap, sem mexer no menu
+principal.
+
+**Vert Battle 2025** ganhou o calendário real das quatro etapas, com dia e local: Goiânia
+(3 e 4 de maio), Niterói (31 de maio e 1º de junho, dentro do Itacoatiara Pro), Curitiba
+(11 e 12 de outubro) e a final em Fortaleza (13 e 14 de dezembro, dentro do Tamo Junto BB).
+Entraram também os 16 atletas confirmados, o Palco Vert Battle etapa a etapa, a demo de
+paraskate e o balanço da produção. O bloco `papel` registra que o material oficial da
+temporada é assinado pela **Cadillac Production**.
+
+**Tamo Junto BB** ganhou a edição de 2026 (Maceió, 28 de outubro a 1º de novembro), o
+balanço das duas primeiras edições e o bloco de mercado com a valoração de mídia.
+
+**Itacoatiara Pro 2022** ganhou as oito modalidades, as hot zones, o contest mundial de
+bodyboard e a programação musical completa de junho.
+
+Todos esses números são declarados pelas produções nos decks, sem auditoria independente,
+e a página diz isso. Bob Burnquist aparece nos decks do Itacoatiara Pro e do Tamo Junto e
+**foi deliberadamente excluído** de todo o acervo, conforme orientação da direção.
+
 ## V14: elenco completo e o caminho das fotos
 
 Com a rede liberada nesta sessão, o bloco “Quem esteve em cena” deixou de ter nomes

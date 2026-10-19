@@ -47,6 +47,16 @@ ICONES_DINAMICOS = {"close", "download"}
 ICON_SUBSET = ",".join(sorted(ICONES))
 ICONES_PEDIDOS = set()
 
+ATLETAS = MODEL.get("atletas", {}).get("lista", [])
+ATLETA_POR_NOME = {x["nome"].lower(): x for x in ATLETAS}
+
+
+def atleta_href(nome, depth):
+    """Link para a ficha do atleta, quando ele existe no acervo."""
+    x = ATLETA_POR_NOME.get(nome.strip().lower())
+    return f'{rel(depth)}atletas/{x["slug"]}/' if x else None
+
+
 NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
     ("Atuação", "atuacao/", "atuacao", "engineering"),
@@ -192,6 +202,7 @@ def footer(depth):
              ("Mídia", home + "na-midia/"),
              ("Dados", home + "dados/"),
              ("Cadillac", home + "atuacao/#sobre"),
+             ("Atletas", home + "atletas/"),
              ("Equipe", home + "equipe/"),
              ("Imprensa", home + "imprensa/"),
              ("Contatos", home + "contato/"),
@@ -870,7 +881,7 @@ def page_edition(pr, year):
 <h2 class="section-title">FATOS<br><em>DOCUMENTADOS.</em></h2>
 <div class="facts">{facts_html}</div></section>
 {case_block(pr, year)}
-{cast_block(pr, year)}
+{cast_block(pr, year, depth=depth)}
 {creditos_projeto(pr, depth, year)}
 {op_edition(pr, year)}
 <section class="container gallery-section">
@@ -1284,7 +1295,7 @@ def broadcast_block(depth):
 <p class="note">{e(data['note'])}</p></section>"""
 
 
-def cast_block(pr, year=None, numero="05"):
+def cast_block(pr, year=None, numero="05", depth=2):
     """Quem esteve no palco, na pista e na linha de frente."""
     data = MODEL["elenco"]
     key = f'{pr["slug"]}-{year}' if year else pr["slug"]
@@ -1298,8 +1309,13 @@ def cast_block(pr, year=None, numero="05"):
         gente = bloco.get(chave)
         if not gente:
             continue
-        itens = "".join(f'<li><strong>{e(nome)}</strong><span>{e(papel)}</span></li>'
-                        for nome, papel in gente)
+        linhas = []
+        for nome, papel in gente:
+            href = atleta_href(nome, depth)
+            marca = (f'<a href="{href}">{e(nome)} {icon("arrow_outward")}</a>' if href
+                     else f'<strong>{e(nome)}</strong>')
+            linhas.append(f'<li>{marca}<span>{e(papel)}</span></li>')
+        itens = "".join(linhas)
         colunas.append(f"""<div class="cast-col"><h3>{icon(ic)} {titulo}</h3><ul>{itens}</ul></div>""")
     fonte = ""
     if bloco.get("fonte"):
@@ -1517,6 +1533,130 @@ def video_block(chave, titulo):
             f'<span class="slot-mark">{icon("play_arrow")}</span><strong>{e(titulo)}</strong>'
             f'<code>{e(fonte.get("arquivo") or "video.mp4")}</code>'
             f'<small>{e(fonte.get("duracao") or "")} · arquivo local ou URL de YouTube e Vimeo</small></div>')
+
+
+def ficha_atleta_card(x, depth):
+    p = rel(depth)
+    foto = ROOT / "assets" / "fotos" / (x.get("foto") or "")
+    if x.get("foto") and foto.exists():
+        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
+               f'alt="{e(x["nome"])}" loading="lazy" decoding="async">')
+    else:
+        img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
+    n = len(x.get("participacoes") or [])
+    return f"""<a class="atleta-card" href="{p}atletas/{x['slug']}/">
+{img}<div class="atleta-info"><h3>{e(x['nome'])}</h3>
+<span class="atleta-mod">{icon('skateboarding')} {e(x['modalidade'])}</span>
+<span class="atleta-n">{plural(n, 'edição no acervo', 'edições no acervo')}</span></div></a>"""
+
+
+def page_atletas():
+    depth, p = 1, rel(1)
+    data = MODEL["atletas"]
+    trail_html, trail_ld = crumbs(depth, [("Atletas", None)])
+    grupos = []
+    for chave, (titulo, desc, ic) in data["grupos"].items():
+        gente = [x for x in data["lista"] if x["grupo"] == chave]
+        if not gente:
+            continue
+        grupos.append(f"""<section class="container reach-section" id="{chave}"><hr class="rule">
+<div class="area-head"><span class="svc-i">{icon(ic)}</span>
+<div><h2>{e(titulo)}<span class="orange">.</span></h2><p class="lede">{e(desc)}</p></div></div>
+<div class="atletas-grid">{''.join(ficha_atleta_card(x, depth) for x in gente)}</div></section>""")
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Atletas",
+          "url": f"{BASE}/atletas/", "inLanguage": "pt-BR",
+          "mainEntity": {"@type": "ItemList", "numberOfItems": len(data["lista"]),
+                         "itemListElement": [
+                             {"@type": "ListItem", "position": i, "name": x["nome"],
+                              "url": f"{BASE}/atletas/{x['slug']}/"}
+                             for i, x in enumerate(data["lista"], start=1)]}}
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><h1>ATLETAS<span class="orange">.</span></h1>
+<p class="lede">{e(data['lede'])}</p></section>
+{''.join(grupos)}
+<section class="container reach-section"><hr class="rule">
+<p class="note">{e(data['nota'])}</p></section></main>"""
+    return write("atletas/index.html",
+                 head(depth, "Atletas | Quem compete nos projetos | Cadillac Produções",
+                      "Fichas dos atletas que competem nos projetos da Cadillac: trajetória "
+                      "documentada, edições em que aparecem e a fonte de cada informação.",
+                      "atletas/", [ld, trail_ld]) + header(depth, "atletas") + body + footer(depth))
+
+
+def page_atleta(x):
+    depth, p = 2, rel(2)
+    data = MODEL["atletas"]
+    titulo_grupo, _, ic_grupo = data["grupos"][x["grupo"]]
+    trail_html, trail_ld = crumbs(depth, [("Atletas", p + "atletas/"), (x["nome"], None)])
+
+    foto = ROOT / "assets" / "fotos" / (x.get("foto") or "")
+    if x.get("foto") and foto.exists():
+        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
+               f'alt="{e(x["nome"])}" width="800" height="800">')
+    else:
+        img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
+
+    destaques = "".join(
+        f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}'
+        + (f'<small class="out">{fonte_link(f, "")}</small>' if f else "")
+        + "</p></div>"
+        for i, (t, f) in enumerate(x.get("destaques") or [], start=1))
+
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    linhas = []
+    for v in sorted(x.get("participacoes") or [], key=lambda v: -(v.get("ano") or 0)):
+        pr = by_slug.get(v["projeto"])
+        if not pr:
+            continue
+        href = (f'{p}projetos/{pr["slug"]}/{v["ano"]}/' if v.get("ano") in pr["years"]
+                else f'{p}projetos/{pr["slug"]}/')
+        quando = str(v["ano"]) if v.get("ano") else "—"
+        linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
+<td>{quando}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
+    tabela = (f"""<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Projeto</th><th scope="col">Ano</th><th scope="col">Participação</th>
+<th scope="col">Fonte</th></tr></thead><tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver a participação e a fonte.</p>"""
+              if linhas else '<p class="note">Nenhuma participação catalogada neste acervo até agora.</p>')
+
+    outros = [o for o in data["lista"] if o["grupo"] == x["grupo"] and o["slug"] != x["slug"]][:4]
+    relacionados = "".join(ficha_atleta_card(o, depth) for o in outros)
+
+    ld = {"@context": "https://schema.org", "@type": "Person", "name": x["nome"],
+          "url": f"{BASE}/atletas/{x['slug']}/", "jobTitle": x["modalidade"],
+          "description": x.get("bio") or x["modalidade"]}
+    if x.get("apelido"):
+        ld["alternateName"] = x["apelido"]
+
+    apelido = f'<span class="atleta-apelido">{e(x["apelido"])}</span>' if x.get("apelido") else ""
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="container atleta-hero">
+<a class="back" href="{p}atletas/">{icon('arrow_back')} Todos os atletas</a>
+<div class="atleta-topo"><div class="atleta-retrato">{img}</div>
+<div><h1>{e(x['nome'])}<span class="orange">.</span></h1>{apelido}
+<p class="lede">{e(x.get('bio') or '')}</p>
+<div class="taglist"><span>{icon('skateboarding')} {e(x['modalidade'])}</span>
+<span>{icon(ic_grupo)} {e(titulo_grupo)}</span></div></div></div></section>
+<section class="container facts-section"><hr class="rule">
+<h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
+<div class="facts">{destaques or '<p class="note">Sem registro levantado até agora.</p>'}</div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>
+<p class="body-copy">As edições deste acervo em que o atleta aparece, da mais recente para a mais antiga.</p>
+{tabela}</section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">OUTROS NOMES<br><em>DA MESMA FRENTE.</em></h2>
+<div class="atletas-grid">{relacionados}</div>
+<div class="section-end"><a class="pill-link" href="{p}atletas/">Ver todos os atletas {icon('arrow_outward')}</a></div></section>
+<section class="container sources"><hr class="rule">
+<h2>FONTE DESTA FICHA.</h2>{source_list([x["fonte"]] if x.get("fonte") else [])}
+<p class="note">{e(data['nota'])}</p></section></main>"""
+    return write(f"atletas/{x['slug']}/index.html",
+                 head(depth, f"{x['nome']} | Atletas | Cadillac Produções",
+                      f"{x['nome']}, {x['modalidade'].lower()}: trajetória documentada e as edições "
+                      f"do acervo Cadillac em que o atleta aparece, com fontes.",
+                      f"atletas/{x['slug']}/", [ld, trail_ld])
+                 + header(depth, "atletas") + body + footer(depth))
 
 
 def page_equipe():
@@ -2084,11 +2224,13 @@ def page_404():
 
 def page_sitemap():
     urls = ["", "projetos/", "atuacao/", "agenda/", "na-midia/", "dados/",
-            "equipe/", "imprensa/", "contato/", "en/"]
+            "atletas/", "equipe/", "imprensa/", "contato/", "en/"]
     for pr in PROJECTS:
         urls.append(f"projetos/{pr['slug']}/")
         for y in pr["years"]:
             urls.append(f"projetos/{pr['slug']}/{y}/")
+    for x in ATLETAS:
+        urls.append(f"atletas/{x['slug']}/")
     entries = "\n".join(
         f"<url><loc>{BASE}/{u}</loc><lastmod>{MODEL['updated']}</lastmod>"
         f"<priority>{'1.0' if u == '' else '0.8' if u.count('/') < 2 else '0.6'}</priority></url>"
@@ -2103,8 +2245,10 @@ def page_sitemap():
 
 def main():
     written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
-               page_data(), page_equipe(), page_imprensa(), page_contato(), page_en(),
-               page_reservado(), page_404()]
+               page_data(), page_atletas(), page_equipe(), page_imprensa(), page_contato(),
+               page_en(), page_reservado(), page_404()]
+    for x in ATLETAS:
+        written.append(page_atleta(x))
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

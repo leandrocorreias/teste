@@ -729,3 +729,30 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   .video-thumb,.video-play{transition:none}
   .video-facade:hover .video-thumb,.video-facade:hover .video-play{transform:none}
 }
+
+/* --- fichas de atleta --- */
+.atletas-grid{display:grid;gap:clamp(12px,1.8vw,20px);margin-top:clamp(16px,2.4vw,28px);
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}
+.atleta-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);
+  border-top:3px solid var(--border-strong);text-decoration:none;color:inherit;overflow:hidden;
+  transition:border-color var(--t),transform var(--t)}
+.atleta-card:hover{border-top-color:var(--orange);transform:translateY(-3px)}
+.atleta-card .pessoa-foto,.atleta-card .photo-slot,.atleta-card .photo-shot{width:100%;aspect-ratio:1/1;
+  object-fit:cover;min-height:0}
+.atleta-info{padding:clamp(12px,1.6vw,18px);display:flex;flex-direction:column;gap:5px}
+.atleta-info h3{font:800 clamp(15px,1.7vw,18px)/1.15 var(--font-display);letter-spacing:.02em;
+  text-transform:uppercase;overflow-wrap:anywhere}
+.atleta-mod{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.atleta-mod .cd-icon{font-size:16px;color:var(--orange-ink)}
+.atleta-n{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.atleta-hero{padding-top:clamp(18px,2.6vw,34px)}
+.atleta-topo{display:grid;gap:clamp(18px,3vw,40px);align-items:center;
+  grid-template-columns:minmax(0,240px) minmax(0,1fr);margin-top:clamp(14px,2vw,22px)}
+.atleta-retrato .pessoa-foto,.atleta-retrato .photo-slot{width:100%;aspect-ratio:1/1;object-fit:cover;
+  min-height:0;border:1px solid var(--border)}
+.atleta-apelido{display:inline-block;font:700 13px/1 var(--font-text);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--orange-ink);margin-bottom:10px}
+@media (max-width:720px){.atleta-topo{grid-template-columns:1fr}
+  .atleta-retrato{max-width:230px}}
+.fact p .out{display:block;margin-top:7px;color:var(--muted);font-size:12px}
+.fact p .out a,.fact p .out .s-doc{min-height:24px}

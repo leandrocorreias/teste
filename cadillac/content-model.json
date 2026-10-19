@@ -1,5 +1,5 @@
 {
-  "version": 16,
+  "version": 18,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -148,7 +148,13 @@
           "A Cadillac foi registrada como proponente do projeto 23397 em ato estadual.",
           "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento.",
           "A programação cultural da edição incluiu concertos gratuitos de orquestras sociais no Espaço Funarte, na Praia de São Francisco, dentro do programa Arte em Circuito.",
-          "Tocaram a Orquestra Sinfônica Chiquinha Gonzaga, a Banda Fundec de Duque de Caxias e a Orquestra da Grota, entre 17 e 19 de junho."
+          "Tocaram a Orquestra Sinfônica Chiquinha Gonzaga, a Banda Fundec de Duque de Caxias e a Orquestra da Grota, entre 17 e 19 de junho.",
+          "O projeto dos 10 anos desenhou um festival internacional de esporte e cultura com oito modalidades: bodyboard, skate, vela, surfe, parapente, canoa havaiana, downhill e break dance.",
+          "A programação se espalhou por oito pontos da cidade, entre eles as praias de Itacoatiara, São Francisco e Itaipu, o Parque da Cidade e as praças José Marti e Rádio Amador.",
+          "O bodyboard reuniu o IBC Itacoatiara Pro Bodyboard World Contest, etapa cinco estrelas do circuito mundial, e uma etapa do circuito brasileiro da CBRASB, com expectativa de mais de 300 atletas de 25 países e 11 estados.",
+          "A vela entrou pela primeira vez no festival, com regata da Classe Star na Praia de São Francisco, curadoria do Projeto Grael e chancela da CBVela.",
+          "A programação cultural previa mais de 20 shows, cinema ao ar livre, exposições, esculturas, grafite e gastronomia.",
+          "A frente social previa iniciação esportiva, educação ambiental, capacitação de professores, doação de material esportivo e oficinas de arte e música."
         ],
         "2024": [
           "Publicação de 2024 descreve um fim de semana de festival com música, cultura de rua e skate na programação.",
@@ -218,6 +224,10 @@
           [
             "Funarte, orquestras sociais no Itacoatiara Pro",
             "https://artedetodagente.com.br/wp-content/uploads/2024/10/Release_Orquestras-Sociais-no-Iatacoatiara-Pro_14.6.22.pdf"
+          ],
+          [
+            "Projeto Itacoatiara Pro 10 anos · documento da produção",
+            null
           ]
         ],
         "2024": [
@@ -903,7 +913,7 @@
         "2026": {
           "period": "Setembro a outubro de 2026",
           "place": "Belo Horizonte, São Paulo e Maceió",
-          "note": "Temporada em andamento",
+          "note": "Temporada em São Paulo, Rio de Janeiro, Paraná e Pernambuco",
           "datas": {
             "inicio": "2026-09-12",
             "fim": "2026-10-31",
@@ -948,49 +958,58 @@
           ]
         },
         "2025": {
-          "period": "2025",
+          "period": "3 de maio a 14 de dezembro de 2025",
           "place": "Goiânia, Niterói, Curitiba e Fortaleza",
-          "note": "Final dentro do Tamo Junto BB",
+          "note": "Quatro etapas · homologação da CBSk · transmissão Globo e SporTV",
           "datas": {
-            "inicio": "2025-01-01",
+            "inicio": "2025-05-03",
             "fim": "2025-12-14",
-            "precisao": "ano",
-            "status": "parcial",
+            "precisao": "dia",
+            "status": "confirmada",
             "fonte": [
-              "Programação oficial, Fortaleza",
-              "https://tamojuntobb.com.br/fortaleza/"
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
             ]
           },
           "etapas": [
             {
-              "nome": "Goiânia, GO",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": null
-            },
-            {
-              "nome": "Niterói, RJ — 2ª etapa",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": null
-            },
-            {
-              "nome": "Curitiba, PR",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": null
-            },
-            {
-              "nome": "Fortaleza, CE — final, dentro do Tamo Junto BB",
-              "inicio": "2025-12-10",
+              "nome": "Fortaleza, CE · final, Marina Park Hotel, no Tamo Junto BB",
+              "inicio": "2025-12-13",
               "fim": "2025-12-14",
-              "status": "inferida",
+              "status": "confirmada",
               "fonte": [
-                "Programação oficial, Fortaleza",
-                "https://tamojuntobb.com.br/fortaleza/"
+                "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+                null
+              ]
+            },
+            {
+              "nome": "Curitiba, PR · Ginásio do Tarumã",
+              "inicio": "2025-10-11",
+              "fim": "2025-10-12",
+              "status": "confirmada",
+              "fonte": [
+                "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+                null
+              ]
+            },
+            {
+              "nome": "Niterói, RJ · Caminho Niemeyer, dentro do Itacoatiara Pro",
+              "inicio": "2025-05-31",
+              "fim": "2025-06-01",
+              "status": "confirmada",
+              "fonte": [
+                "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+                null
+              ]
+            },
+            {
+              "nome": "Goiânia, GO · Centro Cultural Oscar Niemeyer",
+              "inicio": "2025-05-03",
+              "fim": "2025-05-04",
+              "status": "confirmada",
+              "fonte": [
+                "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+                null
               ]
             }
           ]
@@ -1002,13 +1021,22 @@
           "A CBSk informou cerca de 6 mil espectadores na etapa e premiação total anunciada de R$ 100 mil.",
           "Thomas Augusto e Maria Luiza Santiago venceram as categorias principais em Belo Horizonte.",
           "A etapa de São Paulo foi anunciada para 17 e 18 de outubro, no Centro Esportivo Tietê, e a de Maceió para 30 e 31 de outubro.",
-          "As finais de Belo Horizonte foram transmitidas pelo canal oficial da CBSk."
+          "As finais de Belo Horizonte foram transmitidas pelo canal oficial da CBSk.",
+          "O cronograma de 2026 divulgado pela produção prevê etapas em São Paulo, Rio de Janeiro, Paraná e Pernambuco."
         ],
         "2025": [
-          "O circuito teve etapas em Goiânia, Niterói, Curitiba e Fortaleza.",
-          "A final da temporada integrou a programação do Tamo Junto BB, em Fortaleza.",
-          "A imprensa identificou a Cadillac como produtora da etapa de Niterói.",
-          "O público do evento esportivo não deve ser somado ao do festival que o recebeu."
+          "A temporada teve quatro etapas: Goiânia em 3 e 4 de maio, Niterói em 31 de maio e 1º de junho, Curitiba em 11 e 12 de outubro e a final em Fortaleza, em 13 e 14 de dezembro.",
+          "O campeonato é homologado pela Confederação Brasileira de Skate e integra o Circuito BB de Skate Vertical.",
+          "As etapas foram transmitidas ao vivo pelo SporTV, e Curitiba e Fortaleza também pela Globo.",
+          "A etapa de Niterói aconteceu dentro do Itacoatiara Pro; a final, dentro do Tamo Junto BB.",
+          "Dezesseis atletas foram confirmados na disputa, entre eles Augusto Akio, Gui Khury, Dora Varella, Raicca Ventura, Luigi Cini, Yndiara Asp, Rony Gomes e Helena Laurino.",
+          "Gui Khury e Helena Laurino venceram a etapa de abertura, em Goiânia.",
+          "Os vencedores das duas primeiras etapas ganharam vaga, com despesas pagas, para o Jackalope, em julho de 2025, em Toronto; os vencedores do Jackalope ganharam vaga para a final de dezembro.",
+          "Cada etapa recebeu uma demo session de paraskate com skatistas PCD convidados.",
+          "O Palco Vert Battle levou música a cada etapa: Marcelo Falcão e Supla & Os Punks de Boutique em Goiânia, DJ Pauly, 2ZDinizz, Oriente e Marcelo Falcão em Niterói, Reação em Cadeia e Navala em Curitiba.",
+          "Mais de 100 mil pessoas passaram pelo evento e cerca de 400 matérias foram publicadas, segundo o balanço da produção.",
+          "Cerca de 100 toneladas de alimentos foram arrecadadas ao longo da temporada.",
+          "O balanço da produção informa mais de 40 milhões de pessoas impactadas, taxa de engajamento de 15% e alta de 30% nas interações com o perfil em um mês."
         ]
       },
       "sources": [
@@ -1034,12 +1062,20 @@
           [
             "CBSk, calendário",
             "https://cbsk.com.br/eventos/2168"
+          ],
+          [
+            "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+            null
           ]
         ],
         "2025": [
           [
             "Lance, produção do Vert Battle",
             "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+          ],
+          [
+            "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+            null
           ]
         ]
       },
@@ -1056,7 +1092,15 @@
           "Onde ficam os resultados oficiais?",
           "Nas publicações da Confederação Brasileira de Skate, linkadas em cada edição, e nas transmissões do canal oficial da entidade."
         ]
-      ]
+      ],
+      "papel": {
+        "rotulo": "Produção do circuito",
+        "icone": "engineering",
+        "texto": "O material oficial da temporada 2025 é assinado pela Cadillac Production, e a marca aparece na estrutura da rampa na etapa de Curitiba. O campeonato é homologado pela Confederação Brasileira de Skate e integra o Circuito BB de Skate Vertical.",
+        "status": "reportada",
+        "fonte_texto": "Mídia kit oficial da temporada 2025, assinado pela Cadillac Production",
+        "nota": "A assinatura do material e a marca na estrutura indicam a produção do circuito pela Cadillac. O contrato que formaliza o escopo ainda não foi publicado aqui."
+      }
     },
     {
       "slug": "tamo-junto-bb",
@@ -1070,6 +1114,7 @@
       "intro": "O Tamo Junto BB reúne modalidades esportivas, música, games e ativações de marca no mesmo ambiente, com entrada e programação que variam por atividade. Cada edição exige coordenar arenas, atrações, atletas, fornecedores e público em poucos dias.",
       "image": null,
       "years": [
+        2026,
         2025,
         2024
       ],
@@ -1103,6 +1148,21 @@
               "https://agorarn.com.br/ultimas/festival-tamo-junto-bb-traz-shows-natal/"
             ]
           }
+        },
+        "2026": {
+          "period": "28 de outubro a 1º de novembro de 2026",
+          "place": "Estacionamento do Jaraguá e Jaraguá Hall, Maceió, AL",
+          "note": "3ª edição · surfe na Praia Pontal da Barra",
+          "datas": {
+            "inicio": "2026-10-28",
+            "fim": "2026-11-01",
+            "precisao": "dia",
+            "status": "anunciada",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
         }
       },
       "facts": {
@@ -1114,7 +1174,9 @@
           "Gratuidade e acesso variaram conforme a atividade.",
           "Há menção pública de profissional de produção associando a Cadillac à edição.",
           "O palco principal teve BaianaSystem, Nação Zumbi, L7nnon, Os Garotin com Melly e 2ZDinizz na sexta; Tali, Rachel Reis, Jota.pê e João Gomes no sábado; e Grupo Revelação no encerramento de domingo.",
-          "O palco Bosque, de entrada gratuita, recebeu Mateus Fazeno Rock, Os Transacionais e o bloco Pra Quem Gosta é Bom."
+          "O palco Bosque, de entrada gratuita, recebeu Mateus Fazeno Rock, Os Transacionais e o bloco Pra Quem Gosta é Bom.",
+          "Cerca de 60 mil pessoas circularam pelo festival, segundo o balanço da produção.",
+          "A produção informa alta de 152% nas menções à marca no ambiente digital, 3,7 milhões de visualizações no perfil do festival, 265% de crescimento na taxa de engajamento diário e salto de 579% em visualizações na comparação com o ano anterior."
         ],
         "2024": [
           "A edição de Natal foi realizada de 30 de outubro a 3 de novembro de 2024, na Arena das Dunas.",
@@ -1123,7 +1185,16 @@
           "O palco Vila BB foi dedicado a artistas locais, com Banda Boca Seca, Ian Medeiros e Banda DuSouto.",
           "A entrada foi gratuita mediante doação de 1 kg de alimento não perecível, com classificação para maiores de 18 anos.",
           "A programação esportiva reuniu a etapa final do Vert Battle de skate, vôlei de praia, surfe, corrida e uma área de e-Sports.",
-          "Executivo ligado ao patrocinador relatou publicamente público superior a 30 mil pessoas por dia — número declarado, não auditado, e que não corresponde a público único."
+          "Executivo ligado ao patrocinador relatou publicamente público superior a 30 mil pessoas por dia — número declarado, não auditado, e que não corresponde a público único.",
+          "Mais de 100 mil pessoas circularam pelo evento na Arena das Dunas, segundo o balanço da produção.",
+          "A produção informa 83,5% de aprovação direta do público presente e 92,5% de percepção positiva da marca Banco do Brasil."
+        ],
+        "2026": [
+          "A terceira edição está marcada para Maceió, de 28 de outubro a 1º de novembro de 2026, no Estacionamento do Jaraguá e no Jaraguá Hall.",
+          "A etapa de surfe acontece na Praia Pontal da Barra, a cerca de dez minutos de carro do Jaraguá.",
+          "O festival reúne quatro territórios da marca: esporte, música, tecnologia e sustentabilidade.",
+          "A programação esportiva recebe o Campeonato Brasileiro de Skate Vertical, etapas da Liga Mundial de Surfe, vôlei de praia e corrida de rua.",
+          "O território de tecnologia se organiza em torno da Arena Gamer."
         ]
       },
       "sources": [
@@ -1161,6 +1232,10 @@
           [
             "O Povo, festival reúne multidão em Fortaleza",
             "https://www.opovo.com.br/vidaearte/2025/12/13/festival-tamo-junto-bb-reune-multidao-em-prol-da-musica-e-do-esporte.html"
+          ],
+          [
+            "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+            null
           ]
         ],
         "2024": [
@@ -1175,6 +1250,16 @@
           [
             "BNews, terceiro dia do festival na Arena das Dunas",
             "https://www.bnews.com.br/noticias/esporte/arena-das-dunas-recebe-terceiro-dia-do-festival-tamo-junto-bb-saiba-detalhes.html"
+          ],
+          [
+            "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+            null
+          ]
+        ],
+        "2026": [
+          [
+            "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+            null
           ]
         ]
       },
@@ -1191,7 +1276,44 @@
           "Qual foi a participação da Cadillac?",
           "Há menção pública de profissional de produção associando a Cadillac à edição de Fortaleza. O escopo contratual depende de documentação."
         ]
-      ]
+      ],
+      "mercado": {
+        "titulo": "O que o festival movimenta",
+        "lede": "Balanço das duas primeiras edições, conforme a apresentação oficial do festival.",
+        "items": [
+          [
+            "R$ 65,1 mi",
+            "Valoração de mídia gerada",
+            "R$ 65.195.343,05, conforme o balanço da produção."
+          ],
+          [
+            "113",
+            "Jornalistas credenciados no local",
+            "Credenciamento informado pela produção."
+          ],
+          [
+            "+20",
+            "Shows nas duas edições",
+            "Para um público total informado de 150 mil pessoas."
+          ],
+          [
+            "+50",
+            "Influenciadores no time de cobertura",
+            "Com mais de 150 conteúdos publicados."
+          ],
+          [
+            "4",
+            "Territórios da marca integrados",
+            "Esporte, música, tecnologia e sustentabilidade."
+          ],
+          [
+            "3ª",
+            "Edição em 2026",
+            "Maceió, de 28 de outubro a 1º de novembro."
+          ]
+        ],
+        "nota": "Números declarados pela produção na apresentação oficial do festival, sem auditoria independente anexada a esta página. Descrevem o festival, que é propriedade do Banco do Brasil, e não resultado da Cadillac."
+      }
     },
     {
       "slug": "festival-de-tribos-juruti",
@@ -2133,6 +2255,12 @@
         "2027",
         "Balões e roda gigante ao pôr do sol",
         "Produção do festival."
+      ],
+      [
+        "atletas",
+        "",
+        "Retrato de cada atleta em assets/fotos/<slug-do-atleta>.jpg",
+        "Assessoria de cada atleta ou da entidade organizadora."
       ]
     ],
     "referencias_removidas": [
@@ -2154,7 +2282,8 @@
     ],
     "creditos": {
       "mr-moo-festival": "Divulgação Mr. Moo Festival",
-      "connect-heroes": "Divulgação Connect Heroes"
+      "connect-heroes": "Divulgação Connect Heroes",
+      "vert-battle": "Divulgação Vert Battle"
     },
     "origem_arquivos": "As imagens de mr-moo-festival e connect-heroes foram extraídas dos mídia kits oficiais enviados pelas respectivas produções. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção. O crédito aparece sobre a imagem.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md."
@@ -2763,6 +2892,18 @@
         "cidades": [
           4,
           "Goiânia, Niterói, Curitiba e Fortaleza"
+        ],
+        "dias_evento": [
+          8,
+          "Dois dias por etapa, em quatro etapas"
+        ],
+        "modalidades": [
+          1,
+          "Skate vertical, com demo de paraskate em cada etapa"
+        ],
+        "transmissao": [
+          "Globo e SporTV",
+          "SporTV em todas as etapas; Globo em Curitiba e Fortaleza"
         ]
       },
       "tamo-junto-bb-2025": {
@@ -2836,6 +2977,30 @@
         "dias_evento": [
           1,
           "17 de maio de 2025, edição de um dia"
+        ]
+      },
+      "tamo-junto-bb-2026": {
+        "dias_evento": [
+          5,
+          "De 28 de outubro a 1º de novembro"
+        ],
+        "cidades": [
+          1,
+          "Maceió, AL"
+        ]
+      },
+      "itacoatiara-pro-2022": {
+        "modalidades": [
+          8,
+          "Bodyboard, skate, vela, surfe, parapente, canoa havaiana, downhill e break dance"
+        ],
+        "palcos": [
+          7,
+          "Sete palcos distribuídos pelas hot zones da cidade"
+        ],
+        "dias_evento": [
+          26,
+          "De 1º a 26 de junho"
         ]
       }
     },
@@ -3103,13 +3268,131 @@
       "vert-battle-2025": {
         "atletas": [
           [
-            "Khury",
-            "vencedor da etapa que antecedeu Niterói"
+            "Gui Khury",
+            "campeão da etapa de Goiânia"
+          ],
+          [
+            "Helena Laurino",
+            "campeã da etapa de Goiânia"
+          ],
+          [
+            "Augusto Akio",
+            "confirmado na temporada"
+          ],
+          [
+            "Dora Varella",
+            "confirmada na temporada"
+          ],
+          [
+            "Luigi Cini",
+            "confirmado na temporada"
+          ],
+          [
+            "Raicca Ventura",
+            "confirmada na temporada"
+          ],
+          [
+            "Rony Gomes",
+            "confirmado na temporada"
+          ],
+          [
+            "Yndiara Asp",
+            "confirmada na temporada"
+          ],
+          [
+            "Dan Sabino",
+            "confirmado na temporada"
+          ],
+          [
+            "Lua Vicente",
+            "confirmada na temporada"
+          ],
+          [
+            "Pietro Nunes",
+            "confirmado na temporada; Jackalope, em Toronto"
+          ],
+          [
+            "Manu Tomitake",
+            "confirmada na temporada"
+          ],
+          [
+            "Dan Cezar",
+            "confirmado na temporada"
+          ],
+          [
+            "Marina Lima",
+            "confirmada na temporada; Jackalope, em Toronto"
+          ],
+          [
+            "Diego Takahashi",
+            "confirmado na temporada"
+          ],
+          [
+            "Sofia Curi",
+            "confirmada na temporada"
+          ],
+          [
+            "JD Sanchez",
+            "Jackalope, em Toronto"
+          ],
+          [
+            "Arisa Trew",
+            "Jackalope, em Toronto"
+          ]
+        ],
+        "artistas": [
+          [
+            "Marcelo Falcão",
+            "Palco Vert Battle, Goiânia e Niterói"
+          ],
+          [
+            "Supla & Os Punks de Boutique",
+            "Palco Vert Battle, Goiânia"
+          ],
+          [
+            "Rastacry",
+            "cena local, Goiânia"
+          ],
+          [
+            "Hellbenders",
+            "cena local, Goiânia"
+          ],
+          [
+            "DJ Hey Doc",
+            "cena local, Goiânia"
+          ],
+          [
+            "DJ Iara Kavene",
+            "cena local, Goiânia"
+          ],
+          [
+            "DJ Gabi Matos",
+            "cena local, Goiânia"
+          ],
+          [
+            "DJ Pauly",
+            "Palco Vert Battle, Niterói"
+          ],
+          [
+            "2ZDinizz",
+            "Palco Vert Battle, Niterói"
+          ],
+          [
+            "Oriente",
+            "Palco Vert Battle, Niterói"
+          ],
+          [
+            "Reação em Cadeia",
+            "Palco Vert Battle, Curitiba"
+          ],
+          [
+            "Navala",
+            "Palco Vert Battle, Curitiba"
           ]
         ],
         "fonte": [
-          "Lance, Vert Battle em Niterói",
-          "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
         ]
       },
       "itacoatiara-pro-2026": {
@@ -3249,11 +3532,93 @@
           [
             "Orquestra da Grota",
             "concerto gratuito no Espaço Funarte, 19 de junho"
+          ],
+          [
+            "Brothers of Brazil",
+            "Supla e João Suplicy, coquetel de abertura, 1º de junho"
+          ],
+          [
+            "Nando Reis e Sebastião",
+            "com a Orquestra da Grota, 3 de junho"
+          ],
+          [
+            "Black Alien",
+            "4 de junho"
+          ],
+          [
+            "Toni Garrido",
+            "com a Orquestra da Grota, 5 de junho"
+          ],
+          [
+            "Lary",
+            "convida Gabriel Pensador, 17 de junho"
+          ],
+          [
+            "André Frateschi",
+            "Brock is Back, 18 de junho, e Rock Street, 19 de junho"
+          ],
+          [
+            "Filipe Ret",
+            "com break dance, 24 de junho"
+          ],
+          [
+            "DJ Marlboro",
+            "23 de junho"
+          ],
+          [
+            "DJ Papatinho",
+            "25 de junho"
+          ],
+          [
+            "DJ Milena Scheide",
+            "25 de junho"
+          ],
+          [
+            "Bicho Solto",
+            "show de inauguração, 2 de junho"
+          ],
+          [
+            "DKV",
+            "11 de junho"
+          ],
+          [
+            "Blood Mary",
+            "12 de junho"
           ]
         ],
         "fonte": [
           "Funarte, orquestras sociais no Itacoatiara Pro",
           "https://artedetodagente.com.br/wp-content/uploads/2024/10/Release_Orquestras-Sociais-no-Iatacoatiara-Pro_14.6.22.pdf"
+        ],
+        "atletas": [
+          [
+            "Pedro Barros",
+            "citado no projeto entre os atletas previstos para o skate"
+          ],
+          [
+            "Rony Gomes",
+            "citado no projeto entre os atletas previstos para o skate"
+          ],
+          [
+            "Dora Varella",
+            "citada no projeto entre as atletas previstas para o skate"
+          ],
+          [
+            "Yndiara Asp",
+            "citada no projeto entre as atletas previstas para o skate"
+          ],
+          [
+            "Italo Penarrubia",
+            "citado no projeto entre os atletas previstos para o skate"
+          ],
+          [
+            "Isadora Pacheco",
+            "citada no projeto entre as atletas previstas para o skate"
+          ],
+          [
+            "Rayssa Leal",
+            "citada no projeto entre as atletas previstas para o skate"
+          ]
         ]
       }
     },
@@ -3514,6 +3879,18 @@
         "natureza": "Preço de tabela por mesa informado no mídia kit. Não é receita nem volume vendido.",
         "fonte": [
           "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Itacoatiara Pro",
+        "slug": "itacoatiara-pro",
+        "registro": "Itacoatiara Pro 10 anos: cota diamante proposta",
+        "valor": 2000000,
+        "natureza": "Cota de patrocínio diamante do projeto de 2022: R$ 1 milhão de apoio direto e R$ 1 milhão de verba incentivada. Preço de tabela da proposta, não receita contratada.",
+        "fonte": [
+          "Projeto Itacoatiara Pro 10 anos · documento da produção",
           null
         ],
         "uso": "Fora das páginas públicas a pedido"
@@ -3979,5 +4356,1129 @@
       ]
     ],
     "cta": "Talk to us"
+  },
+  "atletas": {
+    "lede": "Quem compete nos projetos da casa. Cada ficha reúne o que está documentado sobre a trajetória do atleta e as edições em que ele aparece, com a fonte de cada linha.",
+    "grupos": {
+      "squad-bb": [
+        "Squad BB",
+        "Nomes que o material do Tamo Junto BB reúne como os gigantes do esporte presentes no festival. Patrocínio, quando confirmado em fonte pública, está dito na ficha.",
+        "verified"
+      ],
+      "vert-battle": [
+        "Circuito BB de Skate Vertical",
+        "Atletas confirmados no Campeonato Brasileiro de Skate Vertical, o Vert Battle.",
+        "skateboarding"
+      ],
+      "convidados": [
+        "Convidados e internacionais",
+        "Atletas citados na programação de uma edição específica ou presentes na disputa internacional do circuito.",
+        "public"
+      ]
+    },
+    "lista": [
+      {
+        "slug": "rayssa-leal",
+        "nome": "Rayssa Leal",
+        "apelido": "Fadinha",
+        "modalidade": "Skate street",
+        "grupo": "squad-bb",
+        "foto": "rayssa-leal.jpg",
+        "bio": "Uma das principais skatistas do mundo e o nome mais reconhecido da geração que levou o skate brasileiro à televisão aberta.",
+        "destaques": [
+          [
+            "Patrocinada pelo Banco do Brasil desde 2021, em contrato que deu continuidade ao acordo firmado com a Brasilprev em 2020.",
+            [
+              "Meio & Mensagem, Rayssa Leal é a nova patrocinada do BB",
+              "https://www.meioemensagem.com.br/marketing/rayssa-leal-e-a-nova-patrocinada-do-bb"
+            ]
+          ],
+          [
+            "Medalhista no skate em Paris 2024, em uma campanha brasileira que somou duas medalhas na modalidade.",
+            [
+              "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
+              "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citada no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          },
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citada no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Meio & Mensagem, Rayssa Leal é a nova patrocinada do BB",
+          "https://www.meioemensagem.com.br/marketing/rayssa-leal-e-a-nova-patrocinada-do-bb"
+        ]
+      },
+      {
+        "slug": "italo-ferreira",
+        "nome": "Italo Ferreira",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "italo-ferreira.jpg",
+        "bio": "Campeão olímpico e campeão mundial de surfe, é um dos atletas de maior projeção internacional entre os patrocinados do banco.",
+        "destaques": [
+          [
+            "Campeão olímpico em Tóquio 2020 e campeão mundial, aparece entre os embaixadores do Banco do Brasil.",
+            [
+              "Poder360, Banco do Brasil como incentivador do surfe nacional",
+              "https://www.poder360.com.br/opiniao/banco-do-brasil-se-consolida-como-incentivador-do-surfe-nacional/"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citado no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Poder360, Banco do Brasil como incentivador do surfe nacional",
+          "https://www.poder360.com.br/opiniao/banco-do-brasil-se-consolida-como-incentivador-do-surfe-nacional/"
+        ]
+      },
+      {
+        "slug": "isaquias-queiroz",
+        "nome": "Isaquias Queiroz",
+        "apelido": null,
+        "modalidade": "Canoagem velocidade",
+        "grupo": "squad-bb",
+        "foto": "isaquias-queiroz.jpg",
+        "bio": "O canoísta mais medalhado da história olímpica brasileira.",
+        "destaques": [
+          [
+            "Três medalhas no Rio 2016 e ouro em Tóquio 2020.",
+            [
+              "Máquina do Esporte, BB acerta patrocínio ao campeão olímpico Isaquias Queiroz",
+              "https://maquinadoesporte.com.br/outros/banco-do-brasil-acerta-patrocinio-ao-campeao-olimpico-isaquias-queiroz"
+            ]
+          ],
+          [
+            "Patrocinado pelo Banco do Brasil em contrato anunciado com vigência inicial até 2025.",
+            [
+              "Máquina do Esporte, BB acerta patrocínio ao campeão olímpico Isaquias Queiroz",
+              "https://maquinadoesporte.com.br/outros/banco-do-brasil-acerta-patrocinio-ao-campeao-olimpico-isaquias-queiroz"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citado no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Máquina do Esporte, BB acerta patrocínio ao campeão olímpico Isaquias Queiroz",
+          "https://maquinadoesporte.com.br/outros/banco-do-brasil-acerta-patrocinio-ao-campeao-olimpico-isaquias-queiroz"
+        ]
+      },
+      {
+        "slug": "augusto-akio",
+        "nome": "Augusto Akio",
+        "apelido": "Japinha",
+        "modalidade": "Skate park e vertical",
+        "grupo": "squad-bb",
+        "foto": "augusto-akio.jpg",
+        "bio": "Medalhista olímpico e um dos atletas que o Vert Battle aponta como revelados pela exposição do circuito na TV.",
+        "destaques": [
+          [
+            "Medalha de bronze no park masculino em Paris 2024.",
+            [
+              "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
+              "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
+            ]
+          ],
+          [
+            "Prata nos Jogos Pan-Americanos de Santiago, em 2023, e melhor brasileiro do ranking mundial no ciclo olímpico, em sexto lugar.",
+            [
+              "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
+              "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
+            ]
+          ],
+          [
+            "Sétimo colocado na final do Pro Tour de San Juan, na Argentina, etapa de classificação olímpica.",
+            [
+              "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
+              "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+            ]
+          ],
+          [
+            "Citado pelo material do Vert Battle, ao lado de Raicca Ventura e Luigi Cini, entre os talentos revelados pela transmissão do circuito.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          },
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citado no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
+          "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
+        ]
+      },
+      {
+        "slug": "ana-patricia",
+        "nome": "Ana Patrícia",
+        "apelido": null,
+        "modalidade": "Vôlei de praia",
+        "grupo": "squad-bb",
+        "foto": "ana-patricia.jpg",
+        "bio": "Uma das principais jogadoras brasileiras de vôlei de praia.",
+        "destaques": [
+          [
+            "Citada no material do Tamo Junto BB entre os nomes do esporte presentes no festival.",
+            [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          ],
+          [
+            "A pesquisa pública a associa ao Time Petrobras, e não ao patrocínio do Banco do Brasil. O material do festival a cita como presença, não como patrocinada.",
+            null
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citada no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+          null
+        ]
+      },
+      {
+        "slug": "duda-lisboa",
+        "nome": "Duda",
+        "apelido": null,
+        "modalidade": "Vôlei de praia",
+        "grupo": "squad-bb",
+        "foto": "duda-lisboa.jpg",
+        "bio": "Dupla de Ana Patrícia no circuito de vôlei de praia.",
+        "destaques": [
+          [
+            "Citada no material do Tamo Junto BB entre os nomes do esporte presentes no festival.",
+            [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          ],
+          [
+            "A pesquisa pública a associa ao Time Petrobras, e não ao patrocínio do Banco do Brasil.",
+            null
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "tamo-junto-bb",
+            "ano": null,
+            "papel": "Citada no material do festival entre os nomes do esporte presentes",
+            "fonte": [
+              "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+          null
+        ]
+      },
+      {
+        "slug": "gui-khury",
+        "nome": "Gui Khury",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "gui-khury.jpg",
+        "bio": "Nome de destaque do skate vertical brasileiro no circuito.",
+        "destaques": [
+          [
+            "Campeão da etapa de Goiânia do Vert Battle 2025, primeira do Campeonato Brasileiro de Skate Vertical.",
+            [
+              "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          ],
+          [
+            "A vitória de Goiânia abriu a temporada e foi tema de cobertura nacional antes da etapa de Niterói.",
+            [
+              "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Campeão da etapa de Goiânia · Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          }
+        ],
+        "fonte": [
+          "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+          "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+        ]
+      },
+      {
+        "slug": "helena-laurino",
+        "nome": "Helena Laurino",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "helena-laurino.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Campeã feminina da etapa de Goiânia do Vert Battle 2025.",
+            [
+              "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Campeã da etapa de Goiânia · Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+              "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+            ]
+          }
+        ],
+        "fonte": [
+          "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
+          "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
+        ]
+      },
+      {
+        "slug": "luigi-cini",
+        "nome": "Luigi Cini",
+        "apelido": null,
+        "modalidade": "Skate park e vertical",
+        "grupo": "vert-battle",
+        "foto": "luigi-cini.jpg",
+        "bio": "Atleta de projeção internacional no park, citado pelo circuito entre os talentos revelados pela transmissão do Vert Battle.",
+        "destaques": [
+          [
+            "Prata no Mundial de Skate Park.",
+            [
+              "Bem Paraná, Luigi Cini é prata no Mundial de Park e Raicca Ventura fica em 4º",
+              "https://www.bemparana.com.br/esportes/luigi-cini-conquista-prata-para-brasil-no-mundial-de-skate-park-raicca-ventura-fica-em-4o/amp/"
+            ]
+          ],
+          [
+            "Ouro no Pro Tour de San Juan, na Argentina, etapa de classificação olímpica.",
+            [
+              "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
+              "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+            ]
+          ],
+          [
+            "Citado pelo material do Vert Battle entre os talentos revelados pela exposição do circuito na TV.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
+          "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+        ]
+      },
+      {
+        "slug": "raicca-ventura",
+        "nome": "Raicca Ventura",
+        "apelido": null,
+        "modalidade": "Skate park e vertical",
+        "grupo": "vert-battle",
+        "foto": "raicca-ventura.jpg",
+        "bio": "Skatista brasileira com resultados de destaque no circuito mundial de park.",
+        "destaques": [
+          [
+            "Quarto lugar no Mundial de Skate Park, o melhor resultado brasileiro na modalidade segundo a cobertura.",
+            [
+              "Bem Paraná, Luigi Cini é prata no Mundial de Park e Raicca Ventura fica em 4º",
+              "https://www.bemparana.com.br/esportes/luigi-cini-conquista-prata-para-brasil-no-mundial-de-skate-park-raicca-ventura-fica-em-4o/amp/"
+            ]
+          ],
+          [
+            "Bronze no Pro Tour de San Juan, na Argentina, etapa de classificação olímpica.",
+            [
+              "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
+              "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+            ]
+          ],
+          [
+            "Citada pelo material do Vert Battle entre os talentos revelados pela exposição do circuito na TV.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
+          "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+        ]
+      },
+      {
+        "slug": "dan-sabino",
+        "nome": "Dan Sabino",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "dan-sabino.jpg",
+        "bio": "Skatista veterano do vertical brasileiro.",
+        "destaques": [
+          [
+            "Identificado como campeão do Vert Battle na tarja de uma entrevista ao SporTV reproduzida no material do circuito.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "rony-gomes",
+        "nome": "Rony Gomes",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "rony-gomes.jpg",
+        "bio": "Criador do circuito Vert Battle e atleta em atividade.",
+        "destaques": [
+          [
+            "Criou o circuito Vert Battle em 2016.",
+            [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          ],
+          [
+            "Citado na divulgação de mídia exterior da etapa de Goiânia, entre os nomes anunciados como os melhores do mundo.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          },
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citado no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "slug": "dora-varella",
+        "nome": "Dora Varella",
+        "apelido": null,
+        "modalidade": "Skate park e vertical",
+        "grupo": "vert-battle",
+        "foto": "dora-varella.jpg",
+        "bio": "Skatista brasileira com trajetória no circuito internacional de park.",
+        "destaques": [
+          [
+            "Confirmada no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          },
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citada no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "yndiara-asp",
+        "nome": "Yndiara Asp",
+        "apelido": null,
+        "modalidade": "Skate park e vertical",
+        "grupo": "vert-battle",
+        "foto": "yndiara-asp.jpg",
+        "bio": "Skatista brasileira do circuito de park e vertical.",
+        "destaques": [
+          [
+            "Confirmada no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          },
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citada no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "marina-lima",
+        "nome": "Marina Lima",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "marina-lima.jpg",
+        "bio": "Skatista do circuito vertical, classificada para a disputa internacional do circuito.",
+        "destaques": [
+          [
+            "Entre os atletas do Vert Battle no Jackalope, em Toronto, no Canadá, em julho de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ],
+          [
+            "Os vencedores das duas primeiras etapas do Vert Battle 2025 ganharam vaga, com despesas pagas, para o Jackalope.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Jackalope, Toronto · Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "pietro-nunes",
+        "nome": "Pietro Nunes",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "pietro-nunes.jpg",
+        "bio": "Skatista do circuito vertical, classificado para a disputa internacional do circuito.",
+        "destaques": [
+          [
+            "Entre os atletas do Vert Battle no Jackalope, em Toronto, no Canadá, em julho de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Jackalope, Toronto · Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "lua-vicente",
+        "nome": "Lua Vicente",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "lua-vicente.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Confirmada no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "manu-tomitake",
+        "nome": "Manu Tomitake",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "manu-tomitake.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Confirmada no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "dan-cezar",
+        "nome": "Dan Cezar",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "dan-cezar.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "diego-takahashi",
+        "nome": "Diego Takahashi",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "diego-takahashi.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "sofia-curi",
+        "nome": "Sofia Curi",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "sofia-curi.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Confirmada no Campeonato Brasileiro de Skate Vertical de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Confirmado no Campeonato Brasileiro de Skate Vertical de 2025",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "thomas-augusto",
+        "nome": "Thomas Augusto",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "thomas-augusto.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Campeão da etapa de Belo Horizonte do Vert Battle, em 2026.",
+            [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2026,
+            "papel": "Campeão da etapa de Belo Horizonte",
+            "fonte": [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          }
+        ],
+        "fonte": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "slug": "maria-luiza-santiago",
+        "nome": "Maria Luiza Santiago",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "vert-battle",
+        "foto": "maria-luiza-santiago.jpg",
+        "bio": "Skatista do circuito vertical brasileiro.",
+        "destaques": [
+          [
+            "Campeã da etapa de Belo Horizonte do Vert Battle, em 2026.",
+            [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2026,
+            "papel": "Campeã da etapa de Belo Horizonte",
+            "fonte": [
+              "CBSk, etapa de Belo Horizonte",
+              "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+            ]
+          }
+        ],
+        "fonte": [
+          "CBSk, etapa de Belo Horizonte",
+          "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+        ]
+      },
+      {
+        "slug": "jd-sanchez",
+        "nome": "JD Sanchez",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "convidados",
+        "foto": "jd-sanchez.jpg",
+        "bio": "Atleta internacional presente na disputa do circuito no Canadá.",
+        "destaques": [
+          [
+            "Entre os atletas do Vert Battle no Jackalope, em Toronto, em julho de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ],
+          [
+            "Os vencedores do Jackalope ganharam vaga, com despesas pagas, para a final do Brasileiro de Vert em dezembro, no Tamo Junto BB.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Jackalope, Toronto",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "arisa-trew",
+        "nome": "Arisa Trew",
+        "apelido": null,
+        "modalidade": "Skate vertical",
+        "grupo": "convidados",
+        "foto": "arisa-trew.jpg",
+        "bio": "Atleta internacional presente na disputa do circuito no Canadá.",
+        "destaques": [
+          [
+            "Entre as atletas do Vert Battle no Jackalope, em Toronto, em julho de 2025.",
+            [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "vert-battle",
+            "ano": 2025,
+            "papel": "Jackalope, Toronto",
+            "fonte": [
+              "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
+          null
+        ]
+      },
+      {
+        "slug": "pedro-barros",
+        "nome": "Pedro Barros",
+        "apelido": null,
+        "modalidade": "Skate park e vertical",
+        "grupo": "convidados",
+        "foto": "pedro-barros.jpg",
+        "bio": "Um dos nomes históricos do skate brasileiro de bowl e vertical.",
+        "destaques": [
+          [
+            "Citado no projeto do Itacoatiara Pro 10 anos entre os atletas renomados previstos para o skate.",
+            [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citado no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Projeto Itacoatiara Pro 10 anos · documento da produção",
+          null
+        ]
+      },
+      {
+        "slug": "isadora-pacheco",
+        "nome": "Isadora Pacheco",
+        "apelido": null,
+        "modalidade": "Skate park",
+        "grupo": "convidados",
+        "foto": "isadora-pacheco.jpg",
+        "bio": "Skatista brasileira do circuito de park.",
+        "destaques": [
+          [
+            "Citada no projeto do Itacoatiara Pro 10 anos entre os atletas renomados previstos para o skate.",
+            [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citada no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Projeto Itacoatiara Pro 10 anos · documento da produção",
+          null
+        ]
+      },
+      {
+        "slug": "italo-penarrubia",
+        "nome": "Italo Penarrubia",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "convidados",
+        "foto": "italo-penarrubia.jpg",
+        "bio": "Skatista brasileiro.",
+        "destaques": [
+          [
+            "Citado no projeto do Itacoatiara Pro 10 anos entre os atletas renomados previstos para o skate.",
+            [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2022,
+            "papel": "Citado no projeto entre os atletas previstos para o skate",
+            "fonte": [
+              "Projeto Itacoatiara Pro 10 anos · documento da produção",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Projeto Itacoatiara Pro 10 anos · documento da produção",
+          null
+        ]
+      },
+      {
+        "slug": "vitor-ferreira",
+        "nome": "Vitor Ferreira",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "convidados",
+        "foto": "vitor-ferreira.jpg",
+        "bio": "Surfista campeão do profissional do festival de Niterói.",
+        "destaques": [
+          [
+            "Campeão do campeonato profissional de surfe do Itacoatiara Pro 2026.",
+            [
+              "ge, Vitor Ferreira campeão no surfe",
+              "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2026,
+            "papel": "Campeão do profissional de surfe",
+            "fonte": [
+              "ge, Vitor Ferreira campeão no surfe",
+              "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
+            ]
+          }
+        ],
+        "fonte": [
+          "ge, Vitor Ferreira campeão no surfe",
+          "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
+        ]
+      }
+    ],
+    "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição ou na cobertura de imprensa de um projeto do acervo. Não significa contrato com a Cadillac nem patrocínio da empresa. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte."
   }
 }

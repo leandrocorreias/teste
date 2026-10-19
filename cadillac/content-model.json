@@ -1,5 +1,5 @@
 {
-  "version": 14,
+  "version": 15,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -2045,97 +2045,103 @@
         "itacoatiara-pro",
         "2026",
         "Bateria de bodyboard ou surfe na 14ª edição",
-        "itacoatiarapro.com.br, IBC World Tour, ge.globo"
+        "Prefeitura de Niterói (crédito Lucas Benevides). Pedir à assessoria."
       ],
       [
         "itacoatiara-pro",
         "2026",
         "Premiação do campeonato profissional de surfe",
-        "niteroi.rj.gov.br"
+        "Prefeitura de Niterói (crédito Lucas Benevides). Pedir à assessoria."
       ],
       [
         "itacoatiara-pro",
         "2025",
         "Programação da 13ª edição",
-        "itacoatiarapro.com.br"
+        "Organização do festival."
+      ],
+      [
+        "itacoatiara-pro",
+        "2022",
+        "Concerto das orquestras sociais no Espaço Funarte",
+        "Funarte, programa Arte em Circuito."
       ],
       [
         "vert-battle",
         "2026",
         "Etapa de Belo Horizonte, pista vertical",
-        "cbsk.com.br"
+        "Confederação Brasileira de Skate, entidade organizadora."
       ],
       [
         "vert-battle",
         "2025",
         "Etapa de Niterói",
-        "cbsk.com.br, lance.com.br"
+        "Confederação Brasileira de Skate, entidade organizadora."
       ],
       [
         "tamo-junto-bb",
         "2025",
         "Arena do festival em Fortaleza",
-        "tamojuntobb.com.br, imprensa.bb.com.br"
+        "Banco do Brasil, marketing e comunicação. Imagens da cobertura vêm como Divulgação."
       ],
       [
         "tamo-junto-bb",
         "2024",
         "Arena das Dunas, Natal",
-        "bb.com.br"
+        "Banco do Brasil, marketing e comunicação."
       ],
       [
         "dominguinho",
         "",
         "João Gomes, Mestrinho e Jota.pê no palco",
-        "assessoria do projeto"
+        "Assessoria do projeto."
       ],
       [
         "arte-em-circuito",
         "",
         "Oficina ou residência do projeto",
-        "artedetodagente.com.br"
+        "Núcleo do Arte em Circuito."
       ],
       [
         "festival-de-tribos-juruti",
         "2018",
         "Festa dos Visitantes",
-        "acervo do festival"
+        "Acervo do festival."
       ],
       [
         "ccbb-mac-bahia",
         "",
         "Skate dentro do MAC Bahia",
-        "CCBB, ficha técnica institucional"
+        "CCBB, ficha técnica institucional."
       ],
       [
         "connect-heroes",
         "2026",
         "Tatame e premiação da 1ª edição",
-        "@connectheroes, material oficial do evento"
+        "Produção do evento, perfil oficial @connectheroes."
       ],
       [
         "connect-heroes",
         "2026",
         "Fight week no Grand Hyatt: coletiva e pesagem",
-        "produção do evento"
+        "Produção do evento, perfil oficial @connectheroes."
       ],
       [
         "mr-moo-festival",
         "2026",
         "Tenda principal cheia, vista aérea do festival",
-        "mídia kit oficial Mr. Moo"
+        "Produção do festival. O mídia kit já traz a imagem em alta: pedir o arquivo solto e a autorização."
       ],
       [
         "mr-moo-festival",
         "2025",
         "Entrega do certificado Guinness no palco",
-        "mídia kit oficial Mr. Moo"
+        "Produção do festival. O mídia kit já traz a imagem em alta: pedir o arquivo solto e a autorização."
       ],
       [
         "mr-moo-festival",
         "2027",
         "Balões e roda gigante ao pôr do sol",
-        "produção do festival"
+        "Produção do festival."
       ]
     ],
     "referencias_removidas": [
@@ -2154,7 +2160,8 @@
         "url_anterior": "https://www.portaltela.com/s.01k8r8f7wx8pm/2026/05/17785983126a0341a8e7f43_1778598312_3x2_md.jpg",
         "motivo": "Fotografia de terceiro sem licença, usada como prévia. Substituir por imagem oficial."
       }
-    ]
+    ],
+    "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md."
   },
   "audiencia": {
     "lede": "Quanta gente a Cadillac alcança. Esta página soma apenas números com origem identificada e nunca mistura grandezas diferentes: quem esteve presente, quem competiu e quem ouviu são contagens distintas.",

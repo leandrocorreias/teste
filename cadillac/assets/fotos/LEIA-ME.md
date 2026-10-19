@@ -1,5 +1,7 @@
 # Fotos do acervo
 
+> **Antes de pegar qualquer imagem:** foto de veículo de imprensa não entra neste site — ela é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido com autorização escrita, e órgão público sob licença aberta. O caminho de cada origem e o texto do pedido estão em `../../FOTOS.md`.
+
 Coloque os arquivos aqui e rode `python3 build.py`. Cada espaço reservado no site
 mostra exatamente o nome que ele espera — basta usar o mesmo nome.
 

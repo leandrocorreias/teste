@@ -50,6 +50,29 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V14: elenco completo e o caminho das fotos
+
+Com a rede liberada nesta sessão, o bloco “Quem esteve em cena” deixou de ter nomes
+soltos. Fortaleza 2025 foi de 8 para 16 artistas com palco e dia; Natal 2024, que não
+tinha elenco nenhum, ganhou 11 nomes e teve a data corrigida de “só o ano” para 30 de
+outubro a 3 de novembro. Onde as publicações divergem, a divergência fica escrita na
+linha.
+
+**As fotos continuam fora, por duas razões independentes**, e `FOTOS.md` explica as
+duas com o teste que as comprova:
+
+- Este ambiente não alcança nenhum portal. O proxy recusa o túnel para
+  `itacoatiarapro.com.br`, `tamojuntobb.com.br`, `cbsk.com.br`, `instagram.com` e
+  `i.ytimg.com`. Só o GitHub passa. Não dá para baixar um arquivo daqui.
+- Mesmo com acesso, **foto de imprensa não é nossa para publicar**. A imagem que
+  ilustra uma reportagem é do veículo ou do fotógrafo. Três referências assim já foram
+  retiradas deste projeto e estão registradas em `photos.referencias_removidas`.
+
+`FOTOS.md` traz o que a pesquisa achou sobre cada origem — entre elas o crédito
+**Lucas Benevides / Prefeitura de Niterói** no Itacoatiara Pro 2026 e o material do
+Banco do Brasil no Tamo Junto — mais o texto do pedido pronto para enviar e a ordem de
+retorno.
+
 ## V13: correção — os ícones não carregavam
 
 A lista `icon_names` enviada ao Google Fonts tinha **`mail` repetido**. O Google Fonts

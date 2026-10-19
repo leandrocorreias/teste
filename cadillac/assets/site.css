@@ -319,7 +319,7 @@ body.nav-open{overflow:hidden}
   gap:clamp(24px,4vw,56px);align-items:start}
 .area-text p{font-size:clamp(16px,1.7vw,18px);color:var(--ink-2)}
 .area-list{background:var(--white);border:1px solid var(--border);padding:clamp(20px,2.6vw,28px)}
-.area-list h3{font-size:clamp(17px,1.8vw,21px);margin:0 0 16px}
+.area-list h3,.area-list-title{font-size:clamp(17px,1.8vw,21px);margin:0 0 16px;font-family:var(--font-display);text-transform:uppercase;line-height:1.1}
 .area-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .area-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.55}
 .area-list .cd-icon{font-size:17px;color:var(--orange-ink);margin-top:1px}
@@ -487,9 +487,113 @@ a.service-row{color:inherit}
 
 /* Alvo de toque mínimo para links dentro de tabelas e listas */
 .amounts a,.reach-table a,.matrix a,.cast-source a,.case-links a,
+.vinculos a,.canais a,.body-copy a,.pessoa-links a,.kit-item a,.area-list a,
 .crumbs a,.crumbs span[aria-current],.back{
   display:inline-flex;align-items:center;gap:7px;min-height:24px}
 .amounts td a,.amounts th a{padding:2px 0}
+
+/* Pessoas */
+.pessoas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),340px));
+  justify-content:start;gap:18px;margin-top:clamp(22px,3vw,34px)}
+.pessoa{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--border-strong);
+  display:flex;flex-direction:column;overflow:hidden;height:100%}
+.pessoa-foto,.pessoa .photo-slot{width:100%;aspect-ratio:1/1;object-fit:cover;min-height:0}
+.pessoa .photo-slot{border:0;border-bottom:1px dashed var(--border)}
+.pessoa-info{padding:clamp(18px,2.2vw,24px);display:flex;flex-direction:column;gap:10px}
+.pessoa-info h3{font-size:clamp(20px,2.2vw,27px);margin:0}
+.pessoa-cargo{margin:0;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--orange-ink)}
+.pessoa-bio{margin:0;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.vinculos{list-style:none;margin:6px 0 0;padding:14px 0 0;border-top:1px solid var(--border);
+  display:flex;flex-direction:column;gap:12px}
+.vinculos li{display:flex;flex-direction:column;gap:3px;font-size:13px}
+.vinculos li>a:first-child{font-weight:700}
+.vinculos span{color:var(--muted);font-size:12px;line-height:1.45}
+.vinc-fonte{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--orange-ink);display:inline-flex;align-items:center;gap:6px;min-height:24px}
+.pessoa-links{display:flex;gap:12px;flex-wrap:wrap;margin:0;font-size:12px;font-weight:700}
+.photo-slot.slot-retrato{min-height:0;aspect-ratio:1/1;padding:18px}
+.photo-slot.slot-retrato strong{font-size:14px}
+
+/* Case */
+.case-section{padding-bottom:clamp(60px,9vw,120px)}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.case-bloco{background:var(--white);border:1px solid var(--border);padding:clamp(20px,2.4vw,26px)}
+.case-bloco h3{font-size:clamp(17px,1.9vw,22px);margin:0 0 14px}
+.case-bloco p,.case-bloco li{font-size:15px;line-height:1.65;color:var(--ink-2)}
+.case-bloco ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.case-bloco li{display:flex;gap:9px;align-items:flex-start}
+.case-bloco li .cd-icon{font-size:16px;color:var(--orange-ink);margin-top:2px}
+.vazio{display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:13px;margin:0}
+.vazio code{font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--paper-2);
+  border:1px solid var(--border);padding:5px 8px;overflow-wrap:anywhere}
+.vazio small{font-size:12px;line-height:1.5}
+.vazio-inline{color:var(--muted);font-size:12px}
+.depoimento{margin:18px 0 0;background:var(--surface-dark);color:#fff;padding:clamp(24px,3.4vw,40px);
+  border:0}
+.depoimento p{font-family:var(--font-display);font-size:clamp(22px,3vw,38px);line-height:1.15;
+  text-transform:uppercase;margin:0 0 20px}
+.depoimento footer{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.depoimento footer span{display:block;color:#a8a5a0;font-weight:400;letter-spacing:.04em;margin-top:5px}
+.depoimento-vazio{margin-top:18px;background:var(--paper-2);padding:clamp(18px,2.4vw,26px);
+  border:1px dashed var(--border)}
+
+/* Vídeo */
+.reel-section{padding:0 0 clamp(40px,6vw,70px)}
+.video-wrap{position:relative;aspect-ratio:16/9;background:var(--surface-dark);overflow:hidden}
+.video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  text-align:center;color:#c9c6c1;padding:24px;
+  background:repeating-linear-gradient(135deg,#1d1d1e 0 12px,#191919 12px 24px)}
+.video-slot strong{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(20px,3vw,34px);color:#fff}
+.video-slot code{font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0e0e0e;
+  border:1px solid #333;padding:6px 9px;color:#e6e3de}
+.video-slot small{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.video-slot .slot-mark .cd-icon{font-size:40px;color:var(--orange)}
+
+/* Marcas */
+.clientes{padding:clamp(60px,9vw,110px) 0}
+.logo-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border)}
+.logo-item{background:var(--paper);min-height:120px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;padding:22px;text-align:center;transition:var(--t)}
+.logo-item:hover{background:var(--white)}
+.logo-item img{max-height:46px;width:auto;object-fit:contain}
+.logo-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
+.logo-slot strong{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1.1}
+.logo-slot code{font:600 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);
+  overflow-wrap:anywhere}
+.logo-papel{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+
+/* Kit de imprensa */
+.kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;
+  margin-top:clamp(22px,3vw,34px)}
+.kit-item{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--border-strong);
+  padding:clamp(20px,2.4vw,26px);display:flex;flex-direction:column;gap:12px}
+.kit-item h3{font-size:clamp(18px,2vw,24px);margin:0}
+.kit-item p{margin:0;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.kit-item code{font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--paper-2);
+  border:1px solid var(--border);padding:5px 8px;overflow-wrap:anywhere}
+.kit-item .pill-link,.kit-item .selo{align-self:flex-start;margin-top:auto}
+
+/* Contato */
+.contato-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+  gap:clamp(24px,4vw,56px);padding-bottom:clamp(60px,9vw,120px);align-items:start}
+.contato-grid>hr{grid-column:1/-1}
+.contato-form h2{font-size:clamp(26px,3.4vw,44px);margin:0 0 24px}
+.campo{display:flex;flex-direction:column;gap:7px;margin:0 0 18px}
+.campo label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.campo label span{color:var(--muted);font-weight:400;letter-spacing:.04em;text-transform:none}
+.campo input,.campo select,.campo textarea{font:inherit;font-size:15px;padding:13px 14px;
+  border:1px solid var(--border);background:var(--white);color:var(--ink);width:100%}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:2px solid var(--orange);
+  outline-offset:1px;border-color:var(--ink)}
+.contato-form button{border:1px solid var(--ink);background:var(--ink);color:#fff}
+.contato-form button:hover{background:var(--orange);border-color:var(--orange)}
+.canais{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.canais li{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
+.canais strong{font-size:11px;letter-spacing:.12em;text-transform:uppercase;min-width:92px}
+.canais .cd-icon{color:var(--orange-ink);font-size:19px}
 
 /* 9. Utilitários --------------------------------------------------------- */
 .material-symbols-outlined.cd-icon{font-family:'Material Symbols Outlined';font-weight:400;

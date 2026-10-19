@@ -29,7 +29,14 @@ projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       frentes de trabalho, a empresa e o ecossistema
 agenda/                        todas as edições, etapas e shows em um calendário único
+equipe/                        núcleo, sócios por projeto, especialistas e parceiros
+imprensa/                      kit: apresentação, marca, fotos e ficha técnica
+contato/                       formulário e canais diretos
+en/                            resumo institucional em inglês
 reservado/                     uso interno: valores, diligências e pendências (noindex)
+assets/marcas/                 logotipos de marcas e instituições
+assets/kit/                    arquivos para download da imprensa
+assets/video/                  reel e vídeos de projeto
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
@@ -42,6 +49,22 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## V9: o que faltava para competir
+
+- **Equipe** (`/equipe/`): pessoas com cargo, bio, foto e, principalmente, **vínculo por
+  projeto e por ano**. O modelo separa núcleo da casa, sócio em um projeto específico,
+  especialista por frente e parceiro externo — porque alguém pode ser sócio no Itacoatiara
+  e não atuar no Tamo Junto. Cada edição mostra "Quem assina esta operação" a partir dos
+  mesmos vínculos. Para adicionar pessoas, copie `pessoas.vagas_modelo.modelo`.
+- **Cases** por edição: desafio, solução, o que entregamos, resultado e depoimento. Campo
+  vazio mostra o caminho exato no modelo, em vez de sumir.
+- **Vídeo**: reel na home e vídeo por projeto. Aceita arquivo local ou URL de YouTube e
+  Vimeo; sem URL, fica o espaço reservado.
+- **Marcas**: mural de logotipos na home, ligado ao projeto onde cada marca aparece.
+- **Imprensa** (`/imprensa/`): apresentação, marca, fotos e ficha técnica para download.
+- **Contato** (`/contato/`): formulário com assunto, canais diretos e nota sobre o endpoint.
+- **Inglês** (`/en/`): resumo institucional, frentes e lista de projetos, com `hreflang`.
 
 ## Página reservada
 

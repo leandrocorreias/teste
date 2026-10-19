@@ -2419,5 +2419,398 @@
       ]
     ],
     "nota": "Nada nesta página deve ser publicado sem antes resolver a pendência que a acompanha. Valor aprovado para captação não é valor captado, instrumento de patrocínio de terceiro não é receita da Cadillac e portaria de instauração não é comprovação de irregularidade."
+  },
+  "pessoas": {
+    "lede": "Quem assina o trabalho. A Cadillac opera com um núcleo fixo e com sócios e especialistas que entram conforme o projeto — por isso cada pessoa aqui mostra em quais eventos atuou, e em quais não.",
+    "papeis": {
+      "nucleo": [
+        "Núcleo Cadillac",
+        "Sócios e equipe fixa da casa",
+        "verified"
+      ],
+      "socio_projeto": [
+        "Sócio no projeto",
+        "Sócio na realização de um projeto específico, não da empresa",
+        "groups"
+      ],
+      "especialista": [
+        "Especialista por projeto",
+        "Entra em uma frente ou edição, conforme a necessidade",
+        "engineering"
+      ],
+      "parceiro": [
+        "Parceiro externo",
+        "Idealizador, entidade ou produtor de outra casa, creditado na fonte",
+        "public"
+      ]
+    },
+    "equipe": [
+      {
+        "slug": "bill-aquino",
+        "nome": "Bill Aquino",
+        "cargo": "Sócio e coordenação artística",
+        "tipo": "nucleo",
+        "foto": "bill-aquino.jpg",
+        "bio": "Responde pela coordenação artística e pela realização dos projetos da casa. É citado em fonte pública como sócio na realização do Itacoatiara Pro e creditado na coordenação artística do Arte em Circuito.",
+        "desde": null,
+        "links": [],
+        "vinculos": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2026,
+            "papel": "Sócio na realização",
+            "fonte": [
+              "Waves, Itacoatiara Pro 2026",
+              "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+            ]
+          },
+          {
+            "projeto": "arte-em-circuito",
+            "ano": null,
+            "papel": "Coordenação artística",
+            "fonte": [
+              "Arte de Toda Gente, institucional",
+              "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "alexandre-rangel",
+        "nome": "Alexandre Rangel",
+        "cargo": "Sócio na realização",
+        "tipo": "socio_projeto",
+        "foto": "alexandre-rangel.jpg",
+        "bio": "Citado pela imprensa como sócio na realização do Itacoatiara Pro.",
+        "desde": null,
+        "links": [],
+        "vinculos": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2026,
+            "papel": "Sócio na realização",
+            "fonte": [
+              "Waves, Itacoatiara Pro 2026",
+              "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "giuliano-lara",
+        "nome": "Giuliano Lara",
+        "cargo": "Idealizador do Itacoatiara Pro",
+        "tipo": "parceiro",
+        "foto": "giuliano-lara.jpg",
+        "bio": "Identificado pela imprensa como idealizador do festival. Parceiro no projeto, não integrante da Cadillac.",
+        "desde": null,
+        "links": [],
+        "vinculos": [
+          {
+            "projeto": "itacoatiara-pro",
+            "ano": 2026,
+            "papel": "Idealizador",
+            "fonte": [
+              "Waves, Itacoatiara Pro 2026",
+              "https://www.waves.com.br/noticias/itacoatiara-pro-2026-niteroi-reune-elite-mundial/"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "rony-gomes",
+        "nome": "Rony Gomes",
+        "cargo": "Criador do Vert Battle",
+        "tipo": "parceiro",
+        "foto": "rony-gomes.jpg",
+        "bio": "Criou o circuito de skate vertical em 2016. Parceiro na propriedade, não integrante da Cadillac.",
+        "desde": null,
+        "links": [],
+        "vinculos": [
+          {
+            "projeto": "vert-battle",
+            "ano": null,
+            "papel": "Criador do circuito, em 2016",
+            "fonte": [
+              "CBSk, calendário",
+              "https://cbsk.com.br/eventos/2168"
+            ]
+          }
+        ]
+      }
+    ],
+    "vagas_modelo": {
+      "comentario": "Copie este bloco em pessoas.equipe para cada pessoa nova. Campos vazios viram espaço reservado no site.",
+      "modelo": {
+        "slug": "nome-sobrenome",
+        "nome": "Nome Sobrenome",
+        "cargo": "Cargo na operação",
+        "tipo": "nucleo | socio_projeto | especialista | parceiro",
+        "foto": "nome-sobrenome.jpg",
+        "bio": "Duas linhas sobre o que a pessoa faz.",
+        "desde": "2019",
+        "links": [
+          [
+            "LinkedIn",
+            "https://..."
+          ]
+        ],
+        "vinculos": [
+          {
+            "projeto": "slug-do-projeto",
+            "ano": 2025,
+            "papel": "O que fez nessa edição",
+            "fonte": null
+          }
+        ]
+      }
+    },
+    "nota": "Vínculo aqui significa atuação registrada em fonte pública ou informada pela direção, no projeto e no ano indicados. A ausência de uma pessoa em um projeto é informação: significa que ela não atuou nele, ou que o registro ainda não foi levantado."
+  },
+  "clientes": {
+    "lede": "Marcas, instituições e entidades que aparecem nos registros dos projetos.",
+    "itens": [
+      {
+        "nome": "Banco do Brasil",
+        "papel": "Patrocinador",
+        "projeto": "tamo-junto-bb",
+        "logo": "banco-do-brasil.svg"
+      },
+      {
+        "nome": "Prefeitura de Niterói",
+        "papel": "Poder público",
+        "projeto": "itacoatiara-pro",
+        "logo": "prefeitura-niteroi.svg"
+      },
+      {
+        "nome": "Confederação Brasileira de Skate",
+        "papel": "Entidade esportiva",
+        "projeto": "vert-battle",
+        "logo": "cbsk.svg"
+      },
+      {
+        "nome": "IBC World Tour",
+        "papel": "Circuito mundial",
+        "projeto": "itacoatiara-pro",
+        "logo": "ibc-world-tour.svg"
+      },
+      {
+        "nome": "Funarte",
+        "papel": "Instituição cultural",
+        "projeto": "arte-em-circuito",
+        "logo": "funarte.svg"
+      },
+      {
+        "nome": "CCBB",
+        "papel": "Instituição cultural",
+        "projeto": "ccbb-mac-bahia",
+        "logo": "ccbb.svg"
+      }
+    ],
+    "nota": "Presença nesta lista indica relação identificada em fonte pública no projeto indicado. Não significa contrato com a Cadillac nem relação de cliente continuada. Use apenas logotipos com autorização de uso da marca."
+  },
+  "cases": {
+    "lede": "Desafio, solução, entrega e resultado de cada edição, no formato que um patrocinador lê.",
+    "campos": {
+      "desafio": [
+        "O desafio",
+        "O que o cliente ou o projeto precisava resolver"
+      ],
+      "solucao": [
+        "A solução",
+        "O desenho que a Cadillac propôs"
+      ],
+      "entrega": [
+        "O que entregamos",
+        "Lista do que foi operado, item a item"
+      ],
+      "resultado": [
+        "O resultado",
+        "Números e efeitos, cada um com origem"
+      ],
+      "depoimento": [
+        "Depoimento",
+        "Fala de cliente, patrocinador ou entidade, com nome e cargo"
+      ]
+    },
+    "fichas": {
+      "itacoatiara-pro-2026": {
+        "desafio": "",
+        "solucao": "",
+        "entrega": [],
+        "resultado": [],
+        "depoimento": {
+          "texto": "",
+          "autor": "",
+          "cargo": ""
+        }
+      },
+      "vert-battle-2026": {
+        "desafio": "",
+        "solucao": "",
+        "entrega": [],
+        "resultado": [],
+        "depoimento": {
+          "texto": "",
+          "autor": "",
+          "cargo": ""
+        }
+      },
+      "tamo-junto-bb-2025": {
+        "desafio": "",
+        "solucao": "",
+        "entrega": [],
+        "resultado": [],
+        "depoimento": {
+          "texto": "",
+          "autor": "",
+          "cargo": ""
+        }
+      }
+    },
+    "nota": "Case só vai ao ar com o aval de quem contratou. Enquanto o texto não chega, a edição mostra os fatos documentados e a ficha de operação, que já sustentam a conversa."
+  },
+  "video": {
+    "reel": {
+      "url": null,
+      "titulo": "Reel institucional",
+      "duracao": "20 a 30 segundos",
+      "arquivo": "assets/video/reel.mp4",
+      "poster": "assets/fotos/reel-poster.jpg"
+    },
+    "por_projeto": {},
+    "nota": "Aceita arquivo local em assets/video ou URL de YouTube e Vimeo. Sem vídeo, o espaço fica reservado e nada quebra."
+  },
+  "imprensa": {
+    "lede": "Material pronto para quem vai escrever, apresentar ou avaliar a Cadillac.",
+    "itens": [
+      {
+        "titulo": "Apresentação institucional",
+        "formato": "PDF",
+        "arquivo": "assets/kit/cadillac-apresentacao.pdf",
+        "descricao": "Quem somos, frentes de atuação, projetos e capacidade operacional."
+      },
+      {
+        "titulo": "Logotipo e marca",
+        "formato": "ZIP",
+        "arquivo": "assets/kit/cadillac-marca.zip",
+        "descricao": "Versões em preto, branco e vetor, com área de respiro e usos proibidos."
+      },
+      {
+        "titulo": "Fotos em alta",
+        "formato": "ZIP",
+        "arquivo": "assets/kit/cadillac-fotos.zip",
+        "descricao": "Seleção de imagens com direito de uso para imprensa, com crédito obrigatório."
+      },
+      {
+        "titulo": "Ficha técnica dos projetos",
+        "formato": "PDF",
+        "arquivo": "assets/kit/cadillac-projetos.pdf",
+        "descricao": "Uma página por projeto, com datas, modalidades, operação e fontes."
+      }
+    ],
+    "contato": {
+      "nome": "Assessoria e imprensa",
+      "email": "contato@cadillacproducoes.com.br"
+    },
+    "nota": "Arquivos que ainda não existem aparecem como espaço reservado, com o caminho esperado."
+  },
+  "contato": {
+    "lede": "Projetos, parcerias, patrocínio ou imprensa. Respondemos em até dois dias úteis.",
+    "endpoint": null,
+    "campos": [
+      [
+        "nome",
+        "Nome",
+        "text",
+        true
+      ],
+      [
+        "email",
+        "E-mail",
+        "email",
+        true
+      ],
+      [
+        "empresa",
+        "Empresa ou veículo",
+        "text",
+        false
+      ],
+      [
+        "assunto",
+        "Assunto",
+        "select",
+        true
+      ],
+      [
+        "mensagem",
+        "Mensagem",
+        "textarea",
+        true
+      ]
+    ],
+    "assuntos": [
+      "Projeto ou parceria",
+      "Patrocínio",
+      "Imprensa",
+      "Fornecedor",
+      "Outro"
+    ],
+    "canais": [
+      [
+        "E-mail",
+        "contato@cadillacproducoes.com.br",
+        "mail"
+      ],
+      [
+        "Telefone",
+        null,
+        "description"
+      ],
+      [
+        "Instagram",
+        null,
+        "public"
+      ],
+      [
+        "LinkedIn",
+        null,
+        "public"
+      ]
+    ],
+    "nota": "O formulário precisa de um endereço de envio para funcionar em site estático. Preencha contato.endpoint com a URL do serviço escolhido, por exemplo Formspree ou Basin. Sem endpoint, o botão abre o e-mail do visitante com o assunto já preenchido."
+  },
+  "en": {
+    "titulo": "Cadillac Produções & Filmes",
+    "tagline": "We make the extraordinary happen.",
+    "lede": "Cadillac develops, enables and produces experiences in sport, culture and entertainment in Brazil. This page is a short overview in English; the full archive, with every edition and its sources, is in Portuguese.",
+    "sobre": [
+      "Founded in 2013 in Rio de Janeiro, Cadillac works across executive production, sports circuits, cultural programming, brand activation and audiovisual records.",
+      "Every claim on this portal carries an identifiable source. Where an attribution still depends on a contract or a technical sheet under validation, the page says so instead of rounding it into a nicer number."
+    ],
+    "frentes": [
+      [
+        "Executive production",
+        "Scope, budget, schedule, suppliers, licences and accountability."
+      ],
+      [
+        "Sports and circuits",
+        "Stages, itinerant seasons, federation liaison and competition setup."
+      ],
+      [
+        "Culture and entertainment",
+        "Line-up, stage, technical rider and artistic coordination."
+      ],
+      [
+        "Brands and activation",
+        "Sponsor experiences, cross-property integration and contractual delivery."
+      ],
+      [
+        "Content and audiovisual",
+        "Image capture, archive, press material and sourced documentation."
+      ]
+    ],
+    "cta": "Talk to us"
   }
 }

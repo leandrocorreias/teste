@@ -116,3 +116,45 @@ não deveria ir ao ar na primeira publicação.
 4. Datas exatas das seis edições que só têm o ano.
 5. Leitura das transmissões no canal da CBSk, com data de captura.
 6. Decisão sobre o item 4 (Agenda/Dados e menu).
+
+
+---
+
+# Atualização V9 — estrutura para competir de igual
+
+Depois da revisão, entrou tudo o que as agências de referência mostram e o portal não tinha.
+
+| Critério | Antes | Agora | Teto com o material |
+|---|---|---|---|
+| Engenharia e performance | 9,0 | 9,0 | 9,5 |
+| Acessibilidade | 9,0 | 9,5 | 10 |
+| SEO e estrutura | 8,5 | 9,0 | 10 |
+| Arquitetura de conteúdo | 8,0 | 9,5 | 10 |
+| Identidade visual | 7,0 | 7,0 | 10 |
+| Prova de capacidade | 4,0 | 6,0 | 10 |
+| Material visual | 2,0 | 2,0 | 10 |
+| Conversão comercial | 4,5 | 8,0 | 10 |
+
+**O que subiu sem depender de vocês**: formulário de contato, kit de imprensa, mural de
+marcas, página de equipe com vínculo por evento, case estruturado por edição, versão em
+inglês, créditos de operação em cada página.
+
+**O que não sobe sem vocês**: identidade visual e material visual continuam onde estavam,
+porque dependem de fotografia e do reel. Prova de capacidade subiu só até 6 porque equipe,
+fornecedores e dias de montagem seguem vazios.
+
+## O que falta, por ordem de impacto
+
+| Item | Onde entra | Quem resolve |
+|---|---|---|
+| Reel de 20 a 30 segundos | `assets/video/reel.mp4` | produção |
+| 8 fotos de capa de projeto | `assets/fotos/<slug>.jpg` | produção |
+| Foto da equipe | `assets/fotos/<slug-da-pessoa>.jpg` | equipe |
+| Nomes e cargos do restante do time | `pessoas.equipe` | direção |
+| Equipe, fornecedores, montagem por edição | `operacao.fichas` | produção |
+| Case das 3 edições recentes | `cases.fichas` | direção |
+| Depoimento de patrocinador | `cases.fichas · depoimento` | comercial |
+| Logotipos autorizados | `assets/marcas/` | jurídico e marcas |
+| Apresentação em PDF | `assets/kit/` | direção |
+| Endpoint do formulário | `contato.endpoint` | TI |
+| Telefone e redes | `contato.canais` | direção |

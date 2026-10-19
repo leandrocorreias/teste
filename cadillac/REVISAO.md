@@ -238,3 +238,54 @@ de `/dados/`.
 
 O número do recorde é o item de maior retorno: “maior churrasco do mundo” sem a
 quantidade certificada é adjetivo; com ela, é fato audível por qualquer patrocinador.
+
+
+## Nota geral — V13, estado de hoje
+
+Comparação com sites de produtoras e agências de eventos acima da média: casas que
+publicam reel, fotografia própria, case com resultado e nome de cliente.
+
+| Critério | Peso | Nota | Teto com o material de hoje | Teto com fotos e cases |
+|---|---|---|---|---|
+| Arquitetura de conteúdo | 15% | 10 | 10 | 10 |
+| Engenharia e performance | 10% | 9,5 | 9,5 | 9,5 |
+| Acessibilidade | 10% | 9,5 | 9,5 | 10 |
+| Conversão comercial | 15% | 9,0 | 9,0 | 9,5 |
+| SEO e estrutura | 10% | 9,0 | 9,5 | 10 |
+| Prova de capacidade | 20% | 7,0 | 7,0 | 9,5 |
+| Identidade visual | 10% | 7,0 | 7,5 | 9,5 |
+| Material visual | 10% | 4,0 | 4,0 | 9,5 |
+
+**Média ponderada: 8,0.** Contra as casas de referência, porém, a nota honesta é mais
+baixa: **7,3**. A diferença está em como um visitante decide. Ele não lê a arquitetura
+de conteúdo, ele olha. E hoje `assets/fotos/` tem um arquivo: o LEIA-ME.
+
+### O que já está acima do mercado
+
+Procedência por afirmação, com selo de situação de data e natureza de cada número.
+Famílias de público que nunca se somam. Número de terceiro identificado como de
+terceiro e mantido fora dos totais da casa. Bloco de papel dizendo o que a Cadillac faz
+em cada projeto. Nenhum concorrente consultado faz isso — a prática do setor é somar
+tudo e chamar de alcance.
+
+### O que derruba a nota, em ordem de impacto
+
+1. **Zero fotografias.** Nove projetos, 34 páginas, todos os espaços de imagem
+   reservados e vazios. Para uma produtora, isso é o equivalente a um restaurante sem
+   cardápio. Sozinho, vale cerca de 1,5 ponto da nota final.
+2. **Nenhum case preenchido.** `cases.fichas` tem três fichas em branco. Desafio,
+   solução, entrega e resultado é o que patrocinador lê antes de decidir.
+3. **Nenhum depoimento.** Uma frase assinada por um patrocinador vale mais que qualquer
+   página de dados.
+4. **Equipe com uma pessoa do núcleo.** Bill Aquino sozinho não sustenta a tese de
+   capacidade operacional.
+5. **Operação pela metade.** Equipe em pico, fornecedores e dias de montagem seguem
+   vazios em quase todas as edições. São os números que provam porte.
+6. **Formulário sem endpoint.** A página de contato existe e não envia.
+
+### A conta
+
+Cada item acima é conteúdo, não código. O site já tem o lugar de todos eles, com o nome
+exato do arquivo ou do campo. Com fotografia e três cases preenchidos, a nota vai a
+**9,3** sem uma linha de código nova. Sem isso, o teto é **7,5**, e não há engenharia
+que resolva.

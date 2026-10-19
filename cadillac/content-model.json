@@ -1,5 +1,5 @@
 {
-  "version": 12,
+  "version": 14,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -146,7 +146,9 @@
         ],
         "2022": [
           "A Cadillac foi registrada como proponente do projeto 23397 em ato estadual.",
-          "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento."
+          "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento.",
+          "A programação cultural da edição incluiu concertos gratuitos de orquestras sociais no Espaço Funarte, na Praia de São Francisco, dentro do programa Arte em Circuito.",
+          "Tocaram a Orquestra Sinfônica Chiquinha Gonzaga, a Banda Fundec de Duque de Caxias e a Orquestra da Grota, entre 17 e 19 de junho."
         ],
         "2024": [
           "Publicação de 2024 descreve um fim de semana de festival com música, cultura de rua e skate na programação.",
@@ -212,6 +214,10 @@
           [
             "Prefeitura de Niterói, premiação do Itacoatiara Pro",
             "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
+          ],
+          [
+            "Funarte, orquestras sociais no Itacoatiara Pro",
+            "https://artedetodagente.com.br/wp-content/uploads/2024/10/Release_Orquestras-Sociais-no-Iatacoatiara-Pro_14.6.22.pdf"
           ]
         ],
         "2024": [
@@ -297,8 +303,8 @@
             "precisao": "dia",
             "status": "confirmada",
             "fonte": [
-              "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
-              null
+              "Decreto municipal de São José dos Campos sobre o festival",
+              "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
             ]
           }
         }
@@ -324,7 +330,10 @@
           "Em 17 de maio de 2025 o festival recebeu certificado do Guinness World Records pelo maior volume de carne bovina churrasqueada servida em oito horas.",
           "A 20ª edição reuniu 20 mil pessoas, o maior público registrado na série de edições.",
           "O certificado nomeia o Mr. Moo Festival e a cidade de São José dos Campos, com a data exata do recorde.",
-          "A partir deste recorde o festival passou a se apresentar como o maior churrasco do mundo."
+          "A partir deste recorde o festival passou a se apresentar como o maior churrasco do mundo.",
+          "Decreto municipal de São José dos Campos registra a edição em 17 de maio de 2025, o reconhecimento do Guinness World Records e a marca de 20 edições do festival, com mais de 12 realizadas na cidade.",
+          "A cobertura de imprensa aponta a dupla Bruno e Marrone como show especial da edição.",
+          "Uma reportagem data a edição em 18 de maio; o decreto municipal, que é o registro oficial, diz 17 de maio."
         ]
       },
       "papel": {
@@ -545,6 +554,10 @@
       },
       "sources": [
         [
+          "Decreto municipal de São José dos Campos sobre o festival",
+          "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
+        ],
+        [
           "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
           null
         ],
@@ -574,6 +587,14 @@
           [
             "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
             null
+          ],
+          [
+            "Decreto municipal de São José dos Campos sobre o festival",
+            "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
+          ],
+          [
+            "ABC do ABC, festival gastronômico em São José dos Campos",
+            "https://abcdoabc.com.br/festival-mr-moo-maior-evento-gastronomico-all-inclusive-acontece-em-sao-jose-dos-campos/"
           ]
         ]
       },
@@ -1069,17 +1090,17 @@
           }
         },
         "2024": {
-          "period": "2024",
+          "period": "30 de outubro a 3 de novembro de 2024",
           "place": "Arena das Dunas, Natal, RN",
-          "note": "Edição identificada em material do patrocinador",
+          "note": "Arena das Dunas · recebeu a 2ª e última etapa do Vert Battle",
           "datas": {
-            "inicio": "2024-01-01",
-            "fim": "2024-12-31",
-            "precisao": "ano",
-            "status": "a confirmar",
+            "inicio": "2024-10-30",
+            "fim": "2024-11-03",
+            "precisao": "dia",
+            "status": "reportada",
             "fonte": [
-              "Banco do Brasil, festival",
-              "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+              "Agora RN, shows do Festival Tamo Junto BB em Natal",
+              "https://agorarn.com.br/ultimas/festival-tamo-junto-bb-traz-shows-natal/"
             ]
           }
         }
@@ -1091,12 +1112,18 @@
           "Entre os artistas divulgados estavam João Gomes, BaianaSystem, Nação Zumbi, L7nnon, Rachel Reis, Jota.pê, Os Garotin e Grupo Revelação.",
           "A última etapa do Vert Battle 2025 e o encerramento do Circuito BB de Surfe aconteceram dentro do festival.",
           "Gratuidade e acesso variaram conforme a atividade.",
-          "Há menção pública de profissional de produção associando a Cadillac à edição."
+          "Há menção pública de profissional de produção associando a Cadillac à edição.",
+          "O palco principal teve BaianaSystem, Nação Zumbi, L7nnon, Os Garotin com Melly e 2ZDinizz na sexta; Tali, Rachel Reis, Jota.pê e João Gomes no sábado; e Grupo Revelação no encerramento de domingo.",
+          "O palco Bosque, de entrada gratuita, recebeu Mateus Fazeno Rock, Os Transacionais e o bloco Pra Quem Gosta é Bom."
         ],
         "2024": [
-          "A edição foi realizada na Arena das Dunas, em Natal.",
-          "Executivo ligado ao patrocinador relatou publicamente público superior a 30 mil pessoas por dia — número declarado, não auditado, e que não corresponde a público único.",
-          "A relação exata de obrigações operacionais da Cadillac depende dos instrumentos contratuais correspondentes."
+          "A edição de Natal foi realizada de 30 de outubro a 3 de novembro de 2024, na Arena das Dunas.",
+          "O palco principal reuniu Jão, Nando Reis, Vanessa da Mata, Lexa, Àttooxxá e Oriente.",
+          "O show do Oriente teve participação de Lourena e Joyce Alane, que se apresentavam em Natal pela primeira vez.",
+          "O palco Vila BB foi dedicado a artistas locais, com Banda Boca Seca, Ian Medeiros e Banda DuSouto.",
+          "A entrada foi gratuita mediante doação de 1 kg de alimento não perecível, com classificação para maiores de 18 anos.",
+          "A programação esportiva reuniu a etapa final do Vert Battle de skate, vôlei de praia, surfe, corrida e uma área de e-Sports.",
+          "Executivo ligado ao patrocinador relatou publicamente público superior a 30 mil pessoas por dia — número declarado, não auditado, e que não corresponde a público único."
         ]
       },
       "sources": [
@@ -1122,12 +1149,32 @@
           [
             "Crédito público de produção",
             "https://pt.linkedin.com/posts/rafaela-coelho-mattos-9752b9126_produ%C3%A7%C3%A3o-no-tamo-junto-bb-realizado-em-fortaleza-activity-7422370387214315520-DzxX"
+          ],
+          [
+            "Billboard Brasil, programação do Festival Tamo Junto BB",
+            "https://billboard.com.br/festival-tamo-junto-bb-veja-a-programacao/"
+          ],
+          [
+            "Diário do Nordeste, atrações do festival em Fortaleza",
+            "https://diariodonordeste.verdesmares.com.br/verso/festival-em-fortaleza-reune-joao-gomes-revelacao-l7nnon-gabi-nunes-nacao-zumbi-e-mais-1.3697406"
+          ],
+          [
+            "O Povo, festival reúne multidão em Fortaleza",
+            "https://www.opovo.com.br/vidaearte/2025/12/13/festival-tamo-junto-bb-reune-multidao-em-prol-da-musica-e-do-esporte.html"
           ]
         ],
         "2024": [
           [
             "Banco do Brasil, festival",
             "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
+          ],
+          [
+            "Agora RN, shows do Festival Tamo Junto BB em Natal",
+            "https://agorarn.com.br/ultimas/festival-tamo-junto-bb-traz-shows-natal/"
+          ],
+          [
+            "BNews, terceiro dia do festival na Arena das Dunas",
+            "https://www.bnews.com.br/noticias/esporte/arena-das-dunas-recebe-terceiro-dia-do-festival-tamo-junto-bb-saiba-detalhes.html"
           ]
         ]
       },
@@ -2733,6 +2780,10 @@
         "capacidade": [
           null,
           ""
+        ],
+        "dias_evento": [
+          5,
+          "De 30 de outubro a 3 de novembro"
         ]
       },
       "itacoatiara-pro-2024": {},
@@ -2955,41 +3006,73 @@
       "tamo-junto-bb-2025": {
         "artistas": [
           [
-            "João Gomes",
-            "show"
-          ],
-          [
             "BaianaSystem",
-            "show"
+            "palco principal, encerramento da sexta, 12 de dezembro"
           ],
           [
             "Nação Zumbi",
-            "show"
+            "palco principal, sexta 12, show dos 30 anos de Da Lama ao Caos"
           ],
           [
             "L7nnon",
-            "show"
+            "palco principal, sexta 12"
           ],
           [
-            "Rachel Reis",
-            "show"
-          ],
-          [
-            "Jota.pê",
-            "show"
+            "Marcelo Falcão",
+            "citado dividindo o palco com L7nnon na sexta 12; aparece em parte da cobertura"
           ],
           [
             "Os Garotin",
-            "show"
+            "palco principal, sexta 12, com participação de Melly"
+          ],
+          [
+            "Melly",
+            "participação no show de Os Garotin, sexta 12"
+          ],
+          [
+            "2ZDinizz",
+            "abertura do palco principal, sexta 12"
+          ],
+          [
+            "João Gomes",
+            "palco principal, encerramento do sábado 13"
+          ],
+          [
+            "Jota.pê",
+            "palco principal, sábado 13"
+          ],
+          [
+            "Rachel Reis",
+            "palco principal, sábado 13"
+          ],
+          [
+            "Tali",
+            "abertura do palco principal, sábado 13"
           ],
           [
             "Grupo Revelação",
-            "show"
+            "samba no encerramento, domingo 14"
+          ],
+          [
+            "Gabi",
+            "palco Bosque; aparece como Gabi Nunes e como Gabi no Quintal em fontes diferentes"
+          ],
+          [
+            "Mateus Fazeno Rock",
+            "palco Bosque, sexta 12; uma das fontes o coloca no palco principal"
+          ],
+          [
+            "Os Transacionais",
+            "palco Bosque, sábado 13"
+          ],
+          [
+            "Bloco Pra Quem Gosta é Bom",
+            "palco Bosque, sábado 13"
           ]
         ],
         "fonte": [
-          "Programação oficial, Fortaleza",
-          "https://tamojuntobb.com.br/fortaleza/"
+          "Billboard Brasil, programação do Festival Tamo Junto BB",
+          "https://billboard.com.br/festival-tamo-junto-bb-veja-a-programacao/"
         ]
       },
       "vert-battle-2026": {
@@ -3087,9 +3170,87 @@
             "certificou o recorde de carne bovina churrasqueada em oito horas, em 17 de maio de 2025"
           ]
         ],
+        "artistas": [
+          [
+            "Bruno e Marrone",
+            "show especial da edição, conforme a cobertura de imprensa"
+          ]
+        ],
         "fonte": [
           "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
           null
+        ]
+      },
+      "tamo-junto-bb-2024": {
+        "artistas": [
+          [
+            "Jão",
+            "palco principal"
+          ],
+          [
+            "Nando Reis",
+            "palco principal"
+          ],
+          [
+            "Vanessa da Mata",
+            "palco principal"
+          ],
+          [
+            "Lexa",
+            "palco principal"
+          ],
+          [
+            "Àttooxxá",
+            "palco principal"
+          ],
+          [
+            "Oriente",
+            "palco principal, com participação de Lourena e Joyce Alane"
+          ],
+          [
+            "Lourena",
+            "participação no show do Oriente, primeira apresentação em Natal"
+          ],
+          [
+            "Joyce Alane",
+            "participação no show do Oriente, primeira apresentação em Natal"
+          ],
+          [
+            "Banda Boca Seca",
+            "palco Vila BB, dedicado a artistas locais"
+          ],
+          [
+            "Ian Medeiros",
+            "palco Vila BB, dedicado a artistas locais"
+          ],
+          [
+            "Banda DuSouto",
+            "palco Vila BB, dedicado a artistas locais"
+          ]
+        ],
+        "fonte": [
+          "Agora RN, shows do Festival Tamo Junto BB em Natal",
+          "https://agorarn.com.br/ultimas/festival-tamo-junto-bb-traz-shows-natal/"
+        ]
+      },
+      "itacoatiara-pro-2022": {
+        "artistas": [
+          [
+            "Orquestra Sinfônica Chiquinha Gonzaga",
+            "concerto gratuito no Espaço Funarte, 17 de junho"
+          ],
+          [
+            "Banda Fundec de Duque de Caxias",
+            "concerto gratuito no Espaço Funarte, 18 de junho"
+          ],
+          [
+            "Orquestra da Grota",
+            "concerto gratuito no Espaço Funarte, 19 de junho"
+          ]
+        ],
+        "fonte": [
+          "Funarte, orquestras sociais no Itacoatiara Pro",
+          "https://artedetodagente.com.br/wp-content/uploads/2024/10/Release_Orquestras-Sociais-no-Iatacoatiara-Pro_14.6.22.pdf"
         ]
       }
     },
@@ -3128,7 +3289,7 @@
         ]
       }
     },
-    "note": "Nome em lista aqui significa participação registrada em fonte pública, não contrato com a Cadillac. Artistas, atletas e personalidades de outras edições entram conforme a ficha técnica de cada uma for recuperada."
+    "note": "Nomes recuperados da programação oficial e da cobertura de imprensa de cada edição, com a fonte ao lado. Onde as publicações divergem sobre palco, dia ou grafia do nome, a divergência está escrita na própria linha em vez de ser resolvida por conta própria. Aparecer aqui significa ter se apresentado no evento, não ter sido contratado pela Cadillac."
   },
   "datas": {
     "status": {

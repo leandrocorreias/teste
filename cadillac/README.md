@@ -29,6 +29,7 @@ projetos/<slug>/               histórico do projeto, FAQ, fontes, relacionados
 projetos/<slug>/<ano>/         edição, fatos documentados, fontes, navegação entre anos
 atuacao/                       frentes de trabalho, a empresa e o ecossistema
 agenda/                        todas as edições, etapas e shows em um calendário único
+reservado/                     uso interno: valores, diligências e pendências (noindex)
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
 na-midia/                      referências agrupadas por projeto
 dados/                         métricas, gráficos, cobertura e metodologia
@@ -41,6 +42,17 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## Página reservada
+
+`/reservado/` reúne o que não vai ao ar: valores de captação, contratação e patrocínio,
+os instrumentos do Banco do Brasil, as diligências em aberto, os pedidos a protocolar e
+o espelho completo de audiência e operação, com o que falta em cada edição.
+
+Ela sai dos buscadores por `noindex,nofollow,noarchive`, está fora do `sitemap.xml` e
+nenhum link do site aponta para ela. **Isso não é controle de acesso**: quem tiver a URL
+abre a página. Se o material for sensível, proteja o diretório no servidor com senha
+(`.htaccess` ou equivalente) antes de publicar.
 
 ## Menu
 

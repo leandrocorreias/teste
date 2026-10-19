@@ -137,7 +137,7 @@
           "Vitor Ferreira venceu o campeonato profissional de surfe da edição.",
           "A Prefeitura de Niterói informou cerca de 500 atletas — número declarado pela administração, sem auditoria independente.",
           "Reportagem da Waves identifica Giuliano Lara como idealizador e cita Bill Aquino e Alexandre Rangel como sócios na realização.",
-          "O patrocínio municipal de R$ 2 milhões, contrato 030/2026, foi firmado com a Associação de Bodyboard de Niterói, e não com a Cadillac."
+          "O patrocínio municipal da edição tem como contraparte a Associação de Bodyboard de Niterói, não a Cadillac."
         ],
         "2025": [
           "A 13ª edição foi divulgada para 30 de maio a 15 de junho.",
@@ -146,8 +146,7 @@
         ],
         "2022": [
           "A Cadillac foi registrada como proponente do projeto 23397 em ato estadual.",
-          "O valor total informado foi de R$ 1.373.190, dos quais R$ 1.352.190 aprovados para captação.",
-          "Aprovação para captação não equivale a recurso captado nem a titularidade do evento."
+          "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento."
         ],
         "2024": [
           "Publicação de 2024 documenta a participação de Bob Burnquist no festival.",
@@ -238,37 +237,8 @@
         ],
         [
           "Quem recebeu o patrocínio municipal de 2026?",
-          "O contrato 030/2026, de R$ 2 milhões, tem como contraparte a Associação de Bodyboard de Niterói. Não é receita da Cadillac."
+          "O contrato municipal tem como contraparte a Associação de Bodyboard de Niterói. Não é receita da Cadillac."
         ]
-      ],
-      "amounts": [
-        {
-          "label": "Projeto 2022: valor total informado",
-          "value": 1373190,
-          "note": "Valor total do projeto em ato estadual. O montante aprovado para captação foi menor.",
-          "source": [
-            "Publicação oficial do projeto 23397",
-            "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
-          ]
-        },
-        {
-          "label": "Projeto 2022: aprovado para captação",
-          "value": 1352190,
-          "note": "Valor autorizado para captação no mercado. Não corresponde ao captado nem a receita da Cadillac.",
-          "source": [
-            "Publicação oficial do projeto 23397",
-            "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
-          ]
-        },
-        {
-          "label": "Patrocínio municipal 2026, contrato 030/2026",
-          "value": 2000000,
-          "note": "Contraparte: Associação de Bodyboard de Niterói. Registro público do patrocínio ao evento, não da Cadillac.",
-          "source": [
-            "Diário Oficial de Niterói, 23/05/2026",
-            "https://diariooficial.niteroi.rj.gov.br/do/2026/05_Mai/23.pdf"
-          ]
-        }
       ]
     },
     {
@@ -443,8 +413,7 @@
           "Onde ficam os resultados oficiais?",
           "Nas publicações da Confederação Brasileira de Skate, linkadas em cada edição, e nas transmissões do canal oficial da entidade."
         ]
-      ],
-      "amounts": []
+      ]
     },
     {
       "slug": "tamo-junto-bb",
@@ -553,8 +522,7 @@
           "Qual foi a participação da Cadillac?",
           "Há menção pública de profissional de produção associando a Cadillac à edição de Fortaleza. O escopo contratual depende de documentação."
         ]
-      ],
-      "amounts": []
+      ]
     },
     {
       "slug": "festival-de-tribos-juruti",
@@ -591,7 +559,6 @@
         "2018": [
           "Registro do TCM-PA de inexigibilidade 20181907001, contrato 003/2018, identifica a Cadillac como contratada.",
           "O objeto foi a apresentação de André Frateschi na Festa dos Visitantes, dentro da programação do XXIV Festival de Tribos.",
-          "O valor registrado é de R$ 72.000.",
           "O registro não sustenta a produção integral do festival pela Cadillac."
         ]
       },
@@ -618,17 +585,6 @@
           "A Cadillac produziu o festival inteiro?",
           "O registro não sustenta essa afirmação. Ele documenta apenas o objeto contratado."
         ]
-      ],
-      "amounts": [
-        {
-          "label": "Contrato 003/2018, inexigibilidade 20181907001",
-          "value": 72000,
-          "note": "Valor do objeto contratado: apresentação artística na Festa dos Visitantes.",
-          "source": [
-            "Contrato e ficha do TCM-PA",
-            "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
-          ]
-        }
       ]
     },
     {
@@ -806,8 +762,7 @@
           "Qual o trabalho da Cadillac?",
           "A participação foi informada pela direção do projeto a este portal; a ficha técnica e as entregas específicas ainda dependem de validação."
         ]
-      ],
-      "amounts": []
+      ]
     },
     {
       "slug": "bob-burnquist",
@@ -864,7 +819,6 @@
           "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos."
         ]
       ],
-      "amounts": [],
       "participacoes": {
         "titulo": "Onde ele aparece no acervo",
         "itens": [
@@ -934,8 +888,7 @@
           "Quem participou do projeto?",
           "Bob Burnquist aparece como consultor e artista residente pelo Instituto IBB."
         ]
-      ],
-      "amounts": []
+      ]
     },
     {
       "slug": "ccbb-mac-bahia",
@@ -965,7 +918,6 @@
           "Porque o registro é recente e a documentação institucional ainda está sendo recuperada. Publicamos o que já está reportado e identificamos o que falta, em vez de preencher com suposição."
         ]
       ],
-      "amounts": [],
       "datas_projeto": {
         "inicio": "2026-01-24",
         "fim": "2026-01-24",
@@ -1065,7 +1017,7 @@
             "project": "itacoatiara-pro",
             "year": 2022,
             "title": "Itacoatiara Pro 2022: projeto aprovado para captação",
-            "text": "Publicação estadual identifica a Cadillac como proponente do projeto. O valor aprovado para captação foi de R$ 1.352.190 — valor autorizado, distinto do efetivamente captado.",
+            "text": "Publicação estadual identifica a Cadillac como proponente do projeto, aprovado para captação no mercado. Aprovação para captação não equivale a recurso captado.",
             "source": [
               "Publicação oficial do projeto 23397",
               "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
@@ -1075,7 +1027,7 @@
             "project": "festival-de-tribos-juruti",
             "year": 2018,
             "title": "Juruti 2018: contratação com ente público",
-            "text": "Ficha do Tribunal de Contas dos Municípios do Pará registra a Cadillac como contratada para a apresentação artística de André Frateschi, no valor de R$ 72.000. O registro documenta o objeto contratado, não a produção integral do festival.",
+            "text": "Ficha do Tribunal de Contas dos Municípios do Pará registra a Cadillac como contratada para a apresentação artística de André Frateschi. O registro documenta o objeto contratado, não a produção integral do festival.",
             "source": [
               "Contrato e ficha do TCM-PA",
               "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
@@ -1424,7 +1376,7 @@
         "Contraparte contratual",
         "Itacoatiara Pro",
         "itacoatiara-pro",
-        "Contraparte do contrato 030/2026, de R$ 2 milhões, com a prefeitura.",
+        "Contraparte do contrato de patrocínio municipal de 2026 com a prefeitura.",
         true
       ],
       [
@@ -2474,5 +2426,146 @@
       ]
     },
     "note": "Uma data só aparece como confirmada quando vem de organizador, entidade ou publicação oficial. Onde há apenas o ano, a página diz isso em vez de inventar um intervalo."
+  },
+  "reservado": {
+    "titulo": "Dados reservados",
+    "lede": "Página sem indexação, fora do menu e fora do sitemap. Reúne o que não vai ao ar: valores de captação, contratação e patrocínio, instrumentos financeiros públicos de terceiros e diligências em aberto. É material de estudo e de referência interna.",
+    "financeiro": [
+      {
+        "projeto": "Itacoatiara Pro",
+        "slug": "itacoatiara-pro",
+        "registro": "Projeto 2022: valor total informado",
+        "valor": 1373190,
+        "natureza": "Valor total do projeto em ato estadual. O montante aprovado para captação foi menor.",
+        "fonte": [
+          "Publicação oficial do projeto 23397",
+          "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+        ],
+        "uso": "Retirado das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Itacoatiara Pro",
+        "slug": "itacoatiara-pro",
+        "registro": "Projeto 2022: aprovado para captação",
+        "valor": 1352190,
+        "natureza": "Valor autorizado para captação no mercado. Não corresponde ao captado nem a receita da Cadillac.",
+        "fonte": [
+          "Publicação oficial do projeto 23397",
+          "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+        ],
+        "uso": "Retirado das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Itacoatiara Pro",
+        "slug": "itacoatiara-pro",
+        "registro": "Patrocínio municipal 2026, contrato 030/2026",
+        "valor": 2000000,
+        "natureza": "Contraparte: Associação de Bodyboard de Niterói. Registro público do patrocínio ao evento, não da Cadillac.",
+        "fonte": [
+          "Diário Oficial de Niterói, 23/05/2026",
+          "https://diariooficial.niteroi.rj.gov.br/do/2026/05_Mai/23.pdf"
+        ],
+        "uso": "Retirado das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Festival de Tribos de Juruti",
+        "slug": "festival-de-tribos-juruti",
+        "registro": "Contrato 003/2018, inexigibilidade 20181907001",
+        "valor": 72000,
+        "natureza": "Valor do objeto contratado: apresentação artística na Festa dos Visitantes.",
+        "fonte": [
+          "Contrato e ficha do TCM-PA",
+          "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+        ],
+        "uso": "Retirado das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Banco do Brasil",
+        "slug": null,
+        "registro": "Instrumento 202574212655, processo 2025/690(7421), assinado em 02/05/2025",
+        "valor": 7000000,
+        "natureza": "Patrocínio com vigência publicada de 12 meses. Registro de transparência do banco. Não demonstra objeto, recebimento nem vínculo com a Cadillac.",
+        "fonte": [
+          "Banco do Brasil, relatório de maio de 2025",
+          "https://www.bb.com.br/docs/portal/disec/RMs05-2025.pdf"
+        ],
+        "uso": "Nunca publicado. Sugere receita da empresa, o que não está demonstrado"
+      },
+      {
+        "projeto": "Banco do Brasil",
+        "slug": null,
+        "registro": "Instrumento 202574213287, processo 2025/872(7421), assinado em 28/05/2025",
+        "valor": 6982500,
+        "natureza": "Patrocínio com vigência publicada de 24 meses. Relatório de consumo de junho de 2025 indicava consumo zero na posição, o que não prova ausência de desembolso.",
+        "fonte": [
+          "Banco do Brasil, relatório de junho de 2025",
+          "https://www.bb.com.br/docs/portal/disec/RelatJunho2025.pdf"
+        ],
+        "uso": "Nunca publicado. Mesma razão"
+      }
+    ],
+    "diligencias": [
+      {
+        "assunto": "Inquérito civil do MPRN sobre o Tamo Junto BB de Natal, 2024",
+        "detalhe": "Portaria de instauração 04.23.2085.0000024/2025-55, publicada em 06/05/2025, para apurar reclamações de operação de consumo e infraestrutura. Portaria não comprova irregularidade e o desfecho não foi localizado.",
+        "fonte": [
+          "Diário Oficial do RN, 06/05/2025",
+          "https://webdisk.diariooficial.rn.gov.br/Jornal/12025-05-06.pdf"
+        ],
+        "acao": "Solicitar andamento ao MPRN antes de qualquer menção pública"
+      },
+      {
+        "assunto": "Ativação na COP30 Belém 2025 e outros circuitos do Banco do Brasil",
+        "detalhe": "Relatos profissionais sem crédito ou contrato verificável.",
+        "fonte": null,
+        "acao": "Obter ficha técnica ou contrato antes de virar case"
+      },
+      {
+        "assunto": "Relação societária entre Criativos e Cadillac",
+        "detalhe": "Informada pela direção, sem documentação.",
+        "fonte": null,
+        "acao": "Contrato social ou documento equivalente"
+      },
+      {
+        "assunto": "Escopo contratual no Dominguinho e nos projetos com Bob Burnquist",
+        "detalhe": "Participação informada; ficha técnica independente pendente.",
+        "fonte": null,
+        "acao": "Ficha técnica assinada pela produção do projeto"
+      },
+      {
+        "assunto": "Titularidade de marcas e direitos",
+        "detalhe": "Itacoatiara Pro, Vert Battle e Tamo Junto BB não têm titularidade documentada para a Cadillac.",
+        "fonte": null,
+        "acao": "Registro de marca ou contrato de cessão"
+      }
+    ],
+    "solicitacoes": [
+      [
+        "Banco do Brasil, via Fala.BR",
+        "Íntegra dos instrumentos 202574212655 e 202574213287, processos, contrapartidas, pagamentos e relatórios de execução",
+        "https://falabr.cgu.gov.br/"
+      ],
+      [
+        "Ministério Público do RN",
+        "Andamento do inquérito civil 04.23.2085.0000024/2025-55, despacho final, arquivamento, TAC ou ação",
+        "https://www.mprn.mp.br/"
+      ],
+      [
+        "Secretaria de Cultura do RJ",
+        "Projeto 23397 integral, captação e prestação de contas do Itacoatiara Pro 2022",
+        null
+      ],
+      [
+        "Prefeitura de Niterói",
+        "Processo 9900023702/2026, contrato 030/2026 e prestação de contas",
+        null
+      ],
+      [
+        "TCM-PA e Prefeitura de Juruti",
+        "Íntegra do contrato 003/2018 e anexos",
+        null
+      ]
+    ],
+    "nota": "Nada nesta página deve ser publicado sem antes resolver a pendência que a acompanha. Valor aprovado para captação não é valor captado, instrumento de patrocínio de terceiro não é receita da Cadillac e portaria de instauração não é comprovação de irregularidade."
   }
 }

@@ -1227,9 +1227,6 @@ def page_data():
 <p class="chart-sub">Público, atletas, premiações e streams que aparecem em fontes públicas — com quem divulgou e o que cada número realmente mede.</p>
 {declared_table(depth)}
 <p class="table-hint">Arraste a tabela para o lado para ver a atribuição e a fonte.</p></div>
-<div class="chart-card span-2"><h3>Valores em registros públicos</h3>
-<p class="chart-sub">Os únicos valores financeiros que este portal publica são os que constam em documentos públicos, com a fonte ao lado.</p>
-{amounts_table()}<p class="table-hint">Arraste a tabela para o lado para ver valor e fonte.</p></div>
 </section>
 <section class="container sector"><hr class="rule">
 <h2 class="section-title">O SETOR EM QUE<br><em>A GENTE OPERA.</em></h2>
@@ -1239,7 +1236,7 @@ def page_data():
 <hr class="rule">
 <h2>DADOS COM ORIGEM.</h2>
 <p class="body-copy">Os indicadores desta página descrevem o conteúdo catalogado neste portal, não o total histórico de eventos da Cadillac. Cada número é calculado a partir do mesmo modelo de conteúdo que gera as páginas: um projeto é contado quando tem página própria, uma edição quando tem ano documentado, um registro quando tem fonte identificável e uma fonte quando tem URL pública.</p>
-<p class="body-copy">Informações sobre audiência, contratos, alcance ou impacto econômico só serão publicadas após identificação de metodologia e fonte verificável. Valores financeiros aparecem apenas como constam em documento público, com a natureza explicitada: valor aprovado para captação não é valor captado, e valor de objeto contratado não é receita.</p>
+<p class="body-copy">Informações sobre audiência, contratos, alcance ou impacto econômico só serão publicadas após identificação de metodologia e fonte verificável. Valores de captação, contratação e patrocínio não são publicados neste portal: ficam em registro interno, porque valor aprovado para captação não é valor captado e instrumento de patrocínio de terceiro não é receita da Cadillac.</p>
 <div class="source-list">
 <a href="{p}projetos/"><span class="s-main"><span class="s-label">Consultar projetos e edições</span>
 <span class="s-host">{plural(M['projects'], 'projeto', 'projetos')} · {plural(M['editions'], 'edição', 'edições')}</span></span>{icon('arrow_outward')}</a>
@@ -1491,6 +1488,102 @@ def page_agenda():
                       "agenda/", [ld, trail_ld]) + header(depth, "agenda") + body + footer(depth))
 
 
+def page_reservado():
+    """Material interno: sem indexação, sem link no site e fora do sitemap."""
+    depth, p = 1, rel(1)
+    data = MODEL["reservado"]
+    by_slug = {x["slug"]: x for x in PROJECTS}
+
+    fin = []
+    for r in data["financeiro"]:
+        label, url = r["fonte"]
+        onde = (f'<a href="{p}projetos/{r["slug"]}/">{e(r["projeto"])} {icon("arrow_outward")}</a>'
+                if r["slug"] in by_slug else e(r["projeto"]))
+        fin.append(f"""<tr><th scope="row">{onde}<small>{e(r['registro'])}</small></th>
+<td><span class="val">{brl(r['valor'])}</span></td>
+<td>{e(r['natureza'])}<small class="out">{e(r['uso'])}</small></td>
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+    total = sum(r["valor"] for r in data["financeiro"])
+
+    dil = []
+    for d in data["diligencias"]:
+        fonte = "—"
+        if d["fonte"]:
+            label, url = d["fonte"]
+            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                     f'{e(label)} {icon("open_in_new")}</a>')
+        dil.append(f"""<tr><th scope="row">{e(d['assunto'])}</th><td>{e(d['detalhe'])}</td>
+<td>{e(d['acao'])}</td><td>{fonte}</td></tr>""")
+
+    sol = []
+    for orgao, pedido, url in data["solicitacoes"]:
+        onde = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">abrir {icon("open_in_new")}</a>'
+                if url else "—")
+        sol.append(f'<tr><th scope="row">{e(orgao)}</th><td>{e(pedido)}</td><td>{onde}</td></tr>')
+
+    linhas_aud = []
+    for x in sorted(MODEL["audiencia"]["entries"], key=lambda x: (x["project"], -(x["year"] or 0))):
+        pr = by_slug[x["project"]]
+        valor = big(x["value"]) if x["value"] is not None else "—"
+        fonte = "—"
+        if x.get("source"):
+            label, url = x["source"]
+            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+                     f'{e(label)} {icon("open_in_new")}</a>')
+        linhas_aud.append(f"""<tr><th scope="row">{e(pr['name'])}{' ' + str(x['year']) if x['year'] else ''}
+<small>{e(x['label'])}</small></th><td>{valor}</td><td>{e(x.get('tipo', ''))}</td>
+<td>{e(x.get('conta') or x.get('basis') or '—')}</td><td>{fonte}</td></tr>""")
+
+    campos = MODEL["operacao"]["campos"]
+    linhas_op = []
+    for pr in PROJECTS:
+        for y in pr["years"]:
+            ficha = MODEL["operacao"]["fichas"].get(f'{pr["slug"]}-{y}', {})
+            preenchidos = [f'{campos[k][0]}: {v[0] if isinstance(v, list) else v}'
+                           for k, v in ficha.items() if v]
+            faltam = [campos[k][0] for k in campos if not ficha.get(k)]
+            linhas_op.append(f"""<tr><th scope="row"><a href="{p}projetos/{pr['slug']}/{y}/">{e(pr['name'])} {y}</a></th>
+<td>{e(" · ".join(preenchidos)) or "—"}</td><td>{e(", ".join(faltam))}</td></tr>""")
+
+    body = f"""<main id="conteudo"><span id="top"></span>
+<section class="page-hero container"><p class="selo selo-a-confirmar">{icon('description')} Uso interno · sem indexação</p>
+<h1>{e(data['titulo'])}<span class="orange">.</span></h1>
+<p class="lede">{e(data['lede'])}</p></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">VALORES FORA<br><em>DO SITE.</em></h2>
+<p class="body-copy">Soma nominal dos registros abaixo: <strong>{brl(total)}</strong>. Não é faturamento, captação efetiva nem receita: são valores que aparecem em documentos públicos, cada um com natureza própria.</p>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Projeto e registro</th><th scope="col">Valor</th><th scope="col">Natureza e por que saiu</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(fin)}</tbody></table></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">DILIGÊNCIAS<br><em>EM ABERTO.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Assunto</th><th scope="col">O que se sabe</th><th scope="col">O que resolve</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(dil)}</tbody></table></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">PEDIDOS<br><em>A PROTOCOLAR.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Órgão</th><th scope="col">O que pedir</th><th scope="col">Canal</th></tr></thead>
+<tbody>{''.join(sol)}</tbody></table></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">AUDIÊNCIA,<br><em>LINHA A LINHA.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Valor</th><th scope="col">Tipo</th><th scope="col">Base ou conta</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(linhas_aud)}</tbody></table></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">OPERAÇÃO<br><em>POR EDIÇÃO.</em></h2>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Edição</th><th scope="col">Preenchido</th><th scope="col">Falta levantar</th></tr></thead>
+<tbody>{''.join(linhas_op)}</tbody></table></div>
+<p class="note">{e(data['nota'])}</p></section></main>"""
+    pagina = (head(depth, "Dados reservados | Uso interno",
+                   "Material interno de estudo e referência. Página sem indexação.",
+                   "reservado/") + header(depth) + body + footer(depth))
+    pagina = pagina.replace('<meta name="robots" content="index,follow,max-image-preview:large">',
+                            '<meta name="robots" content="noindex,nofollow,noarchive">')
+    return write("reservado/index.html", pagina)
+
+
 def page_404():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
@@ -1528,7 +1621,7 @@ def page_sitemap():
 
 def main():
     written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
-               page_data(), page_404()]
+               page_data(), page_reservado(), page_404()]
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

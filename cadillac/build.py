@@ -198,6 +198,17 @@ def footer(depth):
 </body></html>"""
 
 
+def fonte_link(fonte, vazio="—"):
+    """Link da fonte. Documento interno sem URL aparece como texto, nunca como link quebrado."""
+    if not fonte:
+        return vazio
+    label, url = fonte
+    if not url:
+        return f'<span class="s-doc">{icon("description")} {e(label)}</span>'
+    return (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
+            f'{e(label)} {icon("open_in_new")}</a>')
+
+
 def source_list(sources):
     if not sources:
         return ('<p class="note">Nenhuma fonte pública recuperada até agora para este registro. '
@@ -651,6 +662,8 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    sections.append(mercado_block(pr))
+    sections.append(plano_block(pr))
     sections.append(creditos_projeto(pr, depth))
     sections.append(participacoes_block(pr, depth))
     sections.append(cast_block(pr))
@@ -977,9 +990,7 @@ def audience_blocks(depth):
             if not x["counts"]:
                 value += '<small class="out">fora dos totais</small>'
             basis = e(x["basis"])
-            label, url = x["source"]
-            src = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                   f'{e(label)} {icon("open_in_new")}</a>')
+            src = fonte_link(x.get("source"))
         rows.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}{' ' + str(x['year']) if x['year'] else ''}</a>
 <small>{e(x['label'])}</small></th><td>{e(fam)}</td><td>{value}</td><td>{basis}</td><td>{src}</td></tr>""")
 
@@ -1027,6 +1038,50 @@ def op_tiles(values, scope_key, order):
 <strong>{shown}</strong><span>{e(label)}</span>
 <small>{e(basis or help_text)}</small></div>""")
     return f'<div class="op-grid">{"".join(tiles)}</div>'
+
+
+def mercado_block(pr):
+    """Leitura de mercado do setor em que o projeto atua. Nunca é resultado do evento."""
+    data = pr.get("mercado")
+    if not data:
+        return ""
+    tiles = "".join(
+        f"""<div class="op-tile">{icon('insights')}
+<strong>{e(valor)}</strong><span>{e(rotulo)}</span><small>{e(nota)}</small></div>"""
+        for valor, rotulo, nota in data["items"])
+    return f"""<section class="container op-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="op-grid">{tiles}</div>
+<p class="note">{e(data['nota'])}</p></section>"""
+
+
+def plano_block(pr):
+    """Plano de longo prazo declarado pela produção: núcleos, verticais e fases."""
+    data = pr.get("plano")
+    if not data:
+        return ""
+    nucleos = "".join(
+        f"""<div class="nucleo"><h3>{icon(ic)} {e(nome)}</h3><p>{e(desc)}</p></div>"""
+        for nome, desc, ic in data["nucleos"])
+    verticais = "".join(
+        f"""<div class="nucleo vertical"><h3>{icon(ic)} {e(nome)}</h3><p>{e(desc)}</p></div>"""
+        for nome, desc, ic in data["verticais"])
+    fases = "".join(
+        f"""<div class="fase"><span class="fase-ano">{ano}</span>
+<div><strong>{e(titulo)}</strong><p>{e(texto)}</p></div></div>"""
+        for ano, titulo, texto in data["fases"])
+    return f"""<section class="container plano-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<br><em>O plano de longo prazo.</em></h2>
+<p class="body-copy plano-proposito">{e(data['proposito'])}</p>
+<p class="body-copy">{e(data['conceito'])}</p>
+<h3 class="area-list-title">{icon('stacked_bar_chart')} Núcleos</h3>
+<div class="nucleo-grid">{nucleos}</div>
+<h3 class="area-list-title">{icon('place')} Verticais</h3>
+<div class="nucleo-grid">{verticais}</div>
+<h3 class="area-list-title">{icon('calendar_month')} {e(data['fases_titulo'])}</h3>
+<div class="fases">{fases}</div>
+<p class="note">{e(data['nota'])}</p></section>"""
 
 
 def participacoes_block(pr, depth):
@@ -1676,13 +1731,12 @@ def page_reservado():
 
     fin = []
     for r in data["financeiro"]:
-        label, url = r["fonte"]
         onde = (f'<a href="{p}projetos/{r["slug"]}/">{e(r["projeto"])} {icon("arrow_outward")}</a>'
                 if r["slug"] in by_slug else e(r["projeto"]))
         fin.append(f"""<tr><th scope="row">{onde}<small>{e(r['registro'])}</small></th>
 <td><span class="val">{brl(r['valor'])}</span></td>
 <td>{e(r['natureza'])}<small class="out">{e(r['uso'])}</small></td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+<td>{fonte_link(r['fonte'])}</td></tr>""")
     total = sum(r["valor"] for r in data["financeiro"])
 
     dil = []
@@ -1731,7 +1785,7 @@ def page_reservado():
 <p class="lede">{e(data['lede'])}</p></section>
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">VALORES FORA<br><em>DO SITE.</em></h2>
-<p class="body-copy">Soma nominal dos registros abaixo: <strong>{brl(total)}</strong>. Não é faturamento, captação efetiva nem receita: são valores que aparecem em documentos públicos, cada um com natureza própria.</p>
+<p class="body-copy">Soma nominal dos registros abaixo: <strong>{brl(total)}</strong>. Não é faturamento, captação efetiva nem receita: são valores que aparecem em documentos públicos e em propostas comerciais, cada um com natureza própria. Cotas de patrocínio são preço de tabela e alternativas entre si, então a soma não representa dinheiro disponível.</p>
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Projeto e registro</th><th scope="col">Valor</th><th scope="col">Natureza e por que saiu</th><th scope="col">Fonte</th></tr></thead>
 <tbody>{''.join(fin)}</tbody></table></div></section>

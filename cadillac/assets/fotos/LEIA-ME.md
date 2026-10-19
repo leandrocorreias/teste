@@ -20,6 +20,11 @@ mostra exatamente o nome que ele espera — basta usar o mesmo nome.
 | `itacoatiara-pro-2022-01.jpg` | galeria da edição 2022, foto principal 16:9 |
 | `itacoatiara-pro-2022-02.jpg` | galeria da edição 2022, bastidores 4:5 |
 | `itacoatiara-pro-2022-03.jpg` | galeria da edição 2022, atletas e público 4:5 |
+| `connect-heroes.jpg` | capa do projeto, cartão no acervo e na home |
+| `connect-heroes-2026.jpg` | capa da edição 2026 |
+| `connect-heroes-2026-01.jpg` | galeria da edição 2026, foto principal 16:9 |
+| `connect-heroes-2026-02.jpg` | galeria da edição 2026, bastidores 4:5 |
+| `connect-heroes-2026-03.jpg` | galeria da edição 2026, atletas e público 4:5 |
 | `vert-battle.jpg` | capa do projeto, cartão no acervo e na home |
 | `vert-battle-2026.jpg` | capa da edição 2026 |
 | `vert-battle-2026-01.jpg` | galeria da edição 2026, foto principal 16:9 |
@@ -62,6 +67,8 @@ Aceita jpg, jpeg, png e webp. Para a capa, 16:10 ou 3:2 com pelo menos 1600px de
 | tamo-junto-bb | 2025 | Arena do festival em Fortaleza | tamojuntobb.com.br, imprensa.bb.com.br |
 | tamo-junto-bb | 2024 | Arena das Dunas, Natal | bb.com.br |
 | dominguinho | — | João Gomes, Mestrinho e Jota.pê no palco | assessoria do projeto |
+| connect-heroes | 2026 | Tatame e premiação da 1ª edição | @connectheroes, material oficial do evento |
+| connect-heroes | 2026 | Fight week no Grand Hyatt: coletiva e pesagem | produção do evento |
 | bob-burnquist | — | Participação no Itacoatiara Pro | niteroi.rj.gov.br, cadernopop.com.br |
 | arte-em-circuito | — | Oficina ou residência do projeto | artedetodagente.com.br |
 | festival-de-tribos-juruti | 2018 | Festa dos Visitantes | acervo do festival |

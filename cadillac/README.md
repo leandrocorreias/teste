@@ -50,6 +50,36 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V10: Connect Heroes
+
+Oitavo projeto do acervo, em `/projetos/connect-heroes/`, com a 1ª edição realizada em
+julho de 2026 no Grand Hyatt Rio de Janeiro e a 2ª anunciada para dezembro. Como as duas
+caem no mesmo ano, elas entram como **etapas** dentro da edição 2026, cada uma com seu
+selo de situação de data — o dia exato de nenhuma das duas está documentado ainda.
+
+Dois blocos novos no gerador, disponíveis para qualquer projeto:
+
+- `projeto.mercado` → leitura do setor em que o evento atua, em cartões. Usado aqui para
+  os números do jiu-jítsu brasileiro (praticantes, movimentação, academias, países).
+  A nota do bloco diz, em todas as letras, que são estimativas de metodologia própria da
+  produção, não censo oficial e não resultado do evento.
+- `projeto.plano` → plano de longo prazo declarado: propósito, conceito, núcleos,
+  verticais e fases por ano. Usado para o **World Connect Heroes**, de 2026 a 2032.
+  A nota deixa explícito que é projeção estratégica, sem vínculo oficial com o
+  Comitê Olímpico Internacional, com federações ou com os Jogos.
+
+A audiência da 1ª edição entra em `/dados/` na família **transmissão**, nunca somada a
+público presente: 240 mil televisores na Xsports, 149 mil visualizações no YouTube e
+25 milhões em reels (família digital). A linha de 2 milhões “ao vivo + reprises” engloba
+as anteriores e por isso fica **fora dos totais**. Todos são números declarados pela
+produção no mídia kit oficial (V6), sem relatório de emissora nem captura de painel
+anexados — o selo muda quando esses documentos chegarem.
+
+Os valores comerciais da 2ª edição (custo total de referência do naming right e as quatro
+cotas de patrocínio) ficam **só em `/reservado/`**, como todo dado de captação. Fonte sem
+URL pública, como um documento da produção, agora aparece como texto identificado em vez
+de link quebrado (`fonte_link()` em `build.py`).
+
 ## V9: o que faltava para competir
 
 - **Equipe** (`/equipe/`): pessoas com cargo, bio, foto e, principalmente, **vínculo por

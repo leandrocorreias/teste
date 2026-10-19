@@ -1,6 +1,6 @@
 {
-  "version": "8",
-  "updated": "2026-10-18",
+  "version": 10,
+  "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
     "short": "Cadillac",
@@ -237,6 +237,269 @@
         [
           "Quem recebeu o patrocínio municipal de 2026?",
           "O contrato municipal tem como contraparte a Associação de Bodyboard de Niterói. Não é receita da Cadillac."
+        ]
+      ]
+    },
+    {
+      "slug": "connect-heroes",
+      "name": "Connect Heroes",
+      "kind": "Campeonato de grappling e plataforma de mídia",
+      "category": "esporte",
+      "location": "Rio de Janeiro, RJ",
+      "period": "2026—2032",
+      "theme": "arena",
+      "desc": "Jiu-jítsu tratado como espetáculo: combates selecionados, fight week em hotel cinco estrelas e transmissão em TV, streaming e redes.",
+      "intro": "O Connect Heroes nasceu no Rio de Janeiro com uma tese simples: a técnica continua no centro, mas a experiência ganha outra dimensão. A competição acontece no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel — coletiva, pesagem e atletas hospedados no local — e chega ao público por três caminhos ao mesmo tempo: TV, streaming e redes. A primeira edição foi ao ar em julho de 2026; a segunda está anunciada para dezembro. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que organiza o esporte em núcleos e projeta uma trajetória internacional até 2032.",
+      "image": null,
+      "years": [
+        2026
+      ],
+      "editions": {
+        "2026": {
+          "period": "Julho e dezembro de 2026",
+          "place": "Grand Hyatt Rio de Janeiro",
+          "note": "1ª edição realizada em julho · 2ª edição anunciada para dezembro",
+          "datas": {
+            "inicio": "2026-07-01",
+            "fim": "2026-12-31",
+            "precisao": "mes",
+            "status": "parcial",
+            "fonte": [
+              "Connect Heroes no Instagram",
+              "https://www.instagram.com/connectheroes/"
+            ]
+          },
+          "etapas": [
+            {
+              "nome": "2ª edição · Grand Hyatt Rio de Janeiro",
+              "inicio": null,
+              "fim": null,
+              "status": "anunciada",
+              "fonte": [
+                "Connect Heroes no Instagram",
+                "https://www.instagram.com/connectheroes/"
+              ]
+            },
+            {
+              "nome": "1ª edição · Grand Hyatt Rio de Janeiro",
+              "inicio": null,
+              "fim": null,
+              "status": "reportada",
+              "fonte": [
+                "Connect Heroes no Instagram",
+                "https://www.instagram.com/connectheroes/"
+              ]
+            }
+          ]
+        }
+      },
+      "facts": {
+        "2026": [
+          "A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, hotel cinco estrelas, com a competição concentrada em um único dia.",
+          "A fight week acontece dentro do próprio hotel, de quarta a domingo: coletiva de imprensa, pesagem e atletas hospedados no local, gerando conteúdo antes, durante e depois do evento.",
+          "A transmissão ao vivo pela Xsports foi acompanhada por 240 mil televisores, segundo o mídia kit oficial do evento.",
+          "Entre 11 de julho e 9 de agosto de 2026 o evento foi reprisado 27 vezes nos canais da emissora — uma competição de um dia que seguiu no ar por semanas.",
+          "A transmissão também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay.",
+          "No YouTube o material registrou 149 mil visualizações, 63 mil horas de exibição e 87 mil aparelhos conectados, dos quais 54,9% eram televisores.",
+          "Os reels do projeto somaram 25 milhões de visualizações ao longo de julho, e o conjunto de transmissão e reprises passou de 2 milhões de visualizações.",
+          "A segunda edição está anunciada para dezembro de 2026, no mesmo Grand Hyatt; o dia exato depende da ficha técnica da produção.",
+          "Os números de audiência acima são declarados pela produção no mídia kit oficial (V6) e ainda não têm relatório de emissora nem print de painel anexado a esta página."
+        ]
+      },
+      "mercado": {
+        "titulo": "O mercado em que o evento entra",
+        "lede": "O jiu-jítsu brasileiro deixou de ser nicho de academia e virou economia. Os números abaixo descrevem o setor, não o evento.",
+        "items": [
+          [
+            "3,7 milhões",
+            "Praticantes de jiu-jítsu no Brasil",
+            "Ponto médio de uma faixa de 3,2 a 4,6 milhões."
+          ],
+          [
+            "R$ 5,5 bi",
+            "Movimentação anual estimada do esporte",
+            "Faixa de R$ 3,5 a 8 bilhões, somando mensalidades, kimonos, No-Gi e lifestyle, eventos, seminários, mídia e patrocínio."
+          ],
+          [
+            "1,55 milhão",
+            "Alunos pagantes estimados",
+            "Faixa de 1,2 a 2 milhões, concentrados entre 25 e 54 anos."
+          ],
+          [
+            "+34%",
+            "Crescimento da penetração entre 2013 e 2026",
+            "De 1,30% para 1,74% da população praticante."
+          ],
+          [
+            "10 a 18 mil",
+            "Academias no país",
+            "Cerca de 14 mil pontos no ponto médio da estimativa."
+          ],
+          [
+            "130 a 150",
+            "Países com prática organizada",
+            "Gracie Barra com mais de mil escolas, Checkmat com 405 filiais e Alliance em 29 países."
+          ]
+        ],
+        "nota": "Estimativas construídas por metodologia própria da produção a partir de fontes de mercado, apresentadas na proposta comercial da 2ª edição. Não são censo oficial, não foram auditadas e não são resultado do evento. Entram aqui como leitura de contexto."
+      },
+      "plano": {
+        "titulo": "World Connect Heroes",
+        "proposito": "Contribuir para criar as condições esportivas, institucionais, culturais e globais para que o jiu-jítsu brasileiro alcance o movimento olímpico e se torne um dos grandes esportes globais.",
+        "conceito": "O desenho parte de propriedades esportivas consolidadas: a competição é o núcleo do produto, mas o valor econômico se constrói no que acontece em volta dela. Na NFL, contratos de distribuição com Amazon, CBS, ESPN/ABC, FOX e NBC vão até 2033, e os 32 clubes operam o Global Markets Program com direitos em 22 mercados internacionais. Na Fórmula 1, em 2025 só 31,3% da receita veio de direitos de mídia: 26,7% vieram de promoção de corridas, 21,7% de patrocínios e 20,3% de hospitalidade, logística e licenciamento. No UFC, US$ 1,50 bilhão de receita em 2025 se dividiu entre mídia e conteúdo, parcerias, eventos e hospitalidade, e licenciamento. O ciclo é o mesmo: a competição revela atletas e rivalidades, as histórias geram audiência, a audiência forma comunidade, e a comunidade sustenta experiências, consumo e valor para marcas.",
+        "nucleos": [
+          [
+            "Sport",
+            "Define como a competição funciona: regras, categorias, rankings, arbitragem, títulos e calendário, da base amadora ao alto rendimento.",
+            "skateboarding"
+          ],
+          [
+            "Athletes",
+            "Descoberta de talentos, performance, carreira, imagem e desenvolvimento comercial dos atletas.",
+            "groups"
+          ],
+          [
+            "Teams & Academies",
+            "Rede de academias, equipes, professores e centros de treinamento, com programas de formação, certificação e competição.",
+            "verified"
+          ],
+          [
+            "Media",
+            "Transmissões, programas, documentários, bastidores, highlights e redes — manter atletas e rivalidades relevantes o ano inteiro.",
+            "movie"
+          ],
+          [
+            "Fan & Experience",
+            "Comunidade, cadastro de fãs, benefícios, hospitalidade, encontros com atletas, festivais e premiações.",
+            "public"
+          ],
+          [
+            "Commercial",
+            "Direitos de mídia, patrocínios, naming rights, publicidade, licenciamento e parcerias de longo prazo.",
+            "campaign"
+          ],
+          [
+            "Commerce",
+            "Ingressos, produtos oficiais, vestuário, equipamentos, colecionáveis, experiências e marketplace.",
+            "stacked_bar_chart"
+          ],
+          [
+            "Tech & Data",
+            "Identidade digital de atletas, fãs e academias, aplicativos, CRM, rankings, inscrições, resultados e analytics.",
+            "insights"
+          ]
+        ],
+        "verticais": [
+          [
+            "Global",
+            "Mercados prioritários, calendário internacional, parceiros locais, cidades-sede e adaptação cultural — começando por Brasil, Estados Unidos, Emirados Árabes Unidos, Japão e Europa.",
+            "place"
+          ],
+          [
+            "Development",
+            "Base e futuro do esporte: novos praticantes, crianças e jovens, programas em escolas, formação de professores, projetos sociais e inclusão.",
+            "engineering"
+          ],
+          [
+            "Corporate",
+            "Estratégia, governança, finanças, jurídico, compliance, propriedade intelectual, marcas, operações e relações institucionais.",
+            "description"
+          ]
+        ],
+        "fases_titulo": "Road to the game",
+        "fases": [
+          [
+            2026,
+            "Fundação",
+            "Estruturar antes de escalar: governança, propriedade intelectual, conselho esportivo, regras, modelo competitivo, ranking, arbitragem, proteção do atleta e integridade. Em paralelo, mapear formalmente IOC, federações internacionais e comitês olímpicos nacionais. O objetivo do ano é deixar de ser promotora de evento e virar propriedade esportiva."
+          ],
+          [
+            2027,
+            "Brasil como base",
+            "Temporada consistente no Brasil — profissional, amador e kids — com ranking, academias, atletas e calendário. Começa a medição de tudo: atletas, países, academias, mulheres, jovens, audiência, transmissão, segurança, arbitragem e impacto econômico. Aqui nasce o programa Road to Brisbane 2032."
+          ],
+          [
+            2028,
+            "Los Angeles como palco global",
+            "Los Angeles estará no centro da atenção esportiva mundial entre 14 e 30 de julho de 2028. A ideia é construir ambiente proprietário do jiu-jítsu na cidade — World Jiu-Jitsu Festival, com Fan Festival e exibição de jiu-jítsu brasileiro — colocando o esporte perto dessa conversa sem sugerir qualquer vínculo oficial com os Jogos."
+          ],
+          [
+            2029,
+            "World Series",
+            "Internacionalizar em poucos territórios, mas estratégicos: Estados Unidos, Emirados Árabes Unidos, Japão, Austrália e Europa, com circuitos regionais, rankings integrados e classificação mundial."
+          ],
+          [
+            2030,
+            "Prova global",
+            "Chegar ao mercado e às instituições com números relevantes. É o ano de provar a dimensão internacional do esporte."
+          ],
+          [
+            2031,
+            "Brisbane campaign",
+            "Virada para o trabalho institucional, acompanhando a construção do programa esportivo de Brisbane 2032 junto a IOC e federações internacionais."
+          ],
+          [
+            2032,
+            "Brisbane",
+            "Com o caminho institucional construído desde 2026, trabalhar com as entidades globais competentes a validação da inclusão."
+          ]
+        ],
+        "nota": "Plano apresentado no documento World Connect Heroes, da produção do evento. É projeção e intenção estratégica: as datas são de planejamento, não calendário confirmado, e nada aqui representa vínculo oficial com o Comitê Olímpico Internacional, com federações ou com os Jogos."
+      },
+      "sources": [
+        [
+          "Connect Heroes no Instagram",
+          "https://www.instagram.com/connectheroes/"
+        ],
+        [
+          "Connect Cast no YouTube",
+          "https://www.youtube.com/@PodcastConnectCast"
+        ],
+        [
+          "Globoplay, canais Combate e SporTV",
+          "https://globoplay.globo.com/"
+        ],
+        [
+          "Grand Hyatt Rio de Janeiro",
+          "https://www.hyatt.com/pt-BR/hotel/brazil/grand-hyatt-rio-de-janeiro/riogh"
+        ]
+      ],
+      "yearsources": {
+        "2026": [
+          [
+            "Connect Heroes no Instagram",
+            "https://www.instagram.com/connectheroes/"
+          ],
+          [
+            "Connect Cast no YouTube",
+            "https://www.youtube.com/@PodcastConnectCast"
+          ],
+          [
+            "Globoplay, canais Combate e SporTV",
+            "https://globoplay.globo.com/"
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "Onde o Connect Heroes acontece?",
+          "No Grand Hyatt Rio de Janeiro. A competição ocupa um dia, e a fight week — coletiva de imprensa, pesagem e hospedagem dos atletas — acontece dentro do próprio hotel, de quarta a domingo."
+        ],
+        [
+          "Quem transmitiu a primeira edição?",
+          "A Xsports levou a transmissão ao vivo e reprisou o evento 27 vezes entre 11 de julho e 9 de agosto de 2026. O conteúdo também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay, além do canal próprio no YouTube."
+        ],
+        [
+          "Quando é a próxima edição?",
+          "Dezembro de 2026, no mesmo Grand Hyatt. O dia exato ainda depende da ficha técnica da produção e entra aqui assim que for publicado."
+        ],
+        [
+          "Os números de audiência são auditados?",
+          "Não. São declarados pela produção no mídia kit oficial (V6). Esta página indica a origem de cada número e aguarda relatório de emissora ou captura de painel para mudar o selo."
+        ],
+        [
+          "O que é o World Connect Heroes?",
+          "É o plano de longo prazo em volta do evento, de 2026 a 2032, que organiza o esporte em núcleos e verticais. É projeção estratégica, sem vínculo oficial com os Jogos."
         ]
       ]
     },
@@ -1436,6 +1699,18 @@
         "",
         "Skate dentro do MAC Bahia",
         "CCBB, ficha técnica institucional"
+      ],
+      [
+        "connect-heroes",
+        "2026",
+        "Tatame e premiação da 1ª edição",
+        "@connectheroes, material oficial do evento"
+      ],
+      [
+        "connect-heroes",
+        "2026",
+        "Fight week no Grand Hyatt: coletiva e pesagem",
+        "produção do evento"
       ]
     ],
     "referencias_removidas": [
@@ -1774,6 +2049,60 @@
         "basis": "",
         "counts": false,
         "source": null
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "family": "transmissao",
+        "value": 240000,
+        "label": "Televisores na transmissão ao vivo pela Xsports",
+        "basis": "Declarado pela produção no mídia kit oficial (V6). Televisor ligado não é pessoa única",
+        "counts": true,
+        "source": null,
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "family": "transmissao",
+        "value": 149000,
+        "label": "Visualizações no YouTube",
+        "basis": "Declarado pela produção no mídia kit oficial (V6), sem captura de painel anexada",
+        "counts": true,
+        "source": [
+          "Connect Cast no YouTube",
+          "https://www.youtube.com/@PodcastConnectCast"
+        ],
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "family": "transmissao",
+        "value": 2000000,
+        "label": "Visualizações somando ao vivo e reprises",
+        "basis": "Declarado pela produção. Engloba as duas linhas acima e por isso não entra em nenhum total",
+        "counts": false,
+        "source": null,
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "family": "digital",
+        "value": 25000000,
+        "label": "Visualizações em reels durante julho",
+        "basis": "Declarado pela produção no mídia kit oficial (V6). Visualização de reel não é pessoa única",
+        "counts": true,
+        "source": [
+          "Connect Heroes no Instagram",
+          "https://www.instagram.com/connectheroes/"
+        ],
+        "tipo": "declarado",
+        "conta": ""
       }
     ],
     "method": [
@@ -1892,6 +2221,20 @@
           1,
           "Salvador, BA"
         ]
+      },
+      "connect-heroes": {
+        "cidades": [
+          1,
+          "Rio de Janeiro, RJ"
+        ],
+        "modalidades": [
+          1,
+          "Jiu-jítsu e grappling"
+        ],
+        "transmissao": [
+          "Xsports, Combate e SporTV 3",
+          "Ao vivo e reprises, com distribuição pelo Globoplay"
+        ]
       }
     },
     "fichas": {
@@ -1959,7 +2302,21 @@
           ""
         ]
       },
-      "itacoatiara-pro-2024": {}
+      "itacoatiara-pro-2024": {},
+      "connect-heroes-2026": {
+        "dias_evento": [
+          1,
+          "Competição concentrada em um único dia, dentro de uma fight week de quarta a domingo"
+        ],
+        "modalidades": [
+          1,
+          "Jiu-jítsu e grappling"
+        ],
+        "transmissao": [
+          "Xsports, Combate e SporTV 3",
+          "Ao vivo pela Xsports, distribuição pelo Globoplay e canal próprio no YouTube"
+        ]
+      }
     },
     "note": "Os campos em branco dependem de dado que fica com a produção: planilha de credenciamento, mapa de equipe, contrato de locação do espaço e lista de fornecedores. Preencha em operacao.fichas no content-model.json e rode o gerador."
   },
@@ -2062,6 +2419,45 @@
         "metrica": null,
         "capturado_em": null,
         "fonte": null
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "parceiro": "Xsports",
+        "canal": "Xsports, na TV e no Disney+",
+        "o_que": "Transmissão ao vivo da 1ª edição e 27 reprises entre 11 de julho e 9 de agosto de 2026",
+        "url": null,
+        "metrica": "240 mil televisores, declarado pela produção",
+        "capturado_em": null,
+        "fonte": null
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "parceiro": "Globoplay",
+        "canal": "Canais Combate e SporTV 3",
+        "o_que": "Distribuição da transmissão do evento",
+        "url": null,
+        "metrica": null,
+        "capturado_em": null,
+        "fonte": [
+          "Globoplay, canais Combate e SporTV",
+          "https://globoplay.globo.com/"
+        ]
+      },
+      {
+        "project": "connect-heroes",
+        "year": 2026,
+        "parceiro": "Canal próprio",
+        "canal": "YouTube @PodcastConnectCast",
+        "o_que": "Transmissão e reprises no canal do projeto",
+        "url": null,
+        "metrica": "149 mil visualizações, 63 mil horas de exibição e 87 mil aparelhos conectados, declarados",
+        "capturado_em": null,
+        "fonte": [
+          "Connect Cast no YouTube",
+          "https://www.youtube.com/@PodcastConnectCast"
+        ]
       }
     ],
     "note": "Nenhuma contagem foi lida ainda. Para cada linha, o que falta é a URL do vídeo ou o relatório da emissora e a data da leitura. Preencha em transmissoes.registros no content-model.json: a linha passa a mostrar o número, a plataforma e quando foi medido."
@@ -2199,6 +2595,22 @@
         "fonte": [
           "Contrato e ficha do TCM-PA",
           "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+        ]
+      },
+      "connect-heroes-2026": {
+        "atletas": [
+          [
+            "Fabrício Andrey",
+            "main event divulgado no material oficial da edição"
+          ],
+          [
+            "Meyram",
+            "main event divulgado no material oficial da edição"
+          ]
+        ],
+        "fonte": [
+          "Connect Heroes no Instagram",
+          "https://www.instagram.com/connectheroes/"
         ]
       }
     },
@@ -2354,6 +2766,66 @@
           "https://www.bb.com.br/docs/portal/disec/RelatJunho2025.pdf"
         ],
         "uso": "Nunca publicado. Mesma razão"
+      },
+      {
+        "projeto": "Connect Heroes",
+        "slug": "connect-heroes",
+        "registro": "Custo total do evento informado como referência de naming right",
+        "valor": 1400000,
+        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Connect Heroes",
+        "slug": "connect-heroes",
+        "registro": "Cota Black Belt",
+        "valor": 500000,
+        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Connect Heroes",
+        "slug": "connect-heroes",
+        "registro": "Cota Brown Belt",
+        "valor": 250000,
+        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Connect Heroes",
+        "slug": "connect-heroes",
+        "registro": "Cota Purple Belt",
+        "valor": 100000,
+        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Connect Heroes",
+        "slug": "connect-heroes",
+        "registro": "Cota Blue Belt",
+        "valor": 50000,
+        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
       }
     ],
     "diligencias": [

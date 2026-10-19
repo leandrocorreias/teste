@@ -158,3 +158,40 @@ fornecedores e dias de montagem seguem vazios.
 | Apresentação em PDF | `assets/kit/` | direção |
 | Endpoint do formulário | `contato.endpoint` | TI |
 | Telefone e redes | `contato.canais` | direção |
+
+
+## V10 — Connect Heroes no acervo
+
+O acervo passa de sete para oito projetos. O Connect Heroes é, hoje, o único projeto do
+site com **audiência de transmissão declarada em número**, o que muda o que a página de
+dados consegue mostrar: até aqui a família “transmissão” tinha registros sem métrica.
+
+| Dimensão | V9 | V10 | Teto |
+|---|---|---|---|
+| Prova de capacidade | 6,0 | 6,5 | 10 |
+| Conversão comercial | 8,0 | 8,5 | 10 |
+| Arquitetura de conteúdo | 9,5 | 9,5 | 10 |
+
+Subiu pouco de propósito. O que entrou é bom — TV aberta, Globoplay, Disney+, 27
+reprises, hotel cinco estrelas, plano até 2032 — mas **nenhum número tem lastro
+verificável ainda**: tudo vem do mídia kit da produção. Enquanto não houver relatório de
+emissora ou captura do painel do YouTube, o site diz isso em vez de apresentar os números
+como auditados.
+
+### O que falta neste projeto
+
+| Item | Onde entra | Quem resolve |
+|---|---|---|
+| Dia exato da 1ª edição | `editions.2026.etapas` | produção |
+| Data da 2ª edição de dezembro | `editions.2026.etapas` | produção |
+| Relatório da emissora (240 mil televisores) | `audiencia.entries` | Xsports |
+| Captura do painel do YouTube | `transmissoes.registros` | canal próprio |
+| Público presente e capacidade do salão | `operacao.fichas` | produção |
+| Inscritos e chave completa de atletas | `elenco.por_edicao` | produção |
+| Fotos da edição e da fight week | `assets/fotos/connect-heroes-2026-*.jpg` | produção |
+| Papel contratual da Cadillac no evento | `creditos` do projeto | direção |
+
+A última linha é a mais importante. O site hoje **não afirma** qual é a relação da
+Cadillac com o Connect Heroes, porque nenhum documento disponível diz isso. Enquanto a
+ficha técnica não chegar, o projeto aparece no acervo pelo que está documentado sobre o
+evento, não por atribuição de autoria.

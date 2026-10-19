@@ -426,6 +426,16 @@ a.service-row{color:inherit}
 .table-hint{font-size:11px;color:var(--muted);margin:10px 0 0}
 @media(min-width:720px){.table-hint{display:none}}
 
+/* Foto do acervo na galeria, com o crédito sobre a imagem */
+.photo-shot{position:relative;margin:0;overflow:hidden;background:var(--surface-dark);
+  min-height:clamp(220px,34vw,400px)}
+.photo-shot.slot-wide{grid-column:1/-1;min-height:clamp(200px,30vw,420px)}
+.photo-shot img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.photo-shot:hover img{transform:scale(1.035)}
+.photo-shot .source-credit{position:absolute;right:10px;bottom:10px;z-index:2}
+@media (prefers-reduced-motion:reduce){.photo-shot img,.photo-shot:hover img{transition:none;transform:none}}
+
 /* Espaços reservados para imagem oficial */
 .photo-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   text-align:center;padding:clamp(20px,3vw,34px);background:

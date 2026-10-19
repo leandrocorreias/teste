@@ -2152,6 +2152,11 @@
         "motivo": "Fotografia de terceiro sem licença, usada como prévia. Substituir por imagem oficial."
       }
     ],
+    "creditos": {
+      "mr-moo-festival": "Divulgação Mr. Moo Festival",
+      "connect-heroes": "Divulgação Connect Heroes"
+    },
+    "origem_arquivos": "As imagens de mr-moo-festival e connect-heroes foram extraídas dos mídia kits oficiais enviados pelas respectivas produções. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção. O crédito aparece sobre a imagem.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md."
   },
   "audiencia": {

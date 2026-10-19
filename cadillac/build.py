@@ -278,9 +278,14 @@ def og_for(project, year=None):
     return None
 
 
-def slot(name, ratio, what, extra=""):
-    """Espaço reservado para a imagem oficial que ainda vai entrar."""
+def slot(name, ratio, what, extra="", depth=0, credito=""):
+    """A imagem, quando o arquivo já está no acervo. O espaço reservado, quando não está."""
     caminho = f"assets/fotos/{name}"
+    if (ROOT / "assets" / "fotos" / name).exists():
+        credito_html = (f'<span class="source-credit">{e(credito)}</span>' if credito else "")
+        return (f'<figure class="photo-shot {extra}">'
+                f'<img src="{rel(depth)}{e(caminho)}" alt="{e(what)}" '
+                f'loading="lazy" decoding="async">{credito_html}</figure>')
     chip = f"<code>{e(caminho)}</code>" if MOSTRAR_CAMPOS else ""
     return (f'<div class="photo-slot {extra}" role="img" title="{e(caminho)}" '
             f'aria-label="Espaço reservado para imagem: {e(what)}">'
@@ -296,7 +301,8 @@ def media(project, classes="", eager=False, year=None, depth=0):
     if local:
         img = {"url": rel(depth) + local,
                "alt": f"{project['name']}{edicao}",
-               "credit": "Acervo Cadillac"}
+               "credit": MODEL["photos"].get("creditos", {}).get(
+                   project["slug"], "Acervo Cadillac")}
     elif not project.get("image"):
         stem = project["slug"] + (f"-{year}" if year else "")
         return slot(f"{stem}.jpg", "16:10 ou 3:2",
@@ -806,6 +812,7 @@ def shows_block(pr, year):
 def page_edition(pr, year):
     depth, p = 3, rel(3)
     slug, ystr = pr["slug"], str(year)
+    credito = MODEL["photos"].get("creditos", {}).get(slug, "Acervo Cadillac")
     ed = pr.get("editions", {}).get(ystr, {})
     trail_html, trail_ld = crumbs(depth, [("Projetos", p + "projetos/"),
                                           (pr["name"], p + f"projetos/{slug}/"),
@@ -870,9 +877,9 @@ def page_edition(pr, year):
 <hr class="rule">
 <h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
 <div class="gallery">
-{slot(f'{slug}-{year}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide')}
-{slot(f'{slug}-{year}-02.jpg', '4:5', 'Bastidores')}
-{slot(f'{slug}-{year}-03.jpg', '4:5', 'Atletas e público')}</div>
+{slot(f'{slug}-{year}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide', depth, credito)}
+{slot(f'{slug}-{year}-02.jpg', '4:5', 'Bastidores', '', depth, credito)}
+{slot(f'{slug}-{year}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)}</div>
 <p class="note">Os três espaços acima entram no ar assim que os arquivos forem colocados em <code>assets/fotos/</code> com esses nomes. Publique apenas imagem com direito de uso verificado.</p></section>
 <section class="container insights">
 <hr class="rule">

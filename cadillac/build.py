@@ -569,7 +569,7 @@ def page_projects():
     return write("projetos/index.html",
                  head(1, "Projetos e cases | Cadillac Produções",
                       "Acervo de projetos da Cadillac: Itacoatiara Pro, Vert Battle, Tamo Junto BB, "
-                      "Dominguinho, Bob Burnquist, Arte em Circuito e Festival de Tribos de Juruti.",
+                      "Dominguinho, Arte em Circuito, MAC Bahia e Festival de Tribos de Juruti.",
                       "projetos/", [ld, trail_ld]) + header(1, "projetos") + body + footer(1))
 
 

@@ -116,7 +116,7 @@
         "2024": {
           "period": "2024",
           "place": "Niterói, RJ",
-          "note": "Participação de Bob Burnquist registrada pela imprensa",
+          "note": "Registro de imprensa sobre a programação do fim de semana",
           "datas": {
             "inicio": "2024-01-01",
             "fim": "2024-12-31",
@@ -149,9 +149,8 @@
           "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento."
         ],
         "2024": [
-          "Publicação de 2024 documenta a participação de Bob Burnquist no festival.",
-          "A cobertura descreve um fim de semana com música, cultura de rua e skate na programação.",
-          "Esta edição entrou no acervo a partir do rastreamento das participações de Bob Burnquist; data exata, modalidades e resultados ainda precisam ser levantados."
+          "Publicação de 2024 descreve um fim de semana de festival com música, cultura de rua e skate na programação.",
+          "Data exata, modalidades e resultados desta edição ainda precisam ser levantados junto à organização."
         ]
       },
       "sources": [
@@ -765,94 +764,6 @@
       ]
     },
     {
-      "slug": "bob-burnquist",
-      "name": "Bob Burnquist, skate e projetos culturais",
-      "kind": "Esporte, arte e legado",
-      "category": "esporte",
-      "location": "Brasil",
-      "period": "2022—2025",
-      "theme": "vert",
-      "desc": "O esporte também transforma cidades: conexões entre skate, cultura, educação e produção.",
-      "intro": "Os registros públicos ligam Bob Burnquist ao Itacoatiara Pro em 2022 e 2024 e ao Arte em Circuito, no qual Bill Aquino/Cadillac consta na coordenação artística. Esta página reúne os vínculos documentados, sem afirmar titularidade sobre os eventos.",
-      "image": null,
-      "years": [],
-      "editions": {},
-      "records": [
-        "A Prefeitura de Niterói registrou a presença de Bob Burnquist no Itacoatiara Pro em 2022.",
-        "Publicação de 2024 documenta nova participação dele no mesmo festival, em um fim de semana com música, cultura de rua e skate — são dois eventos distintos, com dois anos distintos.",
-        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente pelo Instituto IBB.",
-        "Somadas, são três frentes documentadas: duas edições do Itacoatiara Pro e o Arte em Circuito.",
-        "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos.",
-        "Cada participação precisa ser individualizada por data, atividade, produção responsável e crédito, antes de virar case."
-      ],
-      "facts": {},
-      "sources": [
-        [
-          "Arte de Toda Gente, institucional",
-          "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
-        ],
-        [
-          "Prefeitura de Niterói, premiação do Itacoatiara Pro",
-          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
-        ],
-        [
-          "Caderno Pop, cultura de rua e skate",
-          "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
-        ]
-      ],
-      "yearsources": {},
-      "faq": [
-        [
-          "Em quantos eventos do acervo Bob Burnquist aparece?",
-          "Em três frentes documentadas: o Itacoatiara Pro de 2022, o Itacoatiara Pro de 2024 e o projeto Arte em Circuito."
-        ],
-        [
-          "O que a edição de 2024 tem de diferente?",
-          "Ela entrou no acervo justamente pelo rastreamento das participações dele. A cobertura descreve música, cultura de rua e skate no fim de semana do festival."
-        ],
-        [
-          "Qual a ligação da Cadillac com o Arte em Circuito?",
-          "O projeto Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente."
-        ],
-        [
-          "São eventos próprios da Cadillac?",
-          "Os vínculos comprovam participação e colaboração; não estabelecem exclusividade ou titularidade dos eventos."
-        ]
-      ],
-      "participacoes": {
-        "titulo": "Onde ele aparece no acervo",
-        "itens": [
-          {
-            "projeto": "itacoatiara-pro",
-            "ano": 2024,
-            "papel": "Participação registrada pela imprensa",
-            "fonte": [
-              "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
-              "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
-            ]
-          },
-          {
-            "projeto": "itacoatiara-pro",
-            "ano": 2022,
-            "papel": "Presença registrada pela Prefeitura de Niterói",
-            "fonte": [
-              "Prefeitura de Niterói, premiação do Itacoatiara Pro",
-              "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
-            ]
-          },
-          {
-            "projeto": "arte-em-circuito",
-            "ano": null,
-            "papel": "Consultor e artista residente pelo Instituto IBB",
-            "fonte": [
-              "Arte de Toda Gente, institucional",
-              "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
-            ]
-          }
-        ]
-      }
-    },
-    {
       "slug": "arte-em-circuito",
       "name": "Arte em Circuito: skate, cultura e formação",
       "kind": "Cultura e esporte",
@@ -861,14 +772,13 @@
       "period": "Histórico público",
       "theme": "grid",
       "desc": "O encontro entre arte urbana, educação, skate e experiências criativas.",
-      "intro": "O Arte em Circuito integrou iniciativas culturais com participação de Bob Burnquist e coordenação artística creditada a Bill Aquino/Cadillac na página institucional do Arte de Toda Gente.",
+      "intro": "O Arte em Circuito integrou iniciativas culturais de arte urbana, skate e formação, com coordenação artística creditada a Bill Aquino/Cadillac na página institucional do Arte de Toda Gente.",
       "image": null,
       "years": [],
       "editions": {},
       "records": [
         "Iniciativa cultural ligada ao projeto Arte de Toda Gente, com participação institucional de Funarte e UFRJ.",
         "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac.",
-        "Bob Burnquist aparece como consultor e artista residente pelo Instituto IBB.",
         "Ano, instituição executora, programação e forma de contratação ainda precisam ser confirmados antes de descrever o projeto como propriedade da Cadillac."
       ],
       "facts": {},
@@ -883,10 +793,6 @@
         [
           "Quem coordenou a área artística?",
           "A página institucional de Arte de Toda Gente identifica Bill Aquino/Cadillac na coordenação artística."
-        ],
-        [
-          "Quem participou do projeto?",
-          "Bob Burnquist aparece como consultor e artista residente pelo Instituto IBB."
         ]
       ]
     },
@@ -1115,7 +1021,7 @@
             "project": "arte-em-circuito",
             "year": null,
             "title": "Arte em Circuito: coordenação artística",
-            "text": "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac e cita Bob Burnquist como consultor e artista residente do projeto.",
+            "text": "A página institucional do Arte de Toda Gente credita a coordenação artística do projeto a Bill Aquino/Cadillac.",
             "source": [
               "Arte de Toda Gente, institucional",
               "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
@@ -1428,14 +1334,6 @@
         true
       ],
       [
-        "Bob Burnquist",
-        "Artista e atleta",
-        "Arte em Circuito · Itacoatiara Pro",
-        "bob-burnquist",
-        "Consultor e artista residente pelo Instituto IBB; participações registradas no festival.",
-        true
-      ],
-      [
         "André Frateschi",
         "Artista e atleta",
         "Festival de Tribos de Juruti",
@@ -1520,12 +1418,6 @@
         "",
         "João Gomes, Mestrinho e Jota.pê no palco",
         "assessoria do projeto"
-      ],
-      [
-        "bob-burnquist",
-        "",
-        "Participação no Itacoatiara Pro",
-        "niteroi.rj.gov.br, cadernopop.com.br"
       ],
       [
         "arte-em-circuito",
@@ -2297,18 +2189,6 @@
           "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
         ]
       },
-      "itacoatiara-pro-2022": {
-        "personalidades": [
-          [
-            "Bob Burnquist",
-            "presença registrada pela Prefeitura de Niterói"
-          ]
-        ],
-        "fonte": [
-          "Prefeitura de Niterói, premiação do Itacoatiara Pro",
-          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
-        ]
-      },
       "festival-de-tribos-juruti-2018": {
         "artistas": [
           [
@@ -2319,18 +2199,6 @@
         "fonte": [
           "Contrato e ficha do TCM-PA",
           "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
-        ]
-      },
-      "itacoatiara-pro-2024": {
-        "personalidades": [
-          [
-            "Bob Burnquist",
-            "participação registrada pela imprensa em 2024"
-          ]
-        ],
-        "fonte": [
-          "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
-          "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
         ]
       }
     },
@@ -2361,27 +2229,11 @@
           [
             "Bill Aquino",
             "coordenação artística, creditada pelo Arte de Toda Gente"
-          ],
-          [
-            "Bob Burnquist",
-            "consultor e artista residente pelo Instituto IBB"
           ]
         ],
         "fonte": [
           "Arte de Toda Gente, institucional",
           "https://artedetodagente.com.br/tds-institucional/atg-institucional/"
-        ]
-      },
-      "bob-burnquist": {
-        "personalidades": [
-          [
-            "Bob Burnquist",
-            "skatista, participações no Itacoatiara Pro em 2022 e 2024"
-          ]
-        ],
-        "fonte": [
-          "Prefeitura de Niterói",
-          "https://niteroi.rj.gov.br/itacoatiara-pro-premia-campeoes-de-competicoes-de-skate-vela-e-parapente/"
         ]
       }
     },
@@ -2527,8 +2379,8 @@
         "acao": "Contrato social ou documento equivalente"
       },
       {
-        "assunto": "Escopo contratual no Dominguinho e nos projetos com Bob Burnquist",
-        "detalhe": "Participação informada; ficha técnica independente pendente.",
+        "assunto": "Escopo contratual no Dominguinho",
+        "detalhe": "Participação informada pela direção do projeto; ficha técnica independente pendente.",
         "fonte": null,
         "acao": "Ficha técnica assinada pela produção do projeto"
       },

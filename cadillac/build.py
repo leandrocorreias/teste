@@ -30,14 +30,22 @@ PROJECTS = sorted(MODEL["projects"], key=lambda pr: (-_recencia(pr), pr["name"])
 # content-model.json. Deixe False antes de publicar para o público.
 MOSTRAR_CAMPOS = True
 
-ICON_SUBSET = ",".join(sorted([
+# O Google Fonts responde 400 quando icon_names traz um nome repetido, e aí
+# NENHUM ícone do site carrega: cada um aparece com o próprio nome escrito.
+# Por isso a lista passa por set() e o build confere, no fim, se algum ícone
+# pedido ficou de fora.
+ICONES = {
     "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
-    "chevron_right", "close", "description", "engineering", "expand_more", "festival",
-    "filter_list", "home", "insights", "mail", "menu", "movie", "music_note", "north",
-    "download", "groups", "language", "mail", "open_in_new", "palette", "photo_camera", "place",
-    "play_arrow", "public", "search", "skateboarding",
-    "stacked_bar_chart", "verified",
-]))
+    "chevron_right", "close", "description", "download", "engineering", "expand_more",
+    "festival", "filter_list", "groups", "home", "insights", "language", "mail", "menu",
+    "movie", "music_note", "north", "open_in_new", "palette", "photo_camera", "place",
+    "play_arrow", "public", "search", "skateboarding", "stacked_bar_chart", "verified",
+}
+# Entram no subset sem passar por icon(): "close" é trocado pelo JS no botão do
+# menu e "download" só aparece quando há arquivo de kit publicado.
+ICONES_DINAMICOS = {"close", "download"}
+ICON_SUBSET = ",".join(sorted(ICONES))
+ICONES_PEDIDOS = set()
 
 NAV = [
     ("Projetos", "projetos/", "projetos", "stacked_bar_chart"),
@@ -62,6 +70,7 @@ def rel(depth):
 
 
 def icon(name, cls="cd-icon"):
+    ICONES_PEDIDOS.add(name)
     return f'<span aria-hidden="true" class="material-symbols-outlined {cls}">{name}</span>'
 
 
@@ -2079,6 +2088,15 @@ def main():
         for y in pr["years"]:
             written.append(page_edition(pr, y))
     n = page_sitemap()
+    faltando = sorted(ICONES_PEDIDOS - ICONES)
+    if faltando:
+        raise SystemExit(
+            "Ícones usados mas fora de ICONES, que vira o icon_names do Google Fonts: "
+            + ", ".join(faltando)
+            + "\nSem eles no subset o ícone sai como texto. Acrescente em ICONES e rode de novo.")
+    ociosos = sorted(ICONES - ICONES_PEDIDOS - ICONES_DINAMICOS)
+    if ociosos:
+        print("aviso: baixados sem uso:", ", ".join(ociosos))
     print(f"{len(written)} páginas geradas, {n} URLs no sitemap.")
     for w in written:
         print("  ", w)

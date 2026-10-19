@@ -50,6 +50,29 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V13: correção — os ícones não carregavam
+
+A lista `icon_names` enviada ao Google Fonts tinha **`mail` repetido**. O Google Fonts
+responde **HTTP 400** a qualquer lista com nome duplicado, e sem a folha de estilo a
+fonte de ícones nunca chegava: **todos** os ícones do site apareciam com o próprio nome
+escrito — `arrow_outward`, `photo_camera`, `place`, `menu`. Em todas as páginas, em
+qualquer navegador.
+
+A falha era invisível para as checagens que havia: o link checker só valida caminhos
+internos, e a auditoria mede layout, não requisição de terceiro.
+
+Três mudanças, nessa ordem:
+
+- A lista virou `set`, então duplicata não volta a existir.
+- `icon()` registra todo ícone pedido, e **o build para com erro** se algum ficar fora
+  do subset baixado — o caso em que o ícone sairia como texto.
+- `close` e `download` ficam declarados como dinâmicos: o primeiro é trocado pelo JS no
+  botão do menu, o segundo só aparece quando há arquivo de kit. Sem isso o build os
+  acusaria de ociosos a cada rodada.
+
+Verificado em requisição real ao Google Fonts (200, com `@font-face`) e em navegador,
+com `document.fonts` confirmando a fonte carregada.
+
 ## V12: vídeo institucional
 
 O institucional da Cadillac entrou no espaço reservado da home

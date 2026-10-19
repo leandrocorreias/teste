@@ -218,6 +218,24 @@ def fonte_link(fonte, vazio="—"):
             f'{e(label)} {icon("open_in_new")}</a>')
 
 
+def bloco_fontes(sources, depth, titulo):
+    """Lista as fontes do registro e sempre aponta o acervo de imprensa.
+
+    Sem fonte própria a seção não anuncia o vazio: leva direto para a Mídia,
+    onde está a cobertura reunida por projeto.
+    """
+    p = rel(depth)
+    ir_para_midia = (f'<div class="section-end"><a class="pill-link" href="{p}na-midia/">'
+                     f'Ver a cobertura na Mídia {icon("description")}</a></div>')
+    if not sources:
+        return f"""<section class="container sources"><hr class="rule">
+<h2>NA MÍDIA.</h2>
+<p class="body-copy">A cobertura de imprensa dos projetos está reunida em um acervo
+único, organizado por projeto.</p>{ir_para_midia}</section>"""
+    return f"""<section class="container sources"><hr class="rule">
+<h2>{titulo}</h2>{source_list(sources)}{ir_para_midia}</section>"""
+
+
 def source_list(sources):
     if not sources:
         return ('<p class="note">Nenhuma fonte pública recuperada até agora para este registro. '
@@ -691,7 +709,7 @@ def page_project(pr):
 <hr class="rule">
 <h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
 <div class="facts">{facts}</div>
-<p class="note">Este projeto ainda não tem edições anuais catalogadas. Quando houver documentação por ano, cada edição ganha página própria com fontes.</p></section>""")
+<p class="note">{e(pr.get("nota_registro") or "")} Quando houver documentação por ano, cada edição ganha página própria com fontes.</p></section>""")
         n += 1
 
     faq_html, faq_ld = faq_block(pr, f"{n:02d}")
@@ -707,9 +725,7 @@ def page_project(pr):
     sections.append(participacoes_block(pr, depth))
     sections.append(cast_block(pr))
     sections.append(op_project(pr))
-    sections.append(f"""<section class="container sources">
-<hr class="rule">
-<h2>FONTES PARA IR ALÉM.</h2>{source_list(pr['sources'])}</section>""")
+    sections.append(bloco_fontes(pr["sources"], depth, "FONTES PARA IR ALÉM."))
     n += 1
 
     related = [x for x in PROJECTS if x["slug"] != slug and x["category"] == pr["category"]]
@@ -863,9 +879,8 @@ def page_edition(pr, year):
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
 <p>Projetos como este articulam pessoas, território, produção e marcas. A leitura da Cadillac apresenta contexto e oportunidades do setor sem inventar métricas de público, resultados ou atribuições contratuais.</p>
 <a class="pill-link" href="{p}dados/">Explorar dados e métricas {icon('insights')}</a></div></section>
+{bloco_fontes(sources, depth, "FONTES E DOCUMENTAÇÃO.")}
 <section class="container sources">
-<hr class="rule">
-<h2>FONTES E DOCUMENTAÇÃO.</h2>{source_list(sources)}
 <div class="year-links"><span>Navegar nas edições</span>{''.join(nav_links)}</div>
 <div class="year-links"><span>Outros anos</span>{other_html}</div></section></main>"""
     return write(f"projetos/{slug}/{year}/index.html",

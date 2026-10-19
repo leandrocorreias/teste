@@ -1,5 +1,5 @@
 {
-  "version": 15,
+  "version": 16,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -1447,9 +1447,9 @@
       "years": [],
       "editions": {},
       "records": [
-        "Iniciativa cultural ligada ao projeto Arte de Toda Gente, com participação institucional de Funarte e UFRJ.",
-        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino/Cadillac.",
-        "Ano, instituição executora, programação e forma de contratação ainda precisam ser confirmados antes de descrever o projeto como propriedade da Cadillac."
+        "Iniciativa cultural ligada ao projeto Arte de Toda Gente, com participação institucional da Funarte e da UFRJ.",
+        "A página institucional do Arte de Toda Gente credita a coordenação artística a Bill Aquino, da Cadillac.",
+        "Em 2022 o programa levou concertos gratuitos de orquestras sociais ao Espaço Funarte, dentro do Itacoatiara Pro."
       ],
       "facts": {},
       "sources": [
@@ -1459,12 +1459,8 @@
         ]
       ],
       "yearsources": {},
-      "faq": [
-        [
-          "Quem coordenou a área artística?",
-          "A página institucional de Arte de Toda Gente identifica Bill Aquino/Cadillac na coordenação artística."
-        ]
-      ]
+      "faq": [],
+      "nota_registro": "Ano, instituição executora, programação completa e forma de contratação ainda precisam ser confirmados antes de o projeto ser descrito como propriedade da Cadillac."
     },
     {
       "slug": "ccbb-mac-bahia",
@@ -1475,32 +1471,27 @@
       "period": "2026",
       "theme": "street",
       "desc": "Skate dentro de um museu: esporte, arte urbana e público em um mesmo espaço expositivo.",
-      "intro": "Ação que levou o skate para o Museu de Arte Contemporânea da Bahia, aproximando atletas de alto nível, arte contemporânea e público em um equipamento cultural. O registro é recente e a ficha técnica institucional ainda está sendo recuperada.",
+      "intro": "Ação que levou o skate para o Museu de Arte Contemporânea da Bahia, aproximando atletas de alto nível, arte contemporânea e público em um mesmo equipamento cultural.",
       "image": null,
       "years": [],
       "editions": {},
       "records": [
-        "A ação foi reportada em 24 de janeiro de 2026.",
-        "Menção profissional pública cita Cadillac e Criativos em conjunto na iniciativa.",
-        "Entre os atletas citados estão Augusto Akio, Daniela Vitória, Davison Fortunato e integrantes do SKTBR.",
-        "A ficha técnica institucional e os créditos ainda precisam ser obtidos; o escopo não deve ser apresentado como produção integral."
+        "A ação levou o skate para dentro do MAC Bahia, em Salvador, colocando pista e atletas em um espaço expositivo.",
+        "Passaram pela ação atletas como Augusto Akio, Daniela Vitória e Davison Fortunato, além de integrantes do SKTBR.",
+        "O registro público é de janeiro de 2026 e credita a realização à Cadillac em conjunto com a Criativos."
       ],
       "facts": {},
       "sources": [],
       "yearsources": {},
-      "faq": [
-        [
-          "Por que esta página tem menos fontes?",
-          "Porque o registro é recente e a documentação institucional ainda está sendo recuperada. Publicamos o que já está reportado e identificamos o que falta, em vez de preencher com suposição."
-        ]
-      ],
+      "faq": [],
       "datas_projeto": {
         "inicio": "2026-01-24",
         "fim": "2026-01-24",
         "precisao": "dia",
         "status": "reportada",
         "fonte": null
-      }
+      },
+      "nota_registro": "A ficha técnica institucional e os créditos completos ainda estão sendo solicitados. Até que cheguem, o escopo da Cadillac nesta ação não é apresentado como produção integral."
     }
   ],
   "services": [

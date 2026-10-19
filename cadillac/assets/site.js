@@ -117,3 +117,19 @@
     apply();
   }
 })();
+
+/* Player de vídeo sob demanda: o embed de terceiro só entra depois do clique. */
+(function () {
+  var facades = [].slice.call(document.querySelectorAll('.video-facade'));
+  facades.forEach(function (botao) {
+    botao.addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = botao.dataset.embed + '?autoplay=1&rel=0';
+      frame.title = botao.dataset.titulo || 'Vídeo';
+      frame.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      frame.setAttribute('allowfullscreen', '');
+      botao.parentNode.replaceChild(frame, botao);
+      frame.focus();
+    });
+  });
+})();

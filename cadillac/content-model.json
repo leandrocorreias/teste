@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -3671,14 +3671,18 @@
   },
   "video": {
     "reel": {
-      "url": null,
-      "titulo": "Reel institucional",
-      "duracao": "20 a 30 segundos",
+      "url": "https://youtu.be/j6VJGNgdwmA",
+      "titulo": "Institucional Cadillac",
+      "descricao": "Vídeo institucional da Cadillac Produções e Filmes.",
+      "duracao": null,
+      "duracao_iso": null,
+      "publicado_em": null,
       "arquivo": "assets/video/reel.mp4",
-      "poster": "assets/fotos/reel-poster.jpg"
+      "poster": "assets/fotos/reel-poster.jpg",
+      "nota": "Vídeo institucional da Cadillac, hospedado no YouTube. O player só carrega depois do clique: até lá a página não envia requisição nem cookie para a plataforma."
     },
     "por_projeto": {},
-    "nota": "Aceita arquivo local em assets/video ou URL de YouTube e Vimeo. Sem vídeo, o espaço fica reservado e nada quebra."
+    "nota": "Aceita arquivo local em assets/video ou URL de YouTube e Vimeo. Sem vídeo, o espaço fica reservado e nada quebra. Para o vídeo entrar no JSON-LD como VideoObject, preencha publicado_em (data de publicação, AAAA-MM-DD) e duracao_iso (por exemplo PT1M42S): sem a data, o Google trata o dado estruturado como incompleto e é melhor não emiti-lo."
   },
   "imprensa": {
     "lede": "Material pronto para quem vai escrever, apresentar ou avaliar a Cadillac.",

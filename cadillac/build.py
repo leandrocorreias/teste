@@ -485,6 +485,25 @@ def write(path, content):
     return path
 
 
+def video_ld():
+    """VideoObject só entra completo. Sem data de publicação, o Google trata como erro."""
+    r = MODEL["video"]["reel"]
+    if not (r.get("url") and r.get("publicado_em")):
+        return None
+    vid = youtube_id(r["url"]) if ("youtu" in r["url"]) else None
+    ld = {"@context": "https://schema.org", "@type": "VideoObject",
+          "name": r.get("titulo") or "Reel institucional Cadillac",
+          "description": r.get("descricao") or SITE["tagline"],
+          "uploadDate": r["publicado_em"],
+          "contentUrl": r["url"]}
+    if vid:
+        ld["thumbnailUrl"] = [f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"]
+        ld["embedUrl"] = f"https://www.youtube-nocookie.com/embed/{vid}"
+    if r.get("duracao_iso"):
+        ld["duration"] = r["duracao_iso"]
+    return ld
+
+
 def page_home():
     org = {"@context": "https://schema.org", "@type": "Organization",
            "name": SITE["name"], "url": BASE, "email": SITE["email"],
@@ -527,7 +546,7 @@ def page_home():
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></section>
-<section class="container reel-section">{video_block('reel', 'Reel institucional Cadillac')}</section>
+<section class="container reel-section">{video_block('reel', MODEL['video']['reel'].get('titulo') or 'Reel institucional Cadillac')}</section>
 <section class="container showcase" id="projetos">
 <h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
@@ -566,7 +585,8 @@ def page_home():
                  head(0, "Experiências, esportes, cultura e produções | Cadillac Produções",
                       "Conheça o universo Cadillac: projetos esportivos, festivais, edições históricas, "
                       "notícias e dados documentados com fontes públicas.",
-                      "", [org, website]) + header(0, "home") + body + footer(0))
+                      "", [x for x in (org, website, video_ld()) if x])
+                 + header(0, "home") + body + footer(0))
 
 
 def page_projects():
@@ -1420,8 +1440,23 @@ def case_block(pr, year):
 <div class="case-grid">{''.join(blocos)}</div>{depo}</section>"""
 
 
+def youtube_id(url):
+    """ID do vídeo em qualquer formato de link do YouTube, sem os parâmetros de rastreio."""
+    from urllib.parse import urlparse, parse_qs
+    u = urlparse(url)
+    if "youtu.be" in u.netloc:
+        return u.path.strip("/").split("/")[0]
+    if u.path.startswith(("/embed/", "/shorts/", "/live/", "/v/")):
+        return u.path.split("/")[2]
+    return (parse_qs(u.query).get("v") or [""])[0]
+
+
 def video_block(chave, titulo):
-    """Reel ou vídeo de projeto: embute quando há URL, reserva o espaço quando não há."""
+    """Reel ou vídeo de projeto: embute quando há URL, reserva o espaço quando não há.
+
+    O player de terceiro só carrega depois do clique: até lá, a página mostra a
+    miniatura e não dispara requisição nem cookie para a plataforma.
+    """
     data = MODEL["video"]
     fonte = data["reel"] if chave == "reel" else data["por_projeto"].get(chave)
     if not fonte:
@@ -1429,16 +1464,24 @@ def video_block(chave, titulo):
     url = fonte.get("url")
     if url:
         if "youtube" in url or "youtu.be" in url:
-            vid = url.rsplit("/", 1)[-1].replace("watch?v=", "")
-            player = (f'<iframe src="https://www.youtube-nocookie.com/embed/{e(vid)}" title="{e(titulo)}" '
-                      f'loading="lazy" allowfullscreen></iframe>')
+            vid = youtube_id(url)
+            embed = f"https://www.youtube-nocookie.com/embed/{vid}"
+            capa = (f'<img class="video-thumb" src="https://i.ytimg.com/vi/{e(vid)}/maxresdefault.jpg" '
+                    f'alt="" width="1280" height="720" loading="lazy" decoding="async">')
+            player = (f'<button class="video-facade" type="button" data-embed="{e(embed)}" '
+                      f'data-titulo="{e(titulo)}" aria-label="Assistir: {e(titulo)}">'
+                      f'{capa}<span class="video-play">{icon("play_arrow")}</span>'
+                      f'<span class="video-label">{e(titulo)}</span></button>'
+                      f'<noscript><a class="video-link" href="{e(url)}" target="_blank" '
+                      f'rel="noopener noreferrer">Assistir no YouTube {icon("open_in_new")}</a></noscript>')
         elif "vimeo" in url:
-            vid = url.rsplit("/", 1)[-1]
+            vid = url.rstrip("/").rsplit("/", 1)[-1].split("?")[0]
             player = (f'<iframe src="https://player.vimeo.com/video/{e(vid)}" title="{e(titulo)}" '
                       f'loading="lazy" allowfullscreen></iframe>')
         else:
             player = f'<video controls preload="none" poster="{e(fonte.get("poster") or "")}"><source src="{e(url)}"></video>'
-        return f'<div class="video-wrap">{player}</div>'
+        legenda = (f'<p class="note">{e(fonte["nota"])}</p>' if fonte.get("nota") else "")
+        return f'<div class="video-wrap">{player}</div>{legenda}'
     return (f'<div class="video-wrap video-slot" role="img" aria-label="Espaço reservado para vídeo">'
             f'<span class="slot-mark">{icon("play_arrow")}</span><strong>{e(titulo)}</strong>'
             f'<code>{e(fonte.get("arquivo") or "video.mp4")}</code>'

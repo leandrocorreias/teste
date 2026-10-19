@@ -50,6 +50,25 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V12: vídeo institucional
+
+O institucional da Cadillac entrou no espaço reservado da home
+(`video.reel.url` no modelo). Três decisões nessa entrega:
+
+- **O player só carrega depois do clique.** Até lá a página mostra a miniatura e um
+  botão: nenhuma requisição e nenhum cookie vão para o YouTube enquanto o visitante
+  não decidir assistir. Isso tira da home o carregamento do player (centenas de KB de
+  JavaScript de terceiro) e evita rastreio de quem só passou pela página. Sem
+  JavaScript, um `<noscript>` oferece o link direto.
+- **O ID do vídeo é extraído de verdade** (`youtube_id()`), de qualquer formato de link
+  — `youtu.be/ID`, `watch?v=ID`, `/embed/`, `/shorts/` — e os parâmetros de rastreio do
+  link compartilhado são descartados. O código anterior quebrava com links de
+  compartilhamento.
+- **O JSON-LD de `VideoObject` não foi emitido ainda.** Falta a data de publicação:
+  sem ela o Google trata o dado estruturado como incompleto. Preencha
+  `video.reel.publicado_em` (AAAA-MM-DD) e, se quiser, `duracao_iso` (`PT1M42S`),
+  e o bloco passa a sair sozinho na home.
+
 ## V11: Mr. Moo Festival
 
 Nono projeto do acervo, em `/projetos/mr-moo-festival/`. É o primeiro caso de um

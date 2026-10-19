@@ -215,6 +215,14 @@ def source_list(sources):
                 'A ficha técnica institucional está sendo solicitada e entra aqui assim que chegar.</p>')
     rows = []
     for label, url in sources:
+        if not url:
+            rows.append(
+                f'<span class="s-item s-offline">'
+                f'<span class="s-main"><span class="s-label">{e(label)}</span>'
+                f'<span class="s-host">documento da produção, sem URL pública</span></span>'
+                f'{icon("description")}</span>'
+            )
+            continue
         rows.append(
             f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
             f'<span class="s-main"><span class="s-label">{e(label)}</span>'
@@ -662,6 +670,8 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    sections.append(papel_block(pr))
+    sections.append(historico_block(pr))
     sections.append(mercado_block(pr))
     sections.append(plano_block(pr))
     sections.append(creditos_projeto(pr, depth))
@@ -841,10 +851,11 @@ def page_press():
     trail_html, trail_ld = crumbs(depth, [("Na Mídia", None)])
     groups, total, hosts = [], 0, set()
     for pr in PROJECTS:
-        items = list(pr["sources"])
+        items = [(lb, u) for lb, u in pr["sources"] if u]
         for y in sorted(pr["yearsources"], reverse=True):
             for label, url in pr["yearsources"][y]:
-                items.append((f"{label} · {y}", url))
+                if url:
+                    items.append((f"{label} · {y}", url))
         seen, uniq = set(), []
         for label, url in items:
             if url in seen:
@@ -930,11 +941,7 @@ def etapas_block(pr, year):
         else:
             quando = '<span class="val pend">data a confirmar</span>'
         rotulo, _, ic = MODEL["datas"]["status"][et["status"]]
-        fonte = ""
-        if et.get("fonte"):
-            label, url = et["fonte"]
-            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                     f'{e(label)} {icon("open_in_new")}</a>')
+        fonte = fonte_link(et.get("fonte"), "")
         linhas.append(f"""<tr><th scope="row">{e(et['nome'])}</th><td>{quando}</td>
 <td><span class="selo selo-{et['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
 <td>{fonte or '—'}</td></tr>""")
@@ -1038,6 +1045,55 @@ def op_tiles(values, scope_key, order):
 <strong>{shown}</strong><span>{e(label)}</span>
 <small>{e(basis or help_text)}</small></div>""")
     return f'<div class="op-grid">{"".join(tiles)}</div>'
+
+
+def papel_block(pr):
+    """O que a Cadillac faz neste projeto. Sem isso, presença no acervo vira atribuição de autoria."""
+    data = pr.get("papel")
+    if not data:
+        return ""
+    rotulo, _, ic = MODEL["datas"]["status"][data["status"]]
+    return f"""<section class="container papel-section"><hr class="rule">
+<h2 class="section-title">O PAPEL<br><em>DA CADILLAC.</em></h2>
+<div class="papel-card">
+<h3>{icon(data.get('icone', 'engineering'))} {e(data['rotulo'])}</h3>
+<p>{e(data['texto'])}</p>
+<div class="taglist"><span class="selo selo-{data['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span>
+<span>{icon('description')} {e(data['fonte_texto'])}</span></div></div>
+<p class="note">{e(data['nota'])}</p></section>"""
+
+
+def historico_block(pr):
+    """Serie completa de edicoes de um projeto que a Cadillac nao produziu, da mais recente para a mais antiga."""
+    data = pr.get("historico")
+    if not data:
+        return ""
+    linhas = []
+    for n, quando, onde, publico, status in data["linhas"]:
+        rotulo, _, ic = MODEL["datas"]["status"][status]
+        pub = (f'<span class="val">{big(publico)}</span>' if isinstance(publico, int)
+               else '<span class="val pend">a levantar</span>')
+        linhas.append(f"""<tr><th scope="row">{n:02d}<small>{e(quando)}</small></th>
+<td>{e(onde)}</td><td>{pub}</td>
+<td><span class="selo selo-{status.replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td></tr>""")
+    vals = [x[3] for x in data["linhas"] if isinstance(x[3], int) and x[4] != "anunciada"]
+    resumo = (f'<div class="op-grid"><div class="op-tile">{icon("calendar_month")}'
+              f'<strong>{len(data["linhas"]) - 1:02d}</strong><span>Edições realizadas</span>'
+              f'<small>{e(data["periodo"])}</small></div>'
+              f'<div class="op-tile">{icon("groups")}<strong>{big(sum(vals))}</strong>'
+              f'<span>Participações somadas</span><small>Presenças, não pessoas únicas. '
+              f'A mesma pessoa pode ter ido a várias edições</small></div>'
+              f'<div class="op-tile">{icon("public")}<strong>{big(max(vals))}</strong>'
+              f'<span>Maior público de uma edição</span><small>{e(data["recorde"])}</small></div></div>')
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<br><em>{e(data['subtitulo'])}</em></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+{resumo}
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Edição</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Situação da data</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver público e situação da data.</p>
+<p class="note">{e(data['nota'])}</p></section>"""
 
 
 def mercado_block(pr):
@@ -1196,9 +1252,7 @@ def cast_block(pr, year=None, numero="05"):
         colunas.append(f"""<div class="cast-col"><h3>{icon(ic)} {titulo}</h3><ul>{itens}</ul></div>""")
     fonte = ""
     if bloco.get("fonte"):
-        label, url = bloco["fonte"]
-        fonte = (f'<p class="cast-source">Fonte: <a href="{e(url)}" target="_blank" '
-                 f'rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></p>')
+        fonte = f'<p class="cast-source">Fonte: {fonte_link(bloco["fonte"])}</p>'
     return f"""<section class="container cast-section"><hr class="rule">
 <h2 class="section-title">QUEM ESTEVE<br><em>EM CENA.</em></h2>
 <div class="cast-grid">{''.join(colunas)}</div>{fonte}
@@ -1759,11 +1813,7 @@ def page_reservado():
     for x in sorted(MODEL["audiencia"]["entries"], key=lambda x: (x["project"], -(x["year"] or 0))):
         pr = by_slug[x["project"]]
         valor = big(x["value"]) if x["value"] is not None else "—"
-        fonte = "—"
-        if x.get("source"):
-            label, url = x["source"]
-            fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                     f'{e(label)} {icon("open_in_new")}</a>')
+        fonte = fonte_link(x.get("source"))
         linhas_aud.append(f"""<tr><th scope="row">{e(pr['name'])}{' ' + str(x['year']) if x['year'] else ''}
 <small>{e(x['label'])}</small></th><td>{valor}</td><td>{e(x.get('tipo', ''))}</td>
 <td>{e(x.get('conta') or x.get('basis') or '—')}</td><td>{fonte}</td></tr>""")

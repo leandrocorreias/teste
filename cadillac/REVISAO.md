@@ -195,3 +195,46 @@ A última linha é a mais importante. O site hoje **não afirma** qual é a rela
 Cadillac com o Connect Heroes, porque nenhum documento disponível diz isso. Enquanto a
 ficha técnica não chegar, o projeto aparece no acervo pelo que está documentado sobre o
 evento, não por atribuição de autoria.
+
+
+## V11 — Mr. Moo Festival e a regra do papel
+
+Nove projetos no acervo. O Mr. Moo é o primeiro em que a Cadillac não é produtora, e
+isso obrigou o site a responder uma pergunta que antes ficava implícita: **o que a
+Cadillac faz em cada projeto?**
+
+| Dimensão | V10 | V11 | Teto |
+|---|---|---|---|
+| Prova de capacidade | 6,5 | 7,0 | 10 |
+| Conversão comercial | 8,5 | 9,0 | 10 |
+| Arquitetura de conteúdo | 9,5 | 10 | 10 |
+
+Arquitetura de conteúdo chega a 10 porque o bloco `papel` fecha o último buraco
+estrutural do acervo: agora todo projeto pode declarar o vínculo da empresa com ele, e
+nenhum número de terceiro entra nos totais da casa sem dizer de quem é.
+
+### O que o Mr. Moo traz, e o que não traz
+
+Traz: um recorde do Guinness com data e certificado, 22 edições com série histórica de
+público, público de 420 cidades e seis países, e um portfólio de marcas ativadas
+(Banco do Brasil, Estância 92 e Minerva Foods, Red Bull, Heineken, Chevrolet,
+Tramontina, Sapore). É o ativo comercial mais forte do acervo.
+
+Não traz: prova de capacidade da Cadillac. Nada disso foi operado pela empresa, e a
+página diz isso três vezes — no bloco de papel, na nota do histórico e em cada linha
+de `/dados/`.
+
+### O que falta neste projeto
+
+| Item | Onde entra | Quem resolve |
+|---|---|---|
+| Contrato ou carta que formaliza a captação | `papel` do projeto | direção e jurídico |
+| Dia exato das edições de 2026 e anteriores | `historico.linhas` | produção do festival |
+| Número do recorde do Guinness (toneladas em 8h) | `facts.2025` | produção do festival |
+| Link público do registro no Guinness | `sources` | produção do festival |
+| Recorte por edição dos volumes (115 t, 920 mil, 415 mil) | `mercado.items` | produção do festival |
+| Autorização de uso das marcas ativadas | `clientes` e `assets/marcas/` | jurídico |
+| Fotos oficiais do festival | `assets/fotos/mr-moo-festival-*.jpg` | produção do festival |
+
+O número do recorde é o item de maior retorno: “maior churrasco do mundo” sem a
+quantidade certificada é adjetivo; com ela, é fato audível por qualquer patrocinador.

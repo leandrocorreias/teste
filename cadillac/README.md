@@ -50,6 +50,35 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V11: Mr. Moo Festival
+
+Nono projeto do acervo, em `/projetos/mr-moo-festival/`. É o primeiro caso de um
+projeto que **a Cadillac não produziu**: o festival existe desde 2015, tem 22 edições
+realizadas por sua própria produção e um recorde do Guinness World Records certificado
+em 17 de maio de 2025. A Cadillac entra na 23ª edição, de 22 de maio de 2027, **apenas
+na captação de patrocínio**.
+
+Esse caso exigiu dois blocos novos no gerador, disponíveis para qualquer projeto:
+
+- `projeto.papel` → diz, em destaque, o que a Cadillac faz naquele projeto, com selo de
+  situação e nota de limite. Sem isso, presença no acervo vira atribuição de autoria.
+- `projeto.historico` → série completa de edições de um projeto de terceiro, da mais
+  recente para a mais antiga, com público por edição e selo de data. O resumo soma
+  **participações, não pessoas únicas**, e deixa a edição futura fora da soma.
+
+Decisão de integridade: **todo o público do Mr. Moo entra em `/dados/` com `counts:
+false`**. São 143 mil participações em 22 edições que não são alcance da Cadillac, e
+somar isso ao total da empresa seria falso. Elas aparecem identificadas, fora de
+qualquer total.
+
+Fonte sem URL pública (um mídia kit da produção) agora aparece como item identificado
+em toda a lista de fontes, nunca como link quebrado; `/na-midia/` ignora essas entradas,
+porque lá só entra o que o leitor pode abrir.
+
+Valores comerciais (naming rights de R$ 950 mil, projeções de faturamento, mesa VIP)
+ficam só em `/reservado/`. O telefone pessoal do contato comercial que consta no mídia
+kit **não foi incluído em lugar nenhum do repositório**: é dado pessoal de terceiro.
+
 ## V10: Connect Heroes
 
 Oitavo projeto do acervo, em `/projetos/connect-heroes/`, com a 1ª edição realizada em

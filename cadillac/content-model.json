@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -237,6 +237,366 @@
         [
           "Quem recebeu o patrocínio municipal de 2026?",
           "O contrato municipal tem como contraparte a Associação de Bodyboard de Niterói. Não é receita da Cadillac."
+        ]
+      ]
+    },
+    {
+      "slug": "mr-moo-festival",
+      "name": "Mr. Moo Festival",
+      "kind": "Festival gastronômico all inclusive",
+      "category": "festival",
+      "location": "São José dos Campos, SP",
+      "period": "2015—2027",
+      "theme": "fire",
+      "desc": "O festival que o Guinness World Records reconheceu como o maior churrasco do mundo, com 22 edições realizadas desde 2015.",
+      "intro": "O Mr. Moo Festival nasceu em São José dos Campos em 2015, com 400 pessoas, e chegou à 22ª edição reunindo 15 mil. É um festival gastronômico all inclusive premium: cortes Angus, open food e open bar, roda gigante, tirolesa, balões, palco de rock e lounge eletrônico no mesmo terreno. Em maio de 2025 o Guinness World Records certificou a marca de maior volume de carne bovina churrasqueada servida em oito horas. A 23ª edição está marcada para 22 de maio de 2027, e é nela que a Cadillac entra — na captação de patrocínio, não na produção.",
+      "image": null,
+      "years": [
+        2027,
+        2026,
+        2025
+      ],
+      "editions": {
+        "2027": {
+          "period": "22 de maio de 2027",
+          "place": "São José dos Campos, SP",
+          "note": "23ª edição · Moo Extraordinário",
+          "datas": {
+            "inicio": "2027-05-22",
+            "fim": "2027-05-22",
+            "precisao": "dia",
+            "status": "anunciada",
+            "fonte": [
+              "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+              null
+            ]
+          }
+        },
+        "2026": {
+          "period": "Maio de 2026",
+          "place": "São José dos Campos, SP",
+          "note": "22ª edição",
+          "datas": {
+            "inicio": "2026-05-01",
+            "fim": "2026-05-31",
+            "precisao": "mes",
+            "status": "reportada",
+            "fonte": [
+              "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+              null
+            ]
+          }
+        },
+        "2025": {
+          "period": "17 de maio de 2025",
+          "place": "São José dos Campos, SP",
+          "note": "20ª edição · recorde mundial certificado",
+          "datas": {
+            "inicio": "2025-05-17",
+            "fim": "2025-05-17",
+            "precisao": "dia",
+            "status": "confirmada",
+            "fonte": [
+              "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
+              null
+            ]
+          }
+        }
+      },
+      "facts": {
+        "2027": [
+          "A 23ª edição está marcada para 22 de maio de 2027, em São José dos Campos, sob o conceito Moo Extraordinário.",
+          "A expectativa de público divulgada pela produção é de 15 mil pessoas. É projeção anterior ao evento, não público realizado.",
+          "A Cadillac entra nesta edição na captação de patrocínio. A produção e a realização seguem com o Mr. Moo.",
+          "O material comercial prevê uma atração inédita de alcance nacional, ainda não anunciada.",
+          "O ticket médio informado é de R$ 1.100 por pessoa, com mesa VIP a R$ 27 mil.",
+          "O público-alvo declarado está entre 35 e 70 anos, com divisão equilibrada entre homens e mulheres."
+        ],
+        "2026": [
+          "A 22ª edição reuniu 15 mil pessoas em São José dos Campos, segundo o mídia kit da produção.",
+          "O festival opera no formato all inclusive premium: open food de cortes Angus e open bar incluídos no ingresso.",
+          "A estrutura reúne roda gigante, tirolesa, balões, letreiro do Mr. Moo e caixa d'água cenográfica como pontos de marca.",
+          "A programação musical se divide entre o palco principal, o Rock in Moo e o lounge eletrônico.",
+          "O Banco do Brasil assinou a edição como apresentador oficial, com presença em balão, tirolesa, roda gigante, telão e portais de entrada.",
+          "Marcas ativadas na edição incluem Estância 92 e Minerva Foods, Red Bull, Heineken, Chevrolet, Tramontina e Sapore."
+        ],
+        "2025": [
+          "Em 17 de maio de 2025 o festival recebeu certificado do Guinness World Records pelo maior volume de carne bovina churrasqueada servida em oito horas.",
+          "A 20ª edição reuniu 20 mil pessoas, o maior público registrado na série de edições.",
+          "O certificado nomeia o Mr. Moo Festival e a cidade de São José dos Campos, com a data exata do recorde.",
+          "A partir deste recorde o festival passou a se apresentar como o maior churrasco do mundo."
+        ]
+      },
+      "papel": {
+        "rotulo": "Captação de patrocínio para a edição de 2027",
+        "icone": "campaign",
+        "texto": "O Mr. Moo Festival já existe e tem 22 edições realizadas por sua própria produção. A Cadillac entra agora, para a 23ª edição, na frente de captação: estruturar a oferta comercial, prospectar e negociar patrocínio e naming rights. Produção, realização e operação do festival permanecem com o Mr. Moo.",
+        "status": "anunciada",
+        "fonte_texto": "Informado pela direção da Cadillac e pelo mídia kit da produção",
+        "nota": "Nenhum número desta página é resultado da Cadillac. O histórico de público, o recorde do Guinness e as marcas ativadas pertencem ao festival e à sua produção, e por isso ficam fora dos totais de alcance da empresa. O contrato que formaliza a captação ainda não foi publicado aqui."
+      },
+      "historico": {
+        "titulo": "Vinte e duas edições",
+        "subtitulo": "De 400 a 20 mil pessoas.",
+        "lede": "A série completa divulgada pela produção, da mais recente para a mais antiga. É o histórico do festival, anterior à entrada da Cadillac.",
+        "periodo": "De setembro de 2015 a maio de 2026",
+        "recorde": "20ª edição, maio de 2025, a mesma do recorde do Guinness",
+        "linhas": [
+          [
+            23,
+            "22 de maio de 2027",
+            "São José dos Campos, SP",
+            15000,
+            "anunciada"
+          ],
+          [
+            22,
+            "Maio de 2026",
+            "São José dos Campos, SP",
+            15000,
+            "reportada"
+          ],
+          [
+            21,
+            "Dezembro de 2025",
+            "Autódromo de Interlagos, São Paulo, SP",
+            5000,
+            "reportada"
+          ],
+          [
+            20,
+            "17 de maio de 2025",
+            "São José dos Campos, SP",
+            20000,
+            "confirmada"
+          ],
+          [
+            19,
+            "Dezembro de 2024",
+            "Autódromo de Interlagos, São Paulo, SP",
+            7000,
+            "reportada"
+          ],
+          [
+            18,
+            "Setembro de 2024",
+            "Campinas e Valinhos, SP",
+            1800,
+            "reportada"
+          ],
+          [
+            17,
+            "Maio de 2024",
+            "São José dos Campos, SP",
+            12000,
+            "reportada"
+          ],
+          [
+            16,
+            "Maio de 2023",
+            "São José dos Campos, SP",
+            15000,
+            "reportada"
+          ],
+          [
+            15,
+            "Dezembro de 2022",
+            "Rio Claro, SP",
+            6000,
+            "reportada"
+          ],
+          [
+            14,
+            "Outubro de 2022",
+            "Hotel Transamérica, São Paulo, SP",
+            5000,
+            "reportada"
+          ],
+          [
+            13,
+            "Maio de 2022",
+            "São José dos Campos, SP",
+            14000,
+            "reportada"
+          ],
+          [
+            12,
+            "Dezembro de 2021",
+            "Estádio, Rio Claro, SP",
+            6000,
+            "reportada"
+          ],
+          [
+            11,
+            "Dezembro de 2019",
+            "Morada do Sol, São José dos Campos, SP",
+            2000,
+            "reportada"
+          ],
+          [
+            10,
+            "Novembro de 2019",
+            "Santa Gertrudes, São Paulo, SP",
+            4000,
+            "reportada"
+          ],
+          [
+            9,
+            "Agosto de 2019",
+            "Spot, Ribeirão Preto, SP",
+            3000,
+            "reportada"
+          ],
+          [
+            8,
+            "Junho de 2019",
+            "Univap, São José dos Campos, SP",
+            8000,
+            "reportada"
+          ],
+          [
+            7,
+            "Dezembro de 2018",
+            "Morada do Sol, São José dos Campos, SP",
+            2000,
+            "reportada"
+          ],
+          [
+            6,
+            "Junho de 2018",
+            "Univap, São José dos Campos, SP",
+            6500,
+            "reportada"
+          ],
+          [
+            5,
+            "Novembro de 2017",
+            "Hotel Transamérica, São Paulo, SP",
+            3000,
+            "reportada"
+          ],
+          [
+            4,
+            "Junho de 2017",
+            "Univap, São José dos Campos, SP",
+            4000,
+            "reportada"
+          ],
+          [
+            3,
+            "Setembro de 2016",
+            "Fazenda Urbanova, São José dos Campos, SP",
+            2500,
+            "reportada"
+          ],
+          [
+            2,
+            "Maio de 2016",
+            "Morada do Sol, São José dos Campos, SP",
+            800,
+            "reportada"
+          ],
+          [
+            1,
+            "Setembro de 2015",
+            "Morada do Sol, São José dos Campos, SP",
+            400,
+            "reportada"
+          ]
+        ],
+        "nota": "Públicos declarados pela produção no mídia kit oficial, sem auditoria independente e sem dia exato na maioria das edições. A soma conta participações, não pessoas únicas: quem foi a cinco edições aparece cinco vezes. A edição de 2027 é projeção anterior ao evento e não entra em nenhum total."
+      },
+      "mercado": {
+        "titulo": "O que o festival movimenta",
+        "lede": "Volume de operação e perfil de público declarados pela produção no material comercial.",
+        "items": [
+          [
+            "115 t",
+            "Carne Angus churrasqueada",
+            "Volume informado no mídia kit, sem recorte de edição especificado."
+          ],
+          [
+            "920 mil",
+            "Cervejas servidas",
+            "Declarado pela produção, sem recorte de edição especificado."
+          ],
+          [
+            "415 mil",
+            "Drinks servidos",
+            "Declarado pela produção, sem recorte de edição especificado."
+          ],
+          [
+            "+420",
+            "Cidades de origem do público",
+            "Todos os estados brasileiros e mais de seis países: EUA, Canadá, Argentina, Uruguai, Chile e Equador."
+          ],
+          [
+            "35 a 70",
+            "Faixa etária do público-alvo",
+            "Divisão declarada de 50% homens e 50% mulheres."
+          ],
+          [
+            "R$ 1.100",
+            "Ticket médio por pessoa",
+            "Mesa VIP a R$ 27 mil. Valores de tabela informados pela produção."
+          ]
+        ],
+        "nota": "Todos os números desta seção são declarados pela produção do Mr. Moo no mídia kit oficial, sem auditoria independente e sem documento de apoio anexado a esta página. Não são resultado da Cadillac."
+      },
+      "sources": [
+        [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        [
+          "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
+          null
+        ]
+      ],
+      "yearsources": {
+        "2027": [
+          [
+            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+            null
+          ]
+        ],
+        "2026": [
+          [
+            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+            null
+          ]
+        ],
+        "2025": [
+          [
+            "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
+            null
+          ],
+          [
+            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+            null
+          ]
+        ]
+      },
+      "faq": [
+        [
+          "Qual é o papel da Cadillac no Mr. Moo Festival?",
+          "A Cadillac entra na 23ª edição, de 2027, na frente de captação de patrocínio. O festival já existe desde 2015 e a produção, a realização e a operação seguem com o Mr. Moo."
+        ],
+        [
+          "O recorde do Guinness é do quê, exatamente?",
+          "Do maior volume de carne bovina churrasqueada servida em oito horas, certificado em 17 de maio de 2025, em São José dos Campos. O certificado nomeia o Mr. Moo Festival."
+        ],
+        [
+          "Quantas edições o festival já teve?",
+          "Vinte e duas, de setembro de 2015 a maio de 2026, com público declarado entre 400 e 20 mil pessoas por edição. A 23ª está marcada para 22 de maio de 2027."
+        ],
+        [
+          "O público do Mr. Moo entra nos números da Cadillac?",
+          "Não. O histórico é anterior à entrada da empresa e aparece identificado como do festival. A página de dados mantém esses números fora dos totais de alcance da Cadillac."
+        ],
+        [
+          "O que o festival oferece ao público?",
+          "Formato all inclusive premium: open food de cortes Angus e open bar no ingresso, além de roda gigante, tirolesa, balões, palco principal, Rock in Moo e lounge eletrônico."
         ]
       ]
     },
@@ -1711,6 +2071,24 @@
         "2026",
         "Fight week no Grand Hyatt: coletiva e pesagem",
         "produção do evento"
+      ],
+      [
+        "mr-moo-festival",
+        "2026",
+        "Tenda principal cheia, vista aérea do festival",
+        "mídia kit oficial Mr. Moo"
+      ],
+      [
+        "mr-moo-festival",
+        "2025",
+        "Entrega do certificado Guinness no palco",
+        "mídia kit oficial Mr. Moo"
+      ],
+      [
+        "mr-moo-festival",
+        "2027",
+        "Balões e roda gigante ao pôr do sol",
+        "produção do festival"
       ]
     ],
     "referencias_removidas": [
@@ -2103,6 +2481,51 @@
         ],
         "tipo": "declarado",
         "conta": ""
+      },
+      {
+        "project": "mr-moo-festival",
+        "year": 2027,
+        "family": "presencial",
+        "value": 15000,
+        "label": "Expectativa de público da 23ª edição",
+        "basis": "Projeção divulgada antes do evento. Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
+        "counts": false,
+        "source": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "tipo": "projecao",
+        "conta": ""
+      },
+      {
+        "project": "mr-moo-festival",
+        "year": 2026,
+        "family": "presencial",
+        "value": 15000,
+        "label": "22ª edição, São José dos Campos",
+        "basis": "Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
+        "counts": false,
+        "source": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "mr-moo-festival",
+        "year": 2025,
+        "family": "presencial",
+        "value": 20000,
+        "label": "20ª edição, a do recorde do Guinness",
+        "basis": "Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
+        "counts": false,
+        "source": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
       }
     ],
     "method": [
@@ -2235,6 +2658,16 @@
           "Xsports, Combate e SporTV 3",
           "Ao vivo e reprises, com distribuição pelo Globoplay"
         ]
+      },
+      "mr-moo-festival": {
+        "cidades": [
+          7,
+          "São José dos Campos, São Paulo, Rio Claro, Ribeirão Preto, Campinas, Valinhos e Santa Gertrudes, nas edições catalogadas"
+        ],
+        "modalidades": [
+          1,
+          "Gastronomia, com programação musical em três frentes"
+        ]
       }
     },
     "fichas": {
@@ -2315,6 +2748,40 @@
         "transmissao": [
           "Xsports, Combate e SporTV 3",
           "Ao vivo pela Xsports, distribuição pelo Globoplay e canal próprio no YouTube"
+        ]
+      },
+      "mr-moo-festival-2027": {
+        "dias_evento": [
+          1,
+          "22 de maio de 2027, edição de um dia"
+        ],
+        "palcos": [
+          3,
+          "Palco principal, Rock in Moo e lounge eletrônico"
+        ]
+      },
+      "mr-moo-festival-2026": {
+        "publico": [
+          15000,
+          "Declarado pela produção no mídia kit oficial"
+        ],
+        "dias_evento": [
+          1,
+          "Edição de um dia"
+        ],
+        "palcos": [
+          3,
+          "Palco principal, Rock in Moo e lounge eletrônico"
+        ]
+      },
+      "mr-moo-festival-2025": {
+        "publico": [
+          20000,
+          "Declarado pela produção no mídia kit oficial"
+        ],
+        "dias_evento": [
+          1,
+          "17 de maio de 2025, edição de um dia"
         ]
       }
     },
@@ -2612,6 +3079,18 @@
           "Connect Heroes no Instagram",
           "https://www.instagram.com/connectheroes/"
         ]
+      },
+      "mr-moo-festival-2025": {
+        "personalidades": [
+          [
+            "Guinness World Records",
+            "certificou o recorde de carne bovina churrasqueada em oito horas, em 17 de maio de 2025"
+          ]
+        ],
+        "fonte": [
+          "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
+          null
+        ]
       }
     },
     "por_projeto": {
@@ -2823,6 +3302,54 @@
         "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
         "fonte": [
           "Mídia kit oficial Connect Heroes V6 · documento da produção",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Mr. Moo Festival",
+        "slug": "mr-moo-festival",
+        "registro": "Naming rights 2027: investimento proposto ao Banco do Brasil",
+        "valor": 950000,
+        "natureza": "Valor de investimento apresentado na proposta de naming rights da 23ª edição. É preço de tabela da produção, não receita contratada nem captação realizada.",
+        "fonte": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Mr. Moo Festival",
+        "slug": "mr-moo-festival",
+        "registro": "Faturamento total do festival projetado na proposta",
+        "valor": 20000000,
+        "natureza": "Projeção de faturamento do evento apresentada como argumento comercial ao banco. Não é receita da Cadillac nem resultado auditado.",
+        "fonte": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Mr. Moo Festival",
+        "slug": "mr-moo-festival",
+        "registro": "Faturamento anual projetado da conta Mr.Moo Steakhouse",
+        "valor": 3500000,
+        "natureza": "Projeção de faturamento de negócio de terceiro, citada na proposta comercial. Não é receita da Cadillac.",
+        "fonte": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
+          null
+        ],
+        "uso": "Fora das páginas públicas a pedido"
+      },
+      {
+        "projeto": "Mr. Moo Festival",
+        "slug": "mr-moo-festival",
+        "registro": "Mesa VIP, valor de tabela",
+        "valor": 27000,
+        "natureza": "Preço de tabela por mesa informado no mídia kit. Não é receita nem volume vendido.",
+        "fonte": [
+          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
           null
         ],
         "uso": "Fora das páginas públicas a pedido"

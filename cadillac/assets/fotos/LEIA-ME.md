@@ -20,6 +20,10 @@ mostra exatamente o nome que ele espera — basta usar o mesmo nome.
 | `itacoatiara-pro-2022-01.jpg` | galeria da edição 2022, foto principal 16:9 |
 | `itacoatiara-pro-2022-02.jpg` | galeria da edição 2022, bastidores 4:5 |
 | `itacoatiara-pro-2022-03.jpg` | galeria da edição 2022, atletas e público 4:5 |
+| `mr-moo-festival.jpg` | capa do projeto, cartão no acervo e na home |
+| `mr-moo-festival-2027.jpg` | capa da edição 2027 |
+| `mr-moo-festival-2026.jpg` | capa da edição 2026 |
+| `mr-moo-festival-2025.jpg` | capa da edição 2025 |
 | `connect-heroes.jpg` | capa do projeto, cartão no acervo e na home |
 | `connect-heroes-2026.jpg` | capa da edição 2026 |
 | `connect-heroes-2026-01.jpg` | galeria da edição 2026, foto principal 16:9 |
@@ -69,6 +73,9 @@ Aceita jpg, jpeg, png e webp. Para a capa, 16:10 ou 3:2 com pelo menos 1600px de
 | dominguinho | — | João Gomes, Mestrinho e Jota.pê no palco | assessoria do projeto |
 | connect-heroes | 2026 | Tatame e premiação da 1ª edição | @connectheroes, material oficial do evento |
 | connect-heroes | 2026 | Fight week no Grand Hyatt: coletiva e pesagem | produção do evento |
+| mr-moo-festival | 2026 | Tenda principal cheia, vista aérea do festival | mídia kit oficial Mr. Moo |
+| mr-moo-festival | 2025 | Entrega do certificado Guinness no palco | mídia kit oficial Mr. Moo |
+| mr-moo-festival | 2027 | Balões e roda gigante ao pôr do sol | produção do festival |
 | bob-burnquist | — | Participação no Itacoatiara Pro | niteroi.rj.gov.br, cadernopop.com.br |
 | arte-em-circuito | — | Oficina ou residência do projeto | artedetodagente.com.br |
 | festival-de-tribos-juruti | 2018 | Festa dos Visitantes | acervo do festival |

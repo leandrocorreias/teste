@@ -1,5 +1,5 @@
 {
-  "version": 39,
+  "version": 40,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -6715,12 +6715,21 @@
     "nota": "Esta página existe para que a estrutura de governança seja visível desde já. Nenhum texto legal foi redigido por aproximação: cada documento entra quando for escrito e aprovado por quem responde juridicamente pela empresa."
   },
   "perfil_publico": {
-    "lede": "Quem é o público de cada projeto, conforme a própria produção declara. Faixas de projetos diferentes não se somam nem se comparam: cada uma foi medida de um jeito.",
+    "lede": "Quem é o público de cada projeto, conforme a própria produção declara. Faixas de projetos diferentes não se somam nem se comparam: cada uma foi medida de um jeito. Escolha um projeto para ver tudo o que está declarado sobre ele.",
+    "eixo": {
+      "min": 0,
+      "max": 80
+    },
     "linhas": [
       {
         "projeto": "tamo-junto-bb",
         "faixa": "25 a 35 anos",
+        "de": 25,
+        "ate": 35,
         "recorte": "Maioria do público que dividiu a atenção entre o vôlei de praia e o skate",
+        "genero": null,
+        "classes": [],
+        "geografia": [],
         "fonte": [
           "Apresentação oficial Festival Tamo Junto BB",
           null
@@ -6729,7 +6738,28 @@
       {
         "projeto": "mr-moo-festival",
         "faixa": "35 a 70 anos",
-        "recorte": "50% homens e 50% mulheres; público de mais de 420 cidades, todos os estados e seis países",
+        "de": 35,
+        "ate": 70,
+        "recorte": "Público adulto, com origem espalhada pelo país e fora dele",
+        "genero": {
+          "mulheres": 50,
+          "homens": 50
+        },
+        "classes": [],
+        "geografia": [
+          [
+            "420",
+            "cidades de origem"
+          ],
+          [
+            "27",
+            "estados"
+          ],
+          [
+            "6",
+            "países"
+          ]
+        ],
         "fonte": [
           "Mídia kit oficial Mr. Moo Festival",
           null
@@ -6738,7 +6768,16 @@
       {
         "projeto": "itacoatiara-pro",
         "faixa": "10 a 60 anos",
-        "recorte": "Classes A, B e C, conforme o perfil projetado no projeto de 2022",
+        "de": 10,
+        "ate": 60,
+        "recorte": "A faixa mais larga do acervo: festival de rua, com entrada livre em boa parte da programação",
+        "genero": null,
+        "classes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "geografia": [],
         "fonte": [
           "Projeto Itacoatiara Pro 10 anos",
           null
@@ -6747,12 +6786,34 @@
       {
         "projeto": "connect-heroes",
         "faixa": "25 a 54 anos",
+        "de": 25,
+        "ate": 54,
         "recorte": "Faixa predominante dos praticantes de jiu-jítsu no Brasil, segundo a leitura de mercado do pitch",
+        "genero": null,
+        "classes": [],
+        "geografia": [],
         "fonte": [
           "Pitch de patrocínio Connect Heroes, 2ª edição",
           null
         ]
       }
+    ],
+    "leitura": [
+      [
+        "A faixa mais larga",
+        "Itacoatiara Pro",
+        "50 anos de amplitude, de 10 a 60"
+      ],
+      [
+        "A mais estreita",
+        "Tamo Junto BB",
+        "10 anos de amplitude, de 25 a 35"
+      ],
+      [
+        "Idade comum a três projetos",
+        "25 a 35 anos",
+        "onde Tamo Junto BB, Connect Heroes e Itacoatiara Pro se sobrepõem"
+      ]
     ],
     "nota": "Todos os recortes são declarados pelas produções em material comercial, sem pesquisa de público auditada anexada. Servem para descrever a quem cada projeto fala, não para somar audiências."
   },

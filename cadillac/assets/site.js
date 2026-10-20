@@ -169,6 +169,36 @@
     });
   }
 
+  /* --- Perfil do público: faixas como abas ------------------------------
+     O primeiro projeto já vem aberto, então quem chega sem JavaScript, ou
+     antes dele rodar, lê um perfil completo em vez de um bloco vazio. */
+  var pfGrafico = document.querySelector('.pf-grafico[role="tablist"]');
+  if (pfGrafico) {
+    var abas = Array.prototype.slice.call(pfGrafico.querySelectorAll('[role="tab"]'));
+
+    var escolher = function (i, focar) {
+      i = (i + abas.length) % abas.length;
+      abas.forEach(function (aba, j) {
+        var ativa = j === i;
+        aba.setAttribute('aria-selected', ativa ? 'true' : 'false');
+        aba.tabIndex = ativa ? 0 : -1;
+        var painel = document.getElementById(aba.getAttribute('aria-controls'));
+        if (painel) painel.hidden = !ativa;
+      });
+      if (focar) abas[i].focus();
+    };
+
+    abas.forEach(function (aba, i) {
+      aba.addEventListener('click', function () { escolher(i, false); });
+      aba.addEventListener('keydown', function (ev) {
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowRight') { ev.preventDefault(); escolher(i + 1, true); }
+        else if (ev.key === 'ArrowUp' || ev.key === 'ArrowLeft') { ev.preventDefault(); escolher(i - 1, true); }
+        else if (ev.key === 'Home') { ev.preventDefault(); escolher(0, true); }
+        else if (ev.key === 'End') { ev.preventDefault(); escolher(abas.length - 1, true); }
+      });
+    });
+  }
+
   /* --- Header compacto e botão "voltar ao topo" ------------------------ */
   var toTop = document.querySelector('.to-top');
   var onScroll = function () {

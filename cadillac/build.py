@@ -2195,26 +2195,90 @@ def page_equipe():
 
 
 def perfil_block(depth):
-    """Perfil do publico declarado por cada producao, sem somar faixas diferentes."""
+    """Perfil do público declarado por cada produção.
+
+    O gráfico é de faixas, não de barras: cada projeto ocupa o trecho de idade
+    que declarou, num mesmo eixo. É o que torna visível a diferença entre um
+    festival de rua de 10 a 60 anos e um evento de nicho de 25 a 35 — diferença
+    que a tabela só dizia por extenso. Nada aqui soma: escolher um projeto mostra
+    o que ele declarou, e só.
+    """
     d = MODEL.get("perfil_publico")
     if not d:
         return ""
     by_slug = {x["slug"]: x for x in PROJECTS}
-    linhas = []
-    for x in d["linhas"]:
+    eixo = d.get("eixo", {"min": 0, "max": 80})
+    lo, hi = eixo["min"], eixo["max"]
+    vao = max(hi - lo, 1)
+
+    def pct(v):
+        return round((v - lo) / vao * 100, 2)
+
+    faixas, painéis, abas = [], [], []
+    marcas = "".join(
+        f'<span class="pf-marca" style="left:{pct(v)}%"><i></i><b>{v}</b></span>'
+        for v in range(lo, hi + 1, 10))
+
+    for i, x in enumerate(d["linhas"]):
         pr = by_slug.get(x["projeto"])
-        onde = (f'<a href="{rel(depth)}projetos/{pr["slug"]}/">{e(pr["name"])}</a>' if pr
-                else e(x["projeto"]))
-        linhas.append(f"""<tr><th scope="row">{onde}</th><td>{e(x['faixa'])}</td>
-<td>{e(x['recorte'])}</td><td>{fonte_link(x.get('fonte'))}</td></tr>""")
+        nome = pr["name"] if pr else x["projeto"]
+        pid = f'pf-{x["projeto"]}'
+        de, ate = x["de"], x["ate"]
+        faixas.append(
+            f'<button type="button" class="pf-linha" role="tab" id="{pid}-aba" '
+            f'aria-controls="{pid}" aria-selected="{"true" if i == 0 else "false"}" '
+            f'tabindex="{"0" if i == 0 else "-1"}">'
+            f'<span class="pf-nome">{e(nome)}</span>'
+            f'<span class="pf-trilho"><span class="pf-faixa" '
+            f'style="left:{pct(de)}%;width:{pct(ate) - pct(de)}%">'
+            f'<em>{de}</em><em>{ate}</em></span></span>'
+            f'<span class="pf-amp">{ate - de} anos</span></button>')
+
+        extras = []
+        g = x.get("genero")
+        if g:
+            extras.append(
+                f'<div class="pf-extra"><h4>Gênero declarado</h4>'
+                f'<div class="pf-genero"><span style="width:{g["mulheres"]}%">'
+                f'{g["mulheres"]}% mulheres</span>'
+                f'<span style="width:{g["homens"]}%">{g["homens"]}% homens</span></div></div>')
+        if x.get("classes"):
+            chips = "".join(f'<b>{e(c)}</b>' for c in x["classes"])
+            extras.append(f'<div class="pf-extra"><h4>Classes declaradas</h4>'
+                          f'<div class="pf-classes">{chips}</div></div>')
+        if x.get("geografia"):
+            tiles = "".join(f'<span><strong>{e(n)}</strong>{e(r)}</span>'
+                            for n, r in x["geografia"])
+            extras.append(f'<div class="pf-extra"><h4>Origem do público</h4>'
+                          f'<div class="pf-geo">{tiles}</div></div>')
+
+        ir = (f'<a class="pill-link" href="{rel(depth)}projetos/{pr["slug"]}/">'
+              f'Ver o projeto {icon("arrow_outward")}</a>') if pr else ""
+        painéis.append(
+            f'<div class="pf-painel" id="{pid}" role="tabpanel" '
+            f'aria-labelledby="{pid}-aba"{"" if i == 0 else " hidden"}>'
+            f'<div class="pf-painel-topo"><h3>{e(nome)}</h3>'
+            f'<span class="pf-faixa-txt">{e(x["faixa"])}</span></div>'
+            f'<p>{e(x["recorte"])}</p>'
+            f'{"".join(extras)}'
+            f'<p class="pf-fonte">{icon("description")} Declarado em {fonte_link(x.get("fonte"))}</p>'
+            f'{ir}</div>')
+
+    leitura = "".join(
+        f'<div class="pf-leitura"><span>{e(t)}</span><strong>{e(q)}</strong>'
+        f'<small>{e(txt)}</small></div>'
+        for t, q, txt in d.get("leitura", []))
+
     return f"""<section class="container reach-section" id="perfil"><hr class="rule">
 <h2 class="section-title">PERFIL<br><em>DO PÚBLICO.</em></h2>
 <p class="body-copy">{e(d['lede'])}</p>
-<div class="table-wrap"><table class="amounts reach-table">
-<thead><tr><th scope="col">Projeto</th><th scope="col">Faixa etária</th>
-<th scope="col">Outros recortes</th><th scope="col">Fonte</th></tr></thead>
-<tbody>{''.join(linhas)}</tbody></table></div>
-<p class="table-hint">Arraste a tabela para o lado para ver os recortes e a fonte.</p>
+<div class="pf-bloco">
+<div class="pf-grafico" role="tablist" aria-label="Faixa etária declarada por projeto">
+<div class="pf-eixo">{marcas}</div>
+{''.join(faixas)}
+<p class="pf-eixo-rotulo">Idade declarada, de {lo} a {hi} anos</p></div>
+<div class="pf-paineis">{''.join(painéis)}</div></div>
+<div class="pf-leituras">{leitura}</div>
 <p class="note">{e(d['nota'])}</p></section>"""
 
 

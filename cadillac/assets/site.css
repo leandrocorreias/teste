@@ -1495,3 +1495,9 @@ a.kpi-selo:hover{filter:brightness(.94)}
 main > section:last-child{margin-bottom:clamp(40px,4.4vw,60px)}
 main > .contact:last-child,
 main > .clientes:last-child{margin-bottom:0}
+
+/* O cartao de situacao abre a pagina de governanca logo depois do h1, entao e
+   um h2 na estrutura. Visualmente continua do tamanho de um h3: a hierarquia
+   que importa para o leitor de tela nao e a mesma do olho. */
+.papel-card h2{font-size:17px;line-height:1.3;margin:0 0 8px;
+  display:flex;align-items:center;gap:9px}

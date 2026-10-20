@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# Cadillac — configuração para hospedagem em SUBPASTA: instfy.com/cadillac
+#
+# Suba como ".htaccess" DENTRO de public_html/cadillac — nunca na raiz.
+# Este arquivo não redireciona domínio nem mexe em www: essas regras pertencem
+# à raiz de instfy.com e sobrescrevê-las daqui derrubaria o site principal.
+# ---------------------------------------------------------------------------
+
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# Página de erro própria, com o caminho da subpasta
+ErrorDocument 404 /cadillac/404.html
+
+# Nada de arquivos de trabalho expostos
+<FilesMatch "\.(md|json|py|yml|yaml|log|bak|sql)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Compressão
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml
+</IfModule>
+
+# Cache. O HTML nunca fica em cache, para que a republicação apareça na hora.
+# CSS e JS podem ficar um ano porque a página os pede com ?v=<versão do modelo>:
+# ao publicar uma alteração, o endereço muda e o navegador busca o arquivo novo.
+# Sem esse carimbo, um visitante que já esteve no site continuaria com o CSS
+# antigo por um ano, e veria a página nova com a aparência velha.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|webp|svg|css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Quem pode colocar este site dentro de um iframe: ninguem fora do proprio
+  # dominio. Sem isso, um terceiro embute a pagina invisivel sobre a dele e
+  # colhe cliques que o visitante pensa estar dando em outro lugar.
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # O navegador so pede camera, microfone, localizacao e companhia se a pagina
+  # usar. Esta nao usa nenhuma, entao todas ficam desligadas.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
+
+  # Politica de conteudo. O site serve os proprios arquivos: fonte, estilo,
+  # script e imagem saem todos daqui. A unica excecao e o YouTube, pelo video.
+  # 'unsafe-inline' em style-src cobre os graficos, que levam medida calculada
+  # no atributo style; nenhum script e inline.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+  # HSTS: depois da primeira visita, o navegador se recusa a abrir em http.
+  # Ligar so quando o HTTPS estiver estavel no dominio inteiro. Com um ano de
+  # validade, um certificado quebrado deixa o site inacessivel ate expirar.
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# A area reservada guarda valores de captacao e nao e para o publico. O
+# noindex da pagina so pede ao buscador que nao a liste: quem souber o
+# endereco entra do mesmo jeito. Esta regra nega o acesso no servidor.
+# Para liberar so para voce, troque por protecao com senha (AuthType Basic).
+RedirectMatch 404 ^/cadillac/reservado(/.*)?$

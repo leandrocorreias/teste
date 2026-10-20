@@ -35,7 +35,8 @@ def _carimbo(nome):
     return hashlib.sha256(caminho.read_bytes()).hexdigest()[:8]
 
 
-CARIMBO = {"site.css": _carimbo("site.css"), "site.js": _carimbo("site.js")}
+CARIMBO = {"site.css": _carimbo("site.css"), "site.js": _carimbo("site.js"),
+           "fontes.css": _carimbo("fontes/fontes.css")}
 ANO_BASE = SITE["base_year"]
 ANO_ATUAL = int(MODEL["updated"][:4])
 ANOS_CASA = ANO_ATUAL - ANO_BASE
@@ -183,15 +184,18 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
         f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>'
         for b in jsonld
     )
-    fonts = (
-        '<link rel="preconnect" href="https://fonts.googleapis.com">'
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        'family=Roboto+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700'
-        '&display=swap">'
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-        f'family=Material+Symbols+Outlined&amp;icon_names={ICON_SUBSET}&amp;display=block">'
-    )
+    # As fontes sao servidas pelo proprio site, nao pelo Google.
+    #
+    # Duas razoes. A de privacidade: a folha do Google carregava em todas as
+    # paginas e entregava o IP de cada visitante a um terceiro, coisa que a
+    # Politica de cookies e obrigada a declarar. Servindo daqui, nao ha o que
+    # declarar. A de velocidade: eram duas conexoes novas e duas idas e voltas
+    # antes do primeiro caractere aparecer; agora os arquivos vem do mesmo
+    # servidor, na conexao ja aberta.
+    #
+    # Ficaram so os subconjuntos latin e latin-ext: cirilico, grego e
+    # vietnamita nunca seriam pedidos num site em portugues.
+    fonts = f'<link rel="stylesheet" href="{p}assets/fontes/fontes.css?v={CARIMBO["fontes.css"]}">'
     return f"""<!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -254,7 +258,7 @@ def header(depth, active="", body_class=""):
     cls = f' class="{body_class}"' if body_class else ""
     return f"""<body{cls}><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header"><div class="header-inner">
-<a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>
+<a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial">{marca(p, "logo-cadillac", "logo-mark", True)}<span class="logo-sub">Produções<br>&amp; Filmes</span></a>
 <nav class="nav" aria-label="Menu principal">{''.join(desk)}</nav>
 <a class="contact-nav btn-laranja" href="{home}contato/">Vamos conversar {icon('arrow_outward')}</a>
 <button class="hamburger" id="menuToggle" aria-expanded="false" aria-label="Abrir menu" aria-controls="mobileNav">{icon('menu')}</button>
@@ -293,7 +297,7 @@ def footer(depth):
                   for rotulo, alvo, _, _ in NAV)
     gov = "".join(f'<a href="{home}{u}">{e(l)}</a>' for l, u in GOVERNANCA)
     return f"""<footer class="footer"><div class="container foot-top">
-<a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"></a>
+<a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial">{marca(p, "logo-cadillac-branco", "")}</a>
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
 <div class="container foot-bottom"><span>© {ANO_BASE}–{ANO_ATUAL} {e(SITE['name'])} Ltda.</span>
 <nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav>
@@ -355,6 +359,98 @@ def source_list(sources):
     return f'<div class="source-list">{"".join(rows)}</div>'
 
 
+# --------------------------------------------------------------------------
+# Imagens responsivas
+# --------------------------------------------------------------------------
+# O acervo guarda o JPEG em tamanho cheio e, ao lado, variantes WebP em 400,
+# 800 e 1600px. A pagina pedia sempre o JPEG de 1600px: o cartao da home
+# aparece com 615px e recebia 1600, e o retrato do atleta aparece com 191px e
+# recebia 800. Eram 2,1 MB de imagem numa pagina que precisa de uma fracao
+# disso. Aqui a pagina passa a oferecer as variantes e deixar o navegador
+# escolher pela largura real do slot.
+
+_DIM = {}
+
+# Retratos sao quadrados e pequenos: 300px cobre a maior ocorrencia na tela.
+MEDIDAS_RETRATO = "(min-width:1100px) 300px, (min-width:640px) 25vw, 45vw"
+
+
+def dimensoes(rel_caminho):
+    """Largura e altura lidas do arquivo, sem depender de biblioteca externa.
+
+    Sem width e height no HTML o navegador so descobre a proporcao quando a
+    imagem chega, e ate la reserva zero: o texto abaixo salta quando cada foto
+    carrega. 213 das 555 imagens do site estavam assim.
+    """
+    if rel_caminho in _DIM:
+        return _DIM[rel_caminho]
+    caminho = ROOT / rel_caminho
+    larg = alt = 0
+    try:
+        b = caminho.read_bytes()
+        if b[:8] == b"\x89PNG\r\n\x1a\n":
+            larg = int.from_bytes(b[16:20], "big")
+            alt = int.from_bytes(b[20:24], "big")
+        elif b[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(b) - 9:
+                if b[i] != 0xFF:
+                    i += 1
+                    continue
+                marca = b[i + 1]
+                if marca in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                             0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                    alt = int.from_bytes(b[i + 5:i + 7], "big")
+                    larg = int.from_bytes(b[i + 7:i + 9], "big")
+                    break
+                i += 2 + int.from_bytes(b[i + 2:i + 4], "big")
+    except OSError:
+        pass
+    _DIM[rel_caminho] = (larg, alt)
+    return larg, alt
+
+
+def figura(rel_caminho, alt_txt, depth=0, classe="", sizes="100vw", eager=False, extra=""):
+    """<picture> com as variantes WebP e o JPEG como reserva.
+
+    O <img> de dentro guarda o JPEG: navegador sem WebP continua vendo a foto,
+    e nada depende de JavaScript.
+    """
+    p = rel(depth)
+    base = rel_caminho.rsplit(".", 1)[0]
+    larg, altura = dimensoes(rel_caminho)
+    fontes = []
+    for w in (400, 800, 1600):
+        if (ROOT / f"{base}-{w}.webp").exists():
+            fontes.append(f"{p}{base}-{w}.webp {w}w")
+    cls = f' class="{e(classe)}"' if classe else ""
+    dim = f' width="{larg}" height="{altura}"' if larg and altura else ""
+    carga = ' fetchpriority="high"' if eager else ' loading="lazy"'
+    img = (f'<img src="{p}{e(rel_caminho)}" alt="{e(alt_txt)}"{cls}{dim}'
+           f'{carga} decoding="async"{extra}>')
+    if not fontes:
+        return img
+    return (f'<picture><source type="image/webp" srcset="{", ".join(fontes)}" '
+            f'sizes="{e(sizes)}">{img}</picture>')
+
+
+def marca(p, nome, classe, eager=False):
+    """A marca do cabecalho e do rodape, em WebP com o PNG como reserva.
+
+    Estavam declaradas como 1619x511 e o arquivo tem 600x189. A proporcao bate,
+    entao nao havia salto de layout, mas o numero estava errado. Aqui a medida
+    sai do arquivo.
+    """
+    lw, lh = dimensoes(f"assets/{nome}.png")
+    cls = f' class="{classe}"' if classe else ""
+    carga = ' fetchpriority="high"' if eager else ' loading="lazy"'
+    img = (f'<img{cls} src="{p}assets/{nome}.png" alt="Cadillac" '
+           f'width="{lw}" height="{lh}"{carga} decoding="async">')
+    if not (ROOT / f"assets/{nome}.webp").exists():
+        return img
+    return f'<picture><source type="image/webp" srcset="{p}assets/{nome}.webp">{img}</picture>'
+
+
 def photo_for(project, year=None):
     """Foto do acervo, se o arquivo já estiver em assets/fotos."""
     stems = [project["slug"] + (f"-{year}" if year else "")]
@@ -380,8 +476,9 @@ def slot(name, ratio, what, extra="", depth=0, credito=""):
     if (ROOT / "assets" / "fotos" / name).exists():
         credito_html = (f'<span class="source-credit">{e(credito)}</span>' if credito else "")
         return (f'<figure class="photo-shot {extra}">'
-                f'<img src="{rel(depth)}{e(caminho)}" alt="{e(what)}" '
-                f'loading="lazy" decoding="async">{credito_html}</figure>')
+                + figura(caminho, what, depth, "",
+                         "(min-width:900px) 50vw, 100vw")
+                + f'{credito_html}</figure>')
     chip = f"<code>{e(caminho)}</code>" if MOSTRAR_CAMPOS else ""
     return (f'<div class="photo-slot {extra}" role="img" title="{e(caminho)}" '
             f'aria-label="Espaço reservado para imagem: {e(what)}">'
@@ -399,7 +496,7 @@ def media(project, classes="", eager=False, year=None, depth=0):
         # "Divulgação" mesmo quando a foto era de fotógrafo nomeado — atribuição
         # errada, e a galeria já consultava essa tabela. Agora as duas consultam.
         arquivo = local.rsplit("/", 1)[-1]
-        img = {"url": rel(depth) + local,
+        img = {"url": rel(depth) + local, "local": local,
                "alt": f"{project['name']}{edicao}",
                "credit": MODEL["photos"].get("creditos_arquivo", {}).get(arquivo)
                          or MODEL["photos"].get("creditos", {}).get(
@@ -414,11 +511,17 @@ def media(project, classes="", eager=False, year=None, depth=0):
     theme = project.get("theme", "")
     inner = []
     if img:
-        loading = "" if eager else ' loading="lazy"'
-        inner.append(
-            f'<img class="media-img" src="{e(img["url"])}" alt="{e(img["alt"])}"'
-            f'{loading} decoding="async">'
-        )
+        # banner ocupa a largura do container; cartao, metade dela em duas colunas
+        medidas = ("(min-width:1100px) 1100px, 100vw" if "banner" in classes
+                   else "(min-width:1100px) 540px, (min-width:640px) 50vw, 100vw")
+        if img.get("local"):
+            inner.append(figura(img["local"], img["alt"], depth, "media-img",
+                                medidas, eager))
+        else:
+            loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
+            inner.append(
+                f'<img class="media-img" src="{e(img["url"])}" alt="{e(img["alt"])}"'
+                f'{loading} decoding="async">')
     # Sobre a foto vai a frase, nao o nome. O nome ja aparece logo abaixo, no
     # titulo do cartao e no h1 da pagina do evento: repeti-lo na capa gastava o
     # espaco nobre dizendo duas vezes a mesma coisa. Sem frase cadastrada, o
@@ -663,8 +766,9 @@ def page_home():
         arq = ROOT / "assets" / "marcas" / c["logo"]
         alvo = f'./projetos/{c["projeto"]}/'
         if arq.exists():
+            lw, lh = dimensoes(f'assets/marcas/{c["logo"]}')
             marca = (f'<img src="./assets/marcas/{e(c["logo"])}" alt="{e(c["nome"])}" '
-                     f'loading="lazy" decoding="async">')
+                     f'width="{lw}" height="{lh}" loading="lazy" decoding="async">')
         else:
             marca = (f'<span class="logo-slot"><strong>{e(c["nome"])}</strong>'
                      f'<code>assets/marcas/{e(c["logo"])}</code></span>')
@@ -743,7 +847,7 @@ def page_projects():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
 <p class="lede">Eventos, produções e histórias reunidos em um acervo vivo, do mais recente para o mais antigo.</p></section>
-<section class="container video-abertura">{video_block("reel", MODEL["video"]["reel"]["titulo"])}</section>
+<section class="container video-abertura">{video_block("reel", MODEL["video"]["reel"]["titulo"], 1)}</section>
 <section class="container index-grid">
 <h2 class="sr-only">Acervo de eventos</h2>
 <div class="works-grid">{cards}</div>
@@ -810,7 +914,7 @@ def page_project(pr):
     if MODEL["video"]["por_projeto"].get(pr["slug"]):
         sections.append(f"""<section class="container reel-section"><hr class="rule">
 <h2 class="section-title">O EVENTO<br><em>EM VÍDEO.</em></h2>
-{video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"])}</section>""")
+{video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"], depth)}</section>""")
     sections.append(contexto_block(pr))
     sections.append(frentes_block(pr))
     sections.append(antecedente_block(pr))
@@ -1261,8 +1365,9 @@ def galeria_projeto(pr, depth):
             f'data-full="{rel(depth)}assets/fotos/{e(n)}" '
             f'data-credito="{e(credito)}" data-legenda="{e(pr["name"])}" '
             f'aria-label="Ampliar foto {i} de {e(pr["name"])}">'
-            f'<img src="{rel(depth)}assets/fotos/{e(n)}" alt="{e(pr["name"])}" '
-            f'loading="lazy" decoding="async">'
+            + figura(f'assets/fotos/{n}', pr["name"], depth, "",
+                     "(min-width:900px) 25vw, (min-width:560px) 33vw, 50vw")
+            + 
             f'<span class="gal-credito">{icon("photo_camera")} {e(credito)}</span></button>')
 
     faltam = GALERIA_ALVO - len(nomes)
@@ -1672,8 +1777,8 @@ def ficha_pessoa(pessoa, depth, com_vinculos=True):
     p = rel(depth)
     foto = ROOT / "assets" / "fotos" / (pessoa.get("foto") or "")
     if pessoa.get("foto") and foto.exists():
-        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(pessoa["foto"])}" '
-               f'alt="{e(pessoa["nome"])}" loading="lazy" decoding="async">')
+        img = figura(f'assets/fotos/{pessoa["foto"]}', pessoa["nome"], depth,
+                     "pessoa-foto", MEDIDAS_RETRATO)
     else:
         img = slot(pessoa.get("foto") or f'{pessoa["slug"]}.jpg', "1:1", pessoa["nome"], "slot-retrato")
     rotulo, _, ic = MODEL["pessoas"]["papeis"][pessoa["tipo"]]
@@ -1789,7 +1894,7 @@ def youtube_id(url):
     return (parse_qs(u.query).get("v") or [""])[0]
 
 
-def video_block(chave, titulo):
+def video_block(chave, titulo, depth=0):
     """Reel ou vídeo de projeto: embute quando há URL, reserva o espaço quando não há.
 
     O player de terceiro só carrega depois do clique: até lá, a página mostra a
@@ -1804,8 +1909,18 @@ def video_block(chave, titulo):
         if "youtube" in url or "youtu.be" in url:
             vid = youtube_id(url)
             embed = f"https://www.youtube-nocookie.com/embed/{vid}"
-            capa = (f'<img class="video-thumb" src="https://i.ytimg.com/vi/{e(vid)}/maxresdefault.jpg" '
-                    f'alt="" width="1280" height="720" loading="lazy" decoding="async">')
+            # A miniatura vinha de i.ytimg.com e carregava sozinha, entregando o
+            # IP do visitante ao Google em quem so passou pela pagina sem clicar
+            # em nada. Com um poster do proprio acervo, o unico contato com o
+            # YouTube passa a ser o que o visitante pediu ao clicar.
+            poster = fonte.get("poster") or ""
+            if poster and (ROOT / poster).exists():
+                capa = figura(poster, "", depth, "video-thumb",
+                              "(min-width:900px) 900px, 100vw")
+            else:
+                capa = (f'<img class="video-thumb" src="https://i.ytimg.com/vi/{e(vid)}'
+                        f'/maxresdefault.jpg" alt="" width="1280" height="720" '
+                        f'loading="lazy" decoding="async">')
             player = (f'<button class="video-facade" type="button" data-embed="{e(embed)}" '
                       f'data-titulo="{e(titulo)}" aria-label="Assistir: {e(titulo)}">'
                       f'{capa}<span class="video-play">{icon("play_arrow")}</span>'
@@ -1830,8 +1945,8 @@ def ficha_atleta_card(x, depth):
     p = rel(depth)
     foto = ROOT / "assets" / "fotos" / (x.get("foto") or "")
     if x.get("foto") and foto.exists():
-        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
-               f'alt="{e(x["nome"])}" loading="lazy" decoding="async">')
+        img = figura(f'assets/fotos/{x["foto"]}', x["nome"], depth,
+                     "pessoa-foto", MEDIDAS_RETRATO)
     else:
         img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
     n = len(x.get("participacoes") or [])
@@ -1853,8 +1968,8 @@ def ficha_simples(nome, papel, foto, href, depth):
     p = rel(depth)
     arq = ROOT / "assets" / "fotos" / (foto or "")
     if foto and arq.exists():
-        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(foto)}" '
-               f'alt="{e(nome)}" loading="lazy" decoding="async">')
+        img = figura(f'assets/fotos/{foto}', nome, depth,
+                     "pessoa-foto", MEDIDAS_RETRATO)
     else:
         iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
         img = f'<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>'
@@ -1872,8 +1987,8 @@ def page_pessoa(x):
     arq = ROOT / "assets" / "fotos" / (x.get("foto") or "")
     if x.get("foto") and arq.exists():
         img = (f'<figure class="atleta-figura">'
-               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
-               f'alt="{e(x["nome"])}" width="800" height="800"></figure>')
+               + figura(f'assets/fotos/{x["foto"]}', x["nome"], depth,
+                        "pessoa-foto", MEDIDAS_RETRATO) + '</figure>')
     else:
         img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
 
@@ -1961,8 +2076,8 @@ def page_artista(nome, onde):
     arq = ROOT / "assets" / "fotos" / (ficha.get("foto") or "")
     if ficha.get("foto") and arq.exists():
         img = (f'<figure class="atleta-figura">'
-               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(ficha["foto"])}" '
-               f'alt="{e(nome)}" width="800" height="800"></figure>')
+               + figura(f'assets/fotos/{ficha["foto"]}', nome, depth,
+                        "pessoa-foto", MEDIDAS_RETRATO) + '</figure>')
     else:
         iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
         img = (f'<figure class="atleta-figura">'
@@ -2085,8 +2200,8 @@ def page_atleta(x):
     if x.get("foto") and foto.exists():
         credito = MODEL["photos"].get("creditos", {}).get("atletas", "")
         img = (f'<figure class="atleta-figura">'
-               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
-               f'alt="{e(x["nome"])}" width="800" height="800">'
+               + figura(f'assets/fotos/{x["foto"]}', x["nome"], depth,
+                        "pessoa-foto", MEDIDAS_RETRATO)
                + (f'<figcaption>{icon("photo_camera")} {e(credito)}</figcaption>' if credito else "")
                + "</figure>")
     else:
@@ -2307,6 +2422,7 @@ def page_artistas():
 <p class="lede">Quem passou pelos palcos dos projetos do acervo, com a edição em que cada
 apresentação está registrada. {plural(len(nomes), 'nome catalogado', 'nomes catalogados')}.</p></section>
 <section class="container reach-section"><hr class="rule">
+<h2 class="sr-only">Artistas catalogados</h2>
 <div class="atletas-grid">{''.join(cartoes)}</div></section>
 <section class="container reach-section"><hr class="rule">
 <p class="note">{e(MODEL['elenco']['note'])}</p></section></main>"""
@@ -2411,7 +2527,7 @@ def page_governanca_doc(doc):
 <div><dt>Versão</dt><dd>{e(doc['versao'])}</dd></div>
 <div><dt>Situação</dt><dd>{e(rotulo)}</dd></div>
 <div><dt>Atualizado em</dt><dd>{e(dia_mes(MODEL['updated'], True))}</dd></div></dl>
-<div class="papel-card gov-estado"><h3>{icon('search')} {e(rotulo)}</h3><p>{e(explica)}</p></div>
+<div class="papel-card gov-estado"><h2>{icon('search')} {e(rotulo)}</h2><p>{e(explica)}</p></div>
 </section>
 <section class="container gov-corpo">{''.join(_secao_gov(s) for s in doc['secoes'])}</section>
 <section class="container gov-irmas"><h2 class="section-title">OUTROS<em> DOCUMENTOS.</em></h2>
@@ -2442,9 +2558,9 @@ def page_governanca():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>GOVERNANÇA<br>E POLÍTICAS<span class="orange">.</span></h1>
 <p class="lede">{e(d['lede'])}</p>
-<div class="papel-card gov-estado"><h3>{icon('search')} Minutas, não políticas vigentes</h3>
+<div class="papel-card gov-estado"><h2>{icon('search')} Minutas, não políticas vigentes</h2>
 <p>{e(d['aviso'])}</p></div></section>
-<section class="container gov-grade">{cartoes}</section>
+<section class="container gov-grade"><h2 class="sr-only">Documentos de governança</h2>{cartoes}</section>
 <section class="container reach-section"><h2 class="section-title">{e(d['pendencias']['titulo']).upper()}<span class="orange">.</span></h2>
 <div class="table-wrap"><table class="amounts"><tbody>{pend}</tbody></table></div></section></main>"""
     return write("governanca/index.html",
@@ -3290,9 +3406,17 @@ def page_404():
     page = (head(0, "Página não encontrada | Cadillac Produções",
                  "A página não foi encontrada. Navegue pelo acervo de eventos, edições e dados da Cadillac.",
                  "404.html") + header(0) + body + footer(0))
-    page = (page.replace('href="assets/', f'href="{BASE}/assets/')
-                .replace('src="assets/', f'src="{BASE}/assets/')
-                .replace('href="./', f'href="{BASE}/'))
+    # O Apache serve esta pagina para qualquer endereco perdido, inclusive
+    # /eventos/algo/inexistente/, entao caminho relativo apontaria para o
+    # lugar errado. Absolutizamos — mas so ate a barra, sem o dominio: assim a
+    # mesma pagina funciona em cadillacproducoes.com.br e em instfy.com/cadillac
+    # sem sair da origem, que e o que a politica de conteudo exige.
+    raiz = BASE.split("//", 1)[-1]
+    raiz = raiz[raiz.index("/"):] + "/" if "/" in raiz else "/"
+    page = (page.replace('href="assets/', f'href="{raiz}assets/')
+                .replace('src="assets/', f'src="{raiz}assets/')
+                .replace('srcset="assets/', f'srcset="{raiz}assets/')
+                .replace('href="./', raiz and f'href="{raiz}'))
     return write("404.html", page)
 
 

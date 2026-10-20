@@ -4893,29 +4893,30 @@
       "duracao_iso": null,
       "publicado_em": null,
       "arquivo": "assets/video/reel.mp4",
-      "poster": "assets/fotos/reel-poster.jpg",
-      "nota": ""
+      "poster": "assets/fotos/tamo-junto-bb.jpg",
+      "nota": "",
+      "nota_poster": "Poster provisorio: substituir por um quadro do proprio video."
     },
     "por_projeto": {
       "dominguinho": {
         "url": "https://www.youtube.com/watch?v=elzs9O5AZV8",
         "titulo": "Dominguinho Vol. 2, show completo",
         "arquivo": "assets/video/dominguinho.mp4",
-        "poster": null,
+        "poster": "assets/fotos/dominguinho.jpg",
         "nota": ""
       },
       "vert-battle": {
         "url": "https://www.youtube.com/watch?v=3xGzZshILg0",
         "titulo": "Vert Battle em Goiânia",
         "arquivo": "assets/video/vert-battle.mp4",
-        "poster": null,
+        "poster": "assets/fotos/vert-battle.jpg",
         "nota": ""
       },
       "itacoatiara-pro": {
         "url": "https://www.youtube.com/watch?v=kzDP7ZS6Axg",
         "titulo": "Itacoatiara Pro, final do skate",
         "arquivo": "assets/video/itacoatiara-pro.mp4",
-        "poster": null,
+        "poster": "assets/fotos/itacoatiara-pro.jpg",
         "nota": ""
       }
     },
@@ -7057,7 +7058,8 @@
             "titulo": "O que este site faz hoje",
             "paragrafos": [
               "Auditamos o código publicado. Este site não grava cookie próprio, não usa ferramenta de analytics e não carrega rastreador de publicidade. Também não usa armazenamento local do navegador: nenhuma preferência sua é guardada entre visitas.",
-              "O que existe é o contato do seu navegador com provedores externos. Isso não grava arquivo no seu dispositivo, mas transmite o seu endereço IP e dados técnicos ao provedor, e por isso está declarado aqui:"
+              "As fontes, os ícones e as miniaturas de vídeo são servidos por este mesmo site. Navegar pelas páginas não envia nada a terceiros.",
+              "Resta um único contato externo automático, e está declarado abaixo:"
             ],
             "tabela": {
               "cabecalho": [
@@ -7067,19 +7069,9 @@
               ],
               "linhas": [
                 [
-                  "fonts.googleapis.com e fonts.gstatic.com (Google)",
-                  "Tipografia do site e ícones da interface",
-                  "Em todas as páginas, automaticamente"
-                ],
-                [
                   "youtube-nocookie.com (Google)",
-                  "Vídeo institucional de fundo da página inicial",
+                  "Vídeo institucional de fundo",
                   "Só na página inicial, automaticamente"
-                ],
-                [
-                  "i.ytimg.com (Google)",
-                  "Miniatura dos vídeos",
-                  "Nas páginas com vídeo, automaticamente"
                 ],
                 [
                   "youtube-nocookie.com (Google)",
@@ -7088,7 +7080,7 @@
                 ]
               ]
             },
-            "destaque": "O domínio youtube-nocookie.com reduz o uso de cookies publicitários, mas não é garantia de ausência de tratamento de dados: o IP é transmitido do mesmo jeito."
+            "destaque": "O domínio youtube-nocookie.com reduz o uso de cookies publicitários, mas não é garantia de ausência de tratamento de dados: o IP é transmitido do mesmo jeito. Por isso ele aparece aqui, e só na página inicial."
           },
           {
             "titulo": "Categorias de cookies",
@@ -7124,8 +7116,8 @@
                 ],
                 [
                   "Conteúdo externo",
-                  "Fontes, ícones e vídeos de terceiros",
-                  "Google, conforme a tabela acima"
+                  "Vídeo do YouTube",
+                  "Só a página inicial, mais o que você clicar"
                 ]
               ]
             }
@@ -7133,15 +7125,15 @@
           {
             "titulo": "Conteúdos incorporados",
             "paragrafos": [
-              "A reprodução de vídeos e o carregamento de fontes e miniaturas envolvem tratamento de informações pelos respectivos provedores, segundo as políticas deles.",
-              "Nas páginas internas, o player de vídeo só é carregado depois que você clica: até lá a página mostra apenas a miniatura. Na página inicial, o vídeo de fundo é carregado automaticamente."
+              "Fontes, ícones e miniaturas de vídeo são arquivos deste site. Não há folha de estilo, fonte nem imagem vinda de outro domínio.",
+              "Nas páginas internas, o player de vídeo só é carregado depois que você clica: até lá a página mostra uma foto do próprio acervo. Na página inicial, o vídeo de fundo é carregado automaticamente."
             ]
           },
           {
             "titulo": "Como gerenciar",
             "paragrafos": [
               "Você pode usar as configurações do seu navegador para bloquear, limitar ou excluir cookies e para bloquear conteúdo de terceiros.",
-              "Como este site não grava nada no seu dispositivo, bloquear cookies não prejudica a navegação. Bloquear o domínio das fontes do Google altera a tipografia, mas o site continua legível e funcional."
+              "Como este site não grava nada no seu dispositivo e não busca recursos em outros domínios, bloquear cookies e conteúdo de terceiros não prejudica a navegação em nada. O único efeito possível é o vídeo de fundo da página inicial não aparecer."
             ]
           },
           {
@@ -7202,9 +7194,9 @@
                   "Nada a configurar"
                 ],
                 [
-                  "Fontes e ícones do Google",
-                  "Carregam em todas as páginas",
-                  "Bloqueio pelo navegador"
+                  "Fontes, ícones e imagens",
+                  "Servidos por este site",
+                  "Nada a configurar"
                 ],
                 [
                   "Vídeo de fundo da página inicial",
@@ -7222,8 +7214,8 @@
           {
             "titulo": "O que você pode fazer no navegador",
             "paragrafos": [
-              "Todos os navegadores atuais permitem bloquear cookies de terceiros, bloquear domínios específicos e navegar em janela anônima. Extensões de bloqueio de conteúdo também impedem o carregamento dos domínios do Google listados acima.",
-              "O site foi construído para continuar funcionando nessas condições: sem as fontes externas a tipografia muda, mas nenhum conteúdo se perde."
+              "Todos os navegadores atuais permitem bloquear cookies de terceiros, bloquear domínios específicos e navegar em janela anônima.",
+              "Como o site serve os próprios arquivos, essas proteções não tiram nada da navegação. Bloquear o domínio do YouTube impede apenas o vídeo de fundo da página inicial."
             ]
           },
           {

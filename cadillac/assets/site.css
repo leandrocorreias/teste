@@ -163,7 +163,12 @@ body.nav-open{overflow:hidden}
 .footer{background:#111;color:#fff;padding:clamp(48px,7vw,70px) 0 26px}
 .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;
   flex-wrap:wrap;padding-bottom:clamp(44px,7vw,90px)}
-.footer-logo{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+/* O menu do rodapé é duas vezes mais alto que a marca. Com align-items:flex-start
+   na linha, a marca encostava no topo e sobrava um vão embaixo dela. align-self
+   centra só a marca na altura da linha, sem mexer no menu, que é quem define
+   essa altura. */
+.footer-logo{display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+  align-self:center}
 .footer-logo img{width:clamp(190px,26vw,290px);height:auto}
 .footer-logo span{font:700 9px/1.5 var(--font-text);letter-spacing:.17em;text-transform:uppercase;color:#8f8c87}
 .foot-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,auto));

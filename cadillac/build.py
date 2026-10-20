@@ -1991,10 +1991,10 @@ def page_produtora():
                 f'<a class="pill-link" href="{p}{alvo}">{e(rotulo_alvo)} {icon("arrow_outward")}</a>'
                 f'</div><div class="pess-grid">{fichas}</div></div>')
 
-    socios = [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/#nucleo")
-              for x in MODEL["pessoas"]["equipe"] if x.get("tipo") == "nucleo"]
-    equipe = [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/")
-              for x in MODEL["pessoas"]["equipe"] if x.get("tipo") != "nucleo"]
+    equipe = ([(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/#nucleo")
+               for x in MODEL["pessoas"]["equipe"] if x.get("tipo") == "nucleo"]
+              + [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/")
+                 for x in MODEL["pessoas"]["equipe"] if x.get("tipo") != "nucleo"])
     atletas = [(a["nome"], a.get("modalidade", ""), a.get("foto", ""),
                 f'atletas/{a["slug"]}/') for a in MODEL["atletas"]["lista"]]
     vistos, artistas = set(), []
@@ -2006,8 +2006,7 @@ def page_produtora():
             artistas.append((nome, papel, "", "artistas/"))
 
     time_cards = (
-        grupo_pessoas("Sócios", socios, "equipe/#nucleo", "Ver o núcleo")
-        + grupo_pessoas("Equipe", equipe, "equipe/", "Ver a equipe")
+        grupo_pessoas("Equipe", equipe, "equipe/", "Ver a equipe")
         + grupo_pessoas("Atletas", atletas, "atletas/", "Ver as fichas")
         + grupo_pessoas("Artistas", artistas, "artistas/", "Ver o elenco"))
 

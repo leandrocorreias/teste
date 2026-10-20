@@ -670,11 +670,10 @@ def page_home():
 <div class="logo-wall">{logos}</div>
 {f'<p class="note">{e(MODEL["clientes"]["nota"])}</p>' if MODEL['clientes'].get('nota') else ''}</section>
 <section class="statement" id="sobre"><div class="container statement-grid">
-<div><h2>O IMPOSSÍVEL<br>NÃO ENTRA <em>NA PLANILHA.</em></h2>
+<div><h2>O IMPOSSÍVEL NÃO<br>ENTRA <em>NA PLANILHA.</em></h2>
 {''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}
 </div></div></section>
 <section class="container services" id="atuacao">
-<hr class="rule">
 <h2 class="section-title">DA EXECUÇÃO<br><em>AOS DADOS.</em></h2>
 <div class="service-list">{services}</div>
 <div class="section-end"><a class="pill-link" href="./atuacao/">Como a gente trabalha, com casos {icon('arrow_outward')}</a></div></section>
@@ -713,7 +712,7 @@ def page_projects():
 <section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
 <p class="lede">Eventos, produções e histórias reunidos em um acervo vivo, do mais recente para o mais antigo.</p></section>
 <section class="container index-grid">
-<h2 class="sr-only">Acervo de eventos</h2><hr class="rule">
+<h2 class="sr-only">Acervo de eventos</h2>
 <div class="works-grid">{cards}</div>
 </section></main>"""
     return write("projetos/index.html",

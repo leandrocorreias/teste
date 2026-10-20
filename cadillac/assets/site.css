@@ -1302,3 +1302,39 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
 .pf-lista a{font:700 13px/1.25 var(--font-text);text-decoration:none;color:var(--ink)}
 .pf-lista a:hover{color:var(--orange-ink)}
 .pf-lista span{font-size:11.5px;color:var(--muted)}
+
+/* Quadro de indicadores: o estado de cada KPI, área por área */
+.kpi-resumo{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
+  border-radius:var(--r-img);overflow:hidden;margin-top:clamp(18px,2.4vw,28px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.kpi-resumo-item{background:var(--white);padding:clamp(14px,1.8vw,20px);
+  display:flex;flex-direction:column;gap:2px;border-top:3px solid var(--border)}
+.kpi-resumo-item.kpi-medido{border-top-color:var(--orange)}
+.kpi-resumo-item.kpi-declarado{border-top-color:#9a9590}
+.kpi-resumo-item.kpi-interno{border-top-color:var(--graphite)}
+.kpi-resumo-item.kpi-a-medir{border-top-color:#d6d2ca}
+.kpi-resumo-item strong{font:800 clamp(26px,3.2vw,38px)/1 var(--font-display)}
+.kpi-resumo-item b{font:700 11px/1.2 var(--font-text);letter-spacing:.07em;text-transform:uppercase}
+.kpi-resumo-item small{font-size:12px;line-height:1.45;color:var(--muted);text-wrap:balance}
+.kpi-total{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.kpi-grid{display:grid;gap:clamp(12px,1.6vw,18px);margin-top:clamp(18px,2.4vw,28px);
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+.kpi-card{border:1px solid var(--border);border-radius:var(--r-img);
+  padding:clamp(14px,1.8vw,20px);background:var(--white)}
+.kpi-card h3{margin:0 0 12px;display:flex;align-items:center;gap:8px;
+  font:800 14px/1.2 var(--font-display);letter-spacing:.04em;text-transform:uppercase}
+.kpi-card h3 .mi{font-size:19px;color:var(--orange-ink)}
+.kpi-lista{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.kpi-lista li{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-bottom:9px;border-bottom:1px solid var(--border)}
+.kpi-lista li:last-child{border-bottom:0;padding-bottom:0}
+.kpi-lista li>span{font-size:13.5px;line-height:1.35}
+.kpi-selo{display:inline-flex;align-items:center;gap:4px;flex:none;white-space:nowrap;
+  padding:4px 9px;border-radius:999px;text-decoration:none;
+  font:700 10.5px/1 var(--font-text);letter-spacing:.05em;text-transform:uppercase}
+.kpi-selo .mi{font-size:14px}
+.kpi-selo.kpi-medido{background:rgba(255,89,0,.12);color:var(--orange-ink)}
+.kpi-selo.kpi-declarado{background:#efece6;color:#6d6761}
+.kpi-selo.kpi-interno{background:var(--graphite);color:#fff}
+.kpi-selo.kpi-a-medir{background:#f5f3ee;color:#9a9590;border:1px dashed #d6d2ca}
+a.kpi-selo:hover{filter:brightness(.94)}

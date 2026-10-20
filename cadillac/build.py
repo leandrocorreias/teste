@@ -6,6 +6,7 @@ Lê content-model.json e escreve todas as páginas HTML, o sitemap e o robots.
 Os assets (assets/site.css, assets/site.js) são mantidos à mão.
 """
 
+import collections
 import html
 import json
 import pathlib
@@ -2533,6 +2534,53 @@ def perfil_block(depth):
 <p class="note">{e(d['nota'])}</p></section>"""
 
 
+def quadro_kpis(depth):
+    """Quadro de indicadores por área, com o estado de cada um.
+
+    O quadro só tem serventia se disser também o que ainda não tem número. Um
+    painel que mostrasse apenas os seis indicadores já medidos pareceria
+    completo e esconderia os dez que faltam — que é a informação de que um
+    patrocinador precisa para saber o que vai receber.
+    """
+    d = MODEL.get("kpis")
+    if not d:
+        return ""
+    p = rel(depth)
+    estados = d["estados"]
+    total = sum(len(a["kpis"]) for a in d["areas"])
+    contagem = collections.Counter(k[1] for a in d["areas"] for k in a["kpis"])
+
+    resumo = "".join(
+        f'<div class="kpi-resumo-item kpi-{est.replace(" ", "-")}">'
+        f'<strong>{contagem.get(est, 0)}</strong><b>{e(rot)}</b><small>{e(txt)}</small></div>'
+        for est, (rot, txt, _) in estados.items())
+
+    cartoes = []
+    for a in d["areas"]:
+        linhas = []
+        for nome, estado, alvo in a["kpis"]:
+            rot = estados[estado][0]
+            selo = (f'<a class="kpi-selo kpi-{estado.replace(" ", "-")}" href="{p}{alvo}">'
+                    f'{icon(estados[estado][2])} {e(rot)}</a>' if alvo else
+                    f'<span class="kpi-selo kpi-{estado.replace(" ", "-")}">'
+                    f'{icon(estados[estado][2])} {e(rot)}</span>')
+            linhas.append(f'<li><span>{e(nome)}</span>{selo}</li>')
+        cartoes.append(
+            f'<div class="kpi-card"><h3>{icon(a["icone"])} {e(a["nome"])}</h3>'
+            f'<ul class="kpi-lista">{"".join(linhas)}</ul></div>')
+
+    return f"""<section class="container reach-section" id="kpis"><hr class="rule">
+<h2 class="section-title">QUADRO<br><em>DE INDICADORES.</em></h2>
+<p class="body-copy">{e(d['lede'])}</p>
+<div class="kpi-resumo">{resumo}</div>
+<p class="kpi-total">{total} indicadores em {plural(len(d['areas']), 'área', 'áreas')}.</p>
+<div class="kpi-grid">{''.join(cartoes)}</div>
+<p class="note">{e(d['nota'])}</p></section>
+
+
+"""
+
+
 def impacto_block(depth):
     d = MODEL.get("impacto")
     if not d:
@@ -2626,6 +2674,7 @@ def page_data():
 <p class="table-hint">Arraste a tabela para o lado para ver a atribuição e a fonte.</p></div>
 </section>
 {perfil_block(depth)}
+{quadro_kpis(depth)}
 {impacto_block(depth)}
 {relatorios_block(depth)}
 {certificacoes_block(depth)}

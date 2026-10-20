@@ -1,5 +1,5 @@
 {
-  "version": 46,
+  "version": 47,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -6955,5 +6955,243 @@
       ]
     ],
     "nota": "O inventário de emissões passou por revisão técnica e controle de qualidade internos, sem verificação externa independente, e o próprio documento diz isso. Certificação de terceiro pertence a quem a recebeu: estão listadas aqui porque pertencem a eventos do acervo, não à Cadillac."
+  },
+  "kpis": {
+    "lede": "O quadro de indicadores que a Cadillac se compromete a acompanhar, área por área. Cada linha diz em que estado está: já medido no acervo, declarado por terceiro, interno por ser comercial, ou ainda sem número. O quadro é o mesmo para todos os eventos; o que varia é quanto de cada área já está preenchido.",
+    "estados": {
+      "medido": [
+        "Medido",
+        "Número contado neste acervo, com a página que o sustenta.",
+        "verified"
+      ],
+      "declarado": [
+        "Declarado",
+        "Número informado pela produção ou pelo patrocinador, com fonte.",
+        "description"
+      ],
+      "interno": [
+        "Interno",
+        "Existe e é acompanhado, mas é dado comercial e não vai ao ar.",
+        "search"
+      ],
+      "a medir": [
+        "A medir",
+        "Ainda sem número. Entra quando houver método e fonte.",
+        "filter_list"
+      ]
+    },
+    "areas": [
+      {
+        "nome": "Portfólio",
+        "icone": "festival",
+        "kpis": [
+          [
+            "Eventos realizados",
+            "medido",
+            "dados/#numeros"
+          ],
+          [
+            "Edições catalogadas",
+            "medido",
+            "dados/#numeros"
+          ],
+          [
+            "Cidades e estados",
+            "medido",
+            "dados/#numeros"
+          ],
+          [
+            "Segmentos de atuação",
+            "medido",
+            "atuacao/"
+          ]
+        ]
+      },
+      {
+        "nome": "Público",
+        "icone": "groups",
+        "kpis": [
+          [
+            "Participantes por edição",
+            "declarado",
+            "dados/#alcance"
+          ],
+          [
+            "Perfil demográfico",
+            "declarado",
+            "dados/#perfil"
+          ],
+          [
+            "Origem geográfica",
+            "declarado",
+            "dados/#perfil"
+          ]
+        ]
+      },
+      {
+        "nome": "Audiência",
+        "icone": "movie",
+        "kpis": [
+          [
+            "Alcance digital",
+            "declarado",
+            "dados/#alcance"
+          ],
+          [
+            "Visualizações de transmissão",
+            "declarado",
+            "dados/#alcance"
+          ],
+          [
+            "Engajamento",
+            "a medir",
+            ""
+          ]
+        ]
+      },
+      {
+        "nome": "Patrocínios",
+        "icone": "campaign",
+        "kpis": [
+          [
+            "Marcas atendidas",
+            "medido",
+            "relacionamento/#marcas"
+          ],
+          [
+            "Ativações por edição",
+            "a medir",
+            ""
+          ],
+          [
+            "Renovações de patrocínio",
+            "a medir",
+            ""
+          ]
+        ]
+      },
+      {
+        "nome": "Comercial",
+        "icone": "stacked_bar_chart",
+        "kpis": [
+          [
+            "Cotas vendidas",
+            "interno",
+            ""
+          ],
+          [
+            "Ocupação de inventário",
+            "interno",
+            ""
+          ],
+          [
+            "Receita por edição",
+            "interno",
+            ""
+          ]
+        ]
+      },
+      {
+        "nome": "Imprensa",
+        "icone": "description",
+        "kpis": [
+          [
+            "Matérias publicadas",
+            "declarado",
+            "dados/#impacto"
+          ],
+          [
+            "Veículos distintos",
+            "medido",
+            "na-midia/"
+          ],
+          [
+            "Alcance estimado",
+            "declarado",
+            "dados/#impacto"
+          ]
+        ]
+      },
+      {
+        "nome": "Impacto",
+        "icone": "public",
+        "kpis": [
+          [
+            "Empregos gerados",
+            "a medir",
+            ""
+          ],
+          [
+            "Fornecedores locais",
+            "a medir",
+            ""
+          ],
+          [
+            "Impacto econômico na praça",
+            "a medir",
+            ""
+          ]
+        ]
+      },
+      {
+        "nome": "Experiência",
+        "icone": "insights",
+        "kpis": [
+          [
+            "NPS do público",
+            "a medir",
+            ""
+          ],
+          [
+            "Satisfação por edição",
+            "a medir",
+            ""
+          ],
+          [
+            "Participação recorrente",
+            "a medir",
+            ""
+          ]
+        ]
+      },
+      {
+        "nome": "ESG",
+        "icone": "language",
+        "kpis": [
+          [
+            "Resíduos e emissões",
+            "declarado",
+            "dados/#impacto"
+          ],
+          [
+            "Acessibilidade",
+            "a medir",
+            ""
+          ],
+          [
+            "Ações sociais",
+            "declarado",
+            "dados/#impacto"
+          ]
+        ]
+      },
+      {
+        "nome": "Performance",
+        "icone": "engineering",
+        "kpis": [
+          [
+            "Custo por participante",
+            "interno",
+            ""
+          ],
+          [
+            "ROI e ROAS",
+            "interno",
+            ""
+          ]
+        ]
+      }
+    ],
+    "nota": "Indicador comercial não vai ao ar: cotas, ocupação de inventário, receita, custo por participante e retorno sobre investimento são acompanhados internamente e entregues a quem patrocina, não publicados. O que está como \"a medir\" não é promessa de número: é o reconhecimento de que ainda não existe método nem fonte para ele neste acervo."
   }
 }

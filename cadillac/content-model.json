@@ -1,5 +1,5 @@
 {
-  "version": 41,
+  "version": 45,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -4617,7 +4617,7 @@
         "cargo": "Sócio e coordenação artística",
         "tipo": "nucleo",
         "foto": "bill-aquino.jpg",
-        "bio": "Responde pela coordenação artística e pela realização dos projetos da casa. É citado em fonte pública como sócio na realização do Itacoatiara Pro e creditado na coordenação artística do Arte em Circuito.",
+        "bio": "Responde pela coordenação artística e pela realização dos eventos da casa. É citado em fonte pública como sócio na realização do Itacoatiara Pro e creditado na coordenação artística do Arte em Circuito.",
         "desde": null,
         "links": [],
         "vinculos": [
@@ -4902,7 +4902,7 @@
         "titulo": "Apresentação institucional",
         "formato": "PDF",
         "arquivo": "assets/kit/cadillac-apresentacao.pdf",
-        "descricao": "Quem somos, frentes de atuação, projetos e capacidade operacional."
+        "descricao": "Quem somos, frentes de atuação, eventos e capacidade operacional."
       },
       {
         "titulo": "Logotipo e marca",
@@ -4917,7 +4917,7 @@
         "descricao": "Seleção de imagens com direito de uso para imprensa, com crédito obrigatório."
       },
       {
-        "titulo": "Ficha técnica dos projetos",
+        "titulo": "Ficha técnica dos eventos",
         "formato": "PDF",
         "arquivo": "assets/kit/cadillac-projetos.pdf",
         "descricao": "Uma página por projeto, com datas, modalidades, operação e fontes."
@@ -4930,7 +4930,7 @@
     "nota": "Arquivos que ainda não existem aparecem como espaço reservado, com o caminho esperado."
   },
   "contato": {
-    "lede": "Projetos, parcerias, patrocínio ou imprensa. Respondemos em até dois dias úteis.",
+    "lede": "Eventos, parcerias, patrocínio ou imprensa. Respondemos em até dois dias úteis.",
     "endpoint": null,
     "campos": [
       [
@@ -5028,7 +5028,7 @@
     "cta": "Talk to us"
   },
   "atletas": {
-    "lede": "Quem compete nos projetos da casa. Cada ficha reúne o que está documentado sobre a trajetória do atleta e as edições em que ele aparece, com a fonte de cada linha.",
+    "lede": "Quem compete nos eventos da casa. Cada ficha reúne o que está documentado sobre a trajetória do atleta e as edições em que ele aparece, com a fonte de cada linha.",
     "grupos": {
       "squad-bb": [
         "Squad BB",
@@ -6622,7 +6622,7 @@
         "id": "marcas",
         "titulo": "Marcas e ativações",
         "icone": "verified",
-        "texto": "Marcas e instituições que aparecem nos registros dos projetos do acervo, com o papel de cada uma identificado na página do projeto correspondente.",
+        "texto": "Marcas e instituições que aparecem nos registros dos eventos do acervo, com o papel de cada uma identificado na página do evento correspondente.",
         "itens": [],
         "pendencia": ""
       },
@@ -6650,7 +6650,7 @@
         "id": "talentos",
         "titulo": "Talentos",
         "icone": "groups",
-        "texto": "Atletas, artistas e criadores que queiram integrar as propriedades do acervo. As páginas de atletas e de artistas mostram quem já passou pelos projetos.",
+        "texto": "Atletas, artistas e criadores que queiram integrar as propriedades do acervo. As páginas de atletas e de artistas mostram quem já passou pelos eventos.",
         "itens": [],
         "pendencia": ""
       },
@@ -6725,7 +6725,7 @@
     "nota": "Esta página existe para que a estrutura de governança seja visível desde já. Nenhum texto legal foi redigido por aproximação: cada documento entra quando for escrito e aprovado por quem responde juridicamente pela empresa."
   },
   "perfil_publico": {
-    "lede": "Quem é o público de cada projeto, conforme a própria produção declara. Faixas de projetos diferentes não se somam nem se comparam: cada uma foi medida de um jeito. Escolha um projeto para ver tudo o que está declarado sobre ele.",
+    "lede": "Quem é o público de cada evento, conforme a própria produção declara. Faixas de eventos diferentes não se somam nem se comparam: cada uma foi medida de um jeito. Escolha um evento para ver tudo o que está declarado sobre ele.",
     "eixo": {
       "min": 0,
       "max": 80
@@ -6820,7 +6820,7 @@
         "10 anos de amplitude, de 25 a 35"
       ],
       [
-        "Idade comum a três projetos",
+        "Idade comum a três eventos",
         "25 a 35 anos",
         "onde Tamo Junto BB, Connect Heroes e Itacoatiara Pro se sobrepõem"
       ]
@@ -6870,7 +6870,7 @@
     "nota": "Números declarados pelas produções e pelos patrocinadores em seus próprios materiais, sem auditoria independente anexada a esta página. Descrevem os eventos, não resultado financeiro da Cadillac."
   },
   "relatorios": {
-    "lede": "Documentos técnicos e balanços produzidos sobre os projetos do acervo.",
+    "lede": "Documentos técnicos e balanços produzidos sobre os eventos do acervo.",
     "itens": [
       {
         "titulo": "Inventário de emissões de GEE da Turnê Dominguinho",
@@ -6906,7 +6906,7 @@
     "nota": "Documento recebido da produção não é publicado nesta página sem autorização de quem o produziu. O que entra no site é o dado, com a fonte identificada. A pesquisa de público própria é a lacuna que mais pesa: hoje todo perfil vem de material de terceiro."
   },
   "certificacoes": {
-    "lede": "Reconhecimentos, homologações e chancelas que os projetos do acervo carregam.",
+    "lede": "Reconhecimentos, homologações e chancelas que os eventos do acervo carregam.",
     "itens": [
       [
         "Guinness World Records",
@@ -6954,6 +6954,6 @@
         ]
       ]
     ],
-    "nota": "O inventário de emissões passou por revisão técnica e controle de qualidade internos, sem verificação externa independente, e o próprio documento diz isso. Certificação de terceiro pertence a quem a recebeu: estão listadas aqui porque pertencem a projetos do acervo, não à Cadillac."
+    "nota": "O inventário de emissões passou por revisão técnica e controle de qualidade internos, sem verificação externa independente, e o próprio documento diz isso. Certificação de terceiro pertence a quem a recebeu: estão listadas aqui porque pertencem a eventos do acervo, não à Cadillac."
   }
 }

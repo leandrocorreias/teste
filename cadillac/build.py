@@ -550,7 +550,7 @@ def coverage_matrix(depth):
         rows.append(f'<tr><th scope="row">{e(pr["name"])}</th>{"".join(cells)}</tr>')
     return f"""<div class="table-wrap"><table class="matrix">
 <caption>Cada célula preenchida é uma edição com página própria e fontes. O traço indica ausência de registro catalogado nesta versão, não ausência de evento.</caption>
-<thead><tr><th scope="col">Projeto</th>{head_cells}</tr></thead>
+<thead><tr><th scope="col">Evento</th>{head_cells}</tr></thead>
 <tbody>{"".join(rows)}</tbody></table></div>"""
 
 
@@ -582,7 +582,7 @@ def amounts_table():
         return ""
     return f"""<div class="table-wrap"><table class="amounts">
 <caption>Valores que aparecem em documentos públicos. São valores de projeto aprovado ou de objeto contratado — não representam receita, captação efetiva nem resultado da Cadillac.</caption>
-<thead><tr><th scope="col">Projeto</th><th scope="col">Registro</th><th scope="col">Valor</th><th scope="col">Fonte</th></tr></thead>
+<thead><tr><th scope="col">Evento</th><th scope="col">Registro</th><th scope="col">Valor</th><th scope="col">Fonte</th></tr></thead>
 <tbody>{"".join(rows)}</tbody></table></div>"""
 
 
@@ -659,17 +659,17 @@ def page_home():
 <div class="hero-big"><p class="h1-eco">{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</p>
 <span class="circle-link"></span></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<span class="hero-explore">EXPLORE OS PROJETOS {icon('expand_more')}</span></div></div></div>
+<span class="hero-explore">EXPLORE OS EVENTOS {icon('expand_more')}</span></div></div></div>
 <div class="hero-cine-inner container">
 <div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</h1>
-<a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
+<a class="circle-link" href="./projetos/" aria-label="Ver o acervo de eventos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<a class="hero-explore" href="#projetos">EXPLORE OS PROJETOS {icon('expand_more')}</a></div></div></section>
+<a class="hero-explore" href="#projetos">EXPLORE OS EVENTOS {icon('expand_more')}</a></div></div></section>
 <section class="container showcase" id="projetos">
 <hr class="rule">
 <div class="showcase-cabeca">
-<h2 class="section-title">PROJETOS<span class="orange">.</span></h2>
-<p class="showcase-lede">{plural(len(PROJECTS), 'propriedade', 'propriedades')} no acervo, da mais recente para a mais antiga. Cada uma com o que está documentado, a fonte de cada número e o papel da Cadillac no projeto.</p>
+<h2 class="section-title">EVENTOS<span class="orange">.</span></h2>
+<p class="showcase-lede">{plural(len(PROJECTS), 'propriedade', 'propriedades')} no acervo, da mais recente para a mais antiga. Cada uma com o que está documentado, a fonte de cada número e o papel da Cadillac no evento.</p>
 </div>
 <div class="works-grid">{cards}</div>
 <div class="section-end"><a class="pill-link" href="./projetos/">Explorar o acervo completo {icon('arrow_outward')}</a></div></section>
@@ -697,9 +697,9 @@ def page_home():
 <a class="pill-link" href="./na-midia/">Ver todas as fontes {icon('arrow_outward')}</a></div>
 <div class="article-grid">{press_html}</div></section>
 <section class="contact" id="contato"><div class="container"><h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>
-<p>Projetos, parcerias, imprensa ou produção.</p>
+<p>Eventos, parcerias, imprensa ou produção.</p>
 <a class="contact-link" href="mailto:{SITE['email']}">{icon('mail')} FALE COM A CADILLAC</a>
-<div class="contact-ways"><a class="pill-link" href="./projetos/">Ver projetos {icon('arrow_outward')}</a>
+<div class="contact-ways"><a class="pill-link" href="./projetos/">Ver eventos {icon('arrow_outward')}</a>
 <a class="pill-link" href="./dados/">Ver dados {icon('insights')}</a></div>
 <small>Caixa postal de contato sugerida: configurar antes da publicação definitiva.</small></div></section>
 </main>"""
@@ -712,10 +712,10 @@ def page_home():
 
 
 def page_projects():
-    trail_html, trail_ld = crumbs(1, [("Projetos", None)])
+    trail_html, trail_ld = crumbs(1, [("Eventos", None)])
     cards = "".join(card(pr, 1, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
     ld = {"@context": "https://schema.org", "@type": "CollectionPage",
-          "name": "Projetos e cases", "url": f"{BASE}/projetos/",
+          "name": "Eventos e cases", "url": f"{BASE}/projetos/",
           "mainEntity": {"@type": "ItemList", "numberOfItems": len(PROJECTS),
                          "itemListElement": [
                              {"@type": "ListItem", "position": i,
@@ -723,16 +723,16 @@ def page_projects():
                               "url": f"{BASE}/projetos/{pr['slug']}/"}
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
-<section class="page-hero container"><h1>PROJETOS<span class="orange">.</span></h1>
+<section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
 <p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo, da mais recente para a mais antiga.</p></section>
 <section class="container index-grid">
-<h2 class="sr-only">Acervo de projetos</h2><hr class="rule">
+<h2 class="sr-only">Acervo de eventos</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
 <p class="note">O acervo cresce por documentação. A ausência de um ano ou de um projeto nesta lista significa que o registro ainda não foi catalogado aqui, não que o evento não tenha existido.</p>
 </section></main>"""
     return write("projetos/index.html",
-                 head(1, "Projetos e cases | Cadillac Produções",
-                      "Acervo de projetos da Cadillac: Itacoatiara Pro, Vert Battle, Tamo Junto BB, "
+                 head(1, "Eventos e cases | Cadillac Produções",
+                      "Acervo de eventos da Cadillac: Itacoatiara Pro, Vert Battle, Tamo Junto BB, "
                       "Dominguinho, Arte em Circuito, MAC Bahia e Festival de Tribos de Juruti.",
                       "projetos/", [ld, trail_ld]) + header(1, "projetos") + body + footer(1))
 
@@ -741,7 +741,7 @@ def page_project(pr):
     depth, p = 2, rel(2)
     slug = pr["slug"]
     cat = CATS[pr["category"]]
-    trail_html, trail_ld = crumbs(depth, [("Projetos", p + "projetos/"), (pr["name"], None)])
+    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"), (pr["name"], None)])
     n_facts, n_sources = project_facts(pr), len(project_sources(pr))
     metric = ""
 
@@ -818,7 +818,7 @@ def page_project(pr):
 <hr class="rule">
 <h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
 <div class="works-grid grid-4">{rel_cards}</div>
-<div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os projetos {icon('arrow_outward')}</a></div></section>""")
+<div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>""")
 
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": pr["name"],
           "url": f"{BASE}/projetos/{slug}/", "description": pr["desc"], "inLanguage": "pt-BR",
@@ -826,7 +826,7 @@ def page_project(pr):
     blocks = [ld, trail_ld] + ([faq_ld] if faq_ld else [])
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="project-hero container">
-<a class="back" href="{p}projetos/">{icon('arrow_back')} Todos os projetos</a>
+<a class="back" href="{p}projetos/">{icon('arrow_back')} Todos os eventos</a>
 <div class="project-title"><h1>{e(pr['name'])}<span class="orange">.</span></h1><p>{e(pr['desc'])}</p></div>
 {media(pr, 'banner', eager=True, depth=depth)}{metric}</section>
 {''.join(sections)}</main>"""
@@ -891,7 +891,7 @@ def page_edition(pr, year):
     slug, ystr = pr["slug"], str(year)
     credito = MODEL["photos"].get("creditos", {}).get(slug, "Acervo Cadillac")
     ed = pr.get("editions", {}).get(ystr, {})
-    trail_html, trail_ld = crumbs(depth, [("Projetos", p + "projetos/"),
+    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"),
                                           (pr["name"], p + f"projetos/{slug}/"),
                                           (f"Edição {year}", None)])
     facts = pr["facts"].get(ystr, [])
@@ -961,7 +961,7 @@ def page_edition(pr, year):
 <section class="container insights">
 <hr class="rule">
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
-<p>Projetos como este articulam pessoas, território, produção e marcas. A leitura da Cadillac apresenta contexto e oportunidades do setor sem inventar métricas de público, resultados ou atribuições contratuais.</p>
+<p>Eventos como este articulam pessoas, território, produção e marcas. A leitura da Cadillac apresenta contexto e oportunidades do setor sem inventar métricas de público, resultados ou atribuições contratuais.</p>
 <a class="pill-link" href="{p}dados/">Explorar dados e métricas {icon('insights')}</a></div></section>
 {bloco_fontes(sources, depth, "FONTES E DOCUMENTAÇÃO.")}
 <section class="container sources">
@@ -998,7 +998,7 @@ def page_press():
 <p class="group-count">{icon(cat['icon'])} {plural(len(uniq), 'fonte catalogada', 'fontes catalogadas')}</p>
 {source_list(uniq)}
 <div class="year-links"><span>Contexto</span>
-<a href="{p}projetos/{pr['slug']}/">Página do projeto {icon('arrow_outward')}</a></div></article>""")
+<a href="{p}projetos/{pr['slug']}/">Página do evento {icon('arrow_outward')}</a></div></article>""")
     recentes = []
     for pr in PROJECTS:
         for y in pr["yearsources"]:
@@ -1852,7 +1852,7 @@ def page_atletas():
 <ul class="pendencias">{''.join(f'<li>{icon("search")} {e(t)}</li>' for t in data.get("pendencias", []))}</ul>
 <p class="note">{e(data['nota'])}</p></section></main>"""
     return write("atletas/index.html",
-                 head(depth, "Atletas | Quem compete nos projetos | Cadillac Produções",
+                 head(depth, "Atletas | Quem compete nos eventos | Cadillac Produções",
                       "Fichas dos atletas que competem nos projetos da Cadillac: trajetória "
                       "documentada, edições em que aparecem e a fonte de cada informação.",
                       "atletas/", [ld, trail_ld]) + header(depth, "atletas") + body + footer(depth))
@@ -1893,7 +1893,7 @@ def page_atleta(x):
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{quando}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
     tabela = (f"""<div class="table-wrap"><table class="amounts reach-table">
-<thead><tr><th scope="col">Projeto</th><th scope="col">Ano</th><th scope="col">Participação</th>
+<thead><tr><th scope="col">Evento</th><th scope="col">Ano</th><th scope="col">Participação</th>
 <th scope="col">Fonte</th></tr></thead><tbody>{''.join(linhas)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver a participação e a fonte.</p>"""
               if linhas else '<p class="note">Nenhuma participação catalogada neste acervo até agora.</p>')
@@ -2187,7 +2187,7 @@ def page_equipe():
 <section class="container reach-section"><hr class="rule">
 <p class="note">{e(data['nota'])}</p></section></main>"""
     return write("equipe/index.html",
-                 head(depth, "Equipe | Quem assina os projetos | Cadillac Produções",
+                 head(depth, "Equipe | Quem assina os eventos | Cadillac Produções",
                       "Núcleo da Cadillac, sócios por projeto, especialistas e parceiros externos, "
                       "com o papel de cada um em cada evento.",
                       "equipe/", [ld, trail_ld]) + header(depth, "sobre") + body + footer(depth))
@@ -2272,7 +2272,7 @@ def perfil_block(depth):
 <h2 class="section-title">PERFIL<br><em>DO PÚBLICO.</em></h2>
 <p class="body-copy">{e(d['lede'])}</p>
 <div class="pf-bloco">
-<div class="pf-grafico" role="tablist" aria-label="Faixa etária declarada por projeto">
+<div class="pf-grafico" role="tablist" aria-label="Faixa etária declarada por evento">
 <div class="pf-eixo">{marcas}</div>
 {''.join(faixas)}
 <p class="pf-eixo-rotulo">Idade declarada, de {lo} a {hi} anos</p></div>
@@ -2339,7 +2339,7 @@ def page_data():
     cat_counts = sorted(((CATS[k]["label"], sum(1 for pr in PROJECTS if pr["category"] == k))
                          for k in M["categories"]), key=lambda x: -x[1])
     panels = [
-        ("stacked_bar_chart", f"{M['projects']:02d}", "Projetos indexados"),
+        ("stacked_bar_chart", f"{M['projects']:02d}", "Eventos indexados"),
         ("calendar_month", f"{M['editions']:02d}", "Edições com página própria"),
         ("description", f"{M['facts']:02d}", "Registros documentados"),
         ("open_in_new", f"{M['sources']:02d}", "Fontes públicas citadas"),
@@ -2351,7 +2351,7 @@ def page_data():
                           for v, l in MODEL["sector"]["items"])
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
-<p class="lede">Um acervo conectado de projetos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
+<p class="lede">Um acervo conectado de eventos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
 {audience_blocks(depth)}
 {events_table(depth)}
 {broadcast_block(depth)}
@@ -2360,9 +2360,9 @@ def page_data():
 <p class="chart-sub">Quantas edições a Cadillac tem documentadas em cada ano, do mais recente ao mais antigo.</p>
 <figure>{bars_vertical(per_year, ('edição', 'edições'))}
 <figcaption>Série única. Ano sem barra é ano sem edição catalogada aqui, não ano sem evento.</figcaption></figure></div>
-<div class="chart-card"><h3>Projetos por área de atuação</h3>
+<div class="chart-card"><h3>Eventos por área de atuação</h3>
 <p class="chart-sub">Distribuição do acervo entre esporte, festivais, música e cultura.</p>
-<figure>{bars_horizontal(cat_counts, ('projeto', 'projetos'), w=560)}
+<figure>{bars_horizontal(cat_counts, ('evento', 'eventos'), w=560)}
 <figcaption>Cada projeto é contado em uma única área, a predominante no registro.</figcaption></figure></div>
 <div class="chart-card span-2"><h3>Cobertura por projeto e ano</h3>
 <p class="chart-sub">Onde há edição documentada, a célula leva direto à página da edição.</p>
@@ -2386,16 +2386,16 @@ def page_data():
 <p class="body-copy">Os indicadores desta página descrevem o conteúdo catalogado neste portal, não o total histórico de eventos da Cadillac. Cada número é calculado a partir do mesmo modelo de conteúdo que gera as páginas: um projeto é contado quando tem página própria, uma edição quando tem ano documentado, um registro quando tem fonte identificável e uma fonte quando tem URL pública.</p>
 <p class="body-copy">Informações sobre audiência, contratos, alcance ou impacto econômico só serão publicadas após identificação de metodologia e fonte verificável. Valores de captação, contratação e patrocínio não são publicados neste portal: ficam em registro interno, porque valor aprovado para captação não é valor captado e instrumento de patrocínio de terceiro não é receita da Cadillac.</p>
 <div class="source-list">
-<a href="{p}projetos/"><span class="s-main"><span class="s-label">Consultar projetos e edições</span>
-<span class="s-host">{plural(M['projects'], 'projeto', 'projetos')} · {plural(M['editions'], 'edição', 'edições')}</span></span>{icon('arrow_outward')}</a>
+<a href="{p}projetos/"><span class="s-main"><span class="s-label">Consultar eventos e edições</span>
+<span class="s-host">{plural(M['projects'], 'evento', 'eventos')} · {plural(M['editions'], 'edição', 'edições')}</span></span>{icon('arrow_outward')}</a>
 <a href="{p}na-midia/"><span class="s-main"><span class="s-label">Consultar imprensa e referências</span>
 <span class="s-host">{plural(M['sources'], 'fonte pública', 'fontes públicas')}</span></span>{icon('arrow_outward')}</a>
 </div>
-<p class="note">Atualizado em {e(MODEL['updated'])}. O acervo é incremental: novos projetos, edições e fontes alteram todos os indicadores desta página automaticamente na próxima geração.</p>
+<p class="note">Atualizado em {e(MODEL['updated'])}. O acervo é incremental: novos eventos, edições e fontes alteram todos os indicadores desta página automaticamente na próxima geração.</p>
 </section></main>"""
     ld = {"@context": "https://schema.org", "@type": "Dataset",
           "name": "Acervo documental Cadillac", "url": f"{BASE}/dados/",
-          "description": "Projetos, edições, registros documentados e fontes públicas catalogados no portal Cadillac.",
+          "description": "Eventos, edições, registros documentados e fontes públicas catalogados no portal Cadillac.",
           "inLanguage": "pt-BR", "creator": {"@type": "Organization", "name": SITE["name"]},
           "temporalCoverage": f"{M['years'][0]}/{M['years'][-1]}"}
     return write("dados/index.html",
@@ -2502,7 +2502,7 @@ def page_atuacao():
 <section class="container related"><hr class="rule">
 <h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
 <p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
-<div class="section-end"><a class="pill-link" href="{p}projetos/">Explorar os projetos {icon('arrow_outward')}</a></div>
+<div class="section-end"><a class="pill-link" href="{p}projetos/">Explorar os eventos {icon('arrow_outward')}</a></div>
 <p class="note">Os casos descrevem o que está documentado em fonte pública. Onde a atribuição depende de contrato ou ficha técnica ainda em validação, o texto diz isso em vez de afirmar autoria.</p>
 </section></main>"""
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Atuação",
@@ -2861,11 +2861,11 @@ def page_404():
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
 <p>A página que você procurou saiu de cartaz. O acervo continua no ar — siga por um destes caminhos.</p>
 <div class="error-actions">
-<a class="pill-link" href="./projetos/">Ver projetos {icon('arrow_outward')}</a>
+<a class="pill-link" href="./projetos/">Ver eventos {icon('arrow_outward')}</a>
 <a class="pill-link" href="./dados/">Ver dados {icon('insights')}</a>
 <a class="pill-link" href="./">Página inicial {icon('home')}</a></div></section></main>"""
     page = (head(0, "Página não encontrada | Cadillac Produções",
-                 "A página não foi encontrada. Navegue pelo acervo de projetos, edições e dados da Cadillac.",
+                 "A página não foi encontrada. Navegue pelo acervo de eventos, edições e dados da Cadillac.",
                  "404.html") + header(0) + body + footer(0))
     page = (page.replace('href="assets/', f'href="{BASE}/assets/')
                 .replace('src="assets/', f'src="{BASE}/assets/')

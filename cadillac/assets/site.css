@@ -1259,3 +1259,7 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
   text-transform:uppercase}
 .pf-leitura small{font-size:12.5px;line-height:1.5;color:var(--ink-2)}
 @media(prefers-reduced-motion:reduce){.pf-linha,.pf-faixa{transition:none}}
+
+/* Área de atuação do cartão: só o ícone, com o rótulo no title e para leitor de tela */
+.card-meta .meta-area{gap:0}
+.card-meta .meta-area .mi{font-size:17px}

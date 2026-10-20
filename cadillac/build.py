@@ -412,7 +412,7 @@ def faq_block(project, number):
         for q, a in project["faq"]
     )
     section = f"""<section class="container faq-section"><hr class="rule">
-<h2 class="section-title">O QUE PERGUNTAM<br><em>SOBRE O PROJETO.</em></h2>
+<h2 class="section-title">O QUE PERGUNTAM<br><em>SOBRE O EVENTO.</em></h2>
 <div class="faq-list">{rows}</div></section>"""
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q,
@@ -426,7 +426,8 @@ def card(project, depth, eager=False):
     years = " ".join(str(y) for y in project["years"])
     search_blob = " ".join([project["name"], project["kind"], project["location"],
                             project["desc"], cat["label"], years]).lower()
-    meta = (f'<span>{icon(cat["icon"])} {e(cat["label"])}</span>'
+    meta = (f'<span class="meta-area" title="{e(cat["label"])}">{icon(cat["icon"])}'
+            f'<span class="sr-only">{e(cat["label"])}</span></span>'
             f'<span>{icon("place")} {e(project["location"])}</span>'
             f'<span>{icon("calendar_month")} {e(project["period"])}</span>')
     img = media(project, eager=eager, depth=depth)
@@ -748,7 +749,7 @@ def page_project(pr):
     sections, n = [], 1
 
     sections.append(f"""<section class="container detail-intro">
-<div><h2>UM PROJETO.<br>MUITAS HISTÓRIAS.</h2></div>
+<div><h2>UM EVENTO.<br>MUITAS HISTÓRIAS.</h2></div>
 <div><p>{e(pr['intro'])}</p>
 <div class="taglist"><span>{icon(cat['icon'])} {e(cat['label'])}</span>
 <span>{icon('festival')} {e(pr['kind'])}</span>
@@ -780,7 +781,7 @@ def page_project(pr):
             for i, t in enumerate(pr.get("records", []), start=1))
         cronograma.append(f"""<section class="container facts-section">
 <hr class="rule">
-<h2 class="section-title">DOSSIÊ<br><em>DO PROJETO.</em></h2>
+<h2 class="section-title">DOSSIÊ<br><em>DO EVENTO.</em></h2>
 <div class="facts">{facts}</div>
 <p class="note">{e(pr.get("nota_registro") or "")} Quando houver documentação por ano, cada edição ganha página própria com fontes.</p></section>""")
         n += 1
@@ -791,7 +792,7 @@ def page_project(pr):
 
     if MODEL["video"]["por_projeto"].get(pr["slug"]):
         sections.append(f"""<section class="container reel-section"><hr class="rule">
-<h2 class="section-title">O PROJETO<br><em>EM VÍDEO.</em></h2>
+<h2 class="section-title">O EVENTO<br><em>EM VÍDEO.</em></h2>
 {video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"])}</section>""")
     sections.append(contexto_block(pr))
     sections.append(frentes_block(pr))
@@ -1302,7 +1303,7 @@ def contexto_block(pr):
         f"""<div class="nucleo vertical"><h3>{icon('verified')} {e(t)}</h3><p>{e(x)}</p></div>"""
         for t, x in (d.get("valor") or []))
     return f"""<section class="container plano-section"><hr class="rule">
-<h2 class="section-title">O QUE ESTE PROJETO<br><em>RESOLVE.</em></h2>
+<h2 class="section-title">O QUE ESTE EVENTO<br><em>RESOLVE.</em></h2>
 {f'<div class="nucleo-grid">{"".join(blocos)}</div>' if blocos else ''}
 {f'<h3 class="area-list-title">{icon("campaign")} Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
 </section>"""
@@ -1369,7 +1370,7 @@ def parceiros_block(pr, depth):
 <span class="parceiro-papel">{icon('verified')} {e(papel)}</span></div>"""
         for nome, papel in itens)
     return f"""<section class="container reach-section"><hr class="rule">
-<h2 class="section-title">QUEM ESTÁ<br><em>NESTE PROJETO.</em></h2>
+<h2 class="section-title">QUEM ESTÁ<br><em>NESTE EVENTO.</em></h2>
 <div class="parceiros-grid">{cards}</div>
 <p class="note">{e(d.get('parceiros_nota') or 'Marcas e instituições identificadas no material oficial do projeto. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso.')}</p></section>"""
 

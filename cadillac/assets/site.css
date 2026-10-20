@@ -748,7 +748,7 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 .atleta-hero{padding-top:clamp(18px,2.6vw,34px)}
 .atleta-topo{display:grid;gap:clamp(18px,3vw,40px);align-items:center;
   grid-template-columns:minmax(0,240px) minmax(0,1fr);margin-top:clamp(14px,2vw,22px)}
-.atleta-retrato .pessoa-foto,.atleta-retrato .photo-slot{width:100%;aspect-ratio:1/1;object-fit:cover;
+.atleta-retrato .pessoa-foto,.atleta-retrato .photo-slot{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;
   min-height:0;border:1px solid var(--border)}
 .atleta-apelido{display:inline-block;font:700 13px/1 var(--font-text);letter-spacing:.14em;
   text-transform:uppercase;color:var(--orange-ink);margin-bottom:10px}
@@ -791,3 +791,6 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 .atleta-figura{margin:0}
 .atleta-figura figcaption{display:flex;align-items:center;gap:6px;min-height:24px;margin-top:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--muted)}
 .atleta-figura figcaption .cd-icon{font-size:15px}
+
+/* atributos width/height do HTML nao podem vencer o aspect-ratio */
+.pessoa-foto{height:auto}

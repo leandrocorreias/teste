@@ -690,7 +690,7 @@ def page_home():
 <section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
 <hr class="rule">
-<div class="editorial-header"><h2 class="section-title">CADILLAC<br>NA MÍDIA.</h2>
+<div class="editorial-header"><h2 class="section-title">NA<br><em>MÍDIA.</em></h2>
 <a class="pill-link" href="./na-midia/">Ver todas as fontes {icon('arrow_outward')}</a></div>
 <div class="article-grid">{press_html}</div></section>
 <section class="contact" id="contato"><div class="container"><h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>

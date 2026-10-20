@@ -4672,11 +4672,6 @@
         "Quem toca a casa no dia a dia",
         "verified"
       ],
-      "socio_projeto": [
-        "Sócio no projeto",
-        "Sócio na realização de um projeto específico, não da empresa",
-        "groups"
-      ],
       "especialista": [
         "Especialista por projeto",
         "Entra em uma frente ou edição, conforme a necessidade",
@@ -4744,8 +4739,8 @@
       {
         "slug": "alexandre-rangel",
         "nome": "Alexandre Rangel",
-        "cargo": "Sócio na realização",
-        "tipo": "socio_projeto",
+        "cargo": "Parceiro no Itacoatiara Pro",
+        "tipo": "parceiro",
         "foto": "alexandre-rangel.jpg",
         "bio": "Citado pela imprensa como sócio na realização do Itacoatiara Pro.",
         "desde": null,
@@ -5025,7 +5020,7 @@
         ],
         [
           "Responsável",
-          null
+          "Melina Tavares Comunicação"
         ],
         [
           "Telefone e WhatsApp",
@@ -5095,18 +5090,23 @@
     "canais": [
       [
         "E-mail",
-        "contato@cadillac.art.br",
+        "relacionamento@cadillac.art.br",
         "mail"
       ],
       [
-        "Telefone",
-        null,
-        "description"
+        "Instagram",
+        "@cadillacoficial",
+        "public"
       ],
       [
-        "Instagram",
-        null,
-        "public"
+        "Telefone",
+        "+1 (407) 810-4451",
+        "call"
+      ],
+      [
+        "WhatsApp",
+        "+1 (407) 810-4451",
+        "chat"
       ],
       [
         "LinkedIn",
@@ -5115,7 +5115,42 @@
       ]
     ],
     "nota": "",
-    "email_formularios": "relacionamento@cadillac.art.br"
+    "email_formularios": "relacionamento@cadillac.art.br",
+    "enderecos": [
+      {
+        "cidade": "Rio de Janeiro",
+        "papel": "Sede",
+        "logradouro": null,
+        "bairro": null,
+        "cep": null,
+        "nota": "Endereço registrado da Cadillac Produções e Filmes Ltda."
+      },
+      {
+        "cidade": "Mogi das Cruzes, SP",
+        "papel": "Escritório",
+        "logradouro": null,
+        "bairro": null,
+        "cep": null,
+        "nota": "Base de atendimento para São Paulo e região."
+      }
+    ],
+    "caixas": [
+      [
+        "Projeto, parceria ou patrocínio",
+        "relacionamento@cadillac.art.br"
+      ],
+      [
+        "Imprensa",
+        "contato@cadillac.art.br"
+      ],
+      [
+        "Privacidade e proteção de dados",
+        "dpo@cadillac.art.br"
+      ]
+    ],
+    "horario": "Segunda a sexta, das 9h às 18h",
+    "telefone": "+1 (407) 810-4451",
+    "whatsapp": "+1 (407) 810-4451"
   },
   "en": {
     "titulo": "Cadillac Produções & Filmes",
@@ -6778,7 +6813,35 @@
           "Ativação de marca em arena, palco e áreas de experiência",
           "Projetos inscritos em leis de incentivo à cultura e ao esporte"
         ],
-        "pendencia": "A tabela de cotas por projeto é material comercial e não é publicada aqui."
+        "pendencia": "A tabela de cotas por projeto é material comercial e não é publicada aqui.",
+        "propriedades": [
+          [
+            "vert-battle",
+            "Vert Battle",
+            "Circuito de skate vertical, etapas em várias cidades"
+          ],
+          [
+            "itacoatiara-pro",
+            "Itacoatiara Pro",
+            "Festival multiesportivo em Niterói, com etapa de circuito mundial"
+          ],
+          [
+            "connect-heroes",
+            "Connect Heroes",
+            "Jiu-jítsu como espetáculo, com transmissão em TV e streaming"
+          ],
+          [
+            "mr-moo-festival",
+            "Mr. Moo Festival",
+            "Festival gastronômico all inclusive, recorde no Guinness"
+          ],
+          [
+            "dominguinho",
+            "Dominguinho",
+            "Turnê nacional com João Gomes, Mestrinho e Jota.pê"
+          ]
+        ],
+        "propriedades_nota": "Cada propriedade tem página própria, com histórico, público documentado e cobertura de imprensa."
       },
       {
         "id": "marcas",
@@ -6798,7 +6861,135 @@
           "Coprodução e operação de eventos existentes",
           "Estruturação de circuitos e temporadas"
         ],
-        "pendencia": ""
+        "pendencia": "",
+        "form": {
+          "titulo": "Conte o que você tem em mãos",
+          "intro": "Quanto mais específico, mais rápida a resposta.",
+          "campos": [
+            {
+              "nome": "tipo",
+              "rotulo": "O que você traz",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Festival",
+                "Evento esportivo",
+                "Evento corporativo",
+                "Show ou turnê",
+                "Ativação de marca",
+                "Projeto cultural",
+                "Outro"
+              ]
+            },
+            {
+              "nome": "qual_outro",
+              "rotulo": "Descreva o formato",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "tipo": "Outro"
+              }
+            },
+            {
+              "nome": "busca",
+              "rotulo": "O que você procura na Cadillac",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Operação e produção executiva",
+                "Captação de patrocínio",
+                "Coprodução",
+                "Estruturação de circuito ou temporada",
+                "Consultoria pontual",
+                "Ainda não sei, quero conversar"
+              ]
+            },
+            {
+              "nome": "estagio",
+              "rotulo": "Em que estágio está",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Ideia",
+                "Projeto escrito",
+                "Edição já realizada",
+                "Operação em andamento"
+              ]
+            },
+            {
+              "nome": "edicoes",
+              "rotulo": "Quantas edições já aconteceram",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "estagio": "Edição já realizada"
+              },
+              "dica": "E o público de cada uma, se você tiver o número."
+            },
+            {
+              "nome": "propriedade",
+              "rotulo": "Você detém a propriedade",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Sim, é minha",
+                "Represento quem detém",
+                "É de terceiro",
+                "A definir"
+              ]
+            },
+            {
+              "nome": "cidade",
+              "rotulo": "Cidade e estado",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "data",
+              "rotulo": "Quando acontece",
+              "tipo": "text",
+              "obrig": false,
+              "dica": "Data, mês ou temporada prevista."
+            },
+            {
+              "nome": "publico",
+              "rotulo": "Público esperado",
+              "tipo": "text",
+              "obrig": false
+            },
+            {
+              "nome": "orcamento",
+              "rotulo": "Ordem de grandeza do orçamento",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Até R$ 500 mil",
+                "R$ 500 mil a R$ 2 milhões",
+                "R$ 2 a 10 milhões",
+                "Acima de R$ 10 milhões",
+                "A definir"
+              ]
+            },
+            {
+              "nome": "incentivo",
+              "rotulo": "Envolve lei de incentivo",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Não",
+                "Sim, já aprovado",
+                "Sim, a submeter",
+                "Não sei"
+              ]
+            },
+            {
+              "nome": "mensagem",
+              "rotulo": "O que mais a gente precisa saber",
+              "tipo": "textarea",
+              "obrig": true
+            }
+          ]
+        }
       },
       {
         "id": "fornecedores",
@@ -6806,7 +6997,92 @@
         "icone": "engineering",
         "texto": "Estrutura, som, luz, LED, transmissão, segurança, alimentação e logística são contratados localmente em cada praça. Fornecedores que queiram ser cadastrados podem se apresentar pelo contato da produção.",
         "itens": [],
-        "pendencia": "O formulário de cadastro de fornecedor ainda não está no ar."
+        "pendencia": "",
+        "form": {
+          "titulo": "Cadastro de fornecedor",
+          "intro": "O cadastro entra na lista de consulta das próximas edições.",
+          "campos": [
+            {
+              "nome": "empresa",
+              "rotulo": "Empresa",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "cnpj",
+              "rotulo": "CNPJ",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "categoria",
+              "rotulo": "Categoria",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Estrutura e montagem",
+                "Som",
+                "Luz",
+                "LED e painéis",
+                "Transmissão e audiovisual",
+                "Segurança",
+                "Alimentação e bebidas",
+                "Logística e transporte",
+                "Limpeza e resíduos",
+                "Comunicação e criação",
+                "Tecnologia e sistemas",
+                "Cenografia",
+                "Equipe operacional",
+                "Outra"
+              ]
+            },
+            {
+              "nome": "qual_categoria",
+              "rotulo": "Qual",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "categoria": "Outra"
+              }
+            },
+            {
+              "nome": "praca",
+              "rotulo": "Praças em que atende",
+              "tipo": "text",
+              "obrig": true,
+              "dica": "Cidades ou estados onde você opera sem custo de deslocamento."
+            },
+            {
+              "nome": "porte",
+              "rotulo": "Maior evento que já atendeu",
+              "tipo": "text",
+              "obrig": false,
+              "dica": "Nome, público e seu escopo nele."
+            },
+            {
+              "nome": "site",
+              "rotulo": "Site ou portfólio",
+              "tipo": "text",
+              "obrig": false
+            },
+            {
+              "nome": "mensagem",
+              "rotulo": "O que você entrega",
+              "tipo": "textarea",
+              "obrig": true
+            }
+          ]
+        },
+        "atuais": [
+          [
+            "Criativos",
+            "Comunicação e criação"
+          ],
+          [
+            "Instfy",
+            "Tecnologia e sistemas"
+          ]
+        ]
       },
       {
         "id": "talentos",
@@ -6814,7 +7090,146 @@
         "icone": "groups",
         "texto": "Atletas, artistas e criadores que queiram integrar as propriedades do acervo. As páginas de atletas e de artistas mostram quem já passou pelos eventos.",
         "itens": [],
-        "pendencia": ""
+        "pendencia": "",
+        "form": {
+          "titulo": "Talentos",
+          "intro": "Os campos mudam conforme o seu perfil.",
+          "campos": [
+            {
+              "nome": "perfil",
+              "rotulo": "Seu perfil",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Atleta",
+                "Músico ou banda",
+                "DJ",
+                "Criador de conteúdo",
+                "Artista visual",
+                "Apresentador ou locutor",
+                "Outro"
+              ]
+            },
+            {
+              "nome": "modalidade",
+              "rotulo": "Modalidade",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Atleta"
+              },
+              "dica": "Skate vertical, surfe, bodyboard, jiu-jítsu, canoagem e assim por diante."
+            },
+            {
+              "nome": "ranking",
+              "rotulo": "Ranking e principais resultados",
+              "tipo": "textarea",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Atleta"
+              },
+              "dica": "Competições, colocações e ano."
+            },
+            {
+              "nome": "patrocinio",
+              "rotulo": "Patrocinadores atuais",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Atleta"
+              }
+            },
+            {
+              "nome": "estilo",
+              "rotulo": "Estilo musical",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Músico ou banda"
+              }
+            },
+            {
+              "nome": "formacao",
+              "rotulo": "Formação no palco",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Músico ou banda"
+              },
+              "dica": "Quantas pessoas sobem e o que cada uma faz."
+            },
+            {
+              "nome": "rider",
+              "rotulo": "Tem rider técnico e mapa de palco",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Sim",
+                "Não"
+              ],
+              "so_se": {
+                "perfil": "Músico ou banda"
+              }
+            },
+            {
+              "nome": "generos",
+              "rotulo": "Gêneros que você toca",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "DJ"
+              }
+            },
+            {
+              "nome": "plataforma",
+              "rotulo": "Onde você publica",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Criador de conteúdo"
+              },
+              "dica": "Instagram, TikTok, YouTube e o número de seguidores em cada."
+            },
+            {
+              "nome": "tecnica",
+              "rotulo": "Técnica e suporte",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Artista visual"
+              },
+              "dica": "Grafite, mural, instalação, pintura ao vivo."
+            },
+            {
+              "nome": "qual_perfil",
+              "rotulo": "Descreva seu perfil",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Outro"
+              }
+            },
+            {
+              "nome": "cidade",
+              "rotulo": "Cidade e estado",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "links",
+              "rotulo": "Links",
+              "tipo": "textarea",
+              "obrig": true,
+              "dica": "Portfólio, redes, vídeo, release. Um por linha."
+            },
+            {
+              "nome": "mensagem",
+              "rotulo": "O que você procura",
+              "tipo": "textarea",
+              "obrig": false
+            }
+          ]
+        }
       },
       {
         "id": "trabalhe",
@@ -6822,10 +7237,119 @@
         "icone": "mail",
         "texto": "A operação de cada edição reúne equipe própria, fornecedores e freelancers de produção, logística, comunicação e atendimento.",
         "itens": [],
-        "pendencia": "Não há vagas abertas publicadas no momento, e o banco de talentos ainda não tem formulário próprio."
+        "pendencia": "",
+        "form": {
+          "titulo": "Trabalhe conosco",
+          "intro": "Banco de talentos para a operação das próximas edições.",
+          "campos": [
+            {
+              "nome": "vinculo",
+              "rotulo": "Tipo de vínculo",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Efetivo",
+                "Freelancer por evento",
+                "Estágio",
+                "Prestador de serviço (PJ)"
+              ]
+            },
+            {
+              "nome": "area",
+              "rotulo": "Área",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Produção executiva",
+                "Produção de palco",
+                "Logística",
+                "Comunicação e imprensa",
+                "Audiovisual",
+                "Comercial e patrocínio",
+                "Administrativo e financeiro",
+                "Credenciamento e atendimento",
+                "Segurança e saúde",
+                "Outra"
+              ]
+            },
+            {
+              "nome": "qual_area",
+              "rotulo": "Qual",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "area": "Outra"
+              }
+            },
+            {
+              "nome": "experiencia",
+              "rotulo": "Tempo de experiência na área",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Sem experiência, quero começar",
+                "Até 2 anos",
+                "2 a 5 anos",
+                "5 a 10 anos",
+                "Mais de 10 anos"
+              ]
+            },
+            {
+              "nome": "eventos",
+              "rotulo": "Eventos em que você trabalhou",
+              "tipo": "textarea",
+              "obrig": false,
+              "dica": "Nome, ano e sua função em cada um."
+            },
+            {
+              "nome": "cidade",
+              "rotulo": "Cidade e estado",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "viagem",
+              "rotulo": "Disponibilidade para viajar",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Sim, qualquer praça",
+                "Sim, na minha região",
+                "Não"
+              ]
+            },
+            {
+              "nome": "cnh",
+              "rotulo": "Tem CNH",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Não",
+                "Sim, B",
+                "Sim, C ou superior"
+              ]
+            },
+            {
+              "nome": "links",
+              "rotulo": "Currículo ou portfólio",
+              "tipo": "textarea",
+              "obrig": true,
+              "dica": "Cole o link do LinkedIn, Drive ou portfólio. Um por linha."
+            },
+            {
+              "nome": "mensagem",
+              "rotulo": "Algo mais",
+              "tipo": "textarea",
+              "obrig": false
+            }
+          ]
+        }
       }
     ],
-    "nota": ""
+    "nota": "",
+    "contato_form": {
+      "email": "relacionamento@cadillac.art.br"
+    }
   },
   "governanca": {
     "titulo": "Governança e políticas",

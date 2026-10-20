@@ -169,6 +169,15 @@ body.nav-open{overflow:hidden}
   font-weight:800;font-size:clamp(17px,2vw,21px);padding-bottom:12px}
 .contact small{display:block;margin-top:26px;max-width:620px;line-height:1.6}
 .contact-ways{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 0}
+/* Endereco e telefone no pe da home. Em linha no desktop, empilhados no
+   celular, e o telefone discavel em qualquer um dos dois. */
+.contact-dados{display:flex;flex-wrap:wrap;gap:10px 26px;margin:30px 0 0;
+  padding-top:22px;border-top:1px solid rgba(18,18,18,.22);font-size:15px;line-height:1.5}
+.contact-dados span,.contact-dados a{display:inline-flex;align-items:center;gap:8px;
+  font-weight:700}
+.contact-dados a{border-bottom:2px solid rgba(18,18,18,.35);padding-bottom:2px}
+.contact-dados a:hover{border-bottom-color:#121212}
+.contact-dados .cd-icon{font-size:19px}
 .footer{background:#111;color:#fff;padding:clamp(48px,7vw,70px) 0 26px}
 .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;
   flex-wrap:wrap;padding-bottom:clamp(44px,7vw,90px)}
@@ -1627,3 +1636,97 @@ main > .clientes:last-child{margin-bottom:0}
 #assessoria .entrega{max-width:66ch}
 #assessoria .table-wrap{margin-top:clamp(18px,2.2vw,26px)}
 #assessoria .gov-dados th{width:min(38%,240px)}
+
+/* --- Formulários do Relacionamento ---------------------------------------- */
+.form-rel{margin-top:clamp(24px,3vw,38px);border:1px solid var(--border);
+  border-radius:var(--r-img);background:var(--white);padding:clamp(22px,3vw,36px)}
+.form-rel h3{margin:0;font-size:clamp(19px,2vw,24px)}
+.form-intro{margin:6px 0 0;color:var(--muted);font-size:14px}
+.form-rel .campos{display:grid;gap:clamp(14px,1.8vw,20px);margin-top:clamp(20px,2.4vw,28px)}
+@media(min-width:720px){
+  .form-rel .campos{grid-template-columns:repeat(2,1fr)}
+  /* texto longo ocupa a linha inteira: caixa estreita convida resposta curta */
+  .form-rel .campo:has(textarea){grid-column:1/-1}
+}
+.form-rel .campo{margin:0;display:flex;flex-direction:column;gap:7px}
+.form-rel label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.form-rel label span{text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)}
+.form-rel input,.form-rel select,.form-rel textarea{width:100%;font:inherit;font-size:15px;
+  padding:11px 13px;border:1px solid var(--border-strong);border-radius:var(--r);
+  background:var(--paper);color:var(--ink);transition:border-color var(--t),background var(--t)}
+.form-rel input:focus,.form-rel select:focus,.form-rel textarea:focus{outline:none;
+  border-color:var(--orange);background:var(--white)}
+.form-rel textarea{resize:vertical;min-height:96px}
+.campo-dica{color:var(--muted);font-size:12px;line-height:1.45}
+.form-pe{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;
+  margin-top:clamp(20px,2.4vw,28px)}
+.form-pe button{cursor:pointer;background:var(--ink);color:#fff;border-color:var(--ink)}
+.form-pe button:hover{background:var(--orange);border-color:var(--orange)}
+.form-pe small{color:var(--muted);font-size:12px;line-height:1.5;max-width:42ch}
+
+/* Os canais diretos, repetidos depois de cada formulário: quem não quer
+   preencher nada tem para onde ir sem voltar ao topo. */
+.contatos-rapidos{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;
+  margin-top:clamp(16px,2vw,22px);padding-top:clamp(14px,1.8vw,20px);
+  border-top:1px solid var(--border)}
+.cr-titulo{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--muted)}
+.cr-links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.cr-links a{display:inline-flex;align-items:center;gap:7px;min-height:30px;
+  font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+.cr-links a:hover{color:var(--orange-ink)}
+.cr-links .cd-icon{color:var(--orange-ink);font-size:18px}
+
+/* Propriedades que se patrocinam */
+.prop-grade{display:grid;gap:14px;margin-top:clamp(18px,2.4vw,26px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.prop-card{display:flex;flex-direction:column;gap:8px;padding:clamp(18px,2.2vw,26px);
+  border:1px solid var(--border);border-left:3px solid var(--orange);
+  border-radius:var(--r-img);background:var(--white);transition:var(--t)}
+.prop-card:hover{transform:translateY(-2px);border-color:var(--orange)}
+.prop-card h3{margin:0;font-size:clamp(18px,1.9vw,22px)}
+.prop-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.prop-ver{margin-top:auto;display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  color:var(--orange-ink)}
+.sub-titulo{margin:clamp(24px,3vw,34px) 0 10px;font-size:clamp(17px,1.8vw,21px)}
+
+/* --- Contato: caixas, horário e endereços --------------------------------- */
+.contato-horario{display:inline-flex;align-items:center;gap:8px;margin:18px 0 0;
+  font-size:14px;color:var(--muted)}
+.contato-horario .cd-icon{color:var(--orange-ink);font-size:18px}
+
+/* Uma caixa por assunto. Quem procura imprensa escrevia para o contato geral
+   e esperava o redirecionamento; aqui o endereço certo já está à vista. */
+.caixas-grade{display:grid;gap:14px;margin-top:clamp(18px,2.4vw,26px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.caixa-card{display:grid;gap:6px;padding:clamp(18px,2.2vw,24px);background:var(--white);
+  border:1px solid var(--border);border-left:3px solid var(--orange);
+  border-radius:var(--r-img);text-decoration:none;color:inherit;transition:var(--t)}
+.caixa-card:hover{transform:translateY(-2px);border-color:var(--orange)}
+.caixa-para{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--muted)}
+.caixa-card strong{font-size:clamp(15px,1.5vw,17px);overflow-wrap:anywhere}
+.caixa-card .cd-icon{color:var(--orange-ink);justify-self:end;margin-top:-26px}
+
+.end-grade{display:grid;gap:14px;margin-top:clamp(18px,2.4vw,26px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.end-card{padding:clamp(20px,2.4vw,28px);background:var(--white);
+  border:1px solid var(--border);border-radius:var(--r-img);display:flex;
+  flex-direction:column;gap:8px}
+.end-papel{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--orange-ink)}
+.end-card h3{margin:0;font-size:clamp(19px,2vw,24px)}
+.end-linha{margin:0;line-height:1.6}
+.end-fone{display:flex;flex-wrap:wrap;gap:8px 18px;margin:2px 0 0}
+.end-fone a{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14px}
+.end-fone .cd-icon{color:var(--orange-ink);font-size:18px}
+.end-nota{margin:auto 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+/* Os dois aplicativos que as pessoas de fato usam para dirigir até um lugar. */
+.rotas{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.rotas a{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 15px;
+  border:1px solid var(--border-strong);border-radius:var(--r-pill);
+  font-size:13px;font-weight:700;text-decoration:none;color:var(--ink);transition:var(--t)}
+.rotas a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.rotas a:hover .cd-icon{color:#fff}
+.rotas .cd-icon{color:var(--orange-ink);font-size:18px}

@@ -9,6 +9,7 @@ Os assets (assets/site.css, assets/site.js) são mantidos à mão.
 import collections
 import html
 import json
+from urllib.parse import quote
 import pathlib
 from urllib.parse import urlsplit
 
@@ -60,8 +61,8 @@ MOSTRAR_CAMPOS = True
 # Por isso a lista passa por set() e o build confere, no fim, se algum ícone
 # pedido ficou de fora.
 ICONES = {
-    "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
-    "chevron_right", "close", "description", "download", "engineering", "expand_more",
+    "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "call", "campaign",
+    "chat", "chevron_right", "close", "description", "download", "engineering", "expand_more",
     "festival", "filter_list", "groups", "home", "insights", "language", "mail", "menu",
     "movie", "music_note", "north", "palette", "photo_camera", "place",
     "play_arrow", "public", "search", "skateboarding", "stacked_bar_chart", "verified",
@@ -157,6 +158,11 @@ def rel(depth):
 def icon(name, cls="cd-icon"):
     ICONES_PEDIDOS.add(name)
     return f'<span aria-hidden="true" class="material-symbols-outlined {cls}">{name}</span>'
+
+
+def so_digitos(valor):
+    """O numero como o aparelho disca: so sinal e digitos."""
+    return "".join(ch for ch in valor or "" if ch.isdigit() or ch == "+")
 
 
 def host_of(url):
@@ -786,6 +792,8 @@ def page_home():
            "name": SITE["name"], "url": BASE, "email": SITE["email"],
            "description": SITE["tagline"],
            "address": {"@type": "PostalAddress", "addressCountry": "BR"}}
+    if MODEL["contato"].get("telefone"):
+        org["telephone"] = MODEL["contato"]["telefone"]
     website = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE["name"],
                "url": BASE + "/", "inLanguage": "pt-BR"}
     cards = "".join(card(pr, 0, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
@@ -818,6 +826,23 @@ def page_home():
         f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
         f'<h3>{e(title)}</h3><small>{e(outlet)} · cobertura externa</small></a>'
         for i, (outlet, title, url) in enumerate(MODEL["featured_press"], start=1))
+    # Endereco e telefone no pe da home: quem quer falar nao deveria ter de
+    # abrir outra pagina para achar como.
+    ct = MODEL["contato"]
+    linhas = []
+    for en in ct.get("enderecos") or []:
+        trecho = ", ".join(x for x in [en.get("logradouro"), en.get("bairro"),
+                                       en["cidade"], en.get("cep")] if x)
+        linhas.append(f'<span>{icon("place")} {e(en["papel"])}: {e(trecho)}</span>')
+    if ct.get("telefone"):
+        fone = ct["telefone"]
+        linhas.append(f'<a href="tel:{so_digitos(fone)}">{icon("call")} {e(fone)}</a>')
+    if ct.get("whatsapp"):
+        zap = ct["whatsapp"]
+        linhas.append(f'<a href="https://wa.me/{so_digitos(zap).lstrip("+")}" '
+                      f'target="_blank" rel="noopener noreferrer">'
+                      f'{icon("chat")} WhatsApp {e(zap)}</a>')
+    contato_linhas = "".join(linhas)
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero-cine" data-video="{youtube_id(MODEL['video']['reel']['url'])}">
 <div class="hero-fundo" aria-hidden="true"></div>
@@ -856,7 +881,7 @@ def page_home():
 <a class="contact-link" href="mailto:{SITE['email']}">{icon('mail')} FALE COM A CADILLAC</a>
 <div class="contact-ways"><a class="pill-link" href="./projetos/">Ver eventos {icon('arrow_outward')}</a>
 <a class="pill-link" href="./dados/">Ver dados {icon('insights')}</a></div>
-<small>Caixa postal de contato sugerida: configurar antes da publicação definitiva.</small></div></section>
+<div class="contact-dados">{contato_linhas}</div></div></section>
 </main>"""
     return write("index.html",
                  head(0, "Experiências, esportes, cultura e produções | Cadillac Produções",
@@ -2473,6 +2498,71 @@ apresentação está registrada. {plural(len(nomes), 'nome catalogado', 'nomes c
                  + header(depth, "produtora") + body + footer(depth))
 
 
+def formulario(bid, form, caixa, depth):
+    """Formulario que muda conforme a resposta, sem servidor.
+
+    O site e estatico: nao ha para onde postar. O envio monta um e-mail com os
+    campos preenchidos e o rotulo de cada um, na ordem do formulario, e abre o
+    programa de e-mail da pessoa. Chega organizado, e quem envia ve o que
+    enviou.
+
+    Campo com "so_se" fica escondido ate a resposta que o convoca aparecer:
+    quem vem oferecer um show nao precisa ler as perguntas de atleta.
+    """
+    campos = []
+    for c in form["campos"]:
+        nid = f'{bid}-{c["nome"]}'
+        req = " required" if c.get("obrig") else ""
+        cond = ""
+        if c.get("so_se"):
+            alvo, valor = next(iter(c["so_se"].items()))
+            cond = f' data-so-se="{bid}-{e(alvo)}" data-valor="{e(valor)}" hidden'
+        if c["tipo"] == "select":
+            opts = "".join(f'<option>{e(o)}</option>' for o in c["opcoes"])
+            entrada = f'<select id="{nid}" name="{e(c["rotulo"])}"{req}><option value="">Selecione</option>{opts}</select>'
+        elif c["tipo"] == "textarea":
+            entrada = f'<textarea id="{nid}" name="{e(c["rotulo"])}" rows="4"{req}></textarea>'
+        else:
+            entrada = f'<input id="{nid}" name="{e(c["rotulo"])}" type="{c["tipo"]}"{req}>'
+        dica = f'<small class="campo-dica">{e(c["dica"])}</small>' if c.get("dica") else ""
+        campos.append(f'<p class="campo"{cond}><label for="{nid}">{e(c["rotulo"])}'
+                      + ("" if c.get("obrig") else ' <span>opcional</span>')
+                      + f'</label>{entrada}{dica}</p>')
+    return f"""<form class="form-rel" data-form="{bid}" data-caixa="{e(caixa)}"
+      data-assunto="{e(form['titulo'])}">
+<h3>{e(form['titulo'])}</h3>
+<p class="form-intro">{e(form['intro'])}</p>
+<div class="campos">{''.join(campos)}</div>
+<div class="form-pe"><button type="submit" class="pill-link">Enviar {icon('mail')}</button>
+<small>Abre seu programa de e-mail com tudo preenchido. Anexo, se houver, entra ali.</small></div>
+</form>"""
+
+
+def contatos_rapidos(depth, titulo="Prefere outro caminho"):
+    """Os canais diretos, repetidos depois de cada formulario."""
+    c = MODEL["contato"]
+    linhas = []
+    for nome, valor, ic in c["canais"]:
+        if not valor:
+            continue
+        if nome == "E-mail":
+            alvo = f'mailto:{valor}'
+        elif nome == "Telefone":
+            alvo = 'tel:' + so_digitos(valor)
+        elif nome == "WhatsApp":
+            alvo = 'https://wa.me/' + so_digitos(valor).lstrip("+")
+        elif nome == "Instagram":
+            alvo = f'https://instagram.com/{valor.lstrip("@")}'
+        else:
+            alvo = valor if valor.startswith("http") else "#"
+        fora = ' target="_blank" rel="noopener noreferrer"' if alvo.startswith("http") else ""
+        linhas.append(f'<a href="{e(alvo)}"{fora}>{icon(ic)} <span>{e(valor)}</span></a>')
+    if not linhas:
+        return ""
+    return (f'<div class="contatos-rapidos"><span class="cr-titulo">{e(titulo)}</span>'
+            f'<div class="cr-links">{"".join(linhas)}</div></div>')
+
+
 def page_relacionamento():
     depth, p = 1, rel(1)
     d = MODEL["relacionamento"]
@@ -2495,16 +2585,39 @@ def page_relacionamento():
             f'title="{e(c["papel"])}"{estilo}>{visual}'
             f'<span class="logo-papel">{e(c["papel"])}</span></a>')
     marcas = "".join(marcas_cel)
+    caixa = d.get("contato_form", {}).get("email") or SITE["email"]
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
     blocos = []
     for b in d["blocos"]:
-        itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in b["itens"])
-        pend = (f'<p class="note">{icon("search")} {e(b["pendencia"])}</p>' if b["pendencia"] else "")
-        extra = f'<div class="logo-wall">{marcas}</div>' if b["id"] == "marcas" else ""
+        itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in b.get("itens") or [])
+        pend = paragrafo_nota(b.get("pendencia"))
+        extra = ""
+        if b["id"] == "marcas":
+            extra = f'<div class="logo-wall">{marcas}</div>'
+        if b.get("propriedades"):
+            # as propriedades que se patrocinam, cada uma levando a propria pagina
+            cartoes = "".join(
+                f'<a class="prop-card" href="{p}projetos/{e(slug)}/">'
+                f'<h3>{e(nome)}</h3><p>{e(desc)}</p>'
+                f'<span class="prop-ver">Ver a propriedade {icon("arrow_outward")}</span></a>'
+                for slug, nome, desc in b["propriedades"] if slug in by_slug)
+            extra += (f'<div class="prop-grade">{cartoes}</div>'
+                      + paragrafo_nota(b.get("propriedades_nota")))
+        if b.get("atuais"):
+            linhas = "".join(f'<tr><th scope="row">{e(n)}</th><td>{e(cat)}</td></tr>'
+                             for n, cat in b["atuais"])
+            extra += (f'<h3 class="sub-titulo">Quem já atende a operação</h3>'
+                      f'<div class="table-wrap"><table class="amounts"><tbody>{linhas}</tbody>'
+                      f'</table></div>')
+        form = (formulario(b["id"], b["form"], caixa, depth) + contatos_rapidos(depth)
+                if b.get("form") else
+                f'<div class="section-end"><a class="pill-link" href="{p}contato/">'
+                f'Falar com a produção {icon("mail")}</a></div>')
         blocos.append(f"""<section class="container reach-section" id="{b['id']}"><hr class="rule">
 <h2 class="section-title">{e(b['titulo']).upper()}<span class="orange">.</span></h2>
 <p class="body-copy">{e(b['texto'])}</p>
 {f'<ul class="entrega">{itens}</ul>' if itens else ''}{extra}{pend}
-<div class="section-end"><a class="pill-link" href="{p}contato/">Falar com a produção {icon('mail')}</a></div></section>""")
+{form}</section>""")
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Relacionamento",
           "url": f"{BASE}/relacionamento/", "inLanguage": "pt-BR"}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
@@ -3453,24 +3566,81 @@ def page_contato():
     destino = data["endpoint"] or f'mailto:{caixa}'
     metodo = "post" if data["endpoint"] else "get"
     aviso = ""
-    canais = "".join(
-        f'<li>{icon(ic)} <strong>{e(nome)}</strong>'
-        + (f'<a href="mailto:{e(valor)}">{e(valor)}</a>' if nome == "E-mail" and valor
-           else (f'<span>{e(valor)}</span>' if valor
-                 else f'<span class="vazio-inline">a informar</span>'))
-        + '</li>'
-        for nome, valor, ic in data["canais"])
+    # Telefone e WhatsApp sao para discar e abrir conversa, nao para copiar
+    # a mao: cada um sai como link no aparelho de quem le.
+    def canal(nome, valor, ic):
+        if not valor:
+            corpo = '<span class="vazio-inline">a informar</span>'
+        elif nome == "E-mail":
+            corpo = f'<a href="mailto:{e(valor)}">{e(valor)}</a>'
+        elif nome == "Telefone":
+            corpo = f'<a href="tel:{so_digitos(valor)}">{e(valor)}</a>'
+        elif nome == "WhatsApp":
+            corpo = (f'<a href="https://wa.me/{so_digitos(valor).lstrip("+")}" '
+                     f'target="_blank" rel="noopener noreferrer">{e(valor)}</a>')
+        elif nome == "Instagram":
+            corpo = (f'<a href="https://instagram.com/{e(valor.lstrip("@"))}" '
+                     f'target="_blank" rel="noopener noreferrer">{e(valor)}</a>')
+        else:
+            corpo = f'<span>{e(valor)}</span>'
+        return f'<li>{icon(ic)} <strong>{e(nome)}</strong>{corpo}</li>'
+
+    canais = "".join(canal(*c) for c in data["canais"])
+    # Caixa certa para cada assunto: quem procura imprensa nao escreve para
+    # relacionamento e espera dois dias para ser redirecionado.
+    caixas = "".join(
+        f'<a class="caixa-card" href="mailto:{e(v)}">'
+        f'<span class="caixa-para">{e(k)}</span>'
+        f'<strong>{e(v)}</strong>{icon("mail")}</a>'
+        for k, v in data.get("caixas") or [])
+
+    # Endereco com rota pronta. O visitante que vai ate la nao deveria ter de
+    # copiar o endereco e colar no aplicativo: os dois botoes ja levam.
+    ends = []
+    fone = data.get("telefone")
+    for en in data.get("enderecos") or []:
+        linha = ", ".join(x for x in [en.get("logradouro"), en.get("bairro")] if x)
+        completo = ", ".join(x for x in [linha, en["cidade"], en.get("cep")] if x)
+        if en.get("logradouro"):
+            consulta = quote(completo)
+            rotas = (f'<div class="rotas">'
+                     f'<a href="https://www.google.com/maps/search/?api=1&amp;query={consulta}" '
+                     f'target="_blank" rel="noopener noreferrer">{icon("place")} Google Maps</a>'
+                     f'<a href="https://waze.com/ul?q={consulta}&amp;navigate=yes" '
+                     f'target="_blank" rel="noopener noreferrer">{icon("place")} Waze</a></div>')
+            corpo = f'<p class="end-linha">{e(completo)}</p>{rotas}'
+        else:
+            corpo = (f'<p class="end-linha"><span class="vazio-inline">'
+                     f'{icon("search")} endereço a informar</span></p>')
+        if fone:
+            corpo += (f'<p class="end-fone"><a href="tel:{so_digitos(fone)}">'
+                      f'{icon("call")} {e(fone)}</a>'
+                      f'<a href="https://wa.me/{so_digitos(fone).lstrip("+")}" '
+                      f'target="_blank" rel="noopener noreferrer">'
+                      f'{icon("chat")} WhatsApp</a></p>')
+        ends.append(f'<article class="end-card"><span class="end-papel">{e(en["papel"])}</span>'
+                    f'<h3>{e(en["cidade"])}</h3>{corpo}'
+                    f'<p class="end-nota">{e(en.get("nota") or "")}</p></article>')
+
     ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Contato",
           "url": f"{BASE}/contato/", "inLanguage": "pt-BR"}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>CONTATO<span class="orange">.</span></h1>
-<p class="lede">{e(data['lede'])}</p></section>
-<section class="container contato-grid"><hr class="rule">
+<p class="lede">{e(data['lede'])}</p>
+{f'<p class="contato-horario">{icon("calendar_month")} {e(data["horario"])}</p>' if data.get('horario') else ''}
+</section>
+<section class="container reach-section" id="caixas"><hr class="rule">
+<h2 class="section-title">PARA ONDE<br><em>ESCREVER.</em></h2>
+<div class="caixas-grade">{caixas}</div></section>
+<section class="container contato-grid" id="mensagem"><hr class="rule">
 <form class="contato-form" action="{e(destino)}" method="{metodo}">
 <h2>Mande sua mensagem</h2>{''.join(campos)}
 <button class="pill-link" type="submit">Enviar {icon('mail')}</button>{aviso}</form>
 <div class="area-list"><h3>Canais diretos</h3><ul class="canais">{canais}</ul>
-{paragrafo_nota(data['nota'])}</div></section></main>"""
+{paragrafo_nota(data['nota'])}</div></section>
+<section class="container reach-section" id="enderecos"><hr class="rule">
+<h2 class="section-title">ONDE<br><em>A GENTE ESTÁ.</em></h2>
+<div class="end-grade">{''.join(ends)}</div></section></main>"""
     return write("contato/index.html",
                  head(depth, "Contato | Cadillac Produções",
                       "Fale com a Cadillac sobre projetos, parcerias, patrocínio ou imprensa.",

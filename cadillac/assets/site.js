@@ -303,4 +303,48 @@
     }, { threshold: 0.5 });
     facades.forEach(function (botao) { olho.observe(botao); });
   }
+
+  /* --- Formulários do Relacionamento -------------------------------------
+     O site é estático: não há servidor para receber post. O envio monta um
+     e-mail com rótulo e resposta de cada campo preenchido, na ordem do
+     formulário, e abre o programa de e-mail de quem preencheu. Chega legível
+     e a pessoa vê o que mandou antes de enviar.
+
+     Campo marcado com data-so-se só aparece quando o campo que ele cita
+     assume o valor esperado: quem vem oferecer um show não lê as perguntas
+     de atleta. Enquanto escondido, ele também perde o "required", senão o
+     navegador barraria o envio por um campo que ninguém vê. */
+  [].slice.call(document.querySelectorAll('.form-rel')).forEach(function (form) {
+    var condicionais = [].slice.call(form.querySelectorAll('[data-so-se]'));
+
+    function sincroniza() {
+      condicionais.forEach(function (campo) {
+        var gatilho = document.getElementById(campo.getAttribute('data-so-se'));
+        var mostra = gatilho && gatilho.value === campo.getAttribute('data-valor');
+        campo.hidden = !mostra;
+        [].slice.call(campo.querySelectorAll('input,select,textarea')).forEach(function (el) {
+          el.disabled = !mostra;
+        });
+      });
+    }
+
+    form.addEventListener('change', sincroniza);
+    sincroniza();
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var linhas = [];
+      [].slice.call(form.querySelectorAll('input,select,textarea')).forEach(function (el) {
+        if (el.disabled || !el.name) return;
+        var v = (el.value || '').trim();
+        if (v) linhas.push(el.name + ': ' + v);
+      });
+      if (!linhas.length) return;
+      var assunto = form.getAttribute('data-assunto') || 'Contato pelo site';
+      window.location.href = 'mailto:' + form.getAttribute('data-caixa')
+        + '?subject=' + encodeURIComponent('[Site] ' + assunto)
+        + '&body=' + encodeURIComponent(linhas.join('\n'));
+    });
+  });
+
 })();

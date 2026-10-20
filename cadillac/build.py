@@ -74,7 +74,7 @@ PROJECTS = sorted(MODEL["projects"],
 
 # Modo de preenchimento: mostra, em cada campo vazio, o caminho exato no
 # content-model.json. Deixe False antes de publicar para o público.
-MOSTRAR_CAMPOS = True
+MOSTRAR_CAMPOS = False
 
 # O Google Fonts responde 400 quando icon_names traz um nome repetido, e aí
 # NENHUM ícone do site carrega: cada um aparece com o próprio nome escrito.
@@ -521,7 +521,10 @@ def stems_edicao(project, year):
     if year:
         stems.append(f'{project["slug"]}-{year}')
         ano = ano_de(year)
-        if str(ano) != str(year):
+        # A foto nomeada so pelo ano pertence a primeira edicao daquele ano: a
+        # segunda nao herda o registro da primeira.
+        irmas = sorted(x for x in project.get("years") or [] if ano_de(x) == ano)
+        if str(ano) != str(year) and irmas and str(irmas[0]) == str(year):
             stems.append(f'{project["slug"]}-{ano}')
     stems.append(project["slug"])
     return stems
@@ -1164,6 +1167,19 @@ def page_edition(pr, year):
         f'<a href="{p}projetos/{slug}/{y}/">{e(rotulo_ed(pr, y))} {icon("arrow_outward")}</a>'
         for y in others) or "<span>Primeira edição catalogada</span>"
 
+    fotos = [slot(f'{prefixo}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide',
+                  depth, credito)
+             if (ROOT / "assets" / "fotos" / f"{prefixo}-01.jpg").exists() else "",
+             slot(f'{prefixo}-02.jpg', '4:5', 'Bastidores', '', depth, credito)
+             if (ROOT / "assets" / "fotos" / f"{prefixo}-02.jpg").exists() else "",
+             slot(f'{prefixo}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)
+             if (ROOT / "assets" / "fotos" / f"{prefixo}-03.jpg").exists() else ""]
+    fotos = [x for x in fotos if x]
+    galeria = (f'''<section class="container gallery-section">
+<hr class="rule">
+<h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
+<div class="gallery">{"".join(fotos)}</div></section>''' if fotos else "")
+
     ld = {"@context": "https://schema.org", "@type": "WebPage",
           "name": f"{pr['name']} {rot}", "url": f"{BASE}/projetos/{slug}/{year}/",
           "inLanguage": "pt-BR",
@@ -1191,14 +1207,7 @@ def page_edition(pr, year):
 {cast_block(pr, year, depth=depth)}
 {creditos_projeto(pr, depth, year)}
 {op_edition(pr, year)}
-<section class="container gallery-section">
-<hr class="rule">
-<h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
-<div class="gallery">
-{slot(f'{prefixo}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide', depth, credito)}
-{slot(f'{prefixo}-02.jpg', '4:5', 'Bastidores', '', depth, credito)}
-{slot(f'{prefixo}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)}</div>
-</section>
+{galeria}
 <section class="container insights">
 <hr class="rule">
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
@@ -1492,12 +1501,17 @@ def galeria_projeto(pr, depth):
             + f'<span class="gal-credito">{icon("photo_camera")} '
               f'{e(credito)}</span></button>')
 
-    faltam = GALERIA_ALVO - len(nomes)
-    for i in range(len(nomes) + 1, GALERIA_ALVO + 1):
-        arquivo = f'{pr["slug"]}-{i:02d}.jpg'
-        itens.append(
-            f'<div class="gal-item gal-reserva">{icon("photo_camera")}'
-            f'<code>assets/fotos/{e(arquivo)}</code></div>')
+    # O espaco reservado com nome de arquivo e recado de bastidor: diz a quem
+    # produz qual foto falta. Na pagina publicada vira buraco cinza, entao so
+    # aparece enquanto MOSTRAR_CAMPOS estiver ligado.
+    if MOSTRAR_CAMPOS:
+        for i in range(len(nomes) + 1, GALERIA_ALVO + 1):
+            arquivo = f'{pr["slug"]}-{i:02d}.jpg'
+            itens.append(
+                f'<div class="gal-item gal-reserva">{icon("photo_camera")}'
+                f'<code>assets/fotos/{e(arquivo)}</code></div>')
+    if not itens:
+        return ""
 
     # Sem rodape. Ele contava quantas fotos ha e quantas faltam - a contagem o
     # visitante faz com os olhos, e a pendencia e assunto da producao. O

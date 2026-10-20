@@ -28,7 +28,8 @@ def _recencia(pr):
     return max(digitos) if digitos else 0
 
 
-PROJECTS = sorted(MODEL["projects"], key=lambda pr: (-_recencia(pr), pr["name"]))
+PROJECTS = sorted(MODEL["projects"],
+                  key=lambda pr: (pr.get("ordem") or 99, -_recencia(pr), pr["name"]))
 
 # Modo de preenchimento: mostra, em cada campo vazio, o caminho exato no
 # content-model.json. Deixe False antes de publicar para o público.
@@ -725,7 +726,6 @@ def page_projects():
 <section class="container index-grid">
 <h2 class="sr-only">Acervo de eventos</h2><hr class="rule">
 <div class="works-grid">{cards}</div>
-<p class="note">O acervo cresce por documentação. A ausência de um ano ou de um projeto nesta lista significa que o registro ainda não foi catalogado aqui, não que o evento não tenha existido.</p>
 </section></main>"""
     return write("projetos/index.html",
                  head(1, "Eventos e cases | Cadillac Produções",

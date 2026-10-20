@@ -1,5 +1,5 @@
 {
-  "version": 48,
+  "version": 49,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -303,7 +303,8 @@
           ]
         ],
         "parceiros_nota": "Instituições e marcas identificadas no projeto do Itacoatiara Pro 10 anos, de 2022. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
-      }
+      },
+      "ordem": 3
     },
     {
       "slug": "mr-moo-festival",
@@ -716,7 +717,8 @@
           ]
         ],
         "nota": "Conforme o mídia kit oficial do festival. A composição varia de edição para edição."
-      }
+      },
+      "ordem": 7
     },
     {
       "slug": "connect-heroes",
@@ -1131,7 +1133,8 @@
           ]
         ],
         "parceiros_nota": "Marcas e instituições identificadas no material oficial do projeto e na informação da direção. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
-      }
+      },
+      "ordem": 6
     },
     {
       "slug": "vert-battle",
@@ -1375,7 +1378,8 @@
             "Destino dos alimentos arrecadados"
           ]
         ]
-      }
+      },
+      "ordem": 1
     },
     {
       "slug": "tamo-junto-bb",
@@ -1692,7 +1696,8 @@
           ]
         ],
         "nota": "As quatro frentes da marca no festival são esporte, música, tecnologia e sustentabilidade. A programação varia de edição para edição: o que está descrito aqui reúne o que aparece em Natal 2024, Fortaleza 2025 e no previsto para Maceió 2026, conforme a apresentação oficial do festival."
-      }
+      },
+      "ordem": 4
     },
     {
       "slug": "festival-de-tribos-juruti",
@@ -1755,7 +1760,8 @@
           "A Cadillac produziu o festival inteiro?",
           "O registro não sustenta essa afirmação. Ele documenta apenas o objeto contratado."
         ]
-      ]
+      ],
+      "ordem": 9
     },
     {
       "slug": "dominguinho",
@@ -2074,7 +2080,8 @@
         "fonte_texto": "Informado pela direção da Cadillac; ficha técnica independente pendente",
         "nota": "Enquanto a ficha técnica não chega, o público desta turnê aparece identificado e fica fora dos totais de alcance da Cadillac, como todo número de terceiro neste acervo."
       },
-      "ingressos": "https://turnedominguinho.ingresse.com/"
+      "ingressos": "https://turnedominguinho.ingresse.com/",
+      "ordem": 2
     },
     {
       "slug": "arte-em-circuito",
@@ -2103,7 +2110,8 @@
       ],
       "yearsources": {},
       "faq": [],
-      "nota_registro": "Ano, instituição executora, programação completa e forma de contratação ainda precisam ser confirmados antes de o projeto ser descrito como propriedade da Cadillac."
+      "nota_registro": "Ano, instituição executora, programação completa e forma de contratação ainda precisam ser confirmados antes de o projeto ser descrito como propriedade da Cadillac.",
+      "ordem": 8
     },
     {
       "slug": "ccbb-mac-bahia",
@@ -2134,7 +2142,8 @@
         "status": "reportada",
         "fonte": null
       },
-      "nota_registro": "A ficha técnica institucional e os créditos completos ainda estão sendo solicitados. Até que cheguem, o escopo da Cadillac nesta ação não é apresentado como produção integral."
+      "nota_registro": "A ficha técnica institucional e os créditos completos ainda estão sendo solicitados. Até que cheguem, o escopo da Cadillac nesta ação não é apresentado como produção integral.",
+      "ordem": 5
     }
   ],
   "services": [

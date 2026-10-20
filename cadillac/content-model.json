@@ -1,5 +1,5 @@
 {
-  "version": 18,
+  "version": 19,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -640,7 +640,7 @@
       "period": "2026—2032",
       "theme": "arena",
       "desc": "Jiu-jítsu tratado como espetáculo: combates selecionados, fight week em hotel cinco estrelas e transmissão em TV, streaming e redes.",
-      "intro": "O Connect Heroes nasceu no Rio de Janeiro com uma tese simples: a técnica continua no centro, mas a experiência ganha outra dimensão. A competição acontece no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel — coletiva, pesagem e atletas hospedados no local — e chega ao público por três caminhos ao mesmo tempo: TV, streaming e redes. A primeira edição foi ao ar em julho de 2026; a segunda está anunciada para dezembro. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que organiza o esporte em núcleos e projeta uma trajetória internacional até 2032.",
+      "intro": "O Connect Heroes nasceu no Rio de Janeiro com uma tese simples: a técnica continua no centro, mas a experiência ganha outra dimensão. A primeira edição aconteceu no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel, e chegou ao público por três caminhos ao mesmo tempo: TV, streaming e redes. A segunda edição muda de cidade e acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói, para convidados especiais. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que projeta o esporte até 2032.",
       "image": null,
       "years": [
         2026
@@ -648,8 +648,8 @@
       "editions": {
         "2026": {
           "period": "Julho e dezembro de 2026",
-          "place": "Grand Hyatt Rio de Janeiro",
-          "note": "1ª edição realizada em julho · 2ª edição anunciada para dezembro",
+          "place": "Rio de Janeiro e Niterói, RJ",
+          "note": "1ª edição no Grand Hyatt Rio · 2ª edição anunciada para Niterói",
           "datas": {
             "inicio": "2026-07-01",
             "fim": "2026-12-31",
@@ -662,13 +662,23 @@
           },
           "etapas": [
             {
-              "nome": "2ª edição · Grand Hyatt Rio de Janeiro",
+              "nome": "2ª edição · Niterói, RJ",
               "inicio": null,
               "fim": null,
               "status": "anunciada",
               "fonte": [
-                "Connect Heroes no Instagram",
-                "https://www.instagram.com/connectheroes/"
+                "Informado pela direção do projeto",
+                null
+              ]
+            },
+            {
+              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
+              "inicio": null,
+              "fim": null,
+              "status": "anunciada",
+              "fonte": [
+                "Informado pela direção do projeto",
+                null
               ]
             },
             {
@@ -693,8 +703,9 @@
           "A transmissão também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay.",
           "No YouTube o material registrou 149 mil visualizações, 63 mil horas de exibição e 87 mil aparelhos conectados, dos quais 54,9% eram televisores.",
           "Os reels do projeto somaram 25 milhões de visualizações ao longo de julho, e o conjunto de transmissão e reprises passou de 2 milhões de visualizações.",
-          "A segunda edição está anunciada para dezembro de 2026, no mesmo Grand Hyatt; o dia exato depende da ficha técnica da produção.",
-          "Os números de audiência acima são declarados pela produção no mídia kit oficial (V6) e ainda não têm relatório de emissora nem print de painel anexado a esta página."
+          "Os números de audiência acima são declarados pela produção no mídia kit oficial (V6) e ainda não têm relatório de emissora nem print de painel anexado a esta página.",
+          "A segunda edição está anunciada para dezembro de 2026, em Niterói, mudando de cidade em relação à primeira.",
+          "O lançamento para a imprensa acontece no MAC Niterói, o Museu de Arte Contemporânea, para convidados especiais."
         ]
       },
       "mercado": {
@@ -873,16 +884,12 @@
       },
       "faq": [
         [
-          "Onde o Connect Heroes acontece?",
-          "No Grand Hyatt Rio de Janeiro. A competição ocupa um dia, e a fight week — coletiva de imprensa, pesagem e hospedagem dos atletas — acontece dentro do próprio hotel, de quarta a domingo."
+          "Onde acontece a segunda edição?",
+          "Em Niterói, em dezembro de 2026. O lançamento para a imprensa acontece no MAC Niterói, para convidados especiais. A primeira edição foi no Grand Hyatt Rio de Janeiro."
         ],
         [
           "Quem transmitiu a primeira edição?",
           "A Xsports levou a transmissão ao vivo e reprisou o evento 27 vezes entre 11 de julho e 9 de agosto de 2026. O conteúdo também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay, além do canal próprio no YouTube."
-        ],
-        [
-          "Quando é a próxima edição?",
-          "Dezembro de 2026, no mesmo Grand Hyatt. O dia exato ainda depende da ficha técnica da produção e entra aqui assim que for publicado."
         ],
         [
           "Os números de audiência são auditados?",
@@ -891,6 +898,10 @@
         [
           "O que é o World Connect Heroes?",
           "É o plano de longo prazo em volta do evento, de 2026 a 2032, que organiza o esporte em núcleos e verticais. É projeção estratégica, sem vínculo oficial com os Jogos."
+        ],
+        [
+          "Onde foi a primeira edição?",
+          "No Grand Hyatt Rio de Janeiro. A competição ocupou um dia, e a fight week — coletiva de imprensa, pesagem e hospedagem dos atletas — aconteceu dentro do próprio hotel, de quarta a domingo."
         ]
       ]
     },
@@ -1394,17 +1405,17 @@
       ],
       "editions": {
         "2026": {
-          "period": "Turnê 2026",
+          "period": "Turnê 2026, com shows até janeiro de 2027",
           "place": "Circuito nacional",
-          "note": "43 shows informados até agosto de 2026",
+          "note": "Dominguinho Vol. 2 · quatro shows de agosto com público auditado em inventário",
           "datas": {
-            "inicio": "2026-01-01",
-            "fim": "2026-08-31",
-            "precisao": "mes",
+            "inicio": "2026-08-08",
+            "fim": "2026-12-19",
+            "precisao": "dia",
             "status": "parcial",
             "fonte": [
-              "Billboard Brasil, turnê Dominguinho",
-              "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+              "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+              null
             ]
           },
           "total_informado": [
@@ -1417,63 +1428,123 @@
           ],
           "shows": [
             {
-              "cidade": "Fortaleza, CE",
-              "data": null,
-              "local": null,
-              "status": "a confirmar",
+              "cidade": "Goiânia, GO",
+              "data": "2026-12-19",
+              "local": "Estádio Olímpico",
+              "status": "anunciada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "Revista Zelo, último show da turnê em Goiânia",
+                "https://revistazelo.com.br/joao-gomes-jota-pe-e-mestrinho-fazem-ultimo-show-da-turne-dominguinho-em-goiania/"
               ]
             },
             {
-              "cidade": "Natal, RN",
-              "data": null,
+              "cidade": "Recife, PE",
+              "data": "2026-12-06",
               "local": null,
-              "status": "a confirmar",
+              "status": "anunciada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "The Rio Times, Dominguinho Tour 2026",
+                "https://www.riotimesonline.com/dominguinho-tour-joao-gomes-jotape-mestrinho-2026/"
               ]
             },
             {
-              "cidade": "Uberlândia, MG",
-              "data": null,
-              "local": null,
-              "status": "a confirmar",
+              "cidade": "Belo Horizonte, MG",
+              "data": "2026-12-05",
+              "local": "Esplanada do Mineirão",
+              "status": "anunciada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "Agenda BH, Dominguinho na Esplanada do Mineirão",
+                "https://www.agendabh.com.br/jota-pe-joao-gomes-e-mestrinho-como-explicar-o-fenomeno-dominguinho/"
               ]
             },
             {
-              "cidade": "Campinas, SP",
-              "data": null,
+              "cidade": "Salvador, BA",
+              "data": "2026-11-28",
               "local": null,
-              "status": "a confirmar",
+              "status": "anunciada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "The Rio Times, Dominguinho Tour 2026",
+                "https://www.riotimesonline.com/dominguinho-tour-joao-gomes-jotape-mestrinho-2026/"
+              ]
+            },
+            {
+              "cidade": "Rio de Janeiro, RJ",
+              "data": "2026-11-15",
+              "local": "Cidade das Artes",
+              "status": "anunciada",
+              "fonte": [
+                "Agenda Carioca, segunda data no Rio após esgotar ingressos",
+                "https://agendacarioca.com.br/show-de-joao-gomes-dominguinho-anuncia-segunda-data-no-rio-apos-esgotar-ingressos/"
+              ]
+            },
+            {
+              "cidade": "Rio de Janeiro, RJ",
+              "data": "2026-11-14",
+              "local": "Cidade das Artes, jardins",
+              "status": "anunciada",
+              "fonte": [
+                "Agenda Carioca, segunda data no Rio após esgotar ingressos",
+                "https://agendacarioca.com.br/show-de-joao-gomes-dominguinho-anuncia-segunda-data-no-rio-apos-esgotar-ingressos/"
+              ]
+            },
+            {
+              "cidade": "Ribeirão Preto, SP",
+              "data": "2026-11-07",
+              "local": "Estádio do Comercial",
+              "status": "anunciada",
+              "fonte": [
+                "Portal Morada, turnê Dominguinho em Ribeirão Preto",
+                "https://portalmorada.com.br/turne-dominguinho-chega-a-ribeirao-preto-em-novembro-com-joao-gomes-jota-pe-e-mestrinho"
+              ]
+            },
+            {
+              "cidade": "Americana, SP",
+              "data": "2026-08-29",
+              "local": "Parque de Eventos CCA",
+              "status": "confirmada",
+              "fonte": [
+                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                null
               ]
             },
             {
               "cidade": "Santos, SP",
-              "data": null,
-              "local": null,
-              "status": "a confirmar",
+              "data": "2026-08-15",
+              "local": "Santos Convention Center",
+              "status": "confirmada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                null
               ]
             },
             {
-              "cidade": "Porto Alegre, RS",
-              "data": null,
-              "local": null,
-              "status": "a confirmar",
+              "cidade": "Uberlândia, MG",
+              "data": "2026-08-14",
+              "local": "Estacionamento do Teatro Municipal",
+              "status": "confirmada",
               "fonte": [
-                "Billboard Brasil, turnê Dominguinho",
-                "https://billboard.com.br/joao-gomes-turne-dominguinho/"
+                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                null
+              ]
+            },
+            {
+              "cidade": "Fortaleza, CE",
+              "data": "2026-08-08",
+              "local": "Centro de Formação Olímpica",
+              "status": "confirmada",
+              "fonte": [
+                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                null
+              ]
+            },
+            {
+              "cidade": "São Paulo, SP",
+              "data": "2026-04-25",
+              "local": "Allianz Parque",
+              "status": "confirmada",
+              "fonte": [
+                "IstoÉ, Multishow transmite Dominguinho Ao Vivo",
+                "https://istoe.com.br/multishow-transmite-dominguinho-ao-vivo"
               ]
             }
           ],
@@ -1501,21 +1572,50 @@
                 "gshow, especial na TV Globo",
                 "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
               ]
+            },
+            {
+              "o_que": "Dominguinho Ao Vivo, transmissão do show de um ano do projeto",
+              "data": "2026-04-25",
+              "data_fim": "2026-04-25",
+              "local": "Allianz Parque, São Paulo",
+              "status": "confirmada",
+              "nota": "Transmitido pelo Multishow e pelo Globoplay, com apresentação de Laura Vicente",
+              "fonte": [
+                "IstoÉ, Multishow transmite Dominguinho Ao Vivo",
+                "https://istoe.com.br/multishow-transmite-dominguinho-ao-vivo"
+              ]
+            },
+            {
+              "o_que": "Especial Dominguinho Vol. 2 no Altas Horas, da TV Globo",
+              "data": null,
+              "data_fim": null,
+              "local": "Rede nacional",
+              "status": "a confirmar",
+              "nota": "Exibido em 2026, com convidados; data exata a recuperar na grade da emissora",
+              "fonte": [
+                "Altas Horas, especial Dominguinho 2",
+                "https://www.youtube.com/watch?v=ALOVMbuIV-o"
+              ]
             }
           ],
-          "note_shows": "A reportagem informa o total de 43 shows e cita seis cidades, sem a lista completa de datas. As 37 apresentações restantes e os dias de cada cidade dependem do mapa de turnê da produção."
+          "note_shows": "Quatro shows de agosto de 2026 têm ficha completa, porque foram inventariados: local, horário de portão, produtora local e público pagante. As datas de novembro em diante são as anunciadas na cobertura e nos canais de venda. A reportagem informa 43 shows realizados até agosto e a continuidade da turnê até janeiro de 2027, com temporada europeia prevista para fevereiro de 2027: o mapa completo depende da produção."
         }
       },
       "records": [],
       "facts": {
         "2026": [
-          "A turnê reúne João Gomes, Jota.pê e Mestrinho em shows de música brasileira.",
-          "Reportagem de agosto de 2026 informou 43 shows realizados na turnê até aquela data.",
-          "A cobertura da Billboard lista, entre outras, Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal.",
-          "A imprensa atribuiu ao projeto mais de 300 milhões de streams — métrica das plataformas, não de evento.",
-          "A TV Globo exibiu especial do projeto em 2026.",
-          "João Gomes também integrou a programação musical do Tamo Junto BB em Fortaleza, em dezembro de 2025.",
-          "A participação da Cadillac foi informada pela direção do projeto e aguarda ficha técnica independente."
+          "O projeto venceu o Grammy Latino de 2025 na categoria de melhor álbum de música de raízes em língua portuguesa.",
+          "A turnê do Dominguinho Vol. 2 estreou em 8 de agosto de 2026, em Fortaleza, e segue com shows até janeiro de 2027.",
+          "Quatro shows de agosto foram inventariados e somaram 35.050 pessoas: Fortaleza com 9.390, Americana com 9.783, Santos com 8.547 e Uberlândia com 7.330.",
+          "O público pagante desses quatro shows foi de 33.851 pessoas; o público considerado inclui equipes e convidados.",
+          "Cada praça teve produtora local e estrutura contratada na própria cidade: Multi Entretenimento em Fortaleza, Marcelo Cunha Produções em Uberlândia, O Terminal Eventos com o Grupo HJR em Santos e Oceania Divulgação em Americana.",
+          "Santos foi montada em paralelo ao show de Uberlândia, no dia anterior, sem deslocar estrutura pesada entre as cidades.",
+          "O núcleo viajante da turnê reúne artistas, equipe técnica e um caminhão de backline que saiu de São Paulo em 4 de agosto e voltou em 30 de agosto.",
+          "O show de um ano do projeto, no Allianz Parque, em 25 de abril de 2026, foi transmitido pelo Multishow e pelo Globoplay.",
+          "O trio apresentou o especial do Dominguinho Vol. 2 no Altas Horas, da TV Globo.",
+          "Os ingressos de 14 de novembro, na Cidade das Artes, no Rio, esgotaram e uma segunda data foi aberta para o dia 15.",
+          "O Banco do Brasil assina a turnê como patrocinador apresentador, conforme o inventário de emissões do projeto.",
+          "A imprensa atribui ao projeto mais de 300 milhões de streams — métrica das plataformas, não de evento."
         ]
       },
       "sources": [
@@ -1526,6 +1626,18 @@
         [
           "gshow, especial na TV Globo",
           "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
+        ],
+        [
+          "Página oficial de ingressos da turnê",
+          "https://turnedominguinho.ingresse.com/"
+        ],
+        [
+          "O Liberal, projeto vencedor do Grammy Latino reúne o trio em Belém",
+          "https://www.oliberal.com/vencedor-do-grammy-latino-projeto-dominguinho-reune-jo-o-gomes-mestrinho-e-jota-pe-em-belem-1.1072339"
+        ],
+        [
+          "IstoÉ, Multishow transmite Dominguinho Ao Vivo",
+          "https://istoe.com.br/multishow-transmite-dominguinho-ao-vivo"
         ]
       ],
       "yearsources": {
@@ -1537,6 +1649,38 @@
           [
             "gshow, especial na TV Globo",
             "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
+          ],
+          [
+            "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+            null
+          ],
+          [
+            "Revista Zelo, último show da turnê em Goiânia",
+            "https://revistazelo.com.br/joao-gomes-jota-pe-e-mestrinho-fazem-ultimo-show-da-turne-dominguinho-em-goiania/"
+          ],
+          [
+            "Agenda BH, Dominguinho na Esplanada do Mineirão",
+            "https://www.agendabh.com.br/jota-pe-joao-gomes-e-mestrinho-como-explicar-o-fenomeno-dominguinho/"
+          ],
+          [
+            "Agenda Carioca, segunda data no Rio após esgotar ingressos",
+            "https://agendacarioca.com.br/show-de-joao-gomes-dominguinho-anuncia-segunda-data-no-rio-apos-esgotar-ingressos/"
+          ],
+          [
+            "Portal Morada, turnê Dominguinho em Ribeirão Preto",
+            "https://portalmorada.com.br/turne-dominguinho-chega-a-ribeirao-preto-em-novembro-com-joao-gomes-jota-pe-e-mestrinho"
+          ],
+          [
+            "The Rio Times, Dominguinho Tour 2026",
+            "https://www.riotimesonline.com/dominguinho-tour-joao-gomes-jotape-mestrinho-2026/"
+          ],
+          [
+            "IstoÉ, Multishow transmite Dominguinho Ao Vivo",
+            "https://istoe.com.br/multishow-transmite-dominguinho-ao-vivo"
+          ],
+          [
+            "O Povo, turnê Dominguinho chega a Fortaleza em agosto",
+            "https://www.opovo.com.br/vidaearte/2026/05/11/turne-dominguinho-volta-aos-palcos-e-chega-a-fortaleza-em-agosto.html"
           ]
         ]
       },
@@ -1553,7 +1697,15 @@
           "Qual o trabalho da Cadillac?",
           "A participação foi informada pela direção do projeto a este portal; a ficha técnica e as entregas específicas ainda dependem de validação."
         ]
-      ]
+      ],
+      "papel": {
+        "rotulo": "Participação a documentar",
+        "icone": "description",
+        "texto": "O inventário de emissões da turnê nomeia a JG Shows Ltda como organização inventariante e o Banco do Brasil como patrocinador apresentador. A participação da Cadillac no projeto foi informada pela direção e ainda não aparece em documento público.",
+        "status": "a confirmar",
+        "fonte_texto": "Informado pela direção da Cadillac; ficha técnica independente pendente",
+        "nota": "Enquanto a ficha técnica não chega, o público desta turnê aparece identificado e fica fora dos totais de alcance da Cadillac, como todo número de terceiro neste acervo."
+      }
     },
     {
       "slug": "arte-em-circuito",
@@ -2705,6 +2857,66 @@
         ],
         "tipo": "declarado",
         "conta": ""
+      },
+      {
+        "project": "dominguinho",
+        "year": 2026,
+        "family": "presencial",
+        "value": 9783,
+        "label": "Show de Americana, agosto de 2026",
+        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "counts": false,
+        "source": [
+          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "dominguinho",
+        "year": 2026,
+        "family": "presencial",
+        "value": 9390,
+        "label": "Show de Fortaleza, agosto de 2026",
+        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "counts": false,
+        "source": [
+          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "dominguinho",
+        "year": 2026,
+        "family": "presencial",
+        "value": 8547,
+        "label": "Show de Santos, agosto de 2026",
+        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "counts": false,
+        "source": [
+          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
+      },
+      {
+        "project": "dominguinho",
+        "year": 2026,
+        "family": "presencial",
+        "value": 7330,
+        "label": "Show de Uberlândia, agosto de 2026",
+        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "counts": false,
+        "source": [
+          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          null
+        ],
+        "tipo": "declarado",
+        "conta": ""
       }
     ],
     "method": [
@@ -2808,8 +3020,8 @@
       },
       "dominguinho": {
         "cidades": [
-          6,
-          "Fortaleza, Uberlândia, Santos, Campinas, Porto Alegre e Natal, entre as divulgadas"
+          12,
+          "Fortaleza, Uberlândia, Santos, Americana, Ribeirão Preto, Rio de Janeiro, Salvador, Belo Horizonte, Recife, Goiânia e São Paulo, entre as divulgadas"
         ]
       },
       "festival-de-tribos-juruti": {
@@ -3001,6 +3213,24 @@
         "dias_evento": [
           26,
           "De 1º a 26 de junho"
+        ]
+      },
+      "dominguinho-2026": {
+        "publico": [
+          35050,
+          "Soma dos quatro shows de agosto inventariados"
+        ],
+        "cidades": [
+          12,
+          "Praças com data documentada ou anunciada nesta página"
+        ],
+        "fornecedores": [
+          4,
+          "Uma produtora local por praça nos quatro shows de agosto"
+        ],
+        "dias_evento": [
+          4,
+          "Quatro shows inventariados em agosto de 2026"
         ]
       }
     },
@@ -4222,7 +4452,29 @@
       "poster": "assets/fotos/reel-poster.jpg",
       "nota": "Vídeo institucional da Cadillac, hospedado no YouTube. O player só carrega depois do clique: até lá a página não envia requisição nem cookie para a plataforma."
     },
-    "por_projeto": {},
+    "por_projeto": {
+      "dominguinho": {
+        "url": "https://www.youtube.com/watch?v=elzs9O5AZV8",
+        "titulo": "Dominguinho Vol. 2, show completo",
+        "arquivo": "assets/video/dominguinho.mp4",
+        "poster": null,
+        "nota": "Vídeo publicado no canal João Gomes Cantor, no YouTube. O player só carrega depois do clique."
+      },
+      "vert-battle": {
+        "url": "https://www.youtube.com/watch?v=3xGzZshILg0",
+        "titulo": "Vert Battle em Goiânia",
+        "arquivo": "assets/video/vert-battle.mp4",
+        "poster": null,
+        "nota": "Registro da etapa de Goiânia publicado no YouTube. O player só carrega depois do clique."
+      },
+      "itacoatiara-pro": {
+        "url": "https://www.youtube.com/watch?v=kzDP7ZS6Axg",
+        "titulo": "Itacoatiara Pro, final do skate",
+        "arquivo": "assets/video/itacoatiara-pro.mp4",
+        "poster": null,
+        "nota": "Registro da final do skate publicado no YouTube. O player só carrega depois do clique."
+      }
+    },
     "nota": "Aceita arquivo local em assets/video ou URL de YouTube e Vimeo. Sem vídeo, o espaço fica reservado e nada quebra. Para o vídeo entrar no JSON-LD como VideoObject, preencha publicado_em (data de publicação, AAAA-MM-DD) e duracao_iso (por exemplo PT1M42S): sem a data, o Google trata o dado estruturado como incompleto e é melhor não emiti-lo."
   },
   "imprensa": {

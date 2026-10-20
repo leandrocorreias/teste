@@ -50,6 +50,32 @@ content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
 
+## V16: a turnê com datas reais, vídeo nos projetos e Niterói
+
+**Dominguinho** deixou de ser “43 shows e seis cidades sem data”. O inventário de emissões
+da turnê trouxe ficha completa de quatro shows de agosto de 2026 — local, horário de
+portão, produtora local e público pagante — e a pesquisa trouxe as datas anunciadas de
+novembro em diante. São 12 apresentações catalogadas, 5 com data confirmada.
+
+Público dos quatro shows inventariados: **35.050 pessoas** (33.851 pagantes). Fortaleza
+9.390, Americana 9.783, Santos 8.547, Uberlândia 7.330.
+
+Decisão de integridade: esse público entra em `/dados/` com **`counts: false`**. O
+inventário nomeia a **JG Shows Ltda** como organização e o **Banco do Brasil** como
+patrocinador apresentador; a participação da Cadillac segue informada pela direção, sem
+documento público. O bloco `papel` do projeto diz isso, e o número passa a contar no dia
+em que a ficha técnica chegar.
+
+**Vídeo nos projetos** (`video.por_projeto`): Dominguinho, Vert Battle e Itacoatiara Pro
+ganharam vídeo do YouTube na página do projeto, com o mesmo player sob demanda da home.
+
+**Connect Heroes**: a 2ª edição muda de cidade — dezembro em **Niterói**, com lançamento
+para a imprensa no **MAC Niterói**, para convidados especiais. A primeira segue registrada
+no Grand Hyatt Rio.
+
+`shows_block` passou a aceitar fonte sem URL pública e a contar o que realmente existe,
+em vez de anunciar que nenhuma data foi publicada.
+
 ## V15: atletas, e os eventos pelos decks oficiais
 
 **Atletas** (`/atletas/`): 29 fichas, uma página por atleta, em três frentes — o squad BB

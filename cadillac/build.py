@@ -734,6 +734,10 @@ def page_project(pr):
         sections.append(faq_html)
         n += 1
 
+    if MODEL["video"]["por_projeto"].get(pr["slug"]):
+        sections.append(f"""<section class="container reel-section"><hr class="rule">
+<h2 class="section-title">O PROJETO<br><em>EM VÍDEO.</em></h2>
+{video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"])}</section>""")
     sections.append(papel_block(pr))
     sections.append(historico_block(pr))
     sections.append(mercado_block(pr))
@@ -781,11 +785,10 @@ def shows_block(pr, year):
         quando = (e(periodo({"inicio": sh["data"], "fim": sh["data"], "precisao": "dia"})[0])
                   if sh.get("data") else '<span class="val pend">data a levantar</span>')
         rotulo, _, ic = MODEL["datas"]["status"][sh["status"]]
-        label, url = sh["fonte"]
         linhas.append(f"""<tr><th scope="row">{e(sh['cidade'])}</th><td>{quando}</td>
 <td>{e(sh.get('local') or '—')}</td>
 <td><span class="selo selo-{sh['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></td></tr>""")
+<td>{fonte_link(sh.get('fonte'))}</td></tr>""")
     rel = []
     for r in ed.get("relacionados", []):
         if r.get("data"):
@@ -794,22 +797,23 @@ def shows_block(pr, year):
         else:
             quando = '<span class="val pend">data a levantar</span>'
         rotulo, _, ic = MODEL["datas"]["status"][r["status"]]
-        label, url = r["fonte"]
         rel.append(f"""<tr><th scope="row">{e(r['o_que'])}<small>{e(r['nota'])}</small></th>
 <td>{quando}</td><td>{e(r['local'])}</td>
 <td><span class="selo selo-{r['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span></td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon("open_in_new")}</a></td></tr>""")
+<td>{fonte_link(r.get('fonte'))}</td></tr>""")
     cabecalho = ('<thead><tr><th scope="col">Cidade</th><th scope="col">Quando</th>'
                  '<th scope="col">Local</th><th scope="col">Situação</th>'
                  '<th scope="col">Fonte</th></tr></thead>')
+    com_data = sum(1 for x in shows if x.get("data"))
+    confirmados = sum(1 for x in shows if x["status"] == "confirmada")
     painel = ""
     if total:
-        falta = total - len(shows)
+        falta = max(total - len(shows), 0)
         painel = f"""<div class="op-grid" style="margin-bottom:clamp(22px,3vw,32px)">
 <div class="op-tile">{icon('music_note')}<strong>{total}</strong><span>Shows informados</span><small>{e(nota_total)}</small></div>
-<div class="op-tile">{icon('place')}<strong>{len(shows):02d}</strong><span>Cidades citadas</span><small>Nomeadas na cobertura da imprensa</small></div>
-<div class="op-tile pend">{icon('search')}<strong>{falta}</strong><span>Apresentações sem registro</span><small>Dependem do mapa de turnê da produção</small></div>
-<div class="op-tile pend">{icon('calendar_month')}<strong>a levantar</strong><span>Datas por cidade</span><small>Nenhuma data individual foi publicada nas fontes recuperadas</small></div></div>"""
+<div class="op-tile">{icon('calendar_month')}<strong>{com_data:02d}</strong><span>Datas nesta página</span><small>{confirmados} com data confirmada, as demais anunciadas</small></div>
+<div class="op-tile">{icon('place')}<strong>{len(shows):02d}</strong><span>Apresentações catalogadas</span><small>Com cidade, local e fonte</small></div>
+<div class="op-tile pend">{icon('search')}<strong>{falta}</strong><span>Apresentações sem registro</span><small>Dependem do mapa de turnê da produção</small></div></div>"""
     return f"""<section class="container reach-section" id="agenda"><hr class="rule">
 <h2 class="section-title">AGENDA<br><em>DA TURNÊ.</em></h2>
 {painel}

@@ -755,4 +755,4 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 @media (max-width:720px){.atleta-topo{grid-template-columns:1fr}
   .atleta-retrato{max-width:230px}}
 .fact p .out{display:block;margin-top:7px;color:var(--muted);font-size:12px}
-.fact p .out a,.fact p .out .s-doc{min-height:24px}
+.fact p .out a,.fact p .out .s-doc{display:inline-flex;align-items:center;gap:6px;min-height:24px;flex-wrap:wrap}

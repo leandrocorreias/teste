@@ -5,6 +5,37 @@
 Coloque os arquivos aqui e rode `python3 build.py`. Cada espaço reservado no site
 mostra exatamente o nome que ele espera — basta usar o mesmo nome.
 
+
+## Já no acervo
+
+Extraídas dos mídia kits e relatórios oficiais das produções. Antes de publicar, obtenha a autorização escrita de uso de cada produção — o passo a passo está em `../../FOTOS.md`.
+
+- `connect-heroes-2026-01.jpg`
+- `connect-heroes-2026-02.jpg`
+- `connect-heroes-2026-03.jpg`
+- `connect-heroes.jpg`
+- `dominguinho.jpg`
+- `mr-moo-festival-2027-01.jpg`
+- `mr-moo-festival-2027-02.jpg`
+- `mr-moo-festival-2027-03.jpg`
+- `mr-moo-festival-2027.jpg`
+- `mr-moo-festival.jpg`
+- `tamo-junto-bb-2024.jpg`
+- `tamo-junto-bb-2025-01.jpg`
+- `tamo-junto-bb-2025-02.jpg`
+- `tamo-junto-bb-2025-03.jpg`
+- `tamo-junto-bb-2025.jpg`
+- `tamo-junto-bb-2026.jpg`
+- `tamo-junto-bb.jpg`
+- `vert-battle-2025-01.jpg`
+- `vert-battle-2025-02.jpg`
+- `vert-battle-2025-03.jpg`
+- `vert-battle-2025.jpg`
+- `vert-battle-2026-01.jpg`
+- `vert-battle-2026-02.jpg`
+- `vert-battle-2026.jpg`
+- `vert-battle.jpg`
+
 ## Nomes que o site procura
 
 | Arquivo | Onde aparece |

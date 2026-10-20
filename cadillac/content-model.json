@@ -1,5 +1,5 @@
 {
-  "version": 20,
+  "version": 21,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -154,7 +154,11 @@
           "O bodyboard reuniu o IBC Itacoatiara Pro Bodyboard World Contest, etapa cinco estrelas do circuito mundial, e uma etapa do circuito brasileiro da CBRASB, com expectativa de mais de 300 atletas de 25 países e 11 estados.",
           "A vela entrou pela primeira vez no festival, com regata da Classe Star na Praia de São Francisco, curadoria do Projeto Grael e chancela da CBVela.",
           "A programação cultural previa mais de 20 shows, cinema ao ar livre, exposições, esculturas, grafite e gastronomia.",
-          "A frente social previa iniciação esportiva, educação ambiental, capacitação de professores, doação de material esportivo e oficinas de arte e música."
+          "A frente social previa iniciação esportiva, educação ambiental, capacitação de professores, doação de material esportivo e oficinas de arte e música.",
+          "O projeto previa 26 dias de atividade, com público presencial estimado em 200 mil pessoas, público virtual estimado em 15 milhões e público de TV aberta estimado em 5 milhões.",
+          "O perfil de público projetado ia dos 10 aos 60 anos, nas classes A, B e C.",
+          "A frente social previa ações em quatro escolas, alcançando cerca de 400 alunos, além de adoção de mudas e mutirão de limpeza na educação ambiental.",
+          "A comunicação incluía front light na Ponte Rio–Niterói, outdoors, mobiliário urbano, cobertura em live streaming e plataforma online de interação."
         ],
         "2024": [
           "Publicação de 2024 descreve um fim de semana de festival com música, cultura de rua e skate na programação.",
@@ -254,7 +258,52 @@
           "Quem recebeu o patrocínio municipal de 2026?",
           "O contrato municipal tem como contraparte a Associação de Bodyboard de Niterói. Não é receita da Cadillac."
         ]
-      ]
+      ],
+      "dossie": {
+        "parceiros": [
+          [
+            "Funarte",
+            "Fundação Nacional de Artes, apoio institucional"
+          ],
+          [
+            "UFRJ",
+            "Universidade Federal do Rio de Janeiro, apoio institucional"
+          ],
+          [
+            "Prefeitura de Niterói",
+            "Poder público municipal"
+          ],
+          [
+            "EcoPonte",
+            "Apoio"
+          ],
+          [
+            "PredialNet",
+            "Apoio"
+          ],
+          [
+            "Grupo Petrópolis",
+            "Ativação de marcas nas hot zones"
+          ],
+          [
+            "Projeto Grael",
+            "Curadoria da regata da Classe Star"
+          ],
+          [
+            "CBVela",
+            "Chancela da regata"
+          ],
+          [
+            "CBRASB",
+            "Etapa do circuito brasileiro de bodyboard"
+          ],
+          [
+            "IBC World Tour",
+            "Etapa cinco estrelas do circuito mundial de bodyboard"
+          ]
+        ],
+        "parceiros_nota": "Instituições e marcas identificadas no projeto do Itacoatiara Pro 10 anos, de 2022. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
+      }
     },
     {
       "slug": "mr-moo-festival",
@@ -1252,6 +1301,42 @@
         "status": "reportada",
         "fonte_texto": "Mídia kit oficial da temporada 2025, assinado pela Cadillac Production",
         "nota": "A assinatura do material e a marca na estrutura indicam a produção do circuito pela Cadillac. O contrato que formaliza o escopo ainda não foi publicado aqui."
+      },
+      "dossie": {
+        "parceiros": [
+          [
+            "Banco do Brasil",
+            "Patrocinador do Circuito BB de Skate Vertical"
+          ],
+          [
+            "Ourocard e Visa",
+            "Patrocínio, presentes na estrutura das etapas"
+          ],
+          [
+            "CBSk",
+            "Confederação Brasileira de Skate, homologação"
+          ],
+          [
+            "Globo e SporTV",
+            "Transmissão ao vivo das etapas"
+          ],
+          [
+            "Rádio Mix",
+            "Parceria de mídia"
+          ],
+          [
+            "Prefeitura de Niterói",
+            "Etapa no Caminho Niemeyer"
+          ],
+          [
+            "Governo do Paraná e Prefeitura de Curitiba",
+            "Etapa no Ginásio do Tarumã"
+          ],
+          [
+            "SESC Mesa Brasil",
+            "Destino dos alimentos arrecadados"
+          ]
+        ]
       }
     },
     {
@@ -1465,6 +1550,34 @@
           ]
         ],
         "nota": "Números declarados pela produção na apresentação oficial do festival, sem auditoria independente anexada a esta página. Descrevem o festival, que é propriedade do Banco do Brasil, e não resultado da Cadillac."
+      },
+      "dossie": {
+        "parceiros": [
+          [
+            "Banco do Brasil",
+            "Proprietário e realizador do festival"
+          ],
+          [
+            "Ourocard e Visa",
+            "Patrocínio"
+          ],
+          [
+            "Globo e SporTV",
+            "Transmissão das competições"
+          ],
+          [
+            "CBSk",
+            "Campeonato Brasileiro de Skate Vertical"
+          ],
+          [
+            "WSL",
+            "Liga Mundial de Surfe"
+          ],
+          [
+            "Circuito Banco do Brasil de Corrida",
+            "Etapa de corrida de rua"
+          ]
+        ]
       }
     },
     {
@@ -2576,9 +2689,11 @@
     "creditos": {
       "mr-moo-festival": "Divulgação Mr. Moo Festival",
       "connect-heroes": "Divulgação Connect Heroes",
-      "vert-battle": "Divulgação Vert Battle"
+      "vert-battle": "Divulgação Vert Battle",
+      "tamo-junto-bb": "Divulgação Festival Tamo Junto BB",
+      "dominguinho": "Divulgação Turnê Dominguinho"
     },
-    "origem_arquivos": "As imagens de mr-moo-festival e connect-heroes foram extraídas dos mídia kits oficiais enviados pelas respectivas produções. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção. O crédito aparece sobre a imagem.",
+    "origem_arquivos": "As imagens de mr-moo-festival, connect-heroes, vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção. O crédito aparece sobre a imagem.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md."
   },
   "audiencia": {

@@ -114,11 +114,12 @@ NAV = [
                 ("Audiência e alcance", "dados/#alcance"),
                 ("Perfil do público", "dados/#perfil"),
                 ("Impacto e resultados", "dados/#impacto"),
-                ("Relatórios e estudos", "dados/#relatorios"),
+                ("Quadro de indicadores", "dados/#kpis"),
+                ("Números do setor", "dados/#setor"),
                 ("Certificações", "dados/#certificacoes")]),
     ]),
     ("Imprensa", "imprensa/", "imprensa", [
-        (None, [("Notícias", "na-midia/#noticias"),
+        (None, [
                 ("Na mídia", "na-midia/"),
                 ("Releases", "imprensa/#releases"),
                 ("Press kit", "imprensa/"),
@@ -1172,8 +1173,7 @@ def page_press():
         if len(feed) == 12:
             break
     bloco_noticias = (f'''<section class="container noticias-wrap" id="noticias">
-<h2 class="sec-title">Notícias</h2>
-<p class="note">As publicações mais recentes catalogadas no acervo, da edição mais nova para a mais antiga. A lista completa, organizada por projeto, vem a seguir.</p>
+<h2 class="sec-title">Na mídia</h2>
 <ol class="noticias">{''.join(feed)}</ol></section>''') if feed else ""
 
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
@@ -1306,7 +1306,7 @@ def audience_blocks(depth):
     for key, (label, desc, ic) in fams.items():
         t = totals[key]
         panels.append(f"""<div class="data-panel reach">{icon(ic)}
-<div><strong>{big(t['sum'])}</strong><span>{e(label)}</span></div>
+<div><strong style="--d:{len(big(t['sum']))}">{big(t['sum'])}</strong><span>{e(label)}</span></div>
 <p class="reach-note">{plural(t['n'], 'registro somado', 'registros somados')} · {plural(t['pend'], 'linha a preencher', 'linhas a preencher')}</p></div>""")
 
     rows = []
@@ -1335,11 +1335,11 @@ def audience_blocks(depth):
     method = "".join(f'<li>{icon("arrow_forward")} {e(t)}</li>' for t in data["method"])
     pend = sum(t["pend"] for t in totals.values())
     return f"""<section class="container reach-section" id="alcance"><hr class="rule">
-<h2 class="section-title">NOSSO<br><em>ALCANCE.</em></h2>
+<h2 class="section-title">ALCANCE<span class="orange">.</span></h2>
 <p class="body-copy">{e(data['lede'])}</p>
 <div class="data-stats reach-grid">{''.join(panels)}</div>
 <div class="charts"><div class="chart-card span-2"><h3>Linha a linha, com o responsável pelo número</h3>
-<p class="chart-sub">Cada registro mostra quem divulgou e o que o número mede. As linhas em branco são as que faltam levantar: preencha em <code>content-model.json</code> e rode o gerador.</p>
+<p class="chart-sub">Cada registro mostra quem divulgou e o que o número mede.</p>
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Evento</th><th scope="col">Grandeza</th><th scope="col">Número</th><th scope="col">Base</th><th scope="col">Quem divulgou</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table></div>
@@ -1789,7 +1789,7 @@ def events_table(depth):
 <td>{pub}</td>
 <td>{e(destaque)}</td></tr>""")
     return f"""<section class="container reach-section" id="eventos"><hr class="rule">
-<h2 class="section-title">EVENTO<br><em>POR EVENTO.</em></h2>
+<h2 class="section-title">POR EVENTO<span class="orange">.</span></h2>
 <p class="body-copy">Cada edição com data, local, público, inscritos e quem esteve em cena. Da mais recente para a mais antiga.</p>
 <div class="charts"><div class="chart-card span-2">
 <div class="table-wrap"><table class="amounts reach-table">
@@ -3003,17 +3003,21 @@ def page_data():
         ("language", f"{M['sources']:02d}", "Fontes públicas citadas"),
         ("insights", M["span"], "Período coberto nesta versão"),
     ]
-    panels_html = "".join(f'<div class="data-panel">{icon(ic)}<div><strong>{v}</strong>'
+    # --d leva quantos caracteres o numero tem, para o CSS poder encolher a
+    # fonte quando ele for longo. Sem isso, "325.000.000" sai no mesmo corpo
+    # de "500" e vaza do cartao.
+    panels_html = "".join(f'<div class="data-panel">{icon(ic)}'
+                          f'<div><strong style="--d:{len(str(v))}">{v}</strong>'
                           f'<span>{l}</span></div></div>' for ic, v, l in panels)
     sector_html = "".join(f'<div><strong>{e(v)}</strong><span>{e(l)}</span></div>'
                           for v, l in MODEL["sector"]["items"])
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>DADOS<span class="orange">.</span></h1>
 <p class="lede">Um acervo conectado de eventos, edições, território, modalidades, cobertura e fontes públicas — com a metodologia à vista.</p></section>
+{numeros_block(depth)}
 {audience_blocks(depth)}
 {events_table(depth)}
 {broadcast_block(depth)}
-{numeros_block(depth)}
 <section class="container charts">
 <div class="chart-card"><h3>Edições por ano</h3>
 <p class="chart-sub">Quantas edições a Cadillac tem documentadas em cada ano, do mais recente ao mais antigo.</p>
@@ -3034,25 +3038,12 @@ def page_data():
 {perfil_block(depth)}
 {quadro_kpis(depth)}
 {impacto_block(depth)}
-{relatorios_block(depth)}
 {certificacoes_block(depth)}
 <section class="container sector" id="setor"><hr class="rule">
 <h2 class="section-title">O SETOR EM QUE<br><em>A GENTE OPERA.</em></h2>
 <div class="hero-metrics">{sector_html}</div>
 {paragrafo_nota(MODEL['sector']['note'])}</section>
-<section class="container sources">
-<hr class="rule">
-<h2>DADOS COM ORIGEM.</h2>
-<p class="body-copy">Os indicadores desta página descrevem o conteúdo catalogado neste portal, não o total histórico de eventos da Cadillac. Cada número é calculado a partir do mesmo modelo de conteúdo que gera as páginas: um projeto é contado quando tem página própria, uma edição quando tem ano documentado, um registro quando tem fonte identificável e uma fonte quando tem URL pública.</p>
-<p class="body-copy">Informações sobre audiência, contratos, alcance ou impacto econômico só serão publicadas após identificação de metodologia e fonte verificável. Valores de captação, contratação e patrocínio não são publicados neste portal: ficam em registro interno, porque valor aprovado para captação não é valor captado e instrumento de patrocínio de terceiro não é receita da Cadillac.</p>
-<div class="source-list">
-<a href="{p}projetos/"><span class="s-main"><span class="s-label">Consultar eventos e edições</span>
-<span class="s-host">{plural(M['projects'], 'evento', 'eventos')} · {plural(M['editions'], 'edição', 'edições')}</span></span>{icon('arrow_outward')}</a>
-<a href="{p}na-midia/"><span class="s-main"><span class="s-label">Consultar imprensa e referências</span>
-<span class="s-host">{plural(M['sources'], 'fonte pública', 'fontes públicas')}</span></span>{icon('arrow_outward')}</a>
-</div>
-<p class="note">Atualizado em {e(MODEL['updated'])}. O acervo é incremental: novos eventos, edições e fontes alteram todos os indicadores desta página automaticamente na próxima geração.</p>
-</section></main>"""
+</main>"""
     ld = {"@context": "https://schema.org", "@type": "Dataset",
           "name": "Acervo documental Cadillac", "url": f"{BASE}/dados/",
           "description": "Eventos, edições, registros documentados e fontes públicas catalogados no portal Cadillac.",
@@ -3400,25 +3391,39 @@ def page_imprensa():
             marca = f'<code>{e(it["arquivo"])}</code>'
         itens.append(f"""<article class="kit-item"><h3>{e(it['titulo'])}</h3>
 <p>{e(it['descricao'])}</p>{marca}{acao}</article>""")
+    rel_data = data.get("releases") or {"texto": "", "itens": []}
+    releases_itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>'
+                             for x in rel_data.get("itens") or [])
+    ass = data["assessoria"]
+    ass_email = next((v for k, v in ass["campos"] if k == "Contato" and v), SITE["email"])
+    ass_linhas = "".join(
+        f'<tr><th scope="row">{e(k)}</th><td>'
+        + (f'<a href="mailto:{e(v)}">{e(v)}</a>' if v and "@" in v
+           else (e(v) if v else f'<span class="gov-falta">{icon("search")} a informar</span>'))
+        + '</td></tr>' for k, v in ass["campos"])
+    ass_oferece = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in ass["oferece"])
+
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Imprensa",
           "url": f"{BASE}/imprensa/", "inLanguage": "pt-BR"}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>IMPRENSA<span class="orange">.</span></h1>
 <p class="lede">{e(data['lede'])}</p></section>
 <section class="container reach-section" id="fotos-videos"><hr class="rule">
-<h2 class="section-title">MATERIAL<br><em>PARA BAIXAR.</em></h2>
+<h2 class="section-title">PRESS KIT<span class="orange">.</span></h2>
 <div class="kit-grid">{''.join(itens)}</div>
-{paragrafo_nota(data['nota'])}</section>
+{paragrafo_nota(data.get('kit_nota'))}</section>
 <section class="container reach-section" id="releases"><hr class="rule">
 <h2 class="section-title">RELEASES<span class="orange">.</span></h2>
-<p class="body-copy">Os textos de divulgação de cada edição entram aqui conforme a assessoria os
-publica. Enquanto isso, a cobertura já publicada está reunida na página de mídia, organizada
-por projeto.</p>
-<div class="section-end"><a class="pill-link" href="{p}na-midia/">Ver a cobertura {icon('arrow_outward')}</a></div></section>
+<p class="body-copy">{e(rel_data['texto'])}</p>
+{f'<ul class="entrega">{releases_itens}</ul>' if releases_itens else ''}</section>
 <section class="container reach-section" id="assessoria"><hr class="rule">
-<h2 class="section-title">FALE COM<br><em>A ASSESSORIA.</em></h2>
-<p class="body-copy">{e(data['contato']['nome'])} · <a href="mailto:{e(data['contato']['email'])}">{e(data['contato']['email'])}</a></p>
-<div class="section-end"><a class="pill-link" href="{p}na-midia/">Ver o que já saiu {icon('arrow_outward')}</a></div></section></main>"""
+<h2 class="section-title">ASSESSORIA DE<br><em>IMPRENSA.</em></h2>
+<p class="body-copy">{e(ass['intro'])}</p>
+<div class="table-wrap"><table class="amounts gov-dados"><tbody>{ass_linhas}</tbody></table></div>
+<h3>O que a assessoria atende</h3>
+<ul class="entrega">{ass_oferece}</ul>
+<p class="body-copy">{e(ass['pedido'])}</p>
+<div class="section-end"><a class="pill-link" href="mailto:{e(ass_email)}">Escrever para a assessoria {icon('mail')}</a></div></section></main>"""
     return write("imprensa/index.html",
                  head(depth, "Imprensa | Material e contato | Cadillac Produções",
                       "Apresentação institucional, marca, fotos e ficha técnica dos projetos para "

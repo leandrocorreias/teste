@@ -4979,7 +4979,7 @@
     "nota": ""
   },
   "imprensa": {
-    "lede": "Material pronto para quem vai escrever, apresentar ou avaliar a Cadillac.",
+    "lede": "Material institucional da Cadillac, pronto para quem vai escrever, apresentar ou avaliar a produtora.",
     "itens": [
       {
         "titulo": "Apresentação institucional",
@@ -5010,7 +5010,45 @@
       "nome": "Assessoria e imprensa",
       "email": "contato@cadillac.art.br"
     },
-    "nota": ""
+    "nota": "",
+    "kit_nota": "Material institucional da Cadillac. Imagem e ficha técnica de evento específico são solicitadas à assessoria, porque dependem de autorização de quem produziu.",
+    "releases": {
+      "texto": "Comunicados institucionais da Cadillac: posicionamento, novas frentes, mudanças na operação e balanço de temporada. Release de evento sai pela assessoria da própria edição, com a data e o material de cada produção.",
+      "itens": []
+    },
+    "assessoria": {
+      "intro": "Atendimento a jornalistas, veículos e produtoras de conteúdo.",
+      "campos": [
+        [
+          "Contato",
+          "contato@cadillac.art.br"
+        ],
+        [
+          "Responsável",
+          null
+        ],
+        [
+          "Telefone e WhatsApp",
+          null
+        ],
+        [
+          "Prazo de resposta",
+          "Até um dia útil"
+        ],
+        [
+          "Atendimento",
+          "Segunda a sexta, horário comercial"
+        ]
+      ],
+      "oferece": [
+        "Entrevista com a direção e com a produção executiva.",
+        "Dados e fontes de qualquer número publicado neste portal.",
+        "Imagem e vídeo em alta, com crédito e autorização de uso.",
+        "Credenciamento para eventos em cartaz, sujeito à lotação da área de imprensa.",
+        "Ficha técnica e informação operacional de edições já realizadas."
+      ],
+      "pedido": "Ao escrever, diga o veículo, a pauta, o formato e o prazo de fechamento. Com o prazo à vista, a resposta chega a tempo de entrar na matéria."
+    }
   },
   "contato": {
     "lede": "Eventos, parcerias, patrocínio ou imprensa. Respondemos em até dois dias úteis.",

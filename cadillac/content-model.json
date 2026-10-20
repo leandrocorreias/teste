@@ -1,5 +1,5 @@
 {
-  "version": 50,
+  "version": 51,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -1701,7 +1701,7 @@
     },
     {
       "slug": "festival-de-tribos-juruti",
-      "name": "Festival de Tribos de Juruti",
+      "name": "Tribos de Juruti",
       "kind": "Produção artística",
       "category": "cultura",
       "location": "Juruti, Pará",
@@ -1765,7 +1765,7 @@
     },
     {
       "slug": "dominguinho",
-      "name": "Dominguinho: João Gomes, Mestrinho e Jota.pê",
+      "name": "Dominguinho",
       "kind": "Música, encontros e turnê",
       "category": "musica",
       "location": "Turnê nacional",
@@ -2085,7 +2085,7 @@
     },
     {
       "slug": "arte-em-circuito",
-      "name": "Arte em Circuito: skate, cultura e formação",
+      "name": "Arte em Circuito",
       "kind": "Cultura e esporte",
       "category": "cultura",
       "location": "Brasil",
@@ -2115,7 +2115,7 @@
     },
     {
       "slug": "ccbb-mac-bahia",
-      "name": "CCBB leva skate ao MAC Bahia",
+      "name": "CCBB + MAC Bahia",
       "kind": "Ativação esportiva e cultural",
       "category": "cultura",
       "location": "Salvador, Bahia",

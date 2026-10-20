@@ -64,52 +64,46 @@ def fundo(caminho_foto):
         # Véu em duas camadas: um geral, que dá contraste em qualquer foto, e
         # um gradiente que fecha a parte de baixo, onde fica o título.
         veu = Image.new("RGB", (L, A), (10, 10, 10))
-        base = Image.blend(base, veu, 0.34)
+        base = Image.blend(base, veu, 0.26)
         grad = Image.new("L", (1, A))
         for y in range(A):
             t = y / (A - 1)
-            grad.putpixel((0, y), int(255 * min(1.0, max(0.0, (t - 0.18) / 0.82) ** 1.5 * 0.92)))
+            grad.putpixel((0, y), int(255 * min(1.0, max(0.0, (t - 0.35) / 0.65) ** 1.8 * 0.55)))
         base = Image.composite(veu.resize((L, A)), base, grad.resize((L, A)))
     return base
 
 
-def cartao(caminho_foto, chapeu, titulo, linha, arquivo):
-    im = fundo(caminho_foto)
-    d = ImageDraw.Draw(im)
-    util = L - MARGEM * 2
+def cartao(caminho_foto, arquivo, invertido=False):
+    """Foto do assunto e o logotipo. Sem texto: o título já vai no cartão.
 
-    # Logotipo no alto, com sombra leve para não sumir em foto clara.
+    O WhatsApp e as redes mostram o título e a descrição logo abaixo da
+    imagem. Escrever o mesmo título dentro da foto repetia tudo duas vezes e
+    tapava justamente o que o cartão tem de melhor, que é a imagem do evento.
+    """
+    if caminho_foto and (RAIZ / caminho_foto).exists():
+        with Image.open(RAIZ / caminho_foto) as teste:
+            if teste.width < 900:
+                invertido = True   # foto pequena ampliada sai serrilhada
+    if invertido:
+        im = Image.new("RGB", (L, A), TINTA)
+    else:
+        im = fundo(caminho_foto)
     marca = Image.open(RAIZ / "assets" / "logo-cadillac-branco.png").convert("RGBA")
-    mw = 232
+    mw = 420
     marca = marca.resize((mw, round(marca.height * mw / marca.width)), Image.LANCZOS)
-    sombra = Image.new("RGBA", (L, A), (0, 0, 0, 0))
-    sombra.paste(marca.filter(ImageFilter.GaussianBlur(9)), (MARGEM, MARGEM - 4), marca)
-    im.paste(Image.alpha_composite(im.convert("RGBA"), sombra).convert("RGB"), (0, 0))
-    im.paste(marca, (MARGEM, MARGEM - 8), marca)
+    x, y = (L - mw) // 2, (A - marca.height) // 2 - 10
 
-    f_chapeu = fonte(FONTE_TEXTO, 21, 700)
-    f_linha = fonte(FONTE_TEXTO, 25, 600)
-    tam = 86 if len(titulo) <= 22 else (72 if len(titulo) <= 34 else 60)
-    f_titulo = fonte(FONTE_TITULO, tam, 800)
-    linhas = quebra(d, titulo.upper(), f_titulo, util)
-    while len(linhas) > 3 and tam > 40:
-        tam -= 8
-        f_titulo = fonte(FONTE_TITULO, tam, 800)
-        linhas = quebra(d, titulo.upper(), f_titulo, util)
+    if not invertido:
+        # Sombra atrás da marca: em foto clara, o branco sumiria.
+        sombra = Image.new("RGBA", (L, A), (0, 0, 0, 0))
+        sombra.paste(marca.filter(ImageFilter.GaussianBlur(16)), (x, y + 6), marca)
+        im = Image.alpha_composite(im.convert("RGBA"), sombra).convert("RGB")
+    im.paste(marca, (x, y), marca)
 
-    alt_titulo = len(linhas) * round(tam * 0.98)
-    y = A - MARGEM - alt_titulo - (46 if linha else 10)
-    if chapeu:
-        d.text((MARGEM, y - 46), chapeu.upper(), font=f_chapeu, fill=LARANJA,
-               stroke_width=0, features=None)
-        d.rectangle([MARGEM, y - 14, MARGEM + 56, y - 10], fill=LARANJA)
-
-    for i, ln in enumerate(linhas):
-        yy = y + i * round(tam * 0.98)
-        d.text((MARGEM + 2, yy + 3), ln, font=f_titulo, fill=(0, 0, 0))
-        d.text((MARGEM, yy), ln, font=f_titulo, fill=(255, 255, 255))
-    if linha:
-        d.text((MARGEM, A - MARGEM - 30), linha, font=f_linha, fill=(226, 223, 218))
+    d = ImageDraw.Draw(im)
+    traco = 92
+    d.rectangle([(L - traco) // 2, y + marca.height + 26,
+                 (L + traco) // 2, y + marca.height + 31], fill=LARANJA)
 
     DESTINO.mkdir(parents=True, exist_ok=True)
     im.save(DESTINO / arquivo, quality=86, optimize=True, progressive=True)
@@ -122,47 +116,43 @@ def chave(caminho):
 
 
 def paginas():
-    M, S = build.MODEL, build.SITE
-    itens = [("", "Cadillac Produções e Filmes", " ".join(S["headline"]).replace("  ", " "),
-              S["tagline"], build.photo_for(build.PROJECTS[0]))]
+    """Cada página com a foto do que ela trata."""
+    foto = build.photo_for
+    por_slug = {pr["slug"]: pr for pr in build.PROJECTS}
+
+    def f(slug):
+        return foto(por_slug[slug]) if slug in por_slug else None
+
+    itens = [("", None, True)]  # a home é o cartão invertido, só a marca
     for pr in build.PROJECTS:
-        linha = " · ".join(x for x in [pr["kind"], pr["location"], pr["period"]] if x)
-        itens.append((f'projetos/{pr["slug"]}/', pr["category"].upper(), pr["name"], linha,
-                      build.photo_for(pr)))
+        itens.append((f'projetos/{pr["slug"]}/', foto(pr), False))
         for y in pr["years"]:
-            ed = (pr.get("editions") or {}).get(str(y), {})
-            rot = build.rotulo_ed(pr, y)
-            sub = " · ".join(x for x in [ed.get("period"), ed.get("place")] if x)
-            itens.append((f'projetos/{pr["slug"]}/{y}/', rot, pr["name"], sub,
-                          build.photo_for(pr, y)))
+            itens.append((f'projetos/{pr["slug"]}/{y}/', foto(pr, y), False))
     secoes = [
-        ("projetos/", "Acervo", "Eventos", "Todos os eventos produzidos e documentados", 0),
-        ("produtora/", "Produtora", "Quem é a Cadillac", "História, manifesto, atuação e time", 1),
-        ("equipe/", "Time", "Equipe", "Quem toca a casa no dia a dia", 2),
-        ("atletas/", "Time", "Atletas", "Atletas citados no acervo", 3),
-        ("artistas/", "Time", "Artistas", "Quem passou pelos palcos do acervo", 4),
-        ("parceiros/", "Time", "Parceiros", "Marcas e instituições nos projetos", 5),
-        ("dados/", "Dados", "Números do acervo", "Alcance, operação e transmissões, com fonte", 6),
-        ("agenda/", "Agenda", "O que vem pela frente", "Datas confirmadas e anunciadas", 7),
-        ("relacionamento/", "Relacionamento", "Trabalhe com a Cadillac",
-         "Patrocínio, novos negócios, fornecedores e talentos", 8),
-        ("imprensa/", "Imprensa", "Sala de imprensa", "Releases, press kit e assessoria", 0),
-        ("na-midia/", "Imprensa", "Na mídia", "O que publicaram sobre os projetos", 1),
-        ("atuacao/", "Atuação", "Conheça nosso trabalho", "Da execução aos dados", 2),
-        ("contato/", "Contato", "Fale com a Cadillac", "Eventos, parcerias, patrocínio ou imprensa", 3),
-        ("governanca/", "Governança", "Governança e políticas",
-         "Ética, conduta, privacidade e cookies", 4),
+        ("projetos/", f("vert-battle")),
+        ("produtora/", f("tamo-junto-bb")),
+        ("equipe/", f("mr-moo-festival")),
+        ("atletas/", f("vert-battle")),
+        ("artistas/", f("dominguinho")),
+        ("parceiros/", f("tamo-junto-bb")),
+        ("dados/", f("itacoatiara-pro")),
+        ("agenda/", f("connect-heroes")),
+        ("relacionamento/", f("vert-battle")),
+        ("imprensa/", f("arte-em-circuito")),
+        ("na-midia/", f("festival-de-tribos-juruti")),
+        ("atuacao/", f("mr-moo-festival")),
+        ("contato/", f("itacoatiara-pro")),
+        ("governanca/", f("ccbb-mac-bahia")),
     ]
-    for caminho, chapeu, titulo, linha, i in secoes:
-        pr = build.PROJECTS[i % len(build.PROJECTS)]
-        itens.append((caminho, chapeu, titulo, linha, build.photo_for(pr)))
+    for caminho, img in secoes:
+        itens.append((caminho, img, False))
     return itens
 
 
 def main():
     feitos = 0
-    for caminho, chapeu, titulo, linha, foto in paginas():
-        cartao(foto, chapeu, titulo, linha, chave(caminho))
+    for caminho, img, invertido in paginas():
+        cartao(img, chave(caminho), invertido)
         feitos += 1
     print(f"{feitos} imagens de compartilhamento em assets/og/")
 

@@ -1365,3 +1365,12 @@ a.kpi-selo:hover{filter:brightness(.94)}
 .logo-slot strong{color:#fff}
 .logo-slot code{color:rgba(255,255,255,.82);background:rgba(0,0,0,.14)}
 .logo-papel{color:rgba(255,255,255,.78)}
+
+/* Botões sobre a faixa laranja do contato.
+   O hover padrão preenche de laranja — que sobre laranja some, e só o texto
+   muda de cor. Aqui o botão se enche de branco e o texto escurece: quem passa
+   o mouse vê o botão reagir, não a palavra. */
+.contact .pill-link:hover,
+.contact .pill-link:focus-visible{background:#fff;border-color:#fff;color:var(--black)}
+.contact .pill-link:hover .mi,
+.contact .pill-link:focus-visible .mi{color:var(--orange-ink)}

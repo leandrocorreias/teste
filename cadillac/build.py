@@ -200,8 +200,8 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
 <link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="{p}assets/favicon-180.png">
 {fonts}
-<link rel="stylesheet" href="{p}assets/site.css">
-<script defer src="{p}assets/site.js"></script>
+<link rel="stylesheet" href="{p}assets/site.css?v={MODEL['version']}">
+<script defer src="{p}assets/site.js?v={MODEL['version']}"></script>
 {blocks}{extra}</head>"""
 
 

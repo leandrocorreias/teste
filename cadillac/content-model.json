@@ -1,5 +1,5 @@
 {
-  "version": 19,
+  "version": 20,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -903,7 +903,148 @@
           "Onde foi a primeira edição?",
           "No Grand Hyatt Rio de Janeiro. A competição ocupou um dia, e a fight week — coletiva de imprensa, pesagem e hospedagem dos atletas — aconteceu dentro do próprio hotel, de quarta a domingo."
         ]
-      ]
+      ],
+      "dossie": {
+        "resumo": "O Connect Heroes trata o jiu-jítsu como produto de entretenimento, não como torneio. Poucos combates, atletas com narrativa, rivalidades claras e uma semana inteira de conteúdo dentro de um hotel cinco estrelas. É o único evento da modalidade no Brasil que combina TV aberta, streaming e experiência presencial premium no mesmo pacote. A primeira edição foi ao ar em julho de 2026; a segunda acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói.",
+        "destaques": [
+          [
+            "240 mil",
+            "Televisores na transmissão ao vivo pela Xsports"
+          ],
+          [
+            "27",
+            "Reprises entre 11 de julho e 9 de agosto"
+          ],
+          [
+            "25 mi",
+            "Visualizações em reels ao longo de julho"
+          ],
+          [
+            "3",
+            "Telas ao mesmo tempo: TV, streaming e redes"
+          ]
+        ],
+        "contexto": {
+          "necessidade": "O jiu-jítsu brasileiro virou uma economia de bilhões e segue com pouca presença em televisão aberta. O praticante consome o esporte, compra kimono e paga mensalidade, mas raramente encontra a modalidade produzida como espetáculo, com narrativa, hospitalidade e padrão de imagem que sustente uma marca grande ao lado.",
+          "oportunidade": "Duas propriedades lideram o mercado e a terceira posição está em disputa aberta. Quem combinar distribuição em TV e streaming com experiência presencial de alto padrão ocupa esse espaço antes que ele se feche. É exatamente o desenho do Connect Heroes."
+        },
+        "valor": [
+          [
+            "Três telas, uma só operação",
+            "A mesma noite acontece ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio no YouTube. A marca aparece nas três sem três contratos."
+          ],
+          [
+            "Uma semana, não uma noite",
+            "A fight week dentro do hotel gera coletiva, pesagem, bastidores e conteúdo de quarta a domingo. O investimento rende dias de exposição, não três horas."
+          ],
+          [
+            "Ambiente que a marca quer ocupar",
+            "Hotel cinco estrelas, público sentado, hospitalidade e atletas hospedados no local. É um contexto de marca diferente do ginásio."
+          ],
+          [
+            "Vida longa depois do evento",
+            "A primeira edição foi reprisada 27 vezes em quatro semanas. A entrega não termina no apito final."
+          ]
+        ],
+        "kpis_lede": "Os indicadores que o projeto acompanha. A coluna de leitura traz o número declarado pela produção; o selo muda quando chegar relatório de emissora ou captura de painel.",
+        "kpis": [
+          [
+            "Televisores na transmissão ao vivo",
+            "Xsports",
+            "240 mil",
+            [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Reprises na emissora",
+            "janela de 30 dias",
+            "27",
+            [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Visualizações no YouTube",
+            "canal próprio",
+            "149 mil",
+            [
+              "Connect Cast no YouTube",
+              "https://www.youtube.com/@PodcastConnectCast"
+            ]
+          ],
+          [
+            "Horas de exibição no YouTube",
+            "canal próprio",
+            "63 mil",
+            [
+              "Connect Cast no YouTube",
+              "https://www.youtube.com/@PodcastConnectCast"
+            ]
+          ],
+          [
+            "Aparelhos conectados no YouTube",
+            "54,9% televisores",
+            "87 mil",
+            [
+              "Connect Cast no YouTube",
+              "https://www.youtube.com/@PodcastConnectCast"
+            ]
+          ],
+          [
+            "Visualizações em reels",
+            "mês do evento",
+            "25 milhões",
+            [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Público presente",
+            "Grand Hyatt Rio",
+            null,
+            null
+          ],
+          [
+            "Atletas inscritos",
+            "chave completa",
+            null,
+            null
+          ],
+          [
+            "Audiência nos canais Combate e SporTV 3",
+            "relatório da emissora",
+            null,
+            null
+          ]
+        ],
+        "parceiros": [
+          [
+            "Xsports",
+            "Transmissão ao vivo e reprises"
+          ],
+          [
+            "Globoplay",
+            "Distribuição pelos canais Combate e SporTV 3"
+          ],
+          [
+            "Grand Hyatt Rio de Janeiro",
+            "Sede da 1ª edição e da fight week"
+          ],
+          [
+            "MAC Niterói",
+            "Lançamento da 2ª edição para a imprensa"
+          ],
+          [
+            "Connect Cast",
+            "Canal e produção de conteúdo do projeto"
+          ]
+        ],
+        "parceiros_nota": "Marcas e instituições identificadas no material oficial do projeto e na informação da direção. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
+      }
     },
     {
       "slug": "vert-battle",

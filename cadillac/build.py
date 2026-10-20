@@ -695,8 +695,11 @@ def page_project(pr):
 <span>{icon('festival')} {e(pr['kind'])}</span>
 <span>{icon('place')} {e(pr['location'])}</span>
 <span>{icon('calendar_month')} {e(pr['period'])}</span></div></div></section>""")
+    sections.append(galeria_projeto(pr, depth))
+    sections.append(resumo_block(pr))
     n += 1
 
+    cronograma = []
     if pr["years"]:
         rows = []
         for y in pr["years"]:
@@ -710,7 +713,7 @@ def page_project(pr):
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
         chart = bars_horizontal([(str(y), len(pr["facts"].get(str(y), []))) for y in sorted(pr["years"], reverse=True)],
                                 ("registro", "registros"), w=560, row=38)
-        sections.append(f"""<section class="container timeline">
+        cronograma.append(f"""<section class="container timeline">
 <hr class="rule">
 <h2 class="section-title">TODAS AS<br><em>EDIÇÕES NO ACERVO.</em></h2>{''.join(rows)}
 <div class="charts" style="padding-top:clamp(34px,5vw,60px)"><div class="chart-card">
@@ -722,7 +725,7 @@ def page_project(pr):
         facts = "".join(
             f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}</p></div>'
             for i, t in enumerate(pr.get("records", []), start=1))
-        sections.append(f"""<section class="container facts-section">
+        cronograma.append(f"""<section class="container facts-section">
 <hr class="rule">
 <h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
 <div class="facts">{facts}</div>
@@ -731,21 +734,25 @@ def page_project(pr):
 
     faq_html, faq_ld = faq_block(pr, f"{n:02d}")
     if faq_html:
-        sections.append(faq_html)
         n += 1
 
     if MODEL["video"]["por_projeto"].get(pr["slug"]):
         sections.append(f"""<section class="container reel-section"><hr class="rule">
 <h2 class="section-title">O PROJETO<br><em>EM VÍDEO.</em></h2>
 {video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"])}</section>""")
+    sections.append(contexto_block(pr))
     sections.append(papel_block(pr))
+    sections.extend(cronograma)
     sections.append(historico_block(pr))
+    sections.append(op_project(pr))
+    sections.append(kpis_block(pr))
     sections.append(mercado_block(pr))
+    sections.append(parceiros_block(pr, depth))
+    sections.append(cast_block(pr))
     sections.append(plano_block(pr))
+    sections.append(faq_html)
     sections.append(creditos_projeto(pr, depth))
     sections.append(participacoes_block(pr, depth))
-    sections.append(cast_block(pr))
-    sections.append(op_project(pr))
     sections.append(bloco_fontes(pr["sources"], depth, "FONTES PARA IR ALÉM."))
     n += 1
 
@@ -1111,6 +1118,97 @@ def op_tiles(values, scope_key, order):
 <strong>{shown}</strong><span>{e(label)}</span>
 <small>{e(basis or help_text)}</small></div>""")
     return f'<div class="op-grid">{"".join(tiles)}</div>'
+
+
+def galeria_projeto(pr, depth):
+    """Faixa de fotos do projeto. Rola na horizontal no celular, vira grade no desktop.
+
+    Sem JavaScript: scroll-snap nativo, navegável por teclado e por gesto.
+    """
+    pasta = ROOT / "assets" / "fotos"
+    capa = f'{pr["slug"]}.jpg'
+    nomes = sorted(x.name for x in pasta.glob(f'{pr["slug"]}*.jpg') if x.name != capa)
+    if len(nomes) < 2:
+        return ""
+    credito = MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac")
+    itens = "".join(
+        f'<figure class="carrossel-item"><img src="{rel(depth)}assets/fotos/{e(n)}" '
+        f'alt="{e(pr["name"])}" loading="lazy" decoding="async"></figure>'
+        for n in nomes)
+    return f"""<section class="container carrossel-section" aria-label="Fotos de {e(pr['name'])}">
+<div class="carrossel" tabindex="0">{itens}</div>
+<p class="carrossel-credito">{icon('photo_camera')} {e(credito)} · {plural(len(nomes), 'imagem', 'imagens')}</p></section>"""
+
+
+def resumo_block(pr):
+    """Resumo executivo: o que um patrocinador lê antes de decidir se continua lendo."""
+    d = pr.get("dossie") or {}
+    if not d.get("resumo"):
+        return ""
+    chips = "".join(f'<div class="resumo-chip"><strong>{e(v)}</strong><span>{e(r)}</span></div>'
+                    for v, r in (d.get("destaques") or []))
+    return f"""<section class="container resumo-section"><hr class="rule">
+<div class="resumo-grid"><div><h2 class="section-title">RESUMO<br><em>EXECUTIVO.</em></h2></div>
+<div><p class="resumo-texto">{e(d['resumo'])}</p>
+{f'<div class="resumo-chips">{chips}</div>' if chips else ''}</div></div></section>"""
+
+
+def contexto_block(pr):
+    """Contexto e proposta de valor: por que o projeto existe e o que ele entrega."""
+    d = pr.get("dossie") or {}
+    if not (d.get("contexto") or d.get("valor")):
+        return ""
+    blocos = []
+    for chave, titulo, ic in (("necessidade", "A necessidade", "search"),
+                              ("oportunidade", "A oportunidade", "insights")):
+        if d.get("contexto", {}).get(chave):
+            blocos.append(f"""<div class="nucleo"><h3>{icon(ic)} {titulo}</h3>
+<p>{e(d['contexto'][chave])}</p></div>""")
+    valor = "".join(
+        f"""<div class="nucleo vertical"><h3>{icon('verified')} {e(t)}</h3><p>{e(x)}</p></div>"""
+        for t, x in (d.get("valor") or []))
+    return f"""<section class="container plano-section"><hr class="rule">
+<h2 class="section-title">O QUE ESTE PROJETO<br><em>RESOLVE.</em></h2>
+{f'<div class="nucleo-grid">{"".join(blocos)}</div>' if blocos else ''}
+{f'<h3 class="area-list-title">{icon("campaign")} Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
+</section>"""
+
+
+def kpis_block(pr):
+    """Indicadores que o projeto se compromete a medir, com o estado de cada um."""
+    d = pr.get("dossie") or {}
+    if not d.get("kpis"):
+        return ""
+    linhas = []
+    for nome, alvo, atual, fonte in d["kpis"]:
+        val = (f'<span class="val">{e(atual)}</span>' if atual
+               else '<span class="val pend">a medir</span>')
+        linhas.append(f"""<tr><th scope="row">{e(nome)}</th><td>{e(alvo or '—')}</td>
+<td>{val}</td><td>{fonte_link(fonte)}</td></tr>""")
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">O QUE A GENTE<br><em>MEDE.</em></h2>
+<p class="body-copy">{e(d.get('kpis_lede') or 'Os indicadores que o projeto acompanha, com a leitura mais recente e a origem de cada número.')}</p>
+<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Indicador</th><th scope="col">Referência</th>
+<th scope="col">Última leitura</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver a leitura e a fonte.</p></section>"""
+
+
+def parceiros_block(pr, depth):
+    """Patrocinadores e parceiros identificados neste projeto."""
+    d = pr.get("dossie") or {}
+    itens = d.get("parceiros") or []
+    if not itens:
+        return ""
+    cards = "".join(
+        f"""<div class="parceiro"><span class="parceiro-nome">{e(nome)}</span>
+<span class="parceiro-papel">{icon('verified')} {e(papel)}</span></div>"""
+        for nome, papel in itens)
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">QUEM ESTÁ<br><em>NESTE PROJETO.</em></h2>
+<div class="parceiros-grid">{cards}</div>
+<p class="note">{e(d.get('parceiros_nota') or 'Marcas e instituições identificadas no material oficial do projeto. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso.')}</p></section>"""
 
 
 def papel_block(pr):

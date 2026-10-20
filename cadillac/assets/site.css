@@ -43,6 +43,9 @@ em,.orange{color:var(--orange-ink);font-style:normal}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:#fff;
   padding:14px 20px;font-weight:700;font-size:13px}
 .skip-link:focus{left:0}
+/* Uma classe com display: vence o [hidden] do navegador, e o elemento some
+   da acessibilidade mas continua na tela. Dito uma vez, vale para todos. */
+[hidden]{display:none !important}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
@@ -767,6 +770,88 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   letter-spacing:.04em;text-transform:uppercase}
 .nucleo h3 .cd-icon{font-size:20px;color:var(--orange-ink)}
 .nucleo p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+/* --- Fecho da página do evento ------------------------------------------- */
+.fecho-caixa{background:var(--ink);color:var(--paper);border-radius:var(--r-img);
+  padding:clamp(26px,4vw,52px)}
+.fecho-caixa h2{margin:0;font:800 clamp(30px,4.4vw,58px)/.95 var(--font-display);
+  letter-spacing:-.02em;text-transform:uppercase}
+.fecho-caixa em{color:var(--orange);font-style:normal}
+.fecho-caixa p{margin:16px 0 0;max-width:60ch;color:#d9d6d1;line-height:1.65;
+  font-size:clamp(14px,1.5vw,16px)}
+.fecho-pe{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,2.6vw,30px)}
+.fecho-pe .pill-link{border-color:#4a4a4a;color:var(--paper)}
+.fecho-pe .pill-link:hover{border-color:var(--paper)}
+.fecho-pe .pill-forte{background:var(--orange);border-color:var(--orange);color:#fff}
+.fecho-pe .pill-forte:hover{background:var(--orange-ink);border-color:var(--orange-ink)}
+
+/* --- Jornada de uma edição ------------------------------------------------
+   Mesma régua das curiosidades: linha fina, título à esquerda, corpo que abre
+   no clique. Nada de componente novo, só o conteúdo que faltava. */
+.jornada{margin-top:clamp(18px,2.4vw,26px);border-top:1px solid var(--border-strong)}
+.jornada-passo{border-bottom:1px solid var(--border)}
+.jornada-cabeca{display:flex;align-items:center;gap:clamp(14px,2vw,24px);width:100%;
+  background:none;border:0;padding:clamp(16px,2vw,22px) 0;cursor:pointer;
+  text-align:left;font:inherit;color:inherit}
+.jornada-n{font:800 clamp(22px,2.6vw,34px)/1 var(--font-display);color:var(--orange);
+  min-width:2ch}
+.jornada-nome{flex:1;display:flex;flex-direction:column;gap:3px}
+.jornada-nome strong{font:800 clamp(17px,1.9vw,23px)/1.15 var(--font-display);
+  text-transform:uppercase;letter-spacing:-.01em}
+.jornada-nome small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:700;color:var(--muted)}
+.jornada-seta{color:var(--orange-ink);transition:transform var(--t)}
+.jornada-cabeca[aria-expanded="true"] .jornada-seta{transform:rotate(180deg)}
+.jornada-corpo p{margin:0 0 clamp(16px,2vw,22px);padding-left:calc(2ch + clamp(14px,2vw,24px));
+  font-size:clamp(14px,1.5vw,16px);line-height:1.65;color:var(--ink-2);max-width:68ch}
+
+/* --- A mesma noite em cada tela ------------------------------------------
+   A barra embaixo de cada aba diz, sem texto, o tamanho de uma tela ao lado
+   das outras: 25 milhões em redes e 240 mil em TV não cabem na mesma frase. */
+.telas{margin-top:clamp(18px,2.4vw,26px)}
+.tela-abas{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:620px){.tela-abas{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.tela-abas{grid-template-columns:repeat(4,1fr)}}
+.tela-aba{display:flex;flex-direction:column;gap:5px;cursor:pointer;text-align:left;
+  font:inherit;color:inherit;background:var(--white);border:1px solid var(--border);
+  border-top:3px solid var(--border-strong);border-radius:var(--r-img);
+  padding:clamp(14px,1.8vw,20px);transition:var(--t)}
+.tela-aba strong{font:800 clamp(15px,1.6vw,19px)/1.15 var(--font-display);
+  text-transform:uppercase;letter-spacing:-.01em}
+.tela-aba small{font-size:12px;color:var(--muted)}
+.tela-aba:hover{border-top-color:var(--orange)}
+.tela-aba[aria-selected="true"]{border-top-color:var(--orange);
+  box-shadow:0 10px 24px rgba(18,18,18,.08)}
+.tela-barra{display:block;height:4px;margin-top:8px;border-radius:999px;
+  background:var(--border)}
+.tela-barra i{display:block;height:100%;border-radius:999px;background:var(--orange);
+  min-width:3px}
+.tela-painel{margin-top:clamp(16px,2vw,22px);background:var(--white);
+  border:1px solid var(--border);border-radius:var(--r-img);
+  padding:clamp(18px,2.4vw,28px)}
+.tela-numero{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:0 0 14px}
+.tela-numero strong{font:800 clamp(38px,5vw,62px)/.9 var(--font-display);
+  letter-spacing:-.02em}
+.tela-numero span{font-size:14px;color:var(--muted)}
+.tela-fonte{display:flex;align-items:center;gap:8px;margin:14px 0 0;font-size:13px;
+  color:var(--muted)}
+.tela-fonte .cd-icon{font-size:18px;color:var(--orange-ink)}
+
+/* --- Rota do plano: um ano por vez ---------------------------------------- */
+.rota-anos{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(16px,2vw,22px)}
+.rota-ano{cursor:pointer;font:800 15px/1 var(--font-display);letter-spacing:.02em;
+  padding:11px 17px;border-radius:999px;border:1px solid var(--border-strong);
+  background:none;color:var(--ink);transition:var(--t)}
+.rota-ano:hover{border-color:var(--orange)}
+.rota-ano[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.rota-painel{display:grid;grid-template-columns:minmax(96px,150px) 1fr;
+  gap:clamp(14px,2.6vw,36px);align-items:start;margin-top:clamp(16px,2vw,22px);
+  padding-top:clamp(16px,2vw,22px);border-top:1px solid var(--border)}
+.rota-painel strong{display:block;font:800 clamp(18px,2.1vw,26px)/1.15 var(--font-display);
+  letter-spacing:-.01em;text-transform:uppercase;margin-bottom:9px;color:var(--ink)}
+.rota-painel p{margin:0;font-size:clamp(14px,1.5vw,16px);line-height:1.65;
+  color:var(--ink-2);max-width:62ch}
+@media(max-width:620px){.rota-painel{grid-template-columns:1fr;gap:10px}}
+
 .fases{display:flex;flex-direction:column;border-top:1px solid var(--border)}
 .fase{display:grid;grid-template-columns:minmax(96px,150px) 1fr;gap:clamp(14px,2.6vw,36px);
   align-items:start;

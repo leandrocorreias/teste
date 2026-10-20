@@ -977,6 +977,8 @@ def page_project(pr):
     sections.append(frentes_block(pr))
     sections.append(antecedente_block(pr))
     sections.append(papel_block(pr))
+    sections.append(jornada_block(pr))
+    sections.append(telas_block(pr))
     sections.extend(cronograma)
     sections.append(historico_block(pr))
     sections.append(op_project(pr))
@@ -990,6 +992,19 @@ def page_project(pr):
     sections.append(participacoes_block(pr, depth))
     sections.append(bloco_fontes(pr["sources"], depth, "NA MÍDIA."))
     n += 1
+
+    # Fecho: a pagina termina em uma porta, nao no fim do texto. So aparece
+    # para as propriedades que estao abertas a patrocinio no Relacionamento.
+    patrocinaveis = {x[0] for b_ in MODEL["relacionamento"]["blocos"]
+                     for x in (b_.get("propriedades") or [])}
+    if slug in patrocinaveis:
+        sections.append(f"""<section class="container fecho"><hr class="rule">
+<div class="fecho-caixa"><h2>QUER ESTA MARCA<br><em>NESTE EVENTO?</em></h2>
+<p>Cotas, naming rights e ativação em arena são tratados caso a caso, por edição.
+Conte o que a marca precisa alcançar e respondemos com o que está disponível.</p>
+<div class="fecho-pe"><a class="pill-link pill-forte" href="{p}relacionamento/#patrocinios">
+Quero patrocinar {icon('campaign')}</a>
+<a class="pill-link" href="{p}contato/">Falar com a produção {icon('mail')}</a></div></div></section>""")
 
     related = [x for x in PROJECTS if x["slug"] != slug and x["category"] == pr["category"]]
     related += [x for x in PROJECTS if x["slug"] != slug and x not in related]
@@ -1613,6 +1628,79 @@ def mercado_block(pr):
 {paragrafo_nota(data['nota'])}</section>"""
 
 
+def jornada_block(pr):
+    """Como uma edicao acontece, do primeiro dia ao mes seguinte.
+
+    A pagina contava o que o evento e e o que ele gerou, e pulava o meio: como
+    a coisa funciona. Cada etapa abre no clique, para quem quer o detalhe sem
+    atravessar quatro paragrafos de texto corrido.
+    """
+    data = pr.get("jornada")
+    if not data:
+        return ""
+    passos = []
+    for i, (nome, quando, texto, chave) in enumerate(data["etapas"], start=1):
+        aberto = " aria-expanded=\"true\"" if i == 1 else " aria-expanded=\"false\""
+        escondido = "" if i == 1 else " hidden"
+        passos.append(
+            f'<div class="jornada-passo" data-passo="{e(chave)}">'
+            f'<button type="button" class="jornada-cabeca"{aberto} '
+            f'aria-controls="passo-{i}">'
+            f'<span class="jornada-n">{i:02d}</span>'
+            f'<span class="jornada-nome"><strong>{e(nome)}</strong>'
+            f'<small>{e(quando)}</small></span>'
+            f'{icon("expand_more", "cd-icon jornada-seta")}</button>'
+            f'<div class="jornada-corpo" id="passo-{i}"{escondido}><p>{e(texto)}</p></div></div>')
+    return f"""<section class="container jornada-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="jornada">{''.join(passos)}</div></section>"""
+
+
+def telas_block(pr):
+    """A mesma noite em cada tela, com a barra na proporcao do que entregou.
+
+    Numero solto em lista nao se compara. Aqui a barra mostra o tamanho de
+    cada tela ao lado das outras, e cada tela guarda a propria fonte.
+    """
+    data = pr.get("telas")
+    if not data:
+        return ""
+    itens = data["itens"]
+    maior = max([x.get("peso") or 0 for x in itens] + [1])
+    botoes, paineis = [], []
+    for i, x in enumerate(itens):
+        on = i == 0
+        largura = round(100 * (x.get("peso") or 0) / maior, 1)
+        botoes.append(
+            f'<button type="button" class="tela-aba" role="tab" id="tela-ab-{i}" '
+            f'aria-controls="tela-pn-{i}" aria-selected="{"true" if on else "false"}" '
+            f'tabindex="{"0" if on else "-1"}">'
+            f'<strong>{e(x["nome"])}</strong><small>{e(x["canal"])}</small>'
+            f'<span class="tela-barra"><i style="width:{largura}%"></i></span></button>')
+        linhas = "".join(
+            f'<tr><th scope="row">{e(k)}</th><td>{e(v)}</td></tr>' for k, v in x["linhas"])
+        rotulo, url = x.get("fonte") or (None, None)
+        fonte = ""
+        if rotulo:
+            fonte = (f'<p class="tela-fonte">{icon("description")} '
+                     + (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(rotulo)}</a>'
+                        if url else e(rotulo)) + '</p>')
+        paineis.append(
+            f'<div class="tela-painel" role="tabpanel" id="tela-pn-{i}" '
+            f'aria-labelledby="tela-ab-{i}"{"" if on else " hidden"}>'
+            f'<p class="tela-numero"><strong>{e(x["destaque"])}</strong>'
+            f'<span>{e(x["unidade"])}</span></p>'
+            f'<div class="table-wrap"><table class="amounts"><tbody>{linhas}</tbody></table></div>'
+            f'{fonte}</div>')
+    return f"""<section class="container telas-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="telas">
+<div class="tela-abas" role="tablist" aria-label="Telas da transmissão">{''.join(botoes)}</div>
+<div class="tela-paineis">{''.join(paineis)}</div></div></section>"""
+
+
 def plano_block(pr):
     """Plano de longo prazo declarado pela produção: núcleos, verticais e fases."""
     data = pr.get("plano")
@@ -1624,10 +1712,22 @@ def plano_block(pr):
     verticais = "".join(
         f"""<div class="nucleo vertical"><h3>{e(nome)}</h3><p>{e(desc)}</p></div>"""
         for nome, desc, ic in data["verticais"])
-    fases = "".join(
-        f"""<div class="fase"><span class="fase-ano">{ano}</span>
-<div><strong>{e(titulo)}</strong><p>{e(texto)}</p></div></div>"""
-        for ano, titulo, texto in data["fases"])
+    # A rota ate 2032 era uma lista de sete paragrafos longos, e ninguem lia o
+    # setimo. Agora e uma linha de anos: escolhe-se o ano e le-se so ele.
+    anos, etapas = [], []
+    for i, (ano, titulo, texto) in enumerate(data["fases"]):
+        on = i == 0
+        anos.append(
+            f'<button type="button" class="rota-ano" role="tab" id="rota-ab-{i}" '
+            f'aria-controls="rota-pn-{i}" aria-selected="{"true" if on else "false"}" '
+            f'tabindex="{"0" if on else "-1"}">{ano}</button>')
+        etapas.append(
+            f'<div class="rota-painel" role="tabpanel" id="rota-pn-{i}" '
+            f'aria-labelledby="rota-ab-{i}"{"" if on else " hidden"}>'
+            f'<span class="fase-ano">{ano}</span>'
+            f'<div><strong>{e(titulo)}</strong><p>{e(texto)}</p></div></div>')
+    fases = (f'<div class="rota-anos" role="tablist" aria-label="Etapas do plano">'
+             f'{"".join(anos)}</div><div class="rota-paineis">{"".join(etapas)}</div>')
     return f"""<section class="container plano-section"><hr class="rule">
 <h2 class="section-title">{e(data['titulo']).upper()}<br><em>O plano de longo prazo.</em></h2>
 <p class="body-copy plano-proposito">{e(data['proposito'])}</p>
@@ -1637,7 +1737,7 @@ def plano_block(pr):
 <h3 class="area-list-title">Verticais</h3>
 <div class="nucleo-grid">{verticais}</div>
 <h3 class="area-list-title">{e(data['fases_titulo'])}</h3>
-<div class="fases">{fases}</div>
+<div class="rota">{fases}</div>
 {paragrafo_nota(data['nota'])}</section>"""
 
 

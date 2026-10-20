@@ -730,8 +730,8 @@
       "location": "Rio de Janeiro, RJ",
       "period": "2026—2032",
       "theme": "arena",
-      "desc": "Jiu-jítsu tratado como espetáculo: combates selecionados, fight week em hotel cinco estrelas e transmissão em TV, streaming e redes.",
-      "intro": "O Connect Heroes nasceu no Rio de Janeiro com uma tese simples: a técnica continua no centro, mas a experiência ganha outra dimensão. A primeira edição aconteceu no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel, e chegou ao público por três caminhos ao mesmo tempo: TV, streaming e redes. A segunda edição muda de cidade e acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói, para convidados especiais. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que projeta o esporte até 2032.",
+      "desc": "Competição de grappling desenhada como produto de entretenimento: combates selecionados, fight week em hotel cinco estrelas e distribuição simultânea em TV, streaming e redes.",
+      "intro": "O Connect Heroes nasceu no Rio de Janeiro para ocupar um espaço vago no jiu-jítsu brasileiro: o de propriedade esportiva produzida como espetáculo. A técnica segue no centro, mas a competição passa a vir acompanhada de narrativa, hospitalidade e padrão de imagem compatível com marcas grandes. A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel e distribuição simultânea em TV, streaming e redes. A segunda edição acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que organiza o esporte até 2032.",
       "image": null,
       "years": [
         2026
@@ -996,7 +996,7 @@
         ]
       ],
       "dossie": {
-        "resumo": "O Connect Heroes trata o jiu-jítsu como produto de entretenimento, não como torneio. Poucos combates, atletas com narrativa, rivalidades claras e uma semana inteira de conteúdo dentro de um hotel cinco estrelas. É o único evento da modalidade no Brasil que combina TV aberta, streaming e experiência presencial premium no mesmo pacote. A primeira edição foi ao ar em julho de 2026; a segunda acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói.",
+        "resumo": "O Connect Heroes trata o jiu-jítsu como produto de entretenimento, não como torneio: poucos combates, atletas com narrativa, rivalidades claras e uma semana inteira de conteúdo produzida dentro de um hotel cinco estrelas. É o único evento da modalidade no Brasil que reúne TV, streaming e experiência presencial premium no mesmo pacote comercial. A primeira edição foi ao ar em julho de 2026; a segunda acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói.",
         "destaques": [
           [
             "240 mil",
@@ -1137,7 +1137,123 @@
         "parceiros_nota": ""
       },
       "ordem": 6,
-      "chamada": "Jiu-jítsu tratado como espetáculo."
+      "chamada": "Jiu-jítsu tratado como espetáculo.",
+      "jornada": {
+        "titulo": "Como uma edição acontece",
+        "lede": "Uma edição não é uma noite: é uma semana de operação que começa na chegada dos atletas e segue no ar por mais um mês.",
+        "etapas": [
+          [
+            "Fight week",
+            "De quarta a domingo",
+            "Atletas, equipe e imprensa ficam hospedados no mesmo hotel em que a competição acontece. A semana inteira em um só endereço concentra produção, bastidores e acesso da imprensa, e transforma cinco dias em material de conteúdo.",
+            "hotel"
+          ],
+          [
+            "Pesagem e coletiva",
+            "Primeiro dia público",
+            "A pesagem e a coletiva de imprensa abrem a semana para fora: é quando as rivalidades ganham nome, a pauta chega às redações e o público entende quem enfrenta quem.",
+            "imprensa"
+          ],
+          [
+            "Noite de combates",
+            "Um único dia",
+            "A competição ocupa um dia, com combates selecionados e público sentado. A mesma noite vai ao ar ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio do projeto.",
+            "arena"
+          ],
+          [
+            "Vida depois do apito",
+            "Trinta dias seguintes",
+            "A entrega não termina no resultado. A primeira edição foi reprisada 27 vezes entre 11 de julho e 9 de agosto, e os cortes em redes somaram 25 milhões de visualizações no mês.",
+            "depois"
+          ]
+        ]
+      },
+      "telas": {
+        "titulo": "A mesma noite, quatro telas",
+        "lede": "Clique em cada tela para ver o que ela entregou na primeira edição.",
+        "itens": [
+          {
+            "nome": "TV aberta",
+            "canal": "Xsports",
+            "destaque": "240 mil",
+            "unidade": "televisores na transmissão ao vivo",
+            "peso": 240000,
+            "linhas": [
+              [
+                "Reprises em 30 dias",
+                "27"
+              ],
+              [
+                "Janela",
+                "11 de julho a 9 de agosto de 2026"
+              ]
+            ],
+            "fonte": [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          },
+          {
+            "nome": "TV por assinatura",
+            "canal": "Combate e SporTV 3",
+            "destaque": "2 canais",
+            "unidade": "na distribuição pelo Globoplay",
+            "peso": 0,
+            "linhas": [
+              [
+                "Audiência",
+                "a medir, aguardando relatório da emissora"
+              ]
+            ],
+            "fonte": [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          },
+          {
+            "nome": "YouTube",
+            "canal": "Canal próprio",
+            "destaque": "149 mil",
+            "unidade": "visualizações no canal do projeto",
+            "peso": 149000,
+            "linhas": [
+              [
+                "Horas de exibição",
+                "63 mil"
+              ],
+              [
+                "Aparelhos conectados",
+                "87 mil"
+              ],
+              [
+                "Em televisores",
+                "54,9%"
+              ]
+            ],
+            "fonte": [
+              "Connect Cast no YouTube",
+              "https://www.youtube.com/@PodcastConnectCast"
+            ]
+          },
+          {
+            "nome": "Redes",
+            "canal": "Reels",
+            "destaque": "25 milhões",
+            "unidade": "visualizações no mês do evento",
+            "peso": 25000000,
+            "linhas": [
+              [
+                "Transmissão e reprises somadas",
+                "mais de 2 milhões de visualizações"
+              ]
+            ],
+            "fonte": [
+              "Mídia kit oficial Connect Heroes V6 · documento da produção",
+              null
+            ]
+          }
+        ]
+      }
     },
     {
       "slug": "vert-battle",

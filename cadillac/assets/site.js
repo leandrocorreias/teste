@@ -314,6 +314,52 @@
      assume o valor esperado: quem vem oferecer um show não lê as perguntas
      de atleta. Enquanto escondido, ele também perde o "required", senão o
      navegador barraria o envio por um campo que ninguém vê. */
+  /* --- Jornada: cada etapa abre no clique ---------------------------------
+     Mesma mecanica do acordeao de curiosidades, so que a primeira ja vem
+     aberta: quem chega na secao le o comeco sem precisar clicar. */
+  [].slice.call(document.querySelectorAll('.jornada-cabeca')).forEach(function (bt) {
+    bt.addEventListener('click', function () {
+      var corpo = document.getElementById(bt.getAttribute('aria-controls'));
+      var aberto = bt.getAttribute('aria-expanded') === 'true';
+      bt.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+      if (corpo) corpo.hidden = aberto;
+    });
+  });
+
+  /* --- Abas: telas da transmissao e rota do plano -------------------------
+     Um so comportamento para os dois: clique troca o painel, e as setas do
+     teclado andam pela lista, como manda o padrao de tablist. */
+  function abas(lista, seletorAba) {
+    var botoes = [].slice.call(lista.querySelectorAll(seletorAba));
+    function mostra(i) {
+      botoes.forEach(function (b, j) {
+        var on = i === j;
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+        var painel = document.getElementById(b.getAttribute('aria-controls'));
+        if (painel) painel.hidden = !on;
+      });
+    }
+    botoes.forEach(function (b, i) {
+      b.addEventListener('click', function () { mostra(i); });
+      b.addEventListener('keydown', function (ev) {
+        var d = ev.key === 'ArrowRight' || ev.key === 'ArrowDown' ? 1
+              : ev.key === 'ArrowLeft' || ev.key === 'ArrowUp' ? -1 : 0;
+        if (!d) return;
+        ev.preventDefault();
+        var alvo = (i + d + botoes.length) % botoes.length;
+        mostra(alvo);
+        botoes[alvo].focus();
+      });
+    });
+  }
+  [].slice.call(document.querySelectorAll('.tela-abas')).forEach(function (l) {
+    abas(l, '.tela-aba');
+  });
+  [].slice.call(document.querySelectorAll('.rota-anos')).forEach(function (l) {
+    abas(l, '.rota-ano');
+  });
+
   /* O botao de uma propriedade abre o formulario do bloco com ela ja
      escolhida, rola ate ele e poe o foco no primeiro campo que falta. */
   [].slice.call(document.querySelectorAll('[data-abre]')).forEach(function (bt) {

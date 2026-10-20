@@ -589,13 +589,18 @@ a.service-row{color:inherit}
 
 /* Marcas */
 .clientes{padding:clamp(40px,5.5vw,72px) 0}
-/* Três colunas, não seis. Com seis, cada célula tinha 165px úteis — e o
-   logotipo da Prefeitura, que é cinco vezes mais largo que alto, caía para
-   33px de altura: o brasão virava borrão e "PREFEITURA DE" sumia. A largura
-   da célula é o que limita um logotipo deitado, então ela é que precisa
-   crescer. Em 1360px a célula passa de 209px para 418px. */
-.logo-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+/* Três colunas, fixas. Duas razões se somam aqui.
+   A primeira é de leitura: com seis colunas a célula tinha 165px úteis, e o
+   logotipo da Prefeitura, cinco vezes mais largo que alto, caía para 33px —
+   o brasão virava borrão e "PREFEITURA DE" sumia. Largura de célula é o que
+   limita marca deitada, então ela é que precisa crescer.
+   A segunda é de fechamento: auto-fit abria quatro colunas em tela grande e
+   deixava a sexta linha pela metade, com dois buracos. São sempre seis
+   marcas, então 1, 2 ou 3 colunas fecham a grade em qualquer largura. */
+.logo-wall{display:grid;grid-template-columns:1fr;
   gap:1px;background:var(--border);border:1px solid var(--border)}
+@media(min-width:560px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
 .logo-item{background:var(--paper);min-height:120px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:10px;padding:22px;text-align:center;transition:var(--t)}
 .logo-item:hover{background:var(--white)}

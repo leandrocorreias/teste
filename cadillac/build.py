@@ -2415,8 +2415,7 @@ def page_governanca_doc(doc):
 </section>
 <section class="container gov-corpo">{''.join(_secao_gov(s) for s in doc['secoes'])}</section>
 <section class="container gov-irmas"><h2 class="section-title">OUTROS<em> DOCUMENTOS.</em></h2>
-<div class="gov-links">{irmas}</div>
-<div class="section-end"><a class="pill-link" href="{p}governanca/">Governança e políticas {icon('arrow_outward')}</a></div></section></main>"""
+<div class="gov-links">{irmas}<a class="gov-volta" href="{p}governanca/">{icon('arrow_outward')} Governança e políticas</a></div></section></main>"""
     return write(f'governanca/{doc["slug"]}/index.html',
                  head(depth, f'{doc["titulo"]} | Cadillac Produções', doc["resumo"],
                       f'governanca/{doc["slug"]}/', [ld, trail_ld])

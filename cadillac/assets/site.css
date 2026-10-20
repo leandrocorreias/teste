@@ -1467,9 +1467,21 @@ a.kpi-selo:hover{filter:brightness(.94)}
 .gov-corpo .table-wrap{margin:6px 0 18px}
 
 .gov-irmas{margin-top:clamp(40px,5vw,70px)}
-.gov-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+/* Colunas fixas, nao auto-fit. Sao sempre seis celulas: cinco documentos irmaos
+   mais a volta ao indice. Com auto-fit a tela larga abria cinco colunas e
+   deixava quatro buracos cinzentos na segunda linha. Com 1, 2 ou 3 colunas a
+   grade fecha certo em qualquer largura. */
+.gov-links{display:grid;grid-template-columns:1fr;
   gap:1px;background:var(--border);border:1px solid var(--border);
   border-radius:var(--r-img);overflow:hidden}
+@media(min-width:560px){.gov-links{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.gov-links{grid-template-columns:repeat(3,1fr)}}
 .gov-links a{display:flex;align-items:center;gap:10px;padding:18px 20px;background:var(--white);
   font-weight:700;font-size:14px;transition:var(--t)}
 .gov-links a:hover{background:var(--paper);color:var(--orange-ink)}
+/* A volta para o indice ocupa a sexta celula da grade, que sobrava vazia com
+   cinco documentos irmaos. Em laranja ela se distingue dos irmaos sem precisar
+   de um botao solto embaixo do bloco. */
+.gov-links .gov-volta{background:var(--orange);color:#fff}
+.gov-links .gov-volta:hover,
+.gov-links .gov-volta:focus-visible{background:var(--orange-ink);color:#fff}

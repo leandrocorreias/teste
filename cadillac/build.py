@@ -1546,10 +1546,18 @@ def ficha_pessoa(pessoa, depth, com_vinculos=True):
         vinc = f'<ul class="vinculos">{"".join(itens)}</ul>'
     links = "".join(f'<a href="{e(u)}" target="_blank" rel="noopener noreferrer">{e(l)} {icon("open_in_new")}</a>'
                     for l, u in pessoa.get("links", []))
+
+    def pend(campo, oque):
+        caminho = f'pessoas.equipe · {pessoa["slug"]} · {campo}'
+        chip = f'<code>{e(caminho)}</code>' if MOSTRAR_CAMPOS else ""
+        return f'<span class="tag-wait">{icon("search")} {e(oque)} a preencher</span>{chip}'
+
+    cargo = e(pessoa["cargo"]) if pessoa.get("cargo") else pend("cargo", "Cargo")
+    bio = e(pessoa["bio"]) if pessoa.get("bio") else pend("bio", "Bio")
     return f"""<article class="pessoa">{img}
 <div class="pessoa-info"><span class="selo">{icon(ic)} {e(rotulo)}</span>
-<h3>{e(pessoa['nome'])}</h3><p class="pessoa-cargo">{e(pessoa['cargo'])}</p>
-<p class="pessoa-bio">{e(pessoa['bio'])}</p>{vinc}
+<h3>{e(pessoa['nome'])}</h3><p class="pessoa-cargo">{cargo}</p>
+<p class="pessoa-bio">{bio}</p>{vinc}
 {f'<p class="pessoa-links">{links}</p>' if links else ''}</div></article>"""
 
 

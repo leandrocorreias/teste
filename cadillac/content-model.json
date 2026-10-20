@@ -1,5 +1,5 @@
 {
-  "version": 24,
+  "version": 25,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -4649,6 +4649,28 @@
         ]
       },
       {
+        "slug": "luciana-cruz",
+        "nome": "Luciana Cruz",
+        "cargo": "",
+        "tipo": "nucleo",
+        "foto": "luciana-cruz.jpg",
+        "bio": "",
+        "desde": null,
+        "links": [],
+        "vinculos": []
+      },
+      {
+        "slug": "flavio-cruz",
+        "nome": "Flávio Cruz",
+        "cargo": "",
+        "tipo": "nucleo",
+        "foto": "flavio-cruz.jpg",
+        "bio": "",
+        "desde": null,
+        "links": [],
+        "vinculos": []
+      },
+      {
         "slug": "alexandre-rangel",
         "nome": "Alexandre Rangel",
         "cargo": "Sócio na realização",
@@ -4738,7 +4760,7 @@
         ]
       }
     },
-    "nota": "Vínculo aqui significa atuação registrada em fonte pública ou informada pela direção, no projeto e no ano indicados. A ausência de uma pessoa em um projeto é informação: significa que ela não atuou nele, ou que o registro ainda não foi levantado."
+    "nota": "Vínculo aqui significa atuação registrada em fonte pública ou informada pela direção da Cadillac. Cargo, bio, foto e vínculo por projeto de cada pessoa entram conforme a direção confirma: os campos em aberto aparecem marcados, com o caminho exato no modelo de conteúdo."
   },
   "clientes": {
     "lede": "Marcas, instituições e entidades que aparecem nos registros dos projetos.",

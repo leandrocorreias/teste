@@ -1,4 +1,4 @@
-# CADILLAC / PORTAL — V8
+# CADILLAC / PORTAL — V17
 
 Portal estático multipágina, responsivo, com URL dedicada por projeto e por edição.
 Todas as páginas são geradas a partir de um único modelo de conteúdo.
@@ -38,8 +38,12 @@ assets/marcas/                 logotipos de marcas e instituições
 assets/kit/                    arquivos para download da imprensa
 assets/video/                  reel e vídeos de projeto
 assets/fotos/                  acervo fotográfico; LEIA-ME.md lista cada arquivo esperado
-na-midia/                      referências agrupadas por projeto
-dados/                         métricas, gráficos, cobertura e metodologia
+na-midia/                      notícias recentes e referências agrupadas por projeto
+dados/                         números, alcance, perfil, impacto, relatórios e certificações
+produtora/                     história, manifesto e essência da empresa
+atletas/, artistas/            fichas do elenco esportivo e artístico
+relacionamento/                patrocínios, marcas, novos negócios, fornecedores, talentos
+governanca/                    códigos e políticas, exclusivos do rodapé
 404.html                       página de erro
 assets/site.css, site.js       estilo e comportamento, sem dependências de framework
 assets/logo-cadillac*.png      logotipo oficial, versões escura e branca
@@ -49,6 +53,36 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## V17: a nova arquitetura de navegação
+
+O menu passou de sete entradas planas para **cinco famílias com submenu hierárquico**:
+Eventos, Produtora, Dados, Imprensa e Relacionamento, mais o botão "Vamos conversar".
+Governança e políticas saiu do cabeçalho e virou um bloco próprio no rodapé.
+
+Para que nenhum item do menu apontasse para o vazio, entraram quatro páginas novas e
+seis seções novas:
+
+- `/produtora/` — **Nossa história** (seis marcos, de 2013 a 2026, cada um com fonte na
+  página do projeto correspondente), **Manifesto** e **Nossa essência**. Os textos de
+  missão, visão, valores e objetivos estão marcados na página como *proposta aguardando
+  aprovação da direção*: foram escritos a partir do que o acervo demonstra, e não podem
+  virar posicionamento oficial sem esse aval.
+- `/relacionamento/` — os seis caminhos comerciais e de carreira, cada um dizendo também
+  o que ainda não existe (tabela de cotas, formulário de fornecedor, banco de talentos).
+- `/governanca/` — os seis documentos de governança com estado explícito. Nenhum texto
+  legal foi redigido por aproximação: cada um entra quando for escrito e aprovado por
+  quem responde juridicamente pela empresa. A política de cookies registra que o site
+  hoje não grava cookie, não usa analytics e só chama o YouTube depois do clique.
+- `/artistas/` — o elenco artístico de todas as edições, agregado a partir do modelo.
+- `/dados/` ganhou **Perfil do público**, **Impacto e resultados**, **Relatórios e
+  estudos** e **Certificações e chancelas**, além das âncoras `#numeros` e `#alcance`.
+- `/imprensa/` ganhou **Releases**, **Fotos e vídeos** e **Assessoria de imprensa**.
+- `/na-midia/` ganhou **Notícias**, um feed com as doze publicações mais recentes do
+  acervo, acima da cobertura agrupada por projeto.
+
+Verificação: 81 páginas, 0 links quebrados, 2.584 links com âncora conferidos um a um,
+0 overflow horizontal em 320, 390, 768, 1024 e 1440px.
 
 ## V16: a turnê com datas reais, vídeo nos projetos e Niterói
 
@@ -256,12 +290,31 @@ abre a página. Se o material for sensível, proteja o diretório no servidor co
 
 ## Menu
 
-Projetos · Atuação · Agenda · Mídia · Dados · Cadillac · Contatos
+Cinco entradas no cabeçalho, com submenus hierárquicos, mais o botão de contato.
+A mesma arquitetura vale em desktop, tablet e celular.
 
-"Cadillac" e "Ecossistema" deixaram de ser páginas e viraram seções de `/atuacao/`
-(`#sobre` e `#ecossistema`): a apresentação da empresa com razão social, CNPJ e
-fundação, e a tabela de papéis e entidades. "Na Mídia" virou "Mídia" no rótulo,
-mantendo a URL `/na-midia/`. "Contatos" entrou no menu.
+```
+EVENTOS          Todos os eventos · Segmentos · Agenda
+PRODUTORA        Nossa história · Manifesto · Atuação
+                 Nosso time: Sócios · Equipe · Atletas · Artistas
+                 Nossa essência: Missão · Visão · Valores · Objetivos
+DADOS            Cadillac em números · Audiência e alcance · Perfil do público
+                 Impacto e resultados · Relatórios e estudos · Certificações
+IMPRENSA         Notícias · Na mídia · Releases · Press kit · Fotos e vídeos · Assessoria
+RELACIONAMENTO   Patrocínios · Marcas e ativações · Novos negócios · Fornecedores
+                 Talentos · Trabalhe conosco · Contato
+VAMOS CONVERSAR  botão, leva a /contato/
+```
+
+**Governança e políticas** fica só no rodapé: código de ética, código de conduta,
+política de privacidade, política de cookies, preferências de cookies e canal de ética.
+
+No desktop os submenus abrem por `:hover` e por `:focus-within`, sem JavaScript, o que
+mantém a navegação por teclado funcionando. Em telas até 1000px o mesmo conteúdo vira
+um acordeão de `<details>` dentro do menu lateral, com os mesmos agrupamentos.
+
+As URLs de projeto continuam em `/projetos/`; o rótulo no menu é "Eventos". Trocar a
+URL para `/eventos/` é possível e exigiria redirecionamentos — ficou de fora por ora.
 
 ## O que mudou na V8
 

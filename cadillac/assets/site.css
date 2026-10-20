@@ -810,3 +810,82 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 .pendencias{list-style:none;margin:clamp(14px,2vw,22px) 0 clamp(18px,2.4vw,26px);padding:0;display:flex;flex-direction:column;gap:12px}
 .pendencias li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.62;padding-left:14px;border-left:3px solid var(--border-strong)}
 .pendencias li .cd-icon{font-size:19px;color:var(--orange-ink);flex-shrink:0}
+
+/* --- navegação com submenus: abre no hover e no foco, sem JavaScript --- */
+.nav{display:flex;align-items:stretch;gap:clamp(2px,.6vw,10px)}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-top{display:inline-flex;align-items:center;gap:3px}
+.nav-top .cd-icon{font-size:17px;transition:transform var(--t)}
+.nav-item:hover .nav-top .cd-icon,.nav-item:focus-within .nav-top .cd-icon{transform:rotate(180deg)}
+.nav-panel{position:absolute;top:100%;left:50%;transform:translate(-50%,8px);z-index:60;
+  min-width:232px;padding-top:14px;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease}
+.nav-item:hover .nav-panel,.nav-item:focus-within .nav-panel{opacity:1;visibility:visible;
+  pointer-events:auto;transform:translate(-50%,0)}
+.nav-panel-inner{background:var(--white);border:1px solid var(--border);
+  border-top:3px solid var(--orange);padding:clamp(14px,1.6vw,20px);
+  box-shadow:0 18px 44px #10101018;display:flex;flex-direction:column;gap:10px}
+.nav-grupo{font:700 10px/1 var(--font-text);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);padding-bottom:7px;border-bottom:1px solid var(--border)}
+.nav-links{display:flex;flex-direction:column}
+.nav-panel a{display:flex;align-items:center;min-height:34px;padding:3px 0;
+  font:500 14px/1.3 var(--font-text);letter-spacing:0;text-transform:none;
+  white-space:nowrap;color:var(--ink);text-decoration:none;transition:color var(--t),padding-left var(--t)}
+.nav-panel a:hover,.nav-panel a:focus-visible{color:var(--orange-ink);padding-left:5px}
+@media (prefers-reduced-motion:reduce){
+  .nav-panel{transition:none}.nav-top .cd-icon{transition:none}
+  .nav-panel a{transition:none}}
+
+/* --- menu compacto: acordeão nativo --- */
+.mob-group{border-bottom:1px solid var(--border)}
+.mob-group summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  cursor:pointer;list-style:none;padding:clamp(13px,2vw,17px) 0;min-height:48px;
+  font:800 clamp(17px,4.4vw,22px)/1.1 var(--font-display);letter-spacing:.03em;text-transform:uppercase}
+.mob-group summary::-webkit-details-marker{display:none}
+.mob-group summary .cd-icon{font-size:24px;color:var(--orange-ink);transition:transform var(--t)}
+.mob-group[open] summary .cd-icon{transform:rotate(180deg)}
+.mob-links{display:flex;flex-direction:column;padding:0 0 14px 2px}
+.mob-links a{display:flex;align-items:center;min-height:42px;font-size:15px;font-weight:500;
+  text-transform:none;letter-spacing:0;border:0;padding:0}
+.mob-grupo{font:700 10px/1 var(--font-text);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:12px 0 6px}
+.mob-contato{display:flex;align-items:center;gap:8px;min-height:48px;margin-top:18px;
+  font:800 16px/1 var(--font-display);letter-spacing:.06em;text-transform:uppercase;color:var(--orange-ink)}
+@media (prefers-reduced-motion:reduce){.mob-group summary .cd-icon{transition:none}}
+
+/* --- governança no rodapé --- */
+.foot-gov{padding-top:clamp(18px,2.4vw,26px);margin-top:clamp(18px,2.4vw,26px);
+  border-top:1px solid #ffffff1f}
+.foot-gov-titulo{font:700 10px/1 var(--font-text);letter-spacing:.16em;text-transform:uppercase;
+  color:#ffffff7a;margin-bottom:12px}
+.foot-gov-nav{display:flex;flex-wrap:wrap;gap:4px clamp(14px,2.4vw,30px)}
+.foot-gov-nav a{display:inline-flex;align-items:center;min-height:30px;font-size:13px;
+  color:#ffffffb8;text-decoration:none}
+.foot-gov-nav a:hover,.foot-gov-nav a:focus-visible{color:#fff;text-decoration:underline}
+
+/* o menu com submenus nao pode reaparecer no compacto: esta regra vem depois
+   do bloco responsivo e precisa repetir o corte */
+@media(max-width:1000px){.nav,.contact-nav{display:none}.hamburger{display:flex}}
+
+/* --- produtora --- */
+.manifesto-linha{font:800 clamp(19px,2.6vw,30px)/1.12 var(--font-display);letter-spacing:-.01em;
+  text-transform:uppercase;margin-top:clamp(10px,1.4vw,16px)}
+.manifesto-linha:nth-child(even){color:var(--orange-ink)}
+.manifesto-corpo p{font-size:clamp(14.5px,1.6vw,17px);line-height:1.68;margin-bottom:1em}
+a.frente{text-decoration:none;color:inherit;transition:border-top-color var(--t),transform var(--t)}
+a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transform:translateY(-3px)}
+.vinculos.compacto{margin:0}
+.vinculos.compacto li{padding:4px 0}
+
+/* Feed de notícias em Na mídia */
+.noticias-wrap{margin-top:clamp(32px,5vw,56px)}
+.noticias{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:2px;
+  border-top:1px solid var(--border)}
+.noticia a{display:grid;gap:4px;padding:14px 2px;border-bottom:1px solid var(--border);
+  text-decoration:none;color:inherit;transition:background .15s ease,padding-left .15s ease}
+.noticia a:hover,.noticia a:focus-visible{background:rgba(255,89,0,.05);padding-left:10px}
+.noticia-ano{font:700 12px/1 var(--font-display);letter-spacing:.1em;color:var(--orange-ink)}
+.noticia-titulo{font:600 clamp(15px,1.5vw,17px)/1.35 var(--font-text)}
+.noticia-meta{font:400 13px/1.3 var(--font-text);color:var(--muted);
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.noticia-meta .mi{font-size:15px}

@@ -1,5 +1,5 @@
 {
-  "version": 25,
+  "version": 27,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -6522,5 +6522,378 @@
       "O vôlei é o patrocínio mais antigo do banco, mas as fontes recuperadas não nomeiam atletas de um squad de vôlei. Ana Patrícia e Duda entram como presenças citadas no festival.",
       "A lista oficial e atual do Squad BB deve ser confirmada junto ao banco antes de qualquer uso comercial desta página."
     ]
+  },
+  "produtora": {
+    "lede": "Uma produtora de eventos, esporte e cultura que trabalha com registro: cada projeto do acervo carrega a fonte do que afirma.",
+    "historia": {
+      "titulo": "Nossa história",
+      "lede": "A trajetória pelo que está documentado, e não pelo que se costuma dizer.",
+      "marcos": [
+        [
+          "2013",
+          "A empresa é constituída",
+          "Cadillac Produções e Filmes Ltda., CNPJ 18.083.967/0001-40, registrada em 8 de maio de 2013, no Rio de Janeiro."
+        ],
+        [
+          "2018",
+          "Festival de Tribos de Juruti",
+          "Contrato 003/2018 registra a Cadillac como contratada para a apresentação de André Frateschi na Festa dos Visitantes, dentro do XXIV Festival de Tribos, no Pará."
+        ],
+        [
+          "2022",
+          "Itacoatiara Pro 10 anos",
+          "A empresa é proponente do projeto 23397, aprovado para captação. O desenho do festival previa oito modalidades, 26 dias de atividade e programação cultural em oito pontos de Niterói."
+        ],
+        [
+          "2024",
+          "Tamo Junto BB em Natal",
+          "A primeira edição do festival do Banco do Brasil, na Arena das Dunas, reúne skate, vôlei de praia, surfe, corrida e e-Sports com mais de 100 mil pessoas circulando."
+        ],
+        [
+          "2025",
+          "Temporada do Vert Battle",
+          "Quatro etapas do Campeonato Brasileiro de Skate Vertical, de Goiânia a Fortaleza, com transmissão da Globo e do SporTV. O material oficial da temporada é assinado pela Cadillac Production."
+        ],
+        [
+          "2026",
+          "O ano mais cheio do acervo",
+          "Itacoatiara Pro na 14ª edição, turnê Dominguinho, Connect Heroes na estreia, skate dentro do MAC Bahia e a entrada no Mr. Moo Festival."
+        ]
+      ],
+      "nota": "Cada marco desta linha tem a fonte na página do projeto correspondente. Não registrar um ano aqui não significa ausência de trabalho naquele ano."
+    },
+    "manifesto": {
+      "titulo": "Manifesto",
+      "linhas": [
+        "A gente faz o extraordinário acontecer.",
+        "Do primeiro rabisco ao último aplauso.",
+        "O impossível não entra na planilha.",
+        "Não é só o que acontece. É o que fica."
+      ],
+      "texto": "Evento é uma coisa que termina. O que a gente faz, não. Fica nas pessoas que estiveram ali, nas imagens, na imprensa, na cidade que foi ocupada por alguns dias e não voltou a ser exatamente a mesma. Por isso a Cadillac não trata um projeto como uma data no calendário, e sim como uma história que continua sendo contada depois.\\n\\nTrabalhar com esporte e cultura no Brasil é articular gente que não se encontraria sozinha: atleta e museu, banco e skate, orquestra e praia, jiu-jítsu e televisão. Nosso trabalho é fazer esse encontro acontecer com estrutura, e fazer com que ele signifique alguma coisa para quem esteve lá e para quem pagou a conta.\\n\\nE é por isso que este site mostra a origem de cada número que publica. Quem produz experiência vive de confiança. Número sem fonte é adjetivo."
+    },
+    "essencia": {
+      "titulo": "Nossa essência",
+      "aviso": "Os quatro textos abaixo são uma proposta, escrita a partir do que o acervo e a comunicação da casa já demonstram na prática. Precisam da aprovação da direção antes de virarem posicionamento oficial.",
+      "blocos": [
+        [
+          "missao",
+          "Missão",
+          "campaign",
+          "Produzir experiências de esporte e cultura que conectem marcas, territórios e pessoas, com operação que se sustenta no detalhe e com registro verificável do que foi entregue."
+        ],
+        [
+          "visao",
+          "Visão",
+          "insights",
+          "Ser a produtora brasileira de referência quando a entrega precisa unir escala de público, complexidade operacional e prestação de contas que um patrocinador consegue auditar."
+        ],
+        [
+          "valores",
+          "Valores",
+          "verified",
+          "Procedência antes de alarde: todo número tem origem declarada. Respeito ao território e a quem vive nele. Cuidado com quem opera, dentro e fora do palco. Clareza com o cliente, inclusive sobre o que ainda não se sabe."
+        ],
+        [
+          "objetivos",
+          "Objetivos",
+          "stacked_bar_chart",
+          "Consolidar as propriedades do acervo como circuitos recorrentes, ampliar a frente de captação para projetos de terceiros, fechar a documentação operacional de cada edição e manter uma série histórica de público e audiência que melhore a cada temporada."
+        ]
+      ]
+    }
+  },
+  "relacionamento": {
+    "lede": "Os caminhos para trabalhar com a Cadillac, de patrocínio a fornecimento.",
+    "blocos": [
+      {
+        "id": "patrocinios",
+        "titulo": "Patrocínios",
+        "icone": "campaign",
+        "texto": "As propriedades do acervo oferecem exposição em TV aberta e streaming, presença em arena e em estrutura de alto impacto, ativação de produto no evento e conteúdo produzido durante a operação. A cada projeto corresponde um público diferente, e a página de cada evento mostra o que se mede e o que ainda está em aberto antes de qualquer conversa comercial.",
+        "itens": [
+          "Cotas por projeto e por edição, com contrapartidas descritas",
+          "Naming rights em propriedades próprias e de parceiros",
+          "Ativação de marca em arena, palco e áreas de experiência",
+          "Projetos inscritos em leis de incentivo à cultura e ao esporte"
+        ],
+        "pendencia": "A tabela de cotas por projeto é material comercial e não é publicada aqui."
+      },
+      {
+        "id": "marcas",
+        "titulo": "Marcas e ativações",
+        "icone": "verified",
+        "texto": "Marcas e instituições que aparecem nos registros dos projetos do acervo, com o papel de cada uma identificado na página do projeto correspondente.",
+        "itens": [],
+        "pendencia": ""
+      },
+      {
+        "id": "negocios",
+        "titulo": "Novos negócios",
+        "icone": "stacked_bar_chart",
+        "texto": "Para produtores, entidades e detentores de propriedade que procuram operação, captação ou coprodução. É a frente pela qual a Cadillac entrou na edição de 2027 do Mr. Moo Festival, como responsável pela captação de patrocínio.",
+        "itens": [
+          "Captação de patrocínio para propriedades de terceiros",
+          "Coprodução e operação de eventos existentes",
+          "Estruturação de circuitos e temporadas"
+        ],
+        "pendencia": ""
+      },
+      {
+        "id": "fornecedores",
+        "titulo": "Fornecedores",
+        "icone": "engineering",
+        "texto": "Estrutura, som, luz, LED, transmissão, segurança, alimentação e logística são contratados localmente em cada praça. Fornecedores que queiram ser cadastrados podem se apresentar pelo contato da produção.",
+        "itens": [],
+        "pendencia": "O formulário de cadastro de fornecedor ainda não está no ar."
+      },
+      {
+        "id": "talentos",
+        "titulo": "Talentos",
+        "icone": "groups",
+        "texto": "Atletas, artistas e criadores que queiram integrar as propriedades do acervo. As páginas de atletas e de artistas mostram quem já passou pelos projetos.",
+        "itens": [],
+        "pendencia": ""
+      },
+      {
+        "id": "trabalhe",
+        "titulo": "Trabalhe conosco",
+        "icone": "mail",
+        "texto": "A operação de cada edição reúne equipe própria, fornecedores e freelancers de produção, logística, comunicação e atendimento.",
+        "itens": [],
+        "pendencia": "Não há vagas abertas publicadas no momento, e o banco de talentos ainda não tem formulário próprio."
+      }
+    ],
+    "nota": "Enquanto os formulários específicos não entram no ar, todos os caminhos acima passam pelo contato da produção."
+  },
+  "governanca": {
+    "titulo": "Governança e políticas",
+    "lede": "Os documentos que regem a conduta da empresa e o tratamento de dados de quem usa este site.",
+    "itens": [
+      {
+        "id": "etica",
+        "titulo": "Código de ética",
+        "icone": "verified",
+        "resumo": "Princípios que orientam as decisões da empresa e a relação com clientes, patrocinadores, fornecedores, poder público e comunidades.",
+        "estado": "a publicar"
+      },
+      {
+        "id": "conduta",
+        "titulo": "Código de conduta",
+        "icone": "groups",
+        "resumo": "Regras de comportamento esperadas de sócios, equipe, fornecedores e prestadores durante a operação dos eventos.",
+        "estado": "a publicar"
+      },
+      {
+        "id": "privacidade",
+        "titulo": "Política de privacidade",
+        "icone": "description",
+        "resumo": "Como dados pessoais são coletados, usados, armazenados e eliminados, e quais são os direitos do titular segundo a Lei Geral de Proteção de Dados.",
+        "estado": "a publicar"
+      },
+      {
+        "id": "cookies",
+        "titulo": "Política de cookies",
+        "icone": "search",
+        "resumo": "Quais cookies o site usa, para quê e por quanto tempo.",
+        "estado": "sem cookies"
+      },
+      {
+        "id": "preferencias",
+        "titulo": "Preferências de cookies",
+        "icone": "filter_list",
+        "resumo": "Painel para o visitante escolher quais categorias de cookies aceita.",
+        "estado": "sem cookies"
+      },
+      {
+        "id": "canal",
+        "titulo": "Canal de ética",
+        "icone": "mail",
+        "resumo": "Caminho para relatar, inclusive de forma anônima, condutas que violem os códigos da empresa.",
+        "estado": "a publicar"
+      }
+    ],
+    "estados": {
+      "a publicar": [
+        "A publicar",
+        "O documento precisa ser redigido e aprovado pelo jurídico antes de ir ao ar."
+      ],
+      "sem cookies": [
+        "Nada a gerenciar hoje",
+        "Este site não grava cookies, não usa analytics e não carrega rastreador de terceiro. O player de vídeo só chama o YouTube depois do clique do visitante. Quando entrar medição ou formulário, a política e o painel de preferências passam a ser obrigatórios."
+      ]
+    },
+    "nota": "Esta página existe para que a estrutura de governança seja visível desde já. Nenhum texto legal foi redigido por aproximação: cada documento entra quando for escrito e aprovado por quem responde juridicamente pela empresa."
+  },
+  "perfil_publico": {
+    "lede": "Quem é o público de cada projeto, conforme a própria produção declara. Faixas de projetos diferentes não se somam nem se comparam: cada uma foi medida de um jeito.",
+    "linhas": [
+      {
+        "projeto": "tamo-junto-bb",
+        "faixa": "25 a 35 anos",
+        "recorte": "Maioria do público que dividiu a atenção entre o vôlei de praia e o skate",
+        "fonte": [
+          "Apresentação oficial Festival Tamo Junto BB",
+          null
+        ]
+      },
+      {
+        "projeto": "mr-moo-festival",
+        "faixa": "35 a 70 anos",
+        "recorte": "50% homens e 50% mulheres; público de mais de 420 cidades, todos os estados e seis países",
+        "fonte": [
+          "Mídia kit oficial Mr. Moo Festival",
+          null
+        ]
+      },
+      {
+        "projeto": "itacoatiara-pro",
+        "faixa": "10 a 60 anos",
+        "recorte": "Classes A, B e C, conforme o perfil projetado no projeto de 2022",
+        "fonte": [
+          "Projeto Itacoatiara Pro 10 anos",
+          null
+        ]
+      },
+      {
+        "projeto": "connect-heroes",
+        "faixa": "25 a 54 anos",
+        "recorte": "Faixa predominante dos praticantes de jiu-jítsu no Brasil, segundo a leitura de mercado do pitch",
+        "fonte": [
+          "Pitch de patrocínio Connect Heroes, 2ª edição",
+          null
+        ]
+      }
+    ],
+    "nota": "Todos os recortes são declarados pelas produções em material comercial, sem pesquisa de público auditada anexada. Servem para descrever a quem cada projeto fala, não para somar audiências."
+  },
+  "impacto": {
+    "lede": "O que ficou depois do evento, nas medidas que cada produção acompanha.",
+    "itens": [
+      [
+        "R$ 65,1 mi",
+        "Valoração de mídia do Tamo Junto BB",
+        "Nas duas primeiras edições, com 113 jornalistas credenciados no local.",
+        "campaign"
+      ],
+      [
+        "~400",
+        "Matérias sobre o Vert Battle",
+        "Na temporada 2025, segundo o balanço da produção.",
+        "description"
+      ],
+      [
+        "~100 t",
+        "Alimentos arrecadados no Vert Battle",
+        "Ao longo das quatro etapas da temporada 2025.",
+        "groups"
+      ],
+      [
+        "308,3",
+        "tCO₂e inventariadas na turnê Dominguinho",
+        "Quatro shows de agosto de 2026, com 8,8 kg de CO₂e por pessoa presente.",
+        "insights"
+      ],
+      [
+        "83,5%",
+        "Aprovação do público em Natal",
+        "E 92,5% declararam percepção positiva da marca do patrocinador.",
+        "verified"
+      ],
+      [
+        "4",
+        "Escolas atendidas no projeto do Itacoatiara Pro",
+        "Cerca de 400 alunos, na frente social prevista para 2022.",
+        "public"
+      ]
+    ],
+    "nota": "Números declarados pelas produções e pelos patrocinadores em seus próprios materiais, sem auditoria independente anexada a esta página. Descrevem os eventos, não resultado financeiro da Cadillac."
+  },
+  "relatorios": {
+    "lede": "Documentos técnicos e balanços produzidos sobre os projetos do acervo.",
+    "itens": [
+      {
+        "titulo": "Inventário de emissões de GEE da Turnê Dominguinho",
+        "o_que": "GHG Protocol e ABNT NBR ISO 14064-1:2018, quatro shows, certificado DMG26-7F4C",
+        "quando": "Agosto de 2026",
+        "estado": "Recebido, não publicado aqui"
+      },
+      {
+        "titulo": "Balanço da temporada 2025 do Vert Battle",
+        "o_que": "Público, clipping, arrecadação de alimentos e desempenho digital",
+        "quando": "Temporada 2025",
+        "estado": "Recebido, não publicado aqui"
+      },
+      {
+        "titulo": "Apresentação de resultados do Tamo Junto BB",
+        "o_que": "Duas edições, valoração de mídia, engajamento e perfil de público",
+        "quando": "2024 e 2025",
+        "estado": "Recebido, não publicado aqui"
+      },
+      {
+        "titulo": "Leitura de mercado do jiu-jítsu brasileiro",
+        "o_que": "Praticantes, movimentação anual, academias e capilaridade internacional",
+        "quando": "2026",
+        "estado": "Recebido, não publicado aqui"
+      },
+      {
+        "titulo": "Pesquisa de público própria",
+        "o_que": "Perfil, origem, gasto e satisfação, com metodologia declarada",
+        "quando": "—",
+        "estado": "A realizar"
+      }
+    ],
+    "nota": "Documento recebido da produção não é publicado nesta página sem autorização de quem o produziu. O que entra no site é o dado, com a fonte identificada. A pesquisa de público própria é a lacuna que mais pesa: hoje todo perfil vem de material de terceiro."
+  },
+  "certificacoes": {
+    "lede": "Reconhecimentos, homologações e chancelas que os projetos do acervo carregam.",
+    "itens": [
+      [
+        "Guinness World Records",
+        "Maior volume de carne bovina churrasqueada servida em oito horas, certificado ao Mr. Moo Festival em 17 de maio de 2025, em São José dos Campos. A data e o reconhecimento constam de decreto municipal.",
+        "verified",
+        [
+          "Decreto municipal de São José dos Campos",
+          "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
+        ]
+      ],
+      [
+        "Homologação da CBSk",
+        "O Campeonato Brasileiro de Skate Vertical, o Vert Battle, é homologado pela Confederação Brasileira de Skate e integra o Circuito BB de Skate Vertical.",
+        "skateboarding",
+        [
+          "Mídia kit oficial Vert Battle 2025",
+          null
+        ]
+      ],
+      [
+        "IBC World Tour, etapa cinco estrelas",
+        "O contest de bodyboard do Itacoatiara Pro integra o calendário do circuito mundial, com etapa cinco estrelas e etapa do circuito brasileiro da CBRASB.",
+        "public",
+        [
+          "Projeto Itacoatiara Pro 10 anos",
+          null
+        ]
+      ],
+      [
+        "Chancela da CBVela",
+        "A regata da Classe Star do Itacoatiara Pro é válida para o circuito brasileiro e chancelada pela Confederação Brasileira de Vela, com curadoria do Projeto Grael.",
+        "place",
+        [
+          "Projeto Itacoatiara Pro 10 anos",
+          null
+        ]
+      ],
+      [
+        "GHG Protocol e ISO 14064-1",
+        "O inventário de emissões da turnê Dominguinho segue o GHG Protocol, o Programa Brasileiro GHG Protocol e a ABNT NBR ISO 14064-1:2018, com GWP do IPCC AR5.",
+        "insights",
+        [
+          "Inventário de emissões da Turnê Dominguinho, certificado DMG26-7F4C",
+          null
+        ]
+      ]
+    ],
+    "nota": "O inventário de emissões passou por revisão técnica e controle de qualidade internos, sem verificação externa independente, e o próprio documento diz isso. Certificação de terceiro pertence a quem a recebeu: estão listadas aqui porque pertencem a projetos do acervo, não à Cadillac."
   }
 }

@@ -1184,7 +1184,7 @@ def page_press():
 <section class="container sources" id="cobertura">
 <h2 class="sec-title">Cobertura por projeto</h2>
 {''.join(groups)}
-<p class="note">Reunimos links para as publicações originais e não reproduzimos matérias integrais nem fotografias jornalísticas sem licença. A citação de um veículo não implica parceria, patrocínio ou endosso.</p></section></main>"""
+</section></main>"""
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Na Mídia",
           "url": f"{BASE}/na-midia/", "inLanguage": "pt-BR"}
     return write("na-midia/index.html",
@@ -1344,10 +1344,7 @@ def audience_blocks(depth):
 <thead><tr><th scope="col">Evento</th><th scope="col">Grandeza</th><th scope="col">Número</th><th scope="col">Base</th><th scope="col">Quem divulgou</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver a base e a fonte.</p></div>
-{f'<div class="chart-card span-2"><h3>Público presente por evento</h3><p class="chart-sub">Somente registros com número e origem. Projeções ficam de fora.</p><figure>{chart}<figcaption>Série única, em pessoas. Cresce conforme as linhas em branco forem preenchidas.</figcaption></figure></div>' if chart else ''}
 </div>
-<div class="area-list reach-method"><h3>Como este número é construído</h3><ul>{method}</ul></div>
-<p class="note">Hoje {plural(pend, 'linha depende', 'linhas dependem')} de dado que só a produção tem: bilheteria, contagem de credencial, relatório de plataforma ou laudo de público. Enquanto não chegam, o total mostra menos do que a Cadillac realmente alcançou — e é assim que deve ser, porque número sem origem não se defende em reunião de patrocínio.</p>
 </section>"""
 
 
@@ -1699,7 +1696,7 @@ def broadcast_block(depth):
 <td>{metric}</td><td>{link}</td><td>{fonte or '—'}</td></tr>""")
     pend = sum(1 for r in data["registros"] if not r["metrica"])
     return f"""<section class="container reach-section" id="transmissoes"><hr class="rule">
-<h2 class="section-title">O QUE FOI<br><em>AO AR.</em></h2>
+<h2 class="section-title">TRANSMISSÕES<span class="orange">.</span></h2>
 <p class="body-copy">{e(data['lede'])}</p>
 <div class="charts"><div class="chart-card span-2"><h3>Transmissões por evento e parceiro</h3>
 <p class="chart-sub">{plural(pend, 'linha aguarda', 'linhas aguardam')} a leitura na plataforma.</p>
@@ -2377,10 +2374,13 @@ def page_produtora():
         + grupo_pessoas("Artistas", artistas, "artistas/", "Ver o elenco"))
 
     ess = d["essencia"]
-    blocos = "".join(
-        f"""<section class="container plano-section" id="{bid}"><hr class="rule">
-<h2 class="section-title">{e(t).upper()}<span class="orange">.</span></h2>
-<p class="resumo-texto">{e(txt)}</p></section>"""
+    # Os quatro principios eram quatro secoes de largura inteira, cada uma com
+    # um titulo gigante e um paragrafo de 110 caracteres por linha. Quem lia
+    # rolava quatro telas para quatro frases, e a linha comprida demais cansa.
+    # Em grade de dois por dois cabem numa tela so, com medida de leitura.
+    cartoes = "".join(
+        f'<article class="essencia-item" id="{bid}">'
+        f'<h3>{e(t)}<span class="orange">.</span></h3><p>{e(txt)}</p></article>'
         for bid, t, ic, txt in ess["blocos"])
 
     ld = {"@context": "https://schema.org", "@type": "AboutPage", "name": "Produtora",
@@ -2404,8 +2404,8 @@ def page_produtora():
 
 <section class="container reach-section" id="essencia"><hr class="rule">
 <h2 class="section-title">{e(ess['titulo']).upper()}<span class="orange">.</span></h2>
-{f'{paragrafo_nota(ess["aviso"])}' if ess.get('aviso') else ''}</section>
-{blocos}</main>"""
+{paragrafo_nota(ess.get('aviso'))}
+<div class="essencia-grade">{cartoes}</div></section></main>"""
     return write("produtora/index.html",
                  head(depth, "Produtora | História, manifesto e essência | Cadillac Produções",
                       "A Cadillac Produções e Filmes: história documentada, manifesto, time e os "

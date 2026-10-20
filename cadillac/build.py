@@ -94,8 +94,10 @@ NAV = [
         (None, [("Nossa história", "produtora/#historia"),
                 ("Manifesto", "produtora/#manifesto"),
                 ("Atuação", "atuacao/")]),
-        ("Nosso time", [("Sócios", "equipe/#nucleo"),
-                        ("Equipe", "equipe/"),
+        # "Sócios" saiu: o grupo deixou de existir quando os socios e a equipe
+        # fixa viraram um bloco so. O link ainda resolvia, mas levava a uma
+        # ancora cujo titulo na pagina ja era outro.
+        ("Nosso time", [("Equipe", "equipe/"),
                         ("Atletas", "atletas/"),
                         ("Artistas", "artistas/")]),
         ("Nossa essência", [("Missão", "produtora/#missao"),

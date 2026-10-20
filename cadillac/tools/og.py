@@ -93,11 +93,8 @@ def cartao(caminho_foto, arquivo, invertido=False):
     marca = marca.resize((mw, round(marca.height * mw / marca.width)), Image.LANCZOS)
     x, y = (L - mw) // 2, (A - marca.height) // 2 - 10
 
-    if not invertido:
-        # Sombra atrás da marca: em foto clara, o branco sumiria.
-        sombra = Image.new("RGBA", (L, A), (0, 0, 0, 0))
-        sombra.paste(marca.filter(ImageFilter.GaussianBlur(16)), (x, y + 6), marca)
-        im = Image.alpha_composite(im.convert("RGBA"), sombra).convert("RGB")
+    # Sem sombra: a marca entra limpa, em branco chapado. O contraste vem do
+    # véu sobre a foto, não de um borrão atrás das letras.
     im.paste(marca, (x, y), marca)
 
     d = ImageDraw.Draw(im)

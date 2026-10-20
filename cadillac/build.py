@@ -678,7 +678,6 @@ def page_home():
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></div></section>
-<section class="container reel-section">{video_block('reel', MODEL['video']['reel'].get('titulo') or 'Reel institucional Cadillac')}</section>
 <section class="container showcase" id="projetos">
 <h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
 <div class="works-grid">{cards}</div>

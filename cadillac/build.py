@@ -345,7 +345,7 @@ def bloco_fontes(sources, depth, titulo):
     """
     p = rel(depth)
     ir_para_midia = (f'<div class="section-end"><a class="pill-link" href="{p}na-midia/">'
-                     f'Ver a cobertura na Mídia {icon("description")}</a></div>')
+                     f'Coberturas {icon("description")}</a></div>')
     if not sources:
         return f"""<section class="container sources"><hr class="rule">
 <h2>NA MÍDIA.</h2>
@@ -576,7 +576,7 @@ def faq_block(project, number):
         for q, a in project["faq"]
     )
     section = f"""<section class="container faq-section"><hr class="rule">
-<h2 class="section-title">O QUE PERGUNTAM<br><em>SOBRE O EVENTO.</em></h2>
+<h2 class="section-title">CURIOSIDADES<span class="orange">.</span></h2>
 <div class="faq-list">{rows}</div></section>"""
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q,
@@ -962,7 +962,7 @@ def page_project(pr):
     sections.append(faq_html)
     sections.append(creditos_projeto(pr, depth))
     sections.append(participacoes_block(pr, depth))
-    sections.append(bloco_fontes(pr["sources"], depth, "MAIS NA MÍDIA."))
+    sections.append(bloco_fontes(pr["sources"], depth, "NA MÍDIA."))
     n += 1
 
     related = [x for x in PROJECTS if x["slug"] != slug and x["category"] == pr["category"]]
@@ -970,7 +970,7 @@ def page_project(pr):
     rel_cards = "".join(card(x, depth) for x in related[:3])
     sections.append(f"""<section class="container related">
 <hr class="rule">
-<h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
+<h2 class="section-title">VEJA MAIS<span class="orange">.</span></h2>
 <div class="works-grid grid-4">{rel_cards}</div>
 <div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>""")
 
@@ -1870,7 +1870,7 @@ def creditos_projeto(pr, depth, year=None):
         linhas.append(f'<tr><th scope="row"><a href="{p}equipe/#{pessoa["slug"]}">{e(pessoa["nome"])}</a>'
                       f'<small>{e(rotulo)}</small></th><td>{e(v["papel"])}</td><td>{fonte}</td></tr>')
     return f"""<section class="container reach-section"><hr class="rule">
-<h2 class="section-title">QUEM ASSINA<br><em>ESTA OPERAÇÃO.</em></h2>
+<h2 class="section-title">PRODUÇÃO<span class="orange">.</span></h2>
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Quem</th><th scope="col">Papel aqui</th><th scope="col">Fonte</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>

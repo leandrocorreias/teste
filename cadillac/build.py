@@ -510,11 +510,26 @@ def paragrafo_nota(texto):
     return '<p class="note">' + e(texto) + '</p>'
 
 
+def stems_edicao(project, year):
+    """Nomes de arquivo possiveis para uma edicao, do mais especifico ao menos.
+
+    A edicao passou a ter id proprio ("2026-1"), e as fotos do acervo foram
+    nomeadas pelo ano. O ano segue valendo como segunda tentativa, senao uma
+    galeria inteira sumiria so por causa do novo id.
+    """
+    stems = []
+    if year:
+        stems.append(f'{project["slug"]}-{year}')
+        ano = ano_de(year)
+        if str(ano) != str(year):
+            stems.append(f'{project["slug"]}-{ano}')
+    stems.append(project["slug"])
+    return stems
+
+
 def photo_for(project, year=None):
     """Foto do acervo, se o arquivo já estiver em assets/fotos."""
-    stems = [project["slug"] + (f"-{year}" if year else "")]
-    if year:
-        stems.append(project["slug"])
+    stems = stems_edicao(project, year) if year else [project["slug"]]
     for stem in stems:
         for ext in ("jpg", "jpeg", "png", "webp"):
             if (ROOT / "assets" / "fotos" / f"{stem}.{ext}").exists():
@@ -523,7 +538,7 @@ def photo_for(project, year=None):
 
 
 def og_for(project, year=None):
-    for stem in ([f'{project["slug"]}-{year}'] if year else []) + [project["slug"]]:
+    for stem in (stems_edicao(project, year) if year else [project["slug"]]):
         if (ROOT / "assets" / "og" / f"{stem}.jpg").exists():
             return f"{BASE}/assets/og/{stem}.jpg"
     return None
@@ -1110,6 +1125,10 @@ def page_edition(pr, year):
     slug, ystr = pr["slug"], str(year)
     rot = rotulo_ed(pr, year)
     ano = ano_de(year)
+    # prefixo da galeria: o id da edicao se houver arquivo, senao o ano
+    prefixo = next((st for st in stems_edicao(pr, year)
+                    if (ROOT / "assets" / "fotos" / f"{st}-01.jpg").exists()),
+                   f"{slug}-{year}")
     credito = MODEL["photos"].get("creditos", {}).get(slug, "Acervo Cadillac")
     ed = pr.get("editions", {}).get(ystr, {})
     trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"),
@@ -1176,9 +1195,9 @@ def page_edition(pr, year):
 <hr class="rule">
 <h2 class="section-title">POR DENTRO<br><em>DO ACONTECIMENTO.</em></h2>
 <div class="gallery">
-{slot(f'{slug}-{year}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide', depth, credito)}
-{slot(f'{slug}-{year}-02.jpg', '4:5', 'Bastidores', '', depth, credito)}
-{slot(f'{slug}-{year}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)}</div>
+{slot(f'{prefixo}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide', depth, credito)}
+{slot(f'{prefixo}-02.jpg', '4:5', 'Bastidores', '', depth, credito)}
+{slot(f'{prefixo}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)}</div>
 </section>
 <section class="container insights">
 <hr class="rule">

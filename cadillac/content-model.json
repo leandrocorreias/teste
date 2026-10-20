@@ -5219,6 +5219,13 @@
         "arquivo": "assets/video/itacoatiara-pro.mp4",
         "poster": "assets/fotos/itacoatiara-pro.jpg",
         "nota": ""
+      },
+      "connect-heroes": {
+        "url": "https://youtu.be/xI54Nm7kzuk",
+        "titulo": "Connect Heroes, teaser da 1ª edição",
+        "arquivo": "assets/video/connect-heroes.mp4",
+        "poster": "assets/fotos/connect-heroes.jpg",
+        "nota": ""
       }
     },
     "nota": ""

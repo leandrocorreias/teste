@@ -673,10 +673,10 @@ def page_home():
 <p class="showcase-lede">{plural(len(PROJECTS), 'propriedade', 'propriedades')} no acervo, da mais recente para a mais antiga. Cada uma com o que está documentado, a fonte de cada número e o papel da Cadillac no evento.</p>
 </div>
 <div class="works-grid">{cards}</div>
-<div class="section-end"><a class="pill-link" href="./projetos/">Explorar o acervo completo {icon('arrow_outward')}</a></div></section>
+<div class="section-end"><a class="pill-link" href="./projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>
 <section class="container editorial" id="historias">
 <hr class="rule">
-<h2 class="section-title">HISTÓRIAS QUE <em>CONTINUAM.</em></h2>
+<h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
 <div class="article-grid">{''.join(highlights)}</div></section>
 <section class="container clientes"><hr class="rule">
 <h2 class="section-title">COM QUEM<br><em>A GENTE TRABALHA.</em></h2>

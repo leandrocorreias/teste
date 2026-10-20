@@ -1,5 +1,5 @@
 {
-  "version": 22,
+  "version": 23,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -678,7 +678,45 @@
           "O que o festival oferece ao público?",
           "Formato all inclusive premium: open food de cortes Angus e open bar no ingresso, além de roda gigante, tirolesa, balões, palco principal, Rock in Moo e lounge eletrônico."
         ]
-      ]
+      ],
+      "frentes": {
+        "titulo": "O que tem dentro",
+        "subtitulo": "Do festival.",
+        "lede": "O ingresso é all inclusive, então a operação precisa entregar muito mais que comida: o terreno vira parque durante um dia inteiro.",
+        "itens": [
+          [
+            "Open food de cortes Angus",
+            "Churrasco servido ao longo de todo o evento, no formato que rendeu o reconhecimento do Guinness World Records pelo maior volume de carne bovina churrasqueada em oito horas.",
+            "festival"
+          ],
+          [
+            "Open bar",
+            "Bebida incluída no ingresso, com cerveja, drinks e destilados servidos nos bares montados no terreno.",
+            "groups"
+          ],
+          [
+            "Rock in Moo",
+            "Palco dedicado ao rock, separado do palco principal, com programação própria.",
+            "music_note"
+          ],
+          [
+            "Lounge eletrônico",
+            "Área de música eletrônica com ativação de marca, operando em paralelo aos outros palcos.",
+            "play_arrow"
+          ],
+          [
+            "Roda gigante, tirolesa e balões",
+            "Estruturas de parque que funcionam como ponto de marca e de foto, e que aparecem na comunicação do festival.",
+            "place"
+          ],
+          [
+            "Moo Experience",
+            "Área de experiência da marca dentro do evento, com a torre do Mr. Moo e a caixa d'água cenográfica como referências visuais.",
+            "campaign"
+          ]
+        ],
+        "nota": "Conforme o mídia kit oficial do festival. A composição varia de edição para edição."
+      }
     },
     {
       "slug": "connect-heroes",
@@ -1413,7 +1451,8 @@
           "O palco principal teve BaianaSystem, Nação Zumbi, L7nnon, Os Garotin com Melly e 2ZDinizz na sexta; Tali, Rachel Reis, Jota.pê e João Gomes no sábado; e Grupo Revelação no encerramento de domingo.",
           "O palco Bosque, de entrada gratuita, recebeu Mateus Fazeno Rock, Os Transacionais e o bloco Pra Quem Gosta é Bom.",
           "Cerca de 60 mil pessoas circularam pelo festival, segundo o balanço da produção.",
-          "A produção informa alta de 152% nas menções à marca no ambiente digital, 3,7 milhões de visualizações no perfil do festival, 265% de crescimento na taxa de engajamento diário e salto de 579% em visualizações na comparação com o ano anterior."
+          "A produção informa alta de 152% nas menções à marca no ambiente digital, 3,7 milhões de visualizações no perfil do festival, 265% de crescimento na taxa de engajamento diário e salto de 579% em visualizações na comparação com o ano anterior.",
+          "O festival recebeu a final do Campeonato Brasileiro de Skate Vertical e o encerramento do Circuito BB de Surfe, além de vôlei de praia e corrida de rua."
         ],
         "2024": [
           "A edição de Natal foi realizada de 30 de outubro a 3 de novembro de 2024, na Arena das Dunas.",
@@ -1424,7 +1463,8 @@
           "A programação esportiva reuniu a etapa final do Vert Battle de skate, vôlei de praia, surfe, corrida e uma área de e-Sports.",
           "Executivo ligado ao patrocinador relatou publicamente público superior a 30 mil pessoas por dia — número declarado, não auditado, e que não corresponde a público único.",
           "Mais de 100 mil pessoas circularam pelo evento na Arena das Dunas, segundo o balanço da produção.",
-          "A produção informa 83,5% de aprovação direta do público presente e 92,5% de percepção positiva da marca Banco do Brasil."
+          "A produção informa 83,5% de aprovação direta do público presente e 92,5% de percepção positiva da marca Banco do Brasil.",
+          "A programação esportiva juntou, nos mesmos dias, a etapa final do Vert Battle de skate, vôlei de praia, surfe, corrida de rua e uma área de e-Sports."
         ],
         "2026": [
           "A terceira edição está marcada para Maceió, de 28 de outubro a 1º de novembro de 2026, no Estacionamento do Jaraguá e no Jaraguá Hall.",
@@ -1442,6 +1482,18 @@
         [
           "Portal do festival, Fortaleza",
           "https://tamojuntobb.com.br/fortaleza/"
+        ],
+        [
+          "Bahia Notícias, Tamo Junto Nesse Game em Salvador",
+          "https://www.bahianoticias.com.br/bnhall/noticia/4248-festival-tamo-junto-nesse-game-movimenta-centro-de-convencoes-de-salvador-com-esportes-games-e-conteudos"
+        ],
+        [
+          "Bahia Notícias, cerca de 40 mil pessoas em Salvador",
+          "https://www.bahianoticias.com.br/bnhall/noticia/4265-festival-tamo-junto-nesse-game-atraiu-cerca-de-40-mil-pessoas-em-salvador"
+        ],
+        [
+          "Meio & Mensagem, BB promove festival de esportes em Salvador",
+          "https://www.meioemensagem.com.br/marketing/banco-do-brasil-promove-festival-de-esportes-em-salvador"
         ]
       ],
       "yearsources": {
@@ -1577,7 +1629,69 @@
             "Circuito Banco do Brasil de Corrida",
             "Etapa de corrida de rua"
           ]
-        ]
+        ],
+        "antecedente": {
+          "titulo": "Tamo Junto Nesse Game, Salvador, 2023",
+          "texto": "Antes do festival assumir o nome atual, o Banco do Brasil realizou em Salvador, de 23 a 27 de agosto de 2023, o Tamo Junto Nesse Game, no Centro de Convenções. O formato já era o mesmo: vôlei de praia, surfe, skate, corrida de rua, e-Sports e shows, com entrada gratuita. O surfe foi a única modalidade fora do centro de convenções, na Praia de Stella Maris, com a terceira etapa do Circuito BB de Surfe. A arena gamer recebeu a final da Peneira W7M, que selecionou jogadores para as equipes de Counter-Strike e EA Sports FC. A organização projetou cerca de 40 mil pessoas no total.",
+          "nota": "Esta edição não é contada pela marca entre as edições do Tamo Junto BB, que chega à terceira em 2026. Entra aqui como antecedente do formato, com a sua própria fonte.",
+          "fontes": [
+            [
+              "Bahia Notícias, Tamo Junto Nesse Game em Salvador",
+              "https://www.bahianoticias.com.br/bnhall/noticia/4248-festival-tamo-junto-nesse-game-movimenta-centro-de-convencoes-de-salvador-com-esportes-games-e-conteudos"
+            ],
+            [
+              "Bahia Notícias, cerca de 40 mil pessoas em Salvador",
+              "https://www.bahianoticias.com.br/bnhall/noticia/4265-festival-tamo-junto-nesse-game-atraiu-cerca-de-40-mil-pessoas-em-salvador"
+            ],
+            [
+              "Meio & Mensagem, BB promove festival de esportes em Salvador",
+              "https://www.meioemensagem.com.br/marketing/banco-do-brasil-promove-festival-de-esportes-em-salvador"
+            ]
+          ]
+        }
+      },
+      "frentes": {
+        "titulo": "Os eventos dentro",
+        "subtitulo": "Do festival.",
+        "lede": "O Tamo Junto BB não é um evento, são vários ao mesmo tempo. Cada frente tem entidade, calendário e público próprios, e todas acontecem na mesma praça, nos mesmos dias. É o que explica o público circulante alto e a permanência longa.",
+        "itens": [
+          [
+            "Campeonato Brasileiro de Skate Vertical",
+            "A final do Vert Battle acontece dentro do festival, homologada pela CBSk e transmitida ao vivo pela Globo e pelo SporTV. Em Natal, em 2024, foi a etapa de encerramento da temporada; em Fortaleza, em 2025, a final, em 13 e 14 de dezembro.",
+            "skateboarding"
+          ],
+          [
+            "Vôlei de praia",
+            "Arena de areia montada na praça do festival, com as melhores duplas brasileiras. Em Natal a disputa entrou no circuito com o nome da cidade na identidade da etapa.",
+            "groups"
+          ],
+          [
+            "Surfe",
+            "Etapa do Circuito BB de Surfe, a única modalidade que sai da praça principal e vai para o mar. Fortaleza recebeu o encerramento do circuito em 2025; em Maceió, em 2026, acontece na Praia Pontal da Barra, a cerca de dez minutos do Jaraguá.",
+            "public"
+          ],
+          [
+            "Corrida de rua",
+            "Etapa do Circuito Banco do Brasil de Corrida, que leva milhares de praticantes às ruas da cidade-sede e abre o festival para um público que não vem pelo palco.",
+            "place"
+          ],
+          [
+            "Arena Gamer e e-Sports",
+            "O território de tecnologia se organiza em torno da Arena Gamer, com consoles, realidade virtual, jogos de tabuleiro e competição. Em Natal, em 2024, a programação incluiu uma área de e-Sports.",
+            "play_arrow"
+          ],
+          [
+            "Palco musical e palco local",
+            "Mais de 20 shows nas duas primeiras edições, para um público total informado de 150 mil pessoas, com um palco dedicado às atrações da cena da cidade-sede.",
+            "music_note"
+          ],
+          [
+            "Território de sustentabilidade",
+            "Neutralização das emissões de carbono, gestão e reaproveitamento de resíduos, doação de alimentos e de equipamento esportivo e visitas guiadas para crianças de projetos sociais.",
+            "verified"
+          ]
+        ],
+        "nota": "As quatro frentes da marca no festival são esporte, música, tecnologia e sustentabilidade. A programação varia de edição para edição: o que está descrito aqui reúne o que aparece em Natal 2024, Fortaleza 2025 e no previsto para Maceió 2026, conforme a apresentação oficial do festival."
       }
     },
     {
@@ -3267,12 +3381,12 @@
       },
       "tamo-junto-bb": {
         "cidades": [
-          2,
-          "Natal e Fortaleza"
+          3,
+          "Natal, Fortaleza e Maceió nas edições do festival; Salvador no antecedente de 2023"
         ],
         "modalidades": [
           5,
-          "Skate, surfe, vôlei de praia, corrida e games, além da programação musical"
+          "Skate vertical, vôlei de praia, surfe, corrida de rua e games, além da música"
         ]
       },
       "dominguinho": {
@@ -3381,8 +3495,8 @@
           "De 10 a 14 de dezembro"
         ],
         "modalidades": [
-          5,
-          "Skate, surfe, vôlei de praia, corrida e games"
+          4,
+          "Skate vertical, vôlei de praia, surfe e corrida de rua"
         ]
       },
       "tamo-junto-bb-2024": {
@@ -3397,6 +3511,10 @@
         "dias_evento": [
           5,
           "De 30 de outubro a 3 de novembro"
+        ],
+        "modalidades": [
+          5,
+          "Skate vertical, vôlei de praia, surfe, corrida de rua e e-Sports"
         ]
       },
       "itacoatiara-pro-2024": {},
@@ -3456,6 +3574,10 @@
         "cidades": [
           1,
           "Maceió, AL"
+        ],
+        "modalidades": [
+          5,
+          "Skate vertical, surfe pela WSL, vôlei de praia, corrida de rua e Arena Gamer"
         ]
       },
       "itacoatiara-pro-2022": {

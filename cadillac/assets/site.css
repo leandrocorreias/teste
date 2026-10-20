@@ -794,3 +794,13 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 
 /* atributos width/height do HTML nao podem vencer o aspect-ratio */
 .pessoa-foto{height:auto}
+
+/* --- frentes do evento --- */
+.frentes-grid{display:grid;gap:clamp(12px,1.6vw,18px);margin:clamp(16px,2.2vw,26px) 0 clamp(18px,2.4vw,28px);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,268px),1fr))}
+.frente{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--orange);
+  padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:9px}
+.frente h3{display:flex;align-items:flex-start;gap:9px;font:800 clamp(14px,1.6vw,17px)/1.25 var(--font-display);
+  letter-spacing:.035em;text-transform:uppercase}
+.frente h3 .cd-icon{font-size:21px;color:var(--orange-ink);flex-shrink:0}
+.frente p{font-size:13.5px;line-height:1.62;color:var(--muted)}

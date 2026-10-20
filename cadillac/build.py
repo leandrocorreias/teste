@@ -741,6 +741,8 @@ def page_project(pr):
 <h2 class="section-title">O PROJETO<br><em>EM VÍDEO.</em></h2>
 {video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"])}</section>""")
     sections.append(contexto_block(pr))
+    sections.append(frentes_block(pr))
+    sections.append(antecedente_block(pr))
     sections.append(papel_block(pr))
     sections.extend(cronograma)
     sections.append(historico_block(pr))
@@ -1172,6 +1174,35 @@ def contexto_block(pr):
 {f'<div class="nucleo-grid">{"".join(blocos)}</div>' if blocos else ''}
 {f'<h3 class="area-list-title">{icon("campaign")} Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
 </section>"""
+
+
+def frentes_block(pr):
+    """O que acontece dentro do evento: cada frente com entidade, calendário e público próprios."""
+    d = pr.get("frentes")
+    if not d:
+        return ""
+    cards = "".join(
+        f"""<div class="frente"><h3>{icon(ic)} {e(nome)}</h3><p>{e(txt)}</p></div>"""
+        for nome, txt, ic in d["itens"])
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(d['titulo']).upper()}<br><em>{e(d['subtitulo'])}</em></h2>
+<p class="body-copy">{e(d['lede'])}</p>
+<div class="frentes-grid">{cards}</div>
+<p class="note">{e(d['nota'])}</p></section>"""
+
+
+def antecedente_block(pr):
+    """Evento anterior, de outra marca ou outro nome, que explica o formato atual."""
+    d = (pr.get("dossie") or {}).get("antecedente")
+    if not d:
+        return ""
+    fontes = " · ".join(fonte_link(f) for f in (d.get("fontes") or []))
+    return f"""<section class="container papel-section"><hr class="rule">
+<h2 class="section-title">ANTES<br><em>DISSO.</em></h2>
+<div class="papel-card"><h3>{icon('calendar_month')} {e(d['titulo'])}</h3>
+<p>{e(d['texto'])}</p>
+{f'<div class="taglist">{fontes}</div>' if fontes else ''}</div>
+<p class="note">{e(d['nota'])}</p></section>"""
 
 
 def kpis_block(pr):

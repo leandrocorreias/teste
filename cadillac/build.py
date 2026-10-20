@@ -423,11 +423,17 @@ def media(project, classes="", eager=False, year=None, depth=0):
             f'<img class="media-img" src="{e(img["url"])}" alt="{e(img["alt"])}"'
             f'{loading} decoding="async">'
         )
-    inner.append(f'<span class="media-symbol">{e(project["name"].upper())}</span>')
-    if img and img.get("credit"):
-        inner.append(f'<span class="source-credit">{e(img["credit"])}</span>')
+    chamada = project.get("chamada")
+    nome_e_chamada = (f'<span class="media-symbol">{e(project["name"].upper())}'
+                      + (f'<small class="media-chamada">{e(chamada)}</small>' if chamada else "")
+                      + "</span>")
+    inner.append(nome_e_chamada)
     role = "" if img else ' role="img" aria-label="Capa editorial de ' + e(project["name"]) + '"'
-    return (f'<div class="media-surface {theme} {classes}"{role}>' + "".join(inner) + "</div>")
+    # O selo de crédito saiu da capa a pedido. O dado continua no modelo e aqui no
+    # title, para quem precisar da origem sem que ela dispute com a chamada.
+    titulo = f' title="{e(img["credit"])}"' if img and img.get("credit") else ""
+    return (f'<div class="media-surface {theme} {classes}"{role}{titulo}>'
+            + "".join(inner) + "</div>")
 
 
 def faq_block(project, number):
@@ -740,6 +746,7 @@ def page_projects():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
 <p class="lede">Eventos, produções e histórias reunidos em um acervo vivo, do mais recente para o mais antigo.</p></section>
+<section class="container video-abertura">{video_block("reel", MODEL["video"]["reel"]["titulo"])}</section>
 <section class="container index-grid">
 <h2 class="sr-only">Acervo de eventos</h2>
 <div class="works-grid">{cards}</div>
@@ -2803,7 +2810,7 @@ def page_atuacao():
                 page = ""
             cases.append(f"""<article class="case">{thumb}<h4>{e(c["title"])}</h4><p>{e(c["text"])}</p>
 <div class="case-links">{page}{link}</div></article>""")
-        sections.append(f"""<section class="container area" id="{a["slug"]}"><hr class="rule">
+        sections.append(f"""<section class="container area" id="{a["slug"]}">
 <div class="area-head"><span class="svc-i">{icon(a["icon"])}</span>
 <div><h2>{e(a["title"])}<span class="orange">.</span></h2><p class="lede">{e(a["lede"])}</p></div></div>
 <div class="area-body"><div class="area-text">{"".join(f"<p>{e(t)}</p>" for t in a["paragraphs"])}</div>
@@ -2817,11 +2824,11 @@ def page_atuacao():
 <section class="page-hero container"><h1>ATUAÇÃO<span class="orange">.</span></h1>
 <p class="lede">{e(data["lede"])}</p>
 <div class="chips area-index">{"".join(index)}</div></section>
-<section class="container method-section"><hr class="rule">
+<section class="container method-section">
 <h2 class="section-title">COMO UM PROJETO<br><em>SAI DO PAPEL.</em></h2>
 <div class="method">{method}</div></section>
 {"".join(sections)}
-<section class="container area" id="sobre"><hr class="rule">
+<section class="container area" id="sobre">
 <div class="area-head"><span class="svc-i">{icon('verified')}</span>
 <div><h2>A Cadillac<span class="orange">.</span></h2>
 <p class="lede">{e(SITE['tagline'])}</p></div></div>
@@ -2832,7 +2839,7 @@ def page_atuacao():
 <li>{icon('calendar_month')} Desde {e(SITE['founded'])}</li>
 <li>{icon('place')} {e(SITE['origin'])}</li>
 <li>{icon('mail')} {e(SITE['email'])}</li></ul></div></div></section>
-<section class="container area" id="ecossistema"><hr class="rule">
+<section class="container area" id="ecossistema">
 <div class="area-head"><span class="svc-i">{icon('public')}</span>
 <div><h2>Ecossistema<span class="orange">.</span></h2>
 <p class="lede">{e(MODEL['ecossistema']['lede'])}</p></div></div>
@@ -2844,7 +2851,7 @@ def page_atuacao():
 <tbody>{eco_linhas}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver o papel e o registro.</p>
 <p class="note">{e(MODEL['ecossistema']['note'])}</p></section>
-<section class="container related"><hr class="rule">
+<section class="container related">
 <h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
 <p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
 <div class="section-end"><a class="pill-link" href="{p}projetos/">Explorar os eventos {icon('arrow_outward')}</a></div>

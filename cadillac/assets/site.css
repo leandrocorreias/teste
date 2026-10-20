@@ -184,8 +184,14 @@ body.nav-open{overflow:hidden}
 .work-card{display:flex;flex-direction:column}
 .media-surface{position:relative;overflow:hidden;isolation:isolate;min-height:clamp(230px,38vw,430px);
   background:#282828;color:#fff;display:flex;align-items:center;justify-content:center;transition:var(--t)}
+/* O veu era um rodape escuro: claro no topo, forte so no pe, para o nome
+   centrado nao precisar dele. Com a chamada embaixo do nome o bloco de texto
+   cresceu e caiu bem no meio da foto, onde o veu nao chegava — nome branco
+   sobre ceu claro, areia, parede. Agora ele escurece tambem o centro. */
 .media-surface:before{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,#00000012 0%,#00000000 38%,#000000a6 100%)}
+  background:
+    radial-gradient(ellipse 80% 62% at 50% 46%,#0000005e 0%,#00000036 58%,#00000000 100%),
+    linear-gradient(180deg,#0000003d 0%,#00000059 45%,#000000b3 100%)}
 .media-surface.wave{background:radial-gradient(ellipse at 85% 30%,#ef58004a,transparent 35%),linear-gradient(145deg,#303033,#0d0d0e)}
 .media-surface.vert{background:radial-gradient(circle at 28% 80%,#ff590033,transparent 35%),linear-gradient(160deg,#242426,#080809)}
 .media-surface.festival{background:radial-gradient(ellipse at 70% 20%,#ff59005a,transparent 28%),linear-gradient(125deg,#373232,#131313)}
@@ -193,15 +199,26 @@ body.nav-open{overflow:hidden}
 .media-surface.fire{background:radial-gradient(ellipse at 30% 25%,#ff590066,transparent 36%),linear-gradient(135deg,#33261f,#0e0b0a)}
 .media-surface.arena{background:radial-gradient(ellipse at 50% 15%,#ff590052,transparent 34%),linear-gradient(150deg,#2a2224,#0b0a0b)}
 .media-surface.music{background:radial-gradient(ellipse at 60% 90%,#ff590047,transparent 38%),linear-gradient(140deg,#2b2730,#0c0b0d)}
+/* O filtro escurece a propria foto, nao uma camada por cima dela. O veu em
+   gradiente sozinho nao dava conta: nas capas de ceu aberto e areia clara o
+   miolo da imagem passava de 170 numa escala de 255, e texto branco ali nao
+   se le. Com brightness o piso vale para as nove capas, claras ou escuras. */
 .media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
-  transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  filter:brightness(.58) saturate(1.06);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.work-card:hover .media-img{filter:brightness(.68) saturate(1.1)}
 .work-card:hover .media-img,.media-surface:hover .media-img{transform:scale(1.045)}
 .media-surface>*{z-index:2}
 .media-surface>.media-symbol{position:relative}
 .media-surface>.media-code{position:absolute;left:clamp(16px,2vw,34px);top:clamp(16px,2vw,32px);color:#ffffffad}
 .media-symbol{font:800 clamp(23px,3.1vw,54px)/.92 var(--font-display);letter-spacing:-.02em;
   text-align:center;padding:0 clamp(14px,3vw,34px);max-width:100%;overflow-wrap:break-word;
-  text-shadow:0 2px 22px #00000073}
+  text-shadow:0 2px 22px #00000073;display:flex;flex-direction:column;gap:clamp(8px,1.1vw,14px);
+  align-items:center}
+/* A chamada e uma frase, nao um titulo: peso e caixa de texto corrido, largura
+   limitada para quebrar em duas linhas em vez de atravessar a foto. */
+.media-chamada{font:500 clamp(12px,1.05vw,16px)/1.4 var(--font-text);letter-spacing:.01em;
+  text-transform:none;max-width:30ch;color:#ffffffe8;text-shadow:0 1px 14px #000000a6}
 .media-surface.banner .media-symbol{font-size:clamp(38px,7vw,150px)}
 .media-surface>.source-credit{position:absolute;right:10px;bottom:10px;z-index:3;max-width:74%;
   font:600 9px/1.35 var(--font-text);background:#000000bd;padding:6px 8px;color:#fff}
@@ -1395,3 +1412,8 @@ a.kpi-selo:hover{filter:brightness(.94)}
 .contact .pill-link:focus-visible{background:#fff;border-color:#fff;color:var(--black)}
 .contact .pill-link:hover .mi,
 .contact .pill-link:focus-visible .mi{color:var(--orange-ink)}
+
+/* Video de abertura do acervo de eventos. Entra entre o titulo da pagina e a
+   grade, com a mesma respiracao das secoes vizinhas. */
+.video-abertura{margin:clamp(26px,3.4vw,46px) auto clamp(30px,4vw,54px)}
+.video-abertura .video-wrap{border-radius:var(--r-img);overflow:hidden}

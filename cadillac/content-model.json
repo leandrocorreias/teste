@@ -304,7 +304,8 @@
         ],
         "parceiros_nota": "Instituições e marcas identificadas no projeto do Itacoatiara Pro 10 anos, de 2022. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
       },
-      "ordem": 3
+      "ordem": 3,
+      "chamada": "Mar, montanha e competição em Niterói."
     },
     {
       "slug": "mr-moo-festival",
@@ -718,7 +719,8 @@
         ],
         "nota": "Conforme o mídia kit oficial do festival. A composição varia de edição para edição."
       },
-      "ordem": 7
+      "ordem": 7,
+      "chamada": "O maior churrasco do mundo, pelo Guinness."
     },
     {
       "slug": "connect-heroes",
@@ -1134,7 +1136,8 @@
         ],
         "parceiros_nota": "Marcas e instituições identificadas no material oficial do projeto e na informação da direção. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso."
       },
-      "ordem": 6
+      "ordem": 6,
+      "chamada": "Jiu-jítsu tratado como espetáculo."
     },
     {
       "slug": "vert-battle",
@@ -1379,7 +1382,8 @@
           ]
         ]
       },
-      "ordem": 1
+      "ordem": 1,
+      "chamada": "Skate vertical, de cidade em cidade."
     },
     {
       "slug": "tamo-junto-bb",
@@ -1697,7 +1701,8 @@
         ],
         "nota": "As quatro frentes da marca no festival são esporte, música, tecnologia e sustentabilidade. A programação varia de edição para edição: o que está descrito aqui reúne o que aparece em Natal 2024, Fortaleza 2025 e no previsto para Maceió 2026, conforme a apresentação oficial do festival."
       },
-      "ordem": 4
+      "ordem": 4,
+      "chamada": "Esporte e música no mesmo lugar."
     },
     {
       "slug": "festival-de-tribos-juruti",
@@ -1761,7 +1766,8 @@
           "O registro não sustenta essa afirmação. Ele documenta apenas o objeto contratado."
         ]
       ],
-      "ordem": 9
+      "ordem": 9,
+      "chamada": "O registro mais antigo do acervo."
     },
     {
       "slug": "dominguinho",
@@ -2081,7 +2087,8 @@
         "nota": "Enquanto a ficha técnica não chega, o público desta turnê aparece identificado e fica fora dos totais de alcance da Cadillac, como todo número de terceiro neste acervo."
       },
       "ingressos": "https://turnedominguinho.ingresse.com/",
-      "ordem": 2
+      "ordem": 2,
+      "chamada": "João Gomes, Mestrinho e Jota.pê na estrada."
     },
     {
       "slug": "arte-em-circuito",
@@ -2111,7 +2118,8 @@
       "yearsources": {},
       "faq": [],
       "nota_registro": "Ano, instituição executora, programação completa e forma de contratação ainda precisam ser confirmados antes de o projeto ser descrito como propriedade da Cadillac.",
-      "ordem": 8
+      "ordem": 8,
+      "chamada": "Arte urbana, skate e formação."
     },
     {
       "slug": "ccbb-mac-bahia",
@@ -2143,7 +2151,8 @@
         "fonte": null
       },
       "nota_registro": "A ficha técnica institucional e os créditos completos ainda estão sendo solicitados. Até que cheguem, o escopo da Cadillac nesta ação não é apresentado como produção integral.",
-      "ordem": 5
+      "ordem": 5,
+      "chamada": "O skate dentro do museu."
     }
   ],
   "services": [

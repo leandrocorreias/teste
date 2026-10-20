@@ -6693,62 +6693,687 @@
   },
   "governanca": {
     "titulo": "Governança e políticas",
-    "lede": "Os documentos que regem a conduta da empresa e o tratamento de dados de quem usa este site.",
+    "lede": "Os documentos que regem a conduta da empresa e o tratamento de dados de quem usa este site. Cada um em sua própria página, com código, versão e situação.",
     "itens": [
       {
+        "slug": "codigo-de-etica",
         "id": "etica",
         "titulo": "Código de ética",
+        "codigo": "CAD-GOV-001",
+        "versao": "1.0",
+        "tipo": "Documento institucional",
         "icone": "verified",
+        "estado": "minuta",
         "resumo": "Princípios que orientam as decisões da empresa e a relação com clientes, patrocinadores, fornecedores, poder público e comunidades.",
-        "estado": "a publicar"
+        "secoes": [
+          {
+            "titulo": "Apresentação",
+            "paragrafos": [
+              "A Cadillac Produções e Filmes Ltda. acredita que a realização de projetos extraordinários exige responsabilidade, integridade, respeito às pessoas e compromisso com a sociedade.",
+              "Este Código estabelece os princípios que orientam nossas decisões, relações profissionais e práticas empresariais, em todas as atividades desenvolvidas pela companhia.",
+              "Aplica-se aos sócios, administradores, colaboradores e representantes da Cadillac e, no que couber, aos fornecedores, parceiros, patrocinadores e prestadores de serviços envolvidos em suas operações."
+            ]
+          },
+          {
+            "titulo": "Nossos princípios",
+            "definicoes": [
+              [
+                "Integridade e transparência",
+                "Conduzimos nossos negócios com honestidade, responsabilidade e clareza nas relações comerciais, contratuais e institucionais."
+              ],
+              [
+                "Respeito às pessoas",
+                "Valorizamos a diversidade, a dignidade humana, a inclusão e a igualdade de oportunidades, rejeitando qualquer forma de discriminação, assédio ou violência."
+              ],
+              [
+                "Responsabilidade profissional",
+                "Assumimos compromissos compatíveis com nossa capacidade de execução e buscamos cumprir nossas obrigações com qualidade, segurança e pontualidade."
+              ],
+              [
+                "Legalidade e conformidade",
+                "Respeitamos a legislação aplicável às nossas atividades, incluindo normas trabalhistas, fiscais, ambientais, de proteção de dados, direitos autorais, acessibilidade e segurança."
+              ],
+              [
+                "Concorrência leal",
+                "Competimos de maneira ética, sem práticas fraudulentas, manipulação de propostas, uso indevido de informações ou acordos anticoncorrenciais."
+              ],
+              [
+                "Responsabilidade socioambiental",
+                "Buscamos reduzir impactos ambientais, valorizar fornecedores responsáveis e contribuir positivamente para as comunidades que recebem nossos projetos."
+              ]
+            ]
+          },
+          {
+            "titulo": "Clientes e patrocinadores",
+            "paragrafos": [
+              "A Cadillac compromete-se a apresentar informações comerciais verdadeiras, utilizar recursos conforme as condições contratadas, respeitar a identidade das marcas e fornecer prestações de contas consistentes.",
+              "Indicadores de público, audiência, alcance, retorno de mídia e resultados de ativações devem ser apresentados com metodologia identificável, fontes verificáveis e distinção explícita entre dado medido e estimativa.",
+              "É vedada a fabricação ou a manipulação intencional de resultados para favorecer negociações comerciais."
+            ],
+            "destaque": "Esta regra não é apenas declaratória: o acervo público deste site aplica o mesmo critério, marcando a natureza e a fonte de cada número divulgado."
+          },
+          {
+            "titulo": "Poder público",
+            "paragrafos": [
+              "A Cadillac mantém relações institucionais pautadas pela legalidade e pela transparência.",
+              "São proibidos pagamentos indevidos, vantagens pessoais, favorecimentos ilícitos e qualquer tentativa de influenciar irregularmente decisões de agentes públicos.",
+              "Projetos que envolvam recursos públicos, patrocínios estatais, incentivos fiscais ou instrumentos de fomento observam as exigências legais, contratuais e de prestação de contas correspondentes, incluindo a Lei nº 12.846/2013 (Lei Anticorrupção) e a legislação de incentivo à cultura e ao esporte."
+            ]
+          },
+          {
+            "titulo": "Conflitos de interesses",
+            "paragrafos": [
+              "Todos os profissionais devem comunicar situações em que interesses pessoais, familiares ou financeiros possam interferir na imparcialidade de suas decisões.",
+              "A contratação de empresas relacionadas a sócios, colaboradores ou dirigentes observa critérios objetivos, transparência e aprovação pelas instâncias competentes.",
+              "Quem declara um conflito não participa da decisão correspondente."
+            ]
+          },
+          {
+            "titulo": "Brindes, presentes e hospitalidades",
+            "paragrafos": [
+              "Brindes, convites, cortesias e hospitalidades somente podem ser oferecidos ou recebidos quando compatíveis com a legislação, com as políticas dos envolvidos e com práticas comerciais legítimas.",
+              "Não são admitidos benefícios destinados a obter vantagem indevida ou a influenciar decisões profissionais.",
+              "Convites para eventos produzidos pela Cadillac, quando oferecidos a agentes públicos, seguem as regras do órgão a que pertencem."
+            ]
+          },
+          {
+            "titulo": "Confidencialidade e propriedade intelectual",
+            "paragrafos": [
+              "Informações estratégicas, propostas comerciais, contratos, dados financeiros, projetos criativos, roteiros, imagens e materiais de parceiros são protegidos contra divulgação ou uso não autorizado.",
+              "A utilização de obras, marcas, fotografias, vídeos, músicas e demais conteúdos protegidos observa os direitos de seus titulares, incluindo a Lei nº 9.610/1998 e as obrigações de execução pública musical."
+            ]
+          },
+          {
+            "titulo": "Comunicação de irregularidades",
+            "paragrafos": [
+              "Suspeitas de violação deste Código podem ser encaminhadas ao Canal de ética da Cadillac.",
+              "Os relatos são avaliados com imparcialidade, com confidencialidade proporcional às necessidades de apuração e com proteção contra retaliação a quem relata de boa-fé."
+            ]
+          },
+          {
+            "titulo": "Compromisso institucional",
+            "paragrafos": [
+              "A aplicação deste Código é responsabilidade de todos que representam a Cadillac.",
+              "Violações podem resultar em medidas corretivas, disciplinares ou contratuais, respeitados a legislação e o direito de defesa."
+            ]
+          }
+        ]
       },
       {
+        "slug": "codigo-de-conduta",
         "id": "conduta",
         "titulo": "Código de conduta",
+        "codigo": "CAD-GOV-002",
+        "versao": "1.0",
+        "tipo": "Documento operacional",
         "icone": "groups",
+        "estado": "minuta",
         "resumo": "Regras de comportamento esperadas de sócios, equipe, fornecedores e prestadores durante a operação dos eventos.",
-        "estado": "a publicar"
+        "secoes": [
+          {
+            "titulo": "Objetivo e abrangência",
+            "paragrafos": [
+              "Este Código estabelece padrões de comportamento para as atividades administrativas, comerciais, criativas e operacionais da Cadillac.",
+              "Suas disposições alcançam escritórios, locações, arenas, palcos, bastidores, camarins, áreas de imprensa, espaços de hospitalidade, viagens profissionais e demais ambientes relacionados às produções."
+            ]
+          },
+          {
+            "titulo": "Conduta profissional",
+            "paragrafos": [
+              "Espera-se de todos os envolvidos comportamento respeitoso, cooperação, responsabilidade, pontualidade e cumprimento das orientações operacionais legítimas.",
+              "Não são tolerados atos de intimidação, discriminação, humilhação, assédio moral, assédio sexual, ameaça ou agressão."
+            ]
+          },
+          {
+            "titulo": "Segurança em eventos",
+            "paragrafos": [
+              "A segurança das pessoas é prioridade nas operações da Cadillac e prevalece sobre prazo, custo e programação.",
+              "Profissionais e fornecedores cumprem as normas técnicas aplicáveis, os planos de emergência, as regras de acesso, as orientações de segurança e as exigências dos órgãos competentes.",
+              "Atividades que envolvam estruturas temporárias, eletricidade, trabalho em altura, equipamentos de grande porte, efeitos pirotécnicos e outras situações de risco são executadas por profissionais habilitados ou qualificados, com a documentação técnica correspondente.",
+              "Qualquer condição de risco deve ser comunicada imediatamente à coordenação responsável, e quem a comunica não sofre retaliação por isso."
+            ],
+            "destaque": "Qualquer pessoa na operação pode interromper uma atividade diante de risco iminente à integridade física, sem necessidade de autorização prévia."
+          },
+          {
+            "titulo": "Credenciamento e acesso",
+            "paragrafos": [
+              "Credenciais são pessoais e devem ser usadas exclusivamente para as finalidades autorizadas.",
+              "É proibido compartilhar credenciais, permitir acesso não autorizado ou circular em área restrita sem permissão."
+            ]
+          },
+          {
+            "titulo": "Artistas, atletas e convidados",
+            "paragrafos": [
+              "Todos os profissionais respeitam a privacidade, a integridade física, os direitos de imagem e as condições contratuais de artistas, atletas, influenciadores, convidados e demais participantes.",
+              "Registros audiovisuais em camarins, bastidores e áreas privadas dependem de autorização adequada.",
+              "A presença de crianças e adolescentes em qualquer área de produção observa a legislação aplicável e a autorização dos responsáveis."
+            ]
+          },
+          {
+            "titulo": "Relação com o público",
+            "paragrafos": [
+              "O atendimento ao público observa respeito, acessibilidade, clareza de informação e tratamento não discriminatório.",
+              "Ocorrências envolvendo acidente, reclamação, extravio, assédio ou situação de vulnerabilidade seguem os protocolos operacionais estabelecidos para cada evento.",
+              "Cada operação define previamente o ponto de acolhimento e a pessoa responsável por receber esse tipo de ocorrência."
+            ]
+          },
+          {
+            "titulo": "Álcool e substâncias psicoativas",
+            "paragrafos": [
+              "É proibido exercer atividade profissional sob efeito de substância que comprometa a segurança, o julgamento ou a capacidade operacional.",
+              "O consumo de bebida alcoólica durante o trabalho segue as regras de cada operação e é vedado em funções críticas de segurança, direção de veículos e operação de equipamentos."
+            ]
+          },
+          {
+            "titulo": "Equipamentos e recursos",
+            "paragrafos": [
+              "Equipamentos, veículos, materiais, sistemas, credenciais e recursos financeiros disponibilizados para as produções são usados de maneira responsável e exclusivamente para finalidades autorizadas.",
+              "Desvio, apropriação indevida, dano intencional ou uso não autorizado pode resultar em medida disciplinar e responsabilização."
+            ]
+          },
+          {
+            "titulo": "Redes sociais e comunicação pública",
+            "paragrafos": [
+              "Informação confidencial, documento interno, negociação comercial e conteúdo não autorizado não são divulgados em redes sociais ou outros canais.",
+              "Declarações oficiais em nome da Cadillac são feitas apenas por representantes autorizados."
+            ]
+          },
+          {
+            "titulo": "Fornecedores e terceiros",
+            "paragrafos": [
+              "Fornecedores observam as condições contratuais, as obrigações legais, as normas de segurança e os padrões éticos aplicáveis.",
+              "A Cadillac pode estabelecer mecanismos proporcionais de avaliação, acompanhamento e correção de não conformidade."
+            ]
+          },
+          {
+            "titulo": "Consequências de violações",
+            "paragrafos": [
+              "O descumprimento deste Código pode resultar em orientação formal, advertência, afastamento de atividade, rescisão contratual ou encaminhamento às autoridades competentes, conforme a gravidade e a legislação aplicável."
+            ]
+          }
+        ]
       },
       {
+        "slug": "privacidade",
         "id": "privacidade",
         "titulo": "Política de privacidade",
+        "codigo": "CAD-PRI-001",
+        "versao": "1.0",
+        "tipo": "Proteção de dados pessoais",
         "icone": "description",
+        "estado": "minuta",
         "resumo": "Como dados pessoais são coletados, usados, armazenados e eliminados, e quais são os direitos do titular segundo a Lei Geral de Proteção de Dados.",
-        "estado": "a publicar"
+        "secoes": [
+          {
+            "titulo": "Apresentação",
+            "paragrafos": [
+              "A Cadillac Produções e Filmes Ltda. reconhece a importância da privacidade e da proteção dos dados pessoais de visitantes, clientes, patrocinadores, fornecedores, colaboradores e demais pessoas que interagem com suas atividades.",
+              "Esta Política apresenta as diretrizes para o tratamento de dados pessoais em conformidade com a Lei nº 13.709/2018, a Lei Geral de Proteção de Dados Pessoais (LGPD)."
+            ],
+            "dados": [
+              [
+                "Controlador",
+                "Cadillac Produções e Filmes Ltda."
+              ],
+              [
+                "CNPJ",
+                "18.083.967/0001-40"
+              ],
+              [
+                "Endereço institucional",
+                null
+              ],
+              [
+                "Contato de privacidade",
+                "contato@cadillacproducoes.com.br"
+              ],
+              [
+                "Encarregado (DPO)",
+                null
+              ]
+            ]
+          },
+          {
+            "titulo": "Quais dados podemos tratar",
+            "paragrafos": [
+              "Conforme a natureza do relacionamento e as funcionalidades efetivamente utilizadas, podem ser tratados:"
+            ],
+            "lista": [
+              "Dados de identificação e contato, como nome, e-mail, telefone, empresa e cargo.",
+              "Informações comerciais, como propostas, contratos, negociações e histórico de relacionamento.",
+              "Dados profissionais de fornecedores, artistas, atletas, representantes e prestadores de serviços.",
+              "Informações técnicas de navegação, como endereço IP, dados de dispositivo e registros de acesso, quando efetivamente coletados.",
+              "Imagens, vídeos e registros audiovisuais relacionados a eventos, observados os direitos e as bases legais aplicáveis.",
+              "Informações necessárias ao cumprimento de obrigações legais e contratuais."
+            ],
+            "destaque": "Dados pessoais sensíveis somente são tratados quando houver finalidade legítima, necessidade e base legal apropriada."
+          },
+          {
+            "titulo": "O que este site coleta hoje",
+            "paragrafos": [
+              "Este site é estático e não possui banco de dados, área de login, carrinho, comentários nem formulário ativo: o formulário da página de contato ainda não tem destino configurado e não envia dados.",
+              "O que existe é o registro de acesso do servidor de hospedagem, comum a qualquer site, e o contato que o navegador faz com os provedores externos descritos na Política de cookies."
+            ],
+            "destaque": "Se você escrever para o e-mail de contato, trataremos os dados dessa mensagem para responder e, quando for o caso, conduzir a negociação."
+          },
+          {
+            "titulo": "Finalidades do tratamento",
+            "paragrafos": [
+              "Os dados podem ser utilizados para responder solicitações, elaborar propostas comerciais, administrar contratos, executar projetos, gerenciar fornecedores, organizar credenciamentos, cumprir obrigações legais, proteger direitos e manter a segurança das operações.",
+              "O envio de comunicações comerciais depende de base legal adequada e respeita os direitos dos titulares, incluindo o descadastramento a qualquer momento."
+            ]
+          },
+          {
+            "titulo": "Bases legais",
+            "paragrafos": [
+              "O tratamento se fundamenta, conforme cada situação, em execução de contrato, procedimentos preliminares relacionados a contrato, cumprimento de obrigação legal ou regulatória, legítimo interesse, exercício regular de direitos, consentimento ou outra hipótese prevista na LGPD.",
+              "A base legal é determinada conforme a finalidade específica. O consentimento não é exigido indistintamente para todas as operações, e não é a base adequada quando outra hipótese legal se aplica."
+            ]
+          },
+          {
+            "titulo": "Compartilhamento de dados",
+            "paragrafos": [
+              "Dados pessoais podem ser compartilhados, quando necessário, com fornecedores tecnológicos, operadores de eventos, parceiros contratuais, prestadores de serviços, assessorias profissionais e autoridades públicas.",
+              "O compartilhamento observa finalidade legítima, necessidade, segurança e obrigações legais aplicáveis.",
+              "A Cadillac não comercializa bases de dados pessoais."
+            ]
+          },
+          {
+            "titulo": "Transferências internacionais",
+            "paragrafos": [
+              "O site utiliza serviços de provedores sediados fora do Brasil, descritos na Política de cookies, o que implica transferência internacional de dados técnicos de navegação.",
+              "Nessas situações são observados os mecanismos e requisitos previstos na LGPD e na regulamentação da Autoridade Nacional de Proteção de Dados (ANPD)."
+            ]
+          },
+          {
+            "titulo": "Segurança da informação",
+            "paragrafos": [
+              "A Cadillac adota medidas técnicas e administrativas proporcionais aos riscos das atividades, incluindo controle de acesso, gestão de permissões, proteção de sistemas e procedimentos de resposta a incidentes.",
+              "Nenhum ambiente digital é absolutamente imune a risco, mas a segurança da informação é tratada como responsabilidade permanente.",
+              "Incidente de segurança que possa acarretar risco ou dano relevante é comunicado à ANPD e aos titulares afetados, nos prazos e condições da legislação."
+            ]
+          },
+          {
+            "titulo": "Armazenamento e eliminação",
+            "paragrafos": [
+              "Os dados pessoais são conservados pelo período necessário ao cumprimento das finalidades informadas, das obrigações legais e regulatórias e ao exercício regular de direitos.",
+              "Encerradas as hipóteses que justificam sua conservação, os dados são eliminados ou anonimizados, conforme aplicável."
+            ]
+          },
+          {
+            "titulo": "Direitos dos titulares",
+            "paragrafos": [
+              "Nos termos da LGPD, os titulares podem solicitar, conforme as condições legais:"
+            ],
+            "numerada": [
+              "Confirmação da existência de tratamento.",
+              "Acesso aos dados pessoais.",
+              "Correção de dados incompletos, inexatos ou desatualizados.",
+              "Anonimização, bloqueio ou eliminação nas hipóteses legais.",
+              "Portabilidade, quando aplicável.",
+              "Informações sobre compartilhamento.",
+              "Informações sobre consentimento e suas consequências.",
+              "Revogação do consentimento.",
+              "Oposição ao tratamento nas hipóteses previstas em lei.",
+              "Revisão de decisões tomadas unicamente com base em tratamento automatizado."
+            ],
+            "destaque": "As solicitações devem ser encaminhadas ao contato de privacidade indicado no início desta página. O prazo de resposta observa a LGPD."
+          },
+          {
+            "titulo": "Crianças e adolescentes",
+            "paragrafos": [
+              "O tratamento de dados de crianças e adolescentes observa seu melhor interesse e as disposições legais aplicáveis, especialmente em atividades que envolvam eventos familiares, esportivos, culturais e educacionais.",
+              "A captação e o uso de imagem de menores em eventos dependem de autorização dos responsáveis legais."
+            ]
+          },
+          {
+            "titulo": "Atualizações",
+            "paragrafos": [
+              "Esta Política pode ser atualizada para refletir mudanças legislativas, operacionais ou tecnológicas.",
+              "A versão vigente e sua data de atualização permanecem disponíveis nesta página."
+            ]
+          }
+        ]
       },
       {
+        "slug": "cookies",
         "id": "cookies",
         "titulo": "Política de cookies",
-        "icone": "search",
-        "resumo": "Quais cookies o site usa, para quê e por quanto tempo.",
-        "estado": "sem cookies"
+        "codigo": "CAD-COO-001",
+        "versao": "1.0",
+        "tipo": "Tecnologias de navegação",
+        "icone": "public",
+        "estado": "minuta",
+        "resumo": "O que este site guarda no seu navegador, quais provedores externos ele contata e o que você pode controlar.",
+        "secoes": [
+          {
+            "titulo": "O que são cookies",
+            "paragrafos": [
+              "Cookies são pequenos arquivos que um site pode gravar no seu dispositivo durante a navegação.",
+              "Existem também outras tecnologias de identificação, medição e armazenamento local que não são tecnicamente cookies, mas levantam questões semelhantes de privacidade. Esta Política trata de todas elas."
+            ]
+          },
+          {
+            "titulo": "O que este site faz hoje",
+            "paragrafos": [
+              "Auditamos o código publicado. Este site não grava cookie próprio, não usa ferramenta de analytics e não carrega rastreador de publicidade. Também não usa armazenamento local do navegador: nenhuma preferência sua é guardada entre visitas.",
+              "O que existe é o contato do seu navegador com provedores externos. Isso não grava arquivo no seu dispositivo, mas transmite o seu endereço IP e dados técnicos ao provedor, e por isso está declarado aqui:"
+            ],
+            "tabela": {
+              "cabecalho": [
+                "Provedor",
+                "Para quê",
+                "Quando carrega"
+              ],
+              "linhas": [
+                [
+                  "fonts.googleapis.com e fonts.gstatic.com (Google)",
+                  "Tipografia do site e ícones da interface",
+                  "Em todas as páginas, automaticamente"
+                ],
+                [
+                  "youtube-nocookie.com (Google)",
+                  "Vídeo institucional de fundo da página inicial",
+                  "Só na página inicial, automaticamente"
+                ],
+                [
+                  "i.ytimg.com (Google)",
+                  "Miniatura dos vídeos",
+                  "Nas páginas com vídeo, automaticamente"
+                ],
+                [
+                  "youtube-nocookie.com (Google)",
+                  "Vídeos que você escolhe assistir",
+                  "Só depois que você clica em reproduzir"
+                ]
+              ]
+            },
+            "destaque": "O domínio youtube-nocookie.com reduz o uso de cookies publicitários, mas não é garantia de ausência de tratamento de dados: o IP é transmitido do mesmo jeito."
+          },
+          {
+            "titulo": "Categorias de cookies",
+            "paragrafos": [
+              "Pelo critério usual de classificação, a situação deste site é a seguinte:"
+            ],
+            "tabela": {
+              "cabecalho": [
+                "Categoria",
+                "Finalidade",
+                "Situação"
+              ],
+              "linhas": [
+                [
+                  "Necessários",
+                  "Funcionamento e segurança",
+                  "Nenhum cookie próprio"
+                ],
+                [
+                  "Funcionais",
+                  "Lembrar preferências de navegação",
+                  "Não utilizados"
+                ],
+                [
+                  "Analíticos",
+                  "Medir visitas e comportamento",
+                  "Não utilizados"
+                ],
+                [
+                  "Marketing",
+                  "Publicidade e remarketing",
+                  "Não utilizados"
+                ],
+                [
+                  "Conteúdo externo",
+                  "Fontes, ícones e vídeos de terceiros",
+                  "Google, conforme a tabela acima"
+                ]
+              ]
+            }
+          },
+          {
+            "titulo": "Conteúdos incorporados",
+            "paragrafos": [
+              "A reprodução de vídeos e o carregamento de fontes e miniaturas envolvem tratamento de informações pelos respectivos provedores, segundo as políticas deles.",
+              "Nas páginas internas, o player de vídeo só é carregado depois que você clica: até lá a página mostra apenas a miniatura. Na página inicial, o vídeo de fundo é carregado automaticamente."
+            ]
+          },
+          {
+            "titulo": "Como gerenciar",
+            "paragrafos": [
+              "Você pode usar as configurações do seu navegador para bloquear, limitar ou excluir cookies e para bloquear conteúdo de terceiros.",
+              "Como este site não grava nada no seu dispositivo, bloquear cookies não prejudica a navegação. Bloquear o domínio das fontes do Google altera a tipografia, mas o site continua legível e funcional."
+            ]
+          },
+          {
+            "titulo": "Se isso mudar",
+            "paragrafos": [
+              "Caso sejam adotadas ferramentas de medição, personalização ou publicidade que dependam de consentimento, a Cadillac disponibilizará mecanismo de gestão antes de ativá-las, e esta Política será revista.",
+              "Não é correto afirmar que todo site precisa de banner de cookies. A necessidade depende das tecnologias utilizadas e das bases legais aplicáveis — e, hoje, este site não utiliza tecnologia que a exija."
+            ]
+          }
+        ]
       },
       {
+        "slug": "preferencias-de-cookies",
         "id": "preferencias",
         "titulo": "Preferências de cookies",
+        "codigo": "CAD-COO-002",
+        "versao": "1.0",
+        "tipo": "Controle de privacidade",
         "icone": "filter_list",
-        "resumo": "Painel para o visitante escolher quais categorias de cookies aceita.",
-        "estado": "sem cookies"
+        "estado": "minuta",
+        "resumo": "O estado atual das tecnologias deste site e o que você pode controlar hoje.",
+        "secoes": [
+          {
+            "titulo": "Não há o que configurar hoje",
+            "paragrafos": [
+              "Um painel de preferências existe para você ligar e desligar tecnologias opcionais. Este site não tem nenhuma: não grava cookie próprio, não mede audiência, não faz publicidade comportamental e não guarda nada no seu navegador entre visitas.",
+              "Publicar aqui botões de aceitar e recusar seria encenação: eles não teriam o que ligar nem o que desligar, e dariam a impressão falsa de que uma escolha sua está sendo registrada."
+            ],
+            "destaque": "Por isso esta página mostra o estado real em vez de um painel decorativo."
+          },
+          {
+            "titulo": "Estado atual",
+            "tabela": {
+              "cabecalho": [
+                "Tecnologia",
+                "Estado",
+                "Você controla"
+              ],
+              "linhas": [
+                [
+                  "Cookies próprios",
+                  "Nenhum",
+                  "Nada a configurar"
+                ],
+                [
+                  "Armazenamento local",
+                  "Nenhum",
+                  "Nada a configurar"
+                ],
+                [
+                  "Analytics",
+                  "Não utilizado",
+                  "Nada a configurar"
+                ],
+                [
+                  "Publicidade e remarketing",
+                  "Não utilizado",
+                  "Nada a configurar"
+                ],
+                [
+                  "Fontes e ícones do Google",
+                  "Carregam em todas as páginas",
+                  "Bloqueio pelo navegador"
+                ],
+                [
+                  "Vídeo de fundo da página inicial",
+                  "Carrega automaticamente",
+                  "Bloqueio pelo navegador"
+                ],
+                [
+                  "Vídeos das páginas internas",
+                  "Só depois do seu clique",
+                  "Não clicar"
+                ]
+              ]
+            }
+          },
+          {
+            "titulo": "O que você pode fazer no navegador",
+            "paragrafos": [
+              "Todos os navegadores atuais permitem bloquear cookies de terceiros, bloquear domínios específicos e navegar em janela anônima. Extensões de bloqueio de conteúdo também impedem o carregamento dos domínios do Google listados acima.",
+              "O site foi construído para continuar funcionando nessas condições: sem as fontes externas a tipografia muda, mas nenhum conteúdo se perde."
+            ]
+          },
+          {
+            "titulo": "Quando isto virar um painel de verdade",
+            "paragrafos": [
+              "No momento em que a Cadillac adotar qualquer tecnologia opcional sujeita a consentimento, esta página passa a oferecer um painel real, com três exigências:"
+            ],
+            "numerada": [
+              "Recusar deve ser tão fácil quanto aceitar, no mesmo nível de cliques.",
+              "Nada sujeito a consentimento pode carregar antes da escolha.",
+              "A escolha deve poder ser revista e revogada a qualquer momento, nesta mesma página."
+            ],
+            "destaque": "Enquanto essas três condições não puderem ser cumpridas tecnicamente, a tecnologia não entra no site."
+          }
+        ]
       },
       {
+        "slug": "canal-de-etica",
         "id": "canal",
         "titulo": "Canal de ética",
-        "icone": "mail",
-        "resumo": "Caminho para relatar, inclusive de forma anônima, condutas que violem os códigos da empresa.",
-        "estado": "a publicar"
+        "codigo": "CAD-ETH-001",
+        "versao": "1.0",
+        "tipo": "Integridade e comunicação",
+        "icone": "campaign",
+        "estado": "minuta",
+        "resumo": "Como comunicar conduta contrária aos princípios da empresa, às políticas internas ou à legislação.",
+        "secoes": [
+          {
+            "titulo": "Nosso compromisso",
+            "paragrafos": [
+              "A Cadillac mantém o compromisso de promover relações profissionais baseadas em integridade, respeito, responsabilidade e transparência.",
+              "Este canal é destinado ao recebimento de relatos sobre conduta potencialmente contrária aos princípios da empresa, às suas políticas internas ou à legislação."
+            ]
+          },
+          {
+            "titulo": "O que pode ser comunicado",
+            "lista": [
+              "Assédio moral, assédio sexual, discriminação ou violência.",
+              "Corrupção, fraude, suborno e conflito de interesses.",
+              "Irregularidade financeira ou contratual.",
+              "Uso indevido de recursos, informações ou ativos.",
+              "Violação de segurança e conduta que coloque pessoas em risco.",
+              "Descumprimento dos códigos de ética e de conduta.",
+              "Outras práticas incompatíveis com as obrigações legais e institucionais da Cadillac."
+            ]
+          },
+          {
+            "titulo": "Quem pode utilizar",
+            "paragrafos": [
+              "Colaboradores, fornecedores, prestadores de serviços, patrocinadores, parceiros, participantes de eventos e qualquer pessoa que tenha conhecimento de possível irregularidade.",
+              "Não é necessário ter relação contratual com a Cadillac para relatar."
+            ]
+          },
+          {
+            "titulo": "Confidencialidade e proteção",
+            "paragrafos": [
+              "Os relatos são tratados com discrição, acesso restrito e proteção das informações pessoais, respeitadas as exigências legais.",
+              "A Cadillac não tolera retaliação contra quem apresenta relato de boa-fé ou colabora legitimamente com apuração. Retaliação é, em si, violação do Código de conduta."
+            ],
+            "destaque": "Relato de boa-fé que se mostre improcedente não gera consequência para quem relatou. O que não se admite é o relato sabidamente falso."
+          },
+          {
+            "titulo": "Como funciona a apuração",
+            "numerada": [
+              "Recebimento: o relato é registrado pelo canal oficial.",
+              "Triagem: avaliam-se o conteúdo, a gravidade e eventual risco imediato a pessoas.",
+              "Apuração: as informações são examinadas por responsáveis imparciais e sem conflito de interesses com os fatos ou as pessoas envolvidas.",
+              "Deliberação: definem-se medidas proporcionais aos fatos apurados.",
+              "Encerramento: o caso é documentado, respeitados a confidencialidade e os prazos aplicáveis."
+            ]
+          },
+          {
+            "titulo": "Como enviar um relato",
+            "paragrafos": [
+              "Hoje o relato é recebido por e-mail, no endereço abaixo. É o canal oficial enquanto o recebimento independente não estiver implantado.",
+              "Se o relato envolver sócio ou dirigente da empresa, o e-mail não é o caminho adequado, porque a apuração precisa correr fora da linha hierárquica envolvida. Nesse caso, procure diretamente as autoridades competentes ou aguarde a implantação do canal independente."
+            ],
+            "aviso": "Ainda não há formulário nesta página, e isso é deliberado. Um formulário que não entrega o relato a ninguém é pior do que não existir: alguém relataria assédio acreditando ter sido ouvido. O formulário entra quando houver destinatário responsável, protocolo de acompanhamento e recebimento anônimo de verdade.",
+            "dados": [
+              [
+                "E-mail para relatos",
+                "contato@cadillacproducoes.com.br"
+              ],
+              [
+                "Assunto sugerido",
+                "Canal de ética"
+              ],
+              [
+                "Responsável pela apuração",
+                null
+              ],
+              [
+                "Recebimento anônimo",
+                null
+              ]
+            ]
+          },
+          {
+            "titulo": "O que falta implantar",
+            "lista": [
+              "Destinatário independente dos sócios, com alçada para apurar conduta da direção.",
+              "Recebimento anônimo com protocolo, que permita acompanhar o caso e responder a quem relatou sem identificá-lo.",
+              "Prazos formais de triagem, apuração e retorno.",
+              "Registro de casos e indicadores anuais para prestação de contas a patrocinadores."
+            ]
+          }
+        ]
       }
     ],
     "estados": {
-      "a publicar": [
-        "A publicar",
-        "O documento precisa ser redigido e aprovado pelo jurídico antes de ir ao ar."
+      "minuta": [
+        "Minuta, pendente de aprovação",
+        "O texto está redigido e publicado para leitura, mas ainda não foi formalmente aprovado pela direção nem revisado pelo jurídico. Não cite como política vigente."
       ],
-      "sem cookies": [
-        "Quase nada a gerenciar hoje",
-        "Este site não grava cookies próprios, não usa analytics e não carrega rastreador de terceiro. Há uma exceção, e ela é da página inicial: o vídeo institucional roda ao fundo do topo e é carregado assim que a página abre, sem esperar clique. Ele vem do youtube-nocookie.com, domínio que a Google mantém para não gravar cookie de publicidade, mas a requisição em si expõe o endereço de IP do visitante ao servidor da Google. Nas demais páginas o player continua só carregando depois do clique. Quem configurou o navegador para menos movimento não recebe o vídeo nem a requisição. Quando entrar medição ou formulário, a política e o painel de preferências passam a ser obrigatórios."
+      "vigente": [
+        "Vigente",
+        "Documento aprovado pela direção e em vigor."
       ]
     },
-    "nota": "Esta página existe para que a estrutura de governança seja visível desde já. Nenhum texto legal foi redigido por aproximação: cada documento entra quando for escrito e aprovado por quem responde juridicamente pela empresa."
+    "nota": "",
+    "aviso": "Os seis documentos abaixo são minutas. Estão publicados para leitura e revisão, não como políticas formalmente aprovadas. A Política de privacidade e a Política de cookies descrevem o funcionamento real deste site, auditado no código publicado; os códigos de ética e de conduta precisam ser adotados formalmente pela empresa para produzirem efeito.",
+    "pendencias": {
+      "titulo": "O que falta para virarem documentos oficiais",
+      "itens": [
+        [
+          "Endereço institucional",
+          "A Política de privacidade precisa informar o endereço do controlador. Não consta no modelo."
+        ],
+        [
+          "Contato de privacidade dedicado",
+          "Hoje aponta para o e-mail geral. O recomendado é um endereço próprio, como privacidade@, que não se misture a propostas comerciais."
+        ],
+        [
+          "Encarregado pelo tratamento de dados",
+          "A LGPD pede a indicação de um encarregado e a divulgação de sua identidade."
+        ],
+        [
+          "Destinatário do Canal de ética",
+          "Precisa ser independente dos sócios, com alçada para apurar conduta da direção."
+        ],
+        [
+          "Aprovação formal",
+          "Cada documento precisa de data de aprovação, data de vigência e responsável pela aprovação."
+        ],
+        [
+          "Revisão jurídica",
+          "As minutas foram redigidas a partir da operação real da empresa, não por advogado."
+        ]
+      ]
+    }
   },
   "perfil_publico": {
     "lede": "Quem é o público de cada evento, conforme a própria produção declara. Faixas de eventos diferentes não se somam nem se comparam: cada uma foi medida de um jeito. Escolha um evento para ver tudo o que está declarado sobre ele.",

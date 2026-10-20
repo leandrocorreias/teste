@@ -129,14 +129,10 @@ NAV = [
     ]),
 ]
 
-GOVERNANCA = [
-    ("Código de ética", "governanca/#etica"),
-    ("Código de conduta", "governanca/#conduta"),
-    ("Política de privacidade", "governanca/#privacidade"),
-    ("Política de cookies", "governanca/#cookies"),
-    ("Preferências de cookies", "governanca/#preferencias"),
-    ("Canal de ética", "governanca/#canal"),
-]
+# Cada documento tem pagina propria. Antes eram seis ancoras numa pagina so:
+# um link de politica de privacidade precisa abrir a politica de privacidade,
+# nao jogar o visitante no meio de um documento de seis assuntos.
+GOVERNANCA = [(d["titulo"], f'governanca/{d["slug"]}/') for d in MODEL["governanca"]["itens"]]
 
 
 # --------------------------------------------------------------------------
@@ -2357,30 +2353,105 @@ def page_relacionamento():
                  + header(depth, "relacionamento") + body + footer(depth))
 
 
+def _secao_gov(s):
+    """Uma secao de documento: paragrafos, listas, tabela, dados e destaques."""
+    partes = [f'<h2>{e(s["titulo"])}</h2>']
+    for par in s.get("paragrafos", []):
+        partes.append(f'<p>{e(par)}</p>')
+    if s.get("dados"):
+        linhas = "".join(
+            f'<tr><th scope="row">{e(k)}</th>'
+            f'<td>{e(v) if v else "<span class=\"gov-falta\">a informar</span>"}</td></tr>'
+            if v else
+            f'<tr><th scope="row">{e(k)}</th>'
+            f'<td><span class="gov-falta">{icon("search")} a informar</span></td></tr>'
+            for k, v in s["dados"])
+        partes.append(f'<div class="table-wrap"><table class="amounts gov-dados">'
+                      f'<tbody>{linhas}</tbody></table></div>')
+    if s.get("lista"):
+        itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in s["lista"])
+        partes.append(f'<ul class="entrega">{itens}</ul>')
+    if s.get("numerada"):
+        itens = "".join(f'<li>{e(x)}</li>' for x in s["numerada"])
+        partes.append(f'<ol class="gov-passos">{itens}</ol>')
+    if s.get("tabela"):
+        tb = s["tabela"]
+        cab = "".join(f'<th scope="col">{e(c)}</th>' for c in tb["cabecalho"])
+        corpo = "".join('<tr>' + "".join(
+            (f'<th scope="row">{e(c)}</th>' if i == 0 else f'<td>{e(c)}</td>')
+            for i, c in enumerate(linha)) + '</tr>' for linha in tb["linhas"])
+        partes.append(f'<div class="table-wrap"><table class="amounts">'
+                      f'<thead><tr>{cab}</tr></thead><tbody>{corpo}</tbody></table></div>')
+    if s.get("destaque"):
+        partes.append(f'<p class="gov-destaque">{e(s["destaque"])}</p>')
+    if s.get("aviso"):
+        partes.append(f'<div class="papel-card gov-aviso"><h3>{icon("search")} Por que não há '
+                      f'formulário aqui</h3><p>{e(s["aviso"])}</p></div>')
+    return f'<section class="gov-secao">{"".join(partes)}</section>'
+
+
+def page_governanca_doc(doc):
+    depth, p = 2, rel(2)
+    d = MODEL["governanca"]
+    rotulo, explica = d["estados"][doc["estado"]]
+    trail_html, trail_ld = crumbs(depth, [("Governança e políticas", p + "governanca/"),
+                                          (doc["titulo"], None)])
+    irmas = "".join(
+        f'<a href="{p}governanca/{e(o["slug"])}/">{icon(o["icone"])} {e(o["titulo"])}</a>'
+        for o in d["itens"] if o["slug"] != doc["slug"])
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": doc["titulo"],
+          "url": f'{BASE}/governanca/{doc["slug"]}/', "inLanguage": "pt-BR",
+          "isPartOf": {"@type": "WebPage", "name": d["titulo"],
+                       "url": f"{BASE}/governanca/"}}
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><p class="gov-tipo">{icon(doc['icone'])} {e(doc['tipo'])}</p>
+<h1>{e(doc['titulo']).upper()}<span class="orange">.</span></h1>
+<p class="lede">{e(doc['resumo'])}</p>
+<dl class="gov-ficha"><div><dt>Documento</dt><dd>{e(doc['codigo'])}</dd></div>
+<div><dt>Versão</dt><dd>{e(doc['versao'])}</dd></div>
+<div><dt>Situação</dt><dd>{e(rotulo)}</dd></div>
+<div><dt>Atualizado em</dt><dd>{e(dia_mes(MODEL['updated'], True))}</dd></div></dl>
+<div class="papel-card gov-estado"><h3>{icon('search')} {e(rotulo)}</h3><p>{e(explica)}</p></div>
+</section>
+<section class="container gov-corpo">{''.join(_secao_gov(s) for s in doc['secoes'])}</section>
+<section class="container gov-irmas"><h2 class="section-title">OUTROS<em> DOCUMENTOS.</em></h2>
+<div class="gov-links">{irmas}</div>
+<div class="section-end"><a class="pill-link" href="{p}governanca/">Governança e políticas {icon('arrow_outward')}</a></div></section></main>"""
+    return write(f'governanca/{doc["slug"]}/index.html',
+                 head(depth, f'{doc["titulo"]} | Cadillac Produções', doc["resumo"],
+                      f'governanca/{doc["slug"]}/', [ld, trail_ld])
+                 + header(depth, "governanca") + body + footer(depth))
+
+
 def page_governanca():
     depth, p = 1, rel(1)
     d = MODEL["governanca"]
     trail_html, trail_ld = crumbs(depth, [("Governança e políticas", None)])
-    blocos = []
-    for it in d["itens"]:
-        rotulo, explica = d["estados"][it["estado"]]
-        classe = "selo-a-confirmar" if it["estado"] == "a publicar" else "selo-verified"
-        blocos.append(f"""<section class="container reach-section" id="{it['id']}"><hr class="rule">
-<h2 class="section-title">{icon(it['icone'])} {e(it['titulo']).upper()}<span class="orange">.</span></h2>
-<p class="body-copy">{e(it['resumo'])}</p>
-<div class="papel-card"><h3>{icon('search')} {e(rotulo)}</h3><p>{e(explica)}</p></div></section>""")
+    cartoes = "".join(
+        f'<a class="gov-card" href="{p}governanca/{e(it["slug"])}/">'
+        f'<span class="svc-i">{icon(it["icone"])}</span>'
+        f'<h3>{e(it["titulo"])}</h3><p>{e(it["resumo"])}</p>'
+        f'<span class="gov-card-pe"><small>{e(it["codigo"])} · versão {e(it["versao"])}</small>'
+        f'{icon("arrow_outward")}</span></a>'
+        for it in d["itens"])
+    pend = "".join(f'<tr><th scope="row">{e(k)}</th><td>{e(v)}</td></tr>'
+                   for k, v in d["pendencias"]["itens"])
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": d["titulo"],
-          "url": f"{BASE}/governanca/", "inLanguage": "pt-BR"}
+          "url": f"{BASE}/governanca/", "inLanguage": "pt-BR",
+          "hasPart": [{"@type": "WebPage", "name": it["titulo"],
+                       "url": f'{BASE}/governanca/{it["slug"]}/'} for it in d["itens"]]}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>GOVERNANÇA<br>E POLÍTICAS<span class="orange">.</span></h1>
-<p class="lede">{e(d['lede'])}</p></section>
-{''.join(blocos)}
-<section class="container reach-section"><hr class="rule">
-<p class="note">{e(d['nota'])}</p></section></main>"""
+<p class="lede">{e(d['lede'])}</p>
+<div class="papel-card gov-estado"><h3>{icon('search')} Minutas, não políticas vigentes</h3>
+<p>{e(d['aviso'])}</p></div></section>
+<section class="container gov-grade">{cartoes}</section>
+<section class="container reach-section"><h2 class="section-title">{e(d['pendencias']['titulo']).upper()}<span class="orange">.</span></h2>
+<div class="table-wrap"><table class="amounts"><tbody>{pend}</tbody></table></div></section></main>"""
     return write("governanca/index.html",
                  head(depth, "Governança e políticas | Cadillac Produções",
                       "Código de ética, código de conduta, política de privacidade, política de "
-                      "cookies e canal de ética da Cadillac Produções e Filmes.",
+                      "cookies, preferências e canal de ética da Cadillac Produções e Filmes.",
                       "governanca/", [ld, trail_ld])
                  + header(depth, "governanca") + body + footer(depth))
 
@@ -3256,6 +3327,7 @@ def main():
     written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
                page_data(), page_produtora(), page_atletas(), page_artistas(), page_equipe(),
                page_relacionamento(), page_imprensa(), page_contato(), page_governanca(),
+        *[page_governanca_doc(x) for x in MODEL["governanca"]["itens"]],
                page_en(), page_reservado(), page_404()]
     for x in ATLETAS:
         written.append(page_atleta(x))

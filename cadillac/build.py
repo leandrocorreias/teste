@@ -1521,9 +1521,9 @@ def parceiros_block(pr, depth):
 <span class="parceiro-papel">{icon('verified')} {e(papel)}</span></div>"""
         for nome, papel in itens)
     return f"""<section class="container reach-section"><hr class="rule">
-<h2 class="section-title">QUEM ESTÁ<br><em>NESTE EVENTO.</em></h2>
+<h2 class="section-title">PARCEIROS<span class="orange">.</span></h2>
 <div class="parceiros-grid">{cards}</div>
-{paragrafo_nota(d.get('parceiros_nota') or 'Marcas e instituições identificadas no material oficial do projeto. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso.')}</section>"""
+{paragrafo_nota(d.get('parceiros_nota'))}</section>"""
 
 
 def papel_block(pr):
@@ -1653,7 +1653,7 @@ def op_project(pr):
                                       "Maior público registrado entre as edições catalogadas"])
     order = ["cidades", "modalidades", "publico", "staff", "fornecedores", "dias_montagem"]
     return f"""<section class="container op-section"><hr class="rule">
-<h2 class="section-title">PORTE DA<br><em>OPERAÇÃO.</em></h2>
+<h2 class="section-title">DADOS<span class="orange">.</span></h2>
 <p class="body-copy">O que este projeto mobiliza para acontecer. Os campos preenchidos têm origem identificada; os demais dependem de dado da produção.</p>
 {op_tiles(perfil, f'operacao.perfil.{pr["slug"]}', order)}</section>"""
 

@@ -41,7 +41,7 @@ ICONES = {
     "arrow_back", "arrow_forward", "arrow_outward", "calendar_month", "campaign",
     "chevron_right", "close", "description", "download", "engineering", "expand_more",
     "festival", "filter_list", "groups", "home", "insights", "language", "mail", "menu",
-    "movie", "music_note", "north", "open_in_new", "palette", "photo_camera", "place",
+    "movie", "music_note", "north", "palette", "photo_camera", "place",
     "play_arrow", "public", "search", "skateboarding", "stacked_bar_chart", "verified",
     "confirmation_number",
 }
@@ -280,7 +280,7 @@ def footer(depth):
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
 <div class="container foot-bottom"><span>© {ANO_BASE}–{ANO_ATUAL} {e(SITE['name'])} Ltda.</span>
 <nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav>
-<a class="foot-by" href="https://instfy.com" target="_blank" rel="noopener noreferrer">Powered by <strong>instfy</strong> {icon('open_in_new')}</a>
+<a class="foot-by" href="https://instfy.com" target="_blank" rel="noopener noreferrer">Powered by <strong>instfy</strong></a>
 </div></footer>
 <a class="to-top" href="#top" aria-label="Voltar ao topo">{icon('north')}</a>
 </body></html>"""
@@ -294,7 +294,7 @@ def fonte_link(fonte, vazio="—"):
     if not url:
         return f'<span class="s-doc">{icon("description")} {e(label)}</span>'
     return (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-            f'{e(label)} {icon("open_in_new")}</a>')
+            f'{e(label)}</a>')
 
 
 def bloco_fontes(sources, depth, titulo):
@@ -333,7 +333,7 @@ def source_list(sources):
             f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
             f'<span class="s-main"><span class="s-label">{e(label)}</span>'
             f'<span class="s-host">{e(host_of(url))}</span></span>'
-            f'{icon("open_in_new")}</a>'
+            f'</a>'
         )
     return f'<div class="source-list">{"".join(rows)}</div>'
 
@@ -563,7 +563,7 @@ def declared_table(depth):
         rows.append(f"""<tr><th scope="row"><a href="{p}{d['href']}">{e(d['event'])}</a></th>
 <td><span class="val">{e(d['value'])}</span><small>{e(d['what'])}</small></td>
 <td>{e(d['nature'])}</td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)}</a></td></tr>""")
     return f"""<div class="table-wrap"><table class="amounts declared">
 <caption>Números divulgados por organizadores, entidades, poder público ou imprensa. A Cadillac não os audita nem os apresenta como resultado próprio. Nunca some streams, público presencial e audiência de transmissão: são grandezas diferentes.</caption>
 <thead><tr><th scope="col">Evento</th><th scope="col">Número</th><th scope="col">Natureza e atribuição</th><th scope="col">Quem divulgou</th></tr></thead>
@@ -578,7 +578,7 @@ def amounts_table():
             rows.append(f"""<tr><th scope="row">{e(pr['name'])}</th>
 <td>{e(a['label'])}<small>{e(a['note'])}</small></td>
 <td><span class="val">{brl(a['value'])}</span></td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)}</a></td></tr>""")
     if not rows:
         return ""
     return f"""<div class="table-wrap"><table class="amounts">
@@ -650,7 +650,7 @@ def page_home():
     logos = "".join(logos)
     press_html = "".join(
         f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-        f'<h3>{e(title)}</h3><small>{icon("open_in_new")} {e(outlet)} · cobertura externa</small></a>'
+        f'<h3>{e(title)}</h3><small>{e(outlet)} · cobertura externa</small></a>'
         for i, (outlet, title, url) in enumerate(MODEL["featured_press"], start=1))
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero-cine" data-video="{youtube_id(MODEL['video']['reel']['url'])}">
@@ -1010,7 +1010,7 @@ def page_press():
         feed.append(f'''<li class="noticia"><a href="{e(url)}" target="_blank" rel="noopener noreferrer">
 <span class="noticia-ano">{e(str(y))}</span>
 <span class="noticia-titulo">{e(label)}</span>
-<span class="noticia-meta">{e(nome)} · {e(host_of(url))} {icon('open_in_new')}</span></a></li>''')
+<span class="noticia-meta">{e(nome)} · {e(host_of(url))}</span></a></li>''')
         if len(feed) == 12:
             break
     bloco_noticias = (f'''<section class="container noticias-wrap" id="noticias">
@@ -1478,7 +1478,7 @@ def participacoes_block(pr, depth):
         label, url = item["fonte"]
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(alvo['name'])}{' ' + str(item['ano']) if item['ano'] else ''}</a></th>
 <td>{quando}</td><td>{e(item['papel'])}</td>
-<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)} {icon('open_in_new')}</a></td></tr>""")
+<td><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(label)}</a></td></tr>""")
     return f"""<section class="container reach-section"><hr class="rule">
 <h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
 <div class="table-wrap"><table class="amounts reach-table">
@@ -1530,13 +1530,13 @@ def broadcast_block(depth):
         else:
             metric = '<span class="val pend">a medir</span>'
         link = (f'<a href="{e(r["url"])}" target="_blank" rel="noopener noreferrer">'
-                f'abrir {icon("open_in_new")}</a>' if r["url"] else
+                f'abrir</a>' if r["url"] else
                 '<span class="tag-wait">URL a registrar</span>')
         fonte = ""
         if r["fonte"]:
             label, url = r["fonte"]
             fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                     f'{e(label)} {icon("open_in_new")}</a>')
+                     f'{e(label)}</a>')
         rows.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}{' ' + str(r['year']) if r['year'] else ''}</a>
 <small>{e(r['o_que'])}</small></th>
 <td>{e(r['parceiro'])}<small>{e(r['canal'])}</small></td>
@@ -1667,12 +1667,12 @@ def ficha_pessoa(pessoa, depth, com_vinculos=True):
             if v.get("fonte"):
                 label, url = v["fonte"]
                 fonte = (f'<a class="vinc-fonte" href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                         f'{e(label)} {icon("open_in_new")}</a>')
+                         f'{e(label)}</a>')
             itens.append(f'<li><a href="{href}">{e(alvo["name"])}'
                          f'{" " + str(v["ano"]) if v.get("ano") else ""}</a>'
                          f'<span>{e(v["papel"])}</span>{fonte}</li>')
         vinc = f'<ul class="vinculos">{"".join(itens)}</ul>'
-    links = "".join(f'<a href="{e(u)}" target="_blank" rel="noopener noreferrer">{e(l)} {icon("open_in_new")}</a>'
+    links = "".join(f'<a href="{e(u)}" target="_blank" rel="noopener noreferrer">{e(l)}</a>'
                     for l, u in pessoa.get("links", []))
 
     def pend(campo, oque):
@@ -1710,7 +1710,7 @@ def creditos_projeto(pr, depth, year=None):
         if v.get("fonte"):
             label, url = v["fonte"]
             fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                     f'{e(label)} {icon("open_in_new")}</a>')
+                     f'{e(label)}</a>')
         linhas.append(f'<tr><th scope="row"><a href="{p}equipe/#{pessoa["slug"]}">{e(pessoa["nome"])}</a>'
                       f'<small>{e(rotulo)}</small></th><td>{e(v["papel"])}</td><td>{fonte}</td></tr>')
     return f"""<section class="container reach-section"><hr class="rule">
@@ -1789,7 +1789,7 @@ def video_block(chave, titulo):
                       f'{capa}<span class="video-play">{icon("play_arrow")}</span>'
                       f'<span class="video-label">{e(titulo)}</span></button>'
                       f'<noscript><a class="video-link" href="{e(url)}" target="_blank" '
-                      f'rel="noopener noreferrer">Assistir no YouTube {icon("open_in_new")}</a></noscript>')
+                      f'rel="noopener noreferrer">Assistir no YouTube</a></noscript>')
         elif "vimeo" in url:
             vid = url.rstrip("/").rsplit("/", 1)[-1].split("?")[0]
             player = (f'<iframe src="https://player.vimeo.com/video/{e(vid)}" title="{e(titulo)}" '
@@ -1817,6 +1817,179 @@ def ficha_atleta_card(x, depth):
 {img}<div class="atleta-info"><h3>{e(x['nome'])}</h3>
 <span class="atleta-mod">{icon('skateboarding')} {e(x['modalidade'])}</span>
 <span class="atleta-n">{plural(n, 'edição no acervo', 'edições no acervo')}</span></div></a>"""
+
+
+def slugify(texto):
+    """Nome de pessoa para endereço: sem acento, sem pontuação, separado por hífen."""
+    import unicodedata, re as _re
+    base = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode()
+    return _re.sub(r"-+", "-", _re.sub(r"[^a-z0-9]+", "-", base.lower())).strip("-")
+
+
+def ficha_simples(nome, papel, foto, href, depth):
+    """Cartão no formato da ficha de atleta, para equipe e elenco artístico."""
+    p = rel(depth)
+    arq = ROOT / "assets" / "fotos" / (foto or "")
+    if foto and arq.exists():
+        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(foto)}" '
+               f'alt="{e(nome)}" loading="lazy" decoding="async">')
+    else:
+        iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
+        img = f'<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>'
+    return (f'<a class="atleta-card" href="{p}{href}">{img}'
+            f'<div class="atleta-info"><h3>{e(nome)}</h3>'
+            f'<span class="atleta-mod">{e(papel)}</span></div></a>')
+
+
+def page_pessoa(x):
+    """Perfil de quem assina a casa: mesma estrutura da ficha de atleta."""
+    depth, p = 2, rel(2)
+    data = MODEL["pessoas"]
+    trail_html, trail_ld = crumbs(depth, [("Equipe", p + "equipe/"), (x["nome"], None)])
+
+    arq = ROOT / "assets" / "fotos" / (x.get("foto") or "")
+    if x.get("foto") and arq.exists():
+        img = (f'<figure class="atleta-figura">'
+               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
+               f'alt="{e(x["nome"])}" width="800" height="800"></figure>')
+    else:
+        img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
+
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    linhas = []
+    for v in sorted(x.get("vinculos") or [], key=lambda v: -(v.get("ano") or 0)):
+        pr = by_slug.get(v["projeto"])
+        if not pr:
+            continue
+        href = (f'{p}projetos/{pr["slug"]}/{v["ano"]}/' if v.get("ano") in pr["years"]
+                else f'{p}projetos/{pr["slug"]}/')
+        linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
+<td>{v.get('ano') or '—'}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
+    tabela = (f"""<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Ano</th><th scope="col">Papel</th>
+<th scope="col">Fonte</th></tr></thead><tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver o papel e a fonte.</p>"""
+              if linhas else
+              '<p class="note">Nenhum vínculo com fonte pública catalogado até agora. '
+              'Entra aqui quando houver documento ou publicação que o registre.</p>')
+
+    outros = [o for o in data["equipe"] if o["slug"] != x["slug"]][:4]
+    relacionados = "".join(
+        ficha_simples(o["nome"], o.get("cargo") or "Equipe", o.get("foto"),
+                      f'equipe/{o["slug"]}/', depth) for o in outros)
+
+    ld = {"@context": "https://schema.org", "@type": "Person", "name": x["nome"],
+          "url": f"{BASE}/equipe/{x['slug']}/",
+          "description": x.get("bio") or x.get("cargo") or ""}
+    if x.get("cargo"):
+        ld["jobTitle"] = x["cargo"]
+
+    cargo = (f'<div class="taglist"><span>{icon("groups")} {e(x["cargo"])}</span></div>'
+             if x.get("cargo") else "")
+    bio = (f'<p class="lede">{e(x["bio"])}</p>' if x.get("bio") else
+           '<p class="lede">A ficha desta pessoa ainda não tem biografia. '
+           'Entra aqui quando a casa enviar.</p>')
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="container atleta-hero">
+<a class="back" href="{p}equipe/">{icon('arrow_back')} Toda a equipe</a>
+<div class="atleta-topo"><div class="atleta-retrato">{img}</div>
+<div><h1>{e(x['nome'])}<span class="orange">.</span></h1>
+{bio}{cargo}</div></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>
+<p class="body-copy">Os eventos deste acervo em que o nome aparece, com o papel registrado
+e a fonte de cada linha.</p>
+{tabela}</section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">OUTROS NOMES<br><em>DA CASA.</em></h2>
+<div class="atletas-grid">{relacionados}</div>
+<div class="section-end"><a class="pill-link" href="{p}equipe/">Ver a equipe {icon('arrow_outward')}</a></div></section></main>"""
+    return write(f"equipe/{x['slug']}/index.html",
+                 head(depth, f"{x['nome']} | Equipe | Cadillac Produções",
+                      (x.get("bio") or f"{x['nome']}, {x.get('cargo') or 'equipe'} na Cadillac "
+                       f"Produções.")[:160],
+                      f"equipe/{x['slug']}/", [ld, trail_ld])
+                 + header(depth, "produtora") + body + footer(depth))
+
+
+def artistas_indexados():
+    """Nome do artista → lista de (projeto, ano, papel, fonte), do mais novo ao mais antigo."""
+    by_slug = {x["slug"]: x for x in PROJECTS}
+    nomes = {}
+    for chave, bloco in MODEL["elenco"]["por_edicao"].items():
+        slug, _, ano = chave.rpartition("-")
+        if not slug or slug not in by_slug:
+            slug, ano = chave, ""
+        if slug not in by_slug:
+            continue
+        for nome, papel in bloco.get("artistas", []):
+            nomes.setdefault(nome, []).append((by_slug[slug], ano, papel, bloco.get("fonte")))
+    for nome in nomes:
+        nomes[nome].sort(key=lambda v: -(int(v[1]) if v[1].isdigit() else 0))
+    return nomes
+
+
+def page_artista(nome, onde):
+    """Perfil do artista, na mesma estrutura da ficha de atleta."""
+    depth, p = 2, rel(2)
+    alvo = slugify(nome)
+    trail_html, trail_ld = crumbs(depth, [("Artistas", p + "artistas/"), (nome, None)])
+
+    iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
+    img = (f'<figure class="atleta-figura">'
+           f'<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>'
+           f'</figure>')
+
+    linhas = []
+    for pr, ano, papel, fonte in onde:
+        href = (f'{p}projetos/{pr["slug"]}/{ano}/'
+                if ano.isdigit() and int(ano) in pr["years"] else f'{p}projetos/{pr["slug"]}/')
+        linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
+<td>{e(ano) if ano.isdigit() else '—'}</td><td>{e(papel)}</td><td>{fonte_link(fonte)}</td></tr>""")
+    tabela = f"""<div class="table-wrap"><table class="amounts reach-table">
+<thead><tr><th scope="col">Evento</th><th scope="col">Ano</th><th scope="col">Apresentação</th>
+<th scope="col">Fonte</th></tr></thead><tbody>{''.join(linhas)}</tbody></table></div>
+<p class="table-hint">Arraste a tabela para o lado para ver a apresentação e a fonte.</p>"""
+
+    todos = artistas_indexados()
+    vizinhos = [n for n in sorted(todos, key=lambda x: x.lower()) if n != nome]
+    i = 0
+    for j, n in enumerate(sorted(todos, key=lambda x: x.lower())):
+        if n == nome:
+            i = j
+            break
+    perto = (vizinhos[max(0, i - 2):i] + vizinhos[i:i + 4])[:4]
+    relacionados = "".join(
+        ficha_simples(n, todos[n][0][2], "", f'artistas/{slugify(n)}/', depth) for n in perto)
+
+    ld = {"@context": "https://schema.org", "@type": "Person", "name": nome,
+          "url": f"{BASE}/artistas/{alvo}/",
+          "description": f"{nome}: {onde[0][2]}"}
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="container atleta-hero">
+<a class="back" href="{p}artistas/">{icon('arrow_back')} Todos os artistas</a>
+<div class="atleta-topo"><div class="atleta-retrato">{img}</div>
+<div><h1>{e(nome)}<span class="orange">.</span></h1>
+<p class="lede">{e(onde[0][2])}</p>
+<div class="taglist"><span>{icon('music_note')} {plural(len(onde), 'edição no acervo', 'edições no acervo')}</span></div></div></div></section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>
+<p class="body-copy">As edições deste acervo em que a apresentação está registrada, da mais
+recente para a mais antiga.</p>
+{tabela}</section>
+<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">OUTROS NOMES<br><em>DO ELENCO.</em></h2>
+<div class="atletas-grid">{relacionados}</div>
+<div class="section-end"><a class="pill-link" href="{p}artistas/">Ver o elenco {icon('arrow_outward')}</a></div></section>
+<section class="container sources"><hr class="rule">
+<h2>SOBRE ESTA FICHA.</h2>
+<p class="note">{e(MODEL['elenco']['note'])}</p></section></main>"""
+    return write(f"artistas/{alvo}/index.html",
+                 head(depth, f"{nome} | Artistas | Cadillac Produções",
+                      f"{nome}: {onde[0][2]}. Edições do acervo Cadillac em que a apresentação "
+                      f"está registrada, com fonte.",
+                      f"artistas/{alvo}/", [ld, trail_ld])
+                 + header(depth, "produtora") + body + footer(depth))
 
 
 def page_atletas():
@@ -1987,9 +2160,9 @@ def page_produtora():
                 f'<a class="pill-link" href="{p}{alvo}">{e(rotulo_alvo)} {icon("arrow_outward")}</a>'
                 f'</div><div class="pess-grid">{fichas}</div></div>')
 
-    equipe = ([(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/#nucleo")
+    equipe = ([(x["nome"], x.get("cargo", ""), x.get("foto", ""), f'equipe/{x["slug"]}/')
                for x in MODEL["pessoas"]["equipe"] if x.get("tipo") == "nucleo"]
-              + [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/")
+              + [(x["nome"], x.get("cargo", ""), x.get("foto", ""), f'equipe/{x["slug"]}/')
                  for x in MODEL["pessoas"]["equipe"] if x.get("tipo") != "nucleo"])
     atletas = [(a["nome"], a.get("modalidade", ""), a.get("foto", ""),
                 f'atletas/{a["slug"]}/') for a in MODEL["atletas"]["lista"]]
@@ -1999,7 +2172,7 @@ def page_produtora():
             if nome in vistos:
                 continue
             vistos.add(nome)
-            artistas.append((nome, papel, "", "artistas/"))
+            artistas.append((nome, papel, "", f"artistas/{slugify(nome)}/"))
 
     time_cards = (
         grupo_pessoas("Equipe", equipe, "equipe/", "Ver a equipe")
@@ -2047,8 +2220,7 @@ def page_produtora():
 def ficha_artista_card(nome, papel, onde, depth):
     """Mesmo cartão dos atletas. Sem retrato no acervo, entram as iniciais."""
     p = rel(depth)
-    pr, ano = onde[0][0], onde[0][1]
-    href = f'{p}projetos/{pr["slug"]}/' + (f"{ano}/" if ano.isdigit() and int(ano) in pr["years"] else "")
+    href = f'{p}artistas/{slugify(nome)}/'
     iniciais = "".join(x[0] for x in nome.split()[:2]).upper()
     return f"""<a class="atleta-card" href="{href}">
 <span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>
@@ -2238,7 +2410,7 @@ def numeros_block(depth):
         (len(MODEL["atletas"]["lista"]), "Atletas", "fichas com trajetória e participações", "skateboarding"),
         (len(artistas), "Artistas", "nomes registrados nos palcos das edições", "music_note"),
         (fatos, "Registros", "fatos com fonte identificada", "description"),
-        (len(fontes), "Fontes públicas", "links para a publicação original", "open_in_new"),
+        (len(fontes), "Fontes públicas", "links para a publicação original", "language"),
     ]
     tiles = "".join(
         f'<div class="num-tile"><span class="num-ic">{icon(ic)}</span>'
@@ -2278,6 +2450,8 @@ def perfil_block(depth):
     def pct(v):
         return round((v - lo) / vao * 100, 2)
 
+    declarados = {x["projeto"] for x in d["linhas"]}
+    sem_perfil = [pr for pr in PROJECTS if pr["slug"] not in declarados]
     faixas, painéis, abas = [], [], []
     marcas = "".join(
         f'<span class="pf-marca" style="left:{pct(v)}%"><i></i><b>{v}</b></span>'
@@ -2328,6 +2502,18 @@ def perfil_block(depth):
             f'<p class="pf-fonte">{icon("description")} Declarado em {fonte_link(x.get("fonte"))}</p>'
             f'{ir}</div>')
 
+    if sem_perfil:
+        itens = "".join(
+            f'<li><a href="{rel(depth)}projetos/{pr["slug"]}/">{e(pr["name"])}</a>'
+            f'<span>{e(CATS[pr["category"]]["label"])}</span></li>' for pr in sem_perfil)
+        pendentes = (
+            f'<div class="pf-pendentes"><h3>{plural(len(sem_perfil), "evento ainda sem perfil declarado", "eventos ainda sem perfil declarado")}</h3>'
+            f'<p>Entram nesta seção quando a produção enviar o recorte de público, '
+            f'com a fonte. Até lá a faixa fica vazia em vez de estimada.</p>'
+            f'<ul class="pf-lista">{itens}</ul></div>')
+    else:
+        pendentes = ""
+
     leitura = "".join(
         f'<div class="pf-leitura"><span>{e(t)}</span><strong>{e(q)}</strong>'
         f'<small>{e(txt)}</small></div>'
@@ -2343,6 +2529,7 @@ def perfil_block(depth):
 <p class="pf-eixo-rotulo">Idade declarada, de {lo} a {hi} anos</p></div>
 <div class="pf-paineis">{''.join(painéis)}</div></div>
 <div class="pf-leituras">{leitura}</div>
+{pendentes}
 <p class="note">{e(d['nota'])}</p></section>"""
 
 
@@ -2407,7 +2594,7 @@ def page_data():
         ("stacked_bar_chart", f"{M['projects']:02d}", "Eventos indexados"),
         ("calendar_month", f"{M['editions']:02d}", "Edições com página própria"),
         ("description", f"{M['facts']:02d}", "Registros documentados"),
-        ("open_in_new", f"{M['sources']:02d}", "Fontes públicas citadas"),
+        ("language", f"{M['sources']:02d}", "Fontes públicas citadas"),
         ("insights", M["span"], "Período coberto nesta versão"),
     ]
     panels_html = "".join(f'<div class="data-panel">{icon(ic)}<div><strong>{v}</strong>'
@@ -2505,7 +2692,7 @@ def page_atuacao():
                 link = f'<a href="{p}dados/">Metodologia e indicadores {icon("arrow_outward")}</a>'
             else:
                 link = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                        f'{e(label)} {icon("open_in_new")}</a>')
+                        f'{e(label)}</a>')
             pr = by_slug.get(c["project"]) if c["project"] else None
             thumb = ""
             if pr:
@@ -2724,13 +2911,13 @@ def page_reservado():
         if d["fonte"]:
             label, url = d["fonte"]
             fonte = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">'
-                     f'{e(label)} {icon("open_in_new")}</a>')
+                     f'{e(label)}</a>')
         dil.append(f"""<tr><th scope="row">{e(d['assunto'])}</th><td>{e(d['detalhe'])}</td>
 <td>{e(d['acao'])}</td><td>{fonte}</td></tr>""")
 
     sol = []
     for orgao, pedido, url in data["solicitacoes"]:
-        onde = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">abrir {icon("open_in_new")}</a>'
+        onde = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">abrir</a>'
                 if url else "—")
         sol.append(f'<tr><th scope="row">{e(orgao)}</th><td>{e(pedido)}</td><td>{onde}</td></tr>')
 
@@ -2949,6 +3136,10 @@ def page_sitemap():
             urls.append(f"projetos/{pr['slug']}/{y}/")
     for x in ATLETAS:
         urls.append(f"atletas/{x['slug']}/")
+    for x in MODEL["pessoas"]["equipe"]:
+        urls.append(f"equipe/{x['slug']}/")
+    for nome in sorted(artistas_indexados(), key=lambda n: n.lower()):
+        urls.append(f"artistas/{slugify(nome)}/")
     entries = "\n".join(
         f"<url><loc>{BASE}/{u}</loc><lastmod>{MODEL['updated']}</lastmod>"
         f"<priority>{'1.0' if u == '' else '0.8' if u.count('/') < 2 else '0.6'}</priority></url>"
@@ -2968,6 +3159,11 @@ def main():
                page_en(), page_reservado(), page_404()]
     for x in ATLETAS:
         written.append(page_atleta(x))
+    for x in MODEL["pessoas"]["equipe"]:
+        written.append(page_pessoa(x))
+    _artistas = artistas_indexados()
+    for nome in sorted(_artistas, key=lambda n: n.lower()):
+        written.append(page_artista(nome, _artistas[nome]))
     for pr in PROJECTS:
         written.append(page_project(pr))
         for y in pr["years"]:

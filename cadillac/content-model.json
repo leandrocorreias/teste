@@ -1,5 +1,5 @@
 {
-  "version": 45,
+  "version": 46,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -2551,7 +2551,7 @@
       [
         "Veículo de imprensa",
         "Quem cobre e registra publicamente.",
-        "open_in_new"
+        "description"
       ]
     ],
     "entities": [

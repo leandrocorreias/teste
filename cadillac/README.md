@@ -1,4 +1,4 @@
-# CADILLAC / PORTAL — V17
+# CADILLAC / PORTAL — V18
 
 Portal estático multipágina, responsivo, com URL dedicada por projeto e por edição.
 Todas as páginas são geradas a partir de um único modelo de conteúdo.
@@ -53,6 +53,43 @@ tools/logos.py                 regera os derivados do logotipo oficial
 content-model.json             fonte única de conteúdo
 build.py                       gerador
 ```
+
+## V18: o vídeo no topo, as fotos do Mr. Moo e os anos no rodapé
+
+**O topo da home virou cena.** O vídeo institucional roda ao fundo, sem som e em laço,
+sob um véu escuro; logotipo, menu e manchete ficam em branco por cima. O cabeçalho fica
+sobreposto e transparente até a primeira rolagem, quando volta a ser o de sempre. Só na
+home: as demais páginas seguem com o cabeçalho claro.
+
+O fundo nasce preto. Falhando o player — rede, bloqueador, preferência por menos
+movimento — a cena continua de pé, tipografia branca sobre o preto da marca. O iframe é
+inserido pelo script, e não pelo HTML, para que quem pede menos movimento não receba
+nem a requisição ao YouTube. O domínio usado é o `youtube-nocookie.com`.
+
+A seção do reel saiu da home: era o mesmo vídeo duas vezes na página. Nas páginas de
+projeto o player continua, com capa que só chama o YouTube depois do clique.
+
+**A manchete quebrava em quatro linhas**, partindo "EXTRAORDINÁRIO" no meio, entre 768px
+e 1360px. Faltavam dois pixels. O corpo passou de 12vw para 11,2vw, o maior valor que
+mantém as três linhas de 320px a 2560px — medido em doze larguras.
+
+**Duas fotos do Mr. Moo Festival entraram**, e com elas o crédito por arquivo. A vista do
+palco traz assinatura de fotógrafo na própria imagem; o crédito único por projeto a
+atribuiria à produção. Agora, quando todas as imagens da faixa têm a mesma origem, o
+crédito aparece uma vez só no pé, como antes; havendo autoria própria em alguma, cada
+imagem leva o seu.
+
+**O rodapé abre com 2013 — 2026**, seguido dos anos de casa e da data de constituição,
+com link para a linha do tempo. Os dois anos e a contagem saem do modelo, de modo que a
+virada de ano acerta sozinha.
+
+**A política de cookies foi corrigida.** Ela afirmava que o player só chamava o YouTube
+depois do clique, o que deixou de valer na home. O texto agora registra a exceção e diz
+que o domínio sem cookie não grava cookie de publicidade, mas ainda expõe o IP do
+visitante à Google.
+
+Verificação: 81 páginas, 0 links quebrados, 0 overflow em 320, 390, 768, 1024 e 1440px,
+sem erro de JavaScript.
 
 ## V17: a nova arquitetura de navegação
 

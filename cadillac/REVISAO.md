@@ -289,3 +289,66 @@ Cada item acima é conteúdo, não código. O site já tem o lugar de todos eles
 exato do arquivo ou do campo. Com fotografia e três cases preenchidos, a nota vai a
 **9,3** sem uma linha de código nova. Sem isso, o teto é **7,5**, e não há engenharia
 que resolva.
+
+---
+
+# Nota geral — V18, estado de hoje
+
+Mesma comparação: produtoras e agências de eventos acima da média, que publicam reel,
+fotografia própria, case com resultado e nome de cliente.
+
+| Critério | Peso | V13 | Hoje | Teto com o que falta |
+|---|---|---|---|---|
+| Arquitetura de conteúdo | 15% | 10 | 10 | 10 |
+| Engenharia e performance | 10% | 9,5 | 9,5 | 9,5 |
+| Acessibilidade | 10% | 9,5 | 9,5 | 10 |
+| Conversão comercial | 15% | 9,0 | 9,0 | 9,5 |
+| SEO e estrutura | 10% | 9,0 | 9,5 | 10 |
+| Prova de capacidade | 20% | 7,0 | 8,0 | 9,5 |
+| Identidade visual | 10% | 7,0 | 9,0 | 9,5 |
+| Material visual | 10% | 4,0 | 7,0 | 9,5 |
+
+**Média ponderada: 8,9.** Contra as casas de referência, a nota honesta subiu de
+**7,3 para 8,4**.
+
+## O que moveu a nota desde a V13
+
+**Material visual, de 4,0 para 7,0.** `assets/fotos/` saiu de um arquivo — o LEIA-ME —
+para 43 fotografias: capas e galerias de cinco projetos e 16 retratos de atletas. É o
+item que mais pesava, e saiu do zero.
+
+**Identidade visual, de 7,0 para 9,0.** O topo da home virou cena de altura cheia, com
+o vídeo institucional ao fundo e a manchete em branco sobre véu escuro. Antes, o
+visitante chegava numa página clara de tipografia preta, indistinguível de qualquer
+portfólio. Agora a primeira tela diz o que a casa faz antes de qualquer texto.
+
+**Prova de capacidade, de 7,0 para 8,0.** Entraram as páginas de produtora, com história
+documentada em seis marcos; o elenco de atletas e artistas de todas as edições; e os
+blocos de perfil de público, impacto, relatórios e certificações.
+
+## O que ainda segura a nota em 8,4
+
+1. **Quatro projetos sem uma única foto.** Itacoatiara Pro, Juruti, Arte em Circuito e
+   CCBB/MAC Bahia seguem com os espaços reservados e vazios. Dois deles são justamente
+   os mais antigos do acervo, os que provam estrada.
+2. **Nenhum case preenchido.** `cases.fichas` continua com três fichas em branco.
+   Desafio, solução, entrega e resultado é o que patrocinador lê antes de decidir.
+3. **Nenhum depoimento.** Uma frase assinada por um patrocinador vale mais que qualquer
+   página de dados.
+4. **Formulário sem endpoint.** A página de contato existe e não envia.
+5. **24 atletas sem retrato.** Dos 40 do elenco, 16 têm foto.
+
+## Pendências que não são de nota, e sim de risco
+
+- **Autorização escrita de uso das fotografias.** As 43 imagens vieram de mídia kits e
+  relatórios de produções de terceiro. Uma delas traz assinatura de fotógrafo e exige
+  também a autorização dele. Isso não afeta a nota; afeta a decisão de indexar.
+- **Missão, visão, valores e objetivos** seguem marcados na própria página como proposta
+  aguardando aprovação da direção.
+
+## A conta
+
+Continua sendo conteúdo, não código. Com os quatro projetos fotografados e três cases
+preenchidos, a nota chega a **9,3** sem uma linha nova. O que mudou desde a V13 é que o
+caminho até lá encurtou: o buraco deixou de ser "não há fotografia nenhuma" e passou a
+ser "faltam quatro projetos".

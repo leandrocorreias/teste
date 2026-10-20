@@ -15,11 +15,16 @@ Dois arquivos acompanham este guia:
 ## 1. Subir o site
 
 1. cPanel → **Gerenciador de Arquivos** → entre em `public_html`.
-2. Se já houver um site ali, **faça backup antes**: selecione tudo, botão direito →
-   *Compress* → salve o `.zip` fora de `public_html`. Depois apague o conteúdo antigo.
-3. **Upload** → envie `cadillac-site.zip`.
-4. Botão direito no arquivo enviado → **Extract** → extraia em `public_html`.
-5. Apague o `.zip` do servidor depois de extrair.
+2. **Upload** → envie o `.zip`.
+3. Botão direito no arquivo enviado → **Extract** → extraia na mesma pasta. Havendo
+   versão anterior, os arquivos de mesmo nome são sobrescritos — inclusive o
+   `.htaccess`, que é o que você quer.
+4. Apague o `.zip` do servidor depois de extrair.
+
+Sobrescrever resolve o caso normal. O que a extração **não** faz é apagar arquivo que
+existia antes e não existe mais no pacote novo: ele fica lá, órfão, ainda servindo pela
+URL antiga. Se em algum momento a estrutura de pastas mudar, apague a pasta inteira e
+extraia de novo, em vez de sobrepor.
 
 Pronto. `https://cadillacproducoes.com.br` já responde.
 

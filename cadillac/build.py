@@ -399,10 +399,15 @@ def media(project, classes="", eager=False, year=None, depth=0):
     img = None
     edicao = f", edição {year}" if year else ""
     if local:
+        # O crédito do arquivo vem antes do crédito do projeto. A capa saía como
+        # "Divulgação" mesmo quando a foto era de fotógrafo nomeado — atribuição
+        # errada, e a galeria já consultava essa tabela. Agora as duas consultam.
+        arquivo = local.rsplit("/", 1)[-1]
         img = {"url": rel(depth) + local,
                "alt": f"{project['name']}{edicao}",
-               "credit": MODEL["photos"].get("creditos", {}).get(
-                   project["slug"], "Acervo Cadillac")}
+               "credit": MODEL["photos"].get("creditos_arquivo", {}).get(arquivo)
+                         or MODEL["photos"].get("creditos", {}).get(
+                             project["slug"], "Acervo Cadillac")}
     elif not project.get("image"):
         stem = project["slug"] + (f"-{year}" if year else "")
         return slot(f"{stem}.jpg", "16:10 ou 3:2",

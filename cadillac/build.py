@@ -423,11 +423,12 @@ def media(project, classes="", eager=False, year=None, depth=0):
             f'<img class="media-img" src="{e(img["url"])}" alt="{e(img["alt"])}"'
             f'{loading} decoding="async">'
         )
-    chamada = project.get("chamada")
-    nome_e_chamada = (f'<span class="media-symbol">{e(project["name"].upper())}'
-                      + (f'<small class="media-chamada">{e(chamada)}</small>' if chamada else "")
-                      + "</span>")
-    inner.append(nome_e_chamada)
+    # Sobre a foto vai a frase, nao o nome. O nome ja aparece logo abaixo, no
+    # titulo do cartao e no h1 da pagina do evento: repeti-lo na capa gastava o
+    # espaco nobre dizendo duas vezes a mesma coisa. Sem frase cadastrada, o
+    # nome volta a ser o recurso.
+    chamada = project.get("chamada") or project["name"].upper()
+    inner.append(f'<span class="media-symbol">{e(chamada)}</span>')
     role = "" if img else ' role="img" aria-label="Capa editorial de ' + e(project["name"]) + '"'
     # O selo de crédito saiu da capa a pedido. O dado continua no modelo e aqui no
     # title, para quem precisar da origem sem que ela dispute com a chamada.

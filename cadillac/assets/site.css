@@ -211,15 +211,13 @@ body.nav-open{overflow:hidden}
 .media-surface>*{z-index:2}
 .media-surface>.media-symbol{position:relative}
 .media-surface>.media-code{position:absolute;left:clamp(16px,2vw,34px);top:clamp(16px,2vw,32px);color:#ffffffad}
-.media-symbol{font:800 clamp(23px,3.1vw,54px)/.92 var(--font-display);letter-spacing:-.02em;
-  text-align:center;padding:0 clamp(14px,3vw,34px);max-width:100%;overflow-wrap:break-word;
-  text-shadow:0 2px 22px #00000073;display:flex;flex-direction:column;gap:clamp(8px,1.1vw,14px);
-  align-items:center}
-/* A chamada e uma frase, nao um titulo: peso e caixa de texto corrido, largura
-   limitada para quebrar em duas linhas em vez de atravessar a foto. */
-.media-chamada{font:500 clamp(12px,1.05vw,16px)/1.4 var(--font-text);letter-spacing:.01em;
-  text-transform:none;max-width:30ch;color:#ffffffe8;text-shadow:0 1px 14px #000000a6}
-.media-surface.banner .media-symbol{font-size:clamp(38px,7vw,150px)}
+/* Agora e uma frase, nao uma palavra solta. Corpo menor e entrelinha maior que
+   os de um nome, e largura travada em ch para quebrar em duas ou tres linhas
+   curtas em vez de atravessar a foto de ponta a ponta. */
+.media-symbol{font:800 clamp(20px,2.4vw,40px)/1.08 var(--font-display);letter-spacing:-.015em;
+  text-align:center;padding:0 clamp(14px,3vw,34px);max-width:17ch;overflow-wrap:break-word;
+  text-wrap:balance;text-shadow:0 2px 22px #00000073}
+.media-surface.banner .media-symbol{font-size:clamp(30px,4.6vw,76px);max-width:15ch}
 .media-surface>.source-credit{position:absolute;right:10px;bottom:10px;z-index:3;max-width:74%;
   font:600 9px/1.35 var(--font-text);background:#000000bd;padding:6px 8px;color:#fff}
 .card-info{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0}

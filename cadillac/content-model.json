@@ -734,21 +734,61 @@
       "intro": "O Connect Heroes nasceu no Rio de Janeiro para ocupar um espaço vago no jiu-jítsu brasileiro: o de propriedade esportiva produzida como espetáculo. A técnica segue no centro, mas a competição passa a vir acompanhada de narrativa, hospitalidade e padrão de imagem compatível com marcas grandes. A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel e distribuição simultânea em TV, streaming e redes. A segunda edição acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que organiza o esporte até 2032.",
       "image": null,
       "years": [
-        2026
+        "2026-1",
+        "2026-2"
       ],
       "editions": {
-        "2026": {
-          "period": "Julho e dezembro de 2026",
-          "place": "Rio de Janeiro e Niterói, RJ",
-          "note": "1ª edição no Grand Hyatt Rio · 2ª edição anunciada para Niterói",
+        "2026-1": {
+          "rotulo": "1ª edição",
+          "period": "11 de julho de 2026",
+          "place": "Grand Hyatt Rio de Janeiro, RJ",
+          "note": "Fight week no hotel, de quarta a domingo",
           "datas": {
-            "inicio": "2026-07-01",
-            "fim": "2026-12-31",
-            "precisao": "mes",
-            "status": "parcial",
+            "inicio": "2026-07-11",
+            "fim": "2026-07-11",
+            "precisao": "dia",
+            "status": "confirmada",
             "fonte": [
-              "Connect Heroes no Instagram",
-              "https://www.instagram.com/connectheroes/"
+              "Sportbuzz · resultados da estreia",
+              "https://sportbuzz.com.br/jiu-jitsu/2026/07/11/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
+            ]
+          },
+          "etapas": [
+            {
+              "nome": "Competição · Grand Hyatt Rio de Janeiro",
+              "inicio": "2026-07-11",
+              "fim": "2026-07-11",
+              "status": "confirmada",
+              "fonte": [
+                "Sportbuzz, Connect Heroes 1 no Grand Hyatt Rio",
+                "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
+              ]
+            },
+            {
+              "nome": "Fight week no hotel · pesagem e coletiva de imprensa",
+              "inicio": null,
+              "fim": null,
+              "status": "confirmada",
+              "fonte": [
+                "Mídia kit oficial Connect Heroes V6 · documento da produção",
+                null
+              ]
+            }
+          ]
+        },
+        "2026-2": {
+          "rotulo": "2ª edição",
+          "period": "Dezembro de 2026",
+          "place": "Niterói, RJ",
+          "note": "Lançamento para a imprensa no MAC Niterói",
+          "datas": {
+            "inicio": "2026-12-12",
+            "fim": "2026-12-12",
+            "precisao": "dia",
+            "status": "anunciada",
+            "fonte": [
+              "Informado pela direção do projeto",
+              null
             ]
           },
           "etapas": [
@@ -771,22 +811,12 @@
                 "Informado pela direção do projeto",
                 null
               ]
-            },
-            {
-              "nome": "1ª edição · Grand Hyatt Rio de Janeiro",
-              "inicio": "2026-07-11",
-              "fim": "2026-07-11",
-              "status": "divulgada",
-              "fonte": [
-                "Sportbuzz, Connect Heroes 1 no Grand Hyatt Rio",
-                "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-              ]
             }
           ]
         }
       },
       "facts": {
-        "2026": [
+        "2026-1": [
           "A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, hotel cinco estrelas, com a competição concentrada em um único dia.",
           "A fight week acontece dentro do próprio hotel, de quarta a domingo: coletiva de imprensa, pesagem e atletas hospedados no local, gerando conteúdo antes, durante e depois do evento.",
           "A transmissão ao vivo pela Xsports foi acompanhada por 240 mil televisores, segundo o mídia kit oficial do evento.",
@@ -806,7 +836,7 @@
         ]
       },
       "mercado": {
-        "titulo": "O mercado em que o evento entra",
+        "titulo": "O mercado BJJ",
         "lede": "O jiu-jítsu brasileiro deixou de ser nicho de academia e virou economia. Os números abaixo descrevem o setor, não o evento.",
         "items": [
           [
@@ -988,7 +1018,7 @@
         ]
       ],
       "yearsources": {
-        "2026": [
+        "2026-1": [
           [
             "Connect Heroes no Instagram",
             "https://www.instagram.com/connectheroes/"

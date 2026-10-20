@@ -41,10 +41,30 @@ CARIMBO = {"site.css": _carimbo("site.css"), "site.js": _carimbo("site.js"),
 ANO_BASE = SITE["base_year"]
 ANO_ATUAL = int(MODEL["updated"][:4])
 ANOS_CASA = ANO_ATUAL - ANO_BASE
+def ano_de(eid):
+    """O ano de uma edicao. O id pode ser 2026 ou "2026-2": um ano com duas."""
+    return int(str(eid)[:4])
+
+
+def rotulo_ed(pr, eid):
+    """Como a edicao se chama na tela. Sem rotulo proprio, chama-se pelo ano."""
+    ed = (pr.get("editions") or {}).get(str(eid)) or {}
+    return ed.get("rotulo") or str(eid)
+
+
+def href_edicao(pr, ano, p):
+    """Link da edicao a partir do ano. Com duas no mesmo ano, leva ao projeto."""
+    base = f'{p}projetos/{pr["slug"]}/'
+    if not ano:
+        return base
+    ids = [x for x in pr["years"] if ano_de(x) == int(ano)]
+    return f'{base}{ids[0]}/' if len(ids) == 1 else base
+
+
 def _recencia(pr):
     """Ano mais recente do projeto; sem edição, lê o fim do período."""
     if pr["years"]:
-        return max(pr["years"])
+        return max(ano_de(y) for y in pr["years"])
     digitos = [int(t) for t in __import__("re").findall(r"(20\d\d)", pr.get("period", ""))]
     return max(digitos) if digitos else 0
 
@@ -624,14 +644,15 @@ def project_sources(project):
 
 
 def metrics():
-    years = sorted({y for pr in PROJECTS for y in pr["years"]}, reverse=True)
+    years = sorted({ano_de(y) for pr in PROJECTS for y in pr["years"]}, reverse=True)
     all_sources = set()
     for pr in PROJECTS:
         all_sources |= project_sources(pr)
     per_year = {}
     for pr in PROJECTS:
         for y in pr["years"]:
-            per_year[y] = per_year.get(y, 0) + 1
+            a = ano_de(y)
+            per_year[a] = per_year.get(a, 0) + 1
     per_year = dict(sorted(per_year.items(), reverse=True))
     return {
         "projects": len(PROJECTS),
@@ -714,8 +735,10 @@ def coverage_matrix(depth):
     for pr in PROJECTS:
         cells = []
         for y in years:
-            if y in pr["years"]:
-                cells.append(f'<td><a class="cell" href="{p}projetos/{pr["slug"]}/{y}/" '
+            # Um ano pode ter mais de uma edição: a célula leva à primeira delas.
+            ids = [x for x in pr["years"] if ano_de(x) == y]
+            if ids:
+                cells.append(f'<td><a class="cell" href="{p}projetos/{pr["slug"]}/{ids[0]}/" '
                              f'aria-label="{e(pr["name"])} {y}, edição documentada">{y}</a></td>')
             else:
                 cells.append('<td><span class="cell" aria-label="sem registro catalogado">—</span></td>')
@@ -946,8 +969,9 @@ def page_project(pr):
             txt, dias = periodo(ed.get("datas"))
             note = " · ".join(x for x in [txt or ed.get("period"), ed.get("place"),
                                           plural(dias, "dia", "dias") if dias else None] if x)
+            rot = rotulo_ed(pr, y)
             rows.append(f"""<a class="year-row" href="{p}projetos/{slug}/{y}/">
-<span class="yr">{y}</span><span><strong>{e(pr['name'])} {y}</strong>
+<span class="yr">{ano_de(y)}</span><span><strong>{e(pr['name'])} {e(rot)}</strong>
 <span class="yr-note">{e(note) if note else 'Edição catalogada'}</span></span>
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
         cronograma.append(f"""<section class="container timeline">
@@ -983,7 +1007,6 @@ def page_project(pr):
     sections.extend(cronograma)
     sections.append(historico_block(pr))
     sections.append(op_project(pr))
-    sections.append(kpis_block(pr))
     sections.append(mercado_block(pr))
     sections.append(parceiros_block(pr, depth))
     sections.append(cast_block(pr))
@@ -1000,7 +1023,7 @@ def page_project(pr):
                      for x in (b_.get("propriedades") or [])}
     if slug in patrocinaveis:
         sections.append(f"""<section class="container fecho"><hr class="rule">
-<div class="fecho-caixa"><h2>QUER ESTA MARCA<br><em>NESTE EVENTO?</em></h2>
+<div class="fecho-caixa"><h2>QUER SUA MARCA<br><em>NESSE EVENTO?</em></h2>
 <p>Cotas, naming rights e ativação em arena são tratados caso a caso, por edição.
 Conte o que a marca precisa alcançar e respondemos com o que está disponível.</p>
 <div class="fecho-pe"><a class="pill-link pill-forte" href="{p}relacionamento/#patrocinios">
@@ -1085,11 +1108,13 @@ def shows_block(pr, year):
 def page_edition(pr, year):
     depth, p = 3, rel(3)
     slug, ystr = pr["slug"], str(year)
+    rot = rotulo_ed(pr, year)
+    ano = ano_de(year)
     credito = MODEL["photos"].get("creditos", {}).get(slug, "Acervo Cadillac")
     ed = pr.get("editions", {}).get(ystr, {})
     trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"),
                                           (pr["name"], p + f"projetos/{slug}/"),
-                                          (f"Edição {year}", None)])
+                                          (f"Edição {rot}", None)])
     facts = pr["facts"].get(ystr, [])
     facts_html = "".join(f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}</p></div>'
                          for i, t in enumerate(facts, start=1))
@@ -1111,23 +1136,24 @@ def page_edition(pr, year):
     nav_links = []
     if idx > 0:
         prev = years_sorted[idx - 1]
-        nav_links.append(f'<a href="{p}projetos/{slug}/{prev}/">{icon("arrow_back")} Edição {prev}</a>')
+        nav_links.append(f'<a href="{p}projetos/{slug}/{prev}/">{icon("arrow_back")} Edição {e(rotulo_ed(pr, prev))}</a>')
     if idx < len(years_sorted) - 1:
         nxt = years_sorted[idx + 1]
-        nav_links.append(f'<a href="{p}projetos/{slug}/{nxt}/">Edição {nxt} {icon("arrow_forward")}</a>')
+        nav_links.append(f'<a href="{p}projetos/{slug}/{nxt}/">Edição {e(rotulo_ed(pr, nxt))} {icon("arrow_forward")}</a>')
     others = [y for y in pr["years"] if y != year]
-    other_html = "".join(f'<a href="{p}projetos/{slug}/{y}/">{y} {icon("arrow_outward")}</a>'
-                         for y in others) or "<span>Primeira edição catalogada</span>"
+    other_html = "".join(
+        f'<a href="{p}projetos/{slug}/{y}/">{e(rotulo_ed(pr, y))} {icon("arrow_outward")}</a>'
+        for y in others) or "<span>Primeira edição catalogada</span>"
 
     ld = {"@context": "https://schema.org", "@type": "WebPage",
-          "name": f"{pr['name']} {year}", "url": f"{BASE}/projetos/{slug}/{year}/",
+          "name": f"{pr['name']} {rot}", "url": f"{BASE}/projetos/{slug}/{year}/",
           "inLanguage": "pt-BR",
-          "about": {"@type": "Event", "name": f"{pr['name']} {year}",
+          "about": {"@type": "Event", "name": f"{pr['name']} {rot}",
                     "location": {"@type": "Place", "name": ed.get("place", pr["location"])}}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="edition-hero container">
 <a class="back" href="{p}projetos/{slug}/">{icon('arrow_back')} Histórico de {e(pr['name'])}</a>
-<h1>{e(pr['name'])}<br><em>{year}.</em></h1>
+<h1>{e(pr['name'])}<br><em>{e(rot)}.</em></h1>
 <p class="lede">{e(pr['desc'])}</p>
 <div class="taglist">{''.join(meta_tags)}</div>
 {media(pr, 'banner', eager=True, year=year, depth=depth)}
@@ -1164,8 +1190,8 @@ def page_edition(pr, year):
 <div class="year-links"><span>Navegar nas edições</span>{''.join(nav_links)}</div>
 <div class="year-links"><span>Outros anos</span>{other_html}</div></section></main>"""
     return write(f"projetos/{slug}/{year}/index.html",
-                 head(depth, f"{pr['name']} {year} | Cadillac Produções",
-                      f"{pr['name']} {year}: datas, fatos documentados, elenco e fontes públicas da edição.",
+                 head(depth, f"{pr['name']} {rot} | Cadillac Produções",
+                      f"{pr['name']} {rot}: datas, fatos documentados, elenco e fontes públicas da edição.",
                       f"projetos/{slug}/{year}/", [ld, trail_ld], og_image=og_for(pr, year))
                  + header(depth, "projetos") + body + footer(depth))
 
@@ -1353,7 +1379,7 @@ def audience_blocks(depth):
     rows = []
     for x in sorted(data["entries"], key=lambda x: (x["project"], -(x["year"] or 0))):
         pr = by_slug[x["project"]]
-        href = f'{p}projetos/{pr["slug"]}/' + (f'{x["year"]}/' if x["year"] else "")
+        href = href_edicao(pr, x["year"], p)
         fam = fams[x["family"]][0]
         if x["value"] is None:
             value = '<span class="val pend">a preencher</span>'
@@ -1538,14 +1564,14 @@ def kpis_block(pr):
                else '<span class="val pend">a medir</span>')
         linhas.append(f"""<tr><th scope="row">{e(nome)}</th><td>{e(alvo or '—')}</td>
 <td>{val}</td><td>{fonte_link(fonte)}</td></tr>""")
-    return f"""<section class="container reach-section"><hr class="rule">
-<h2 class="section-title">O QUE A GENTE<br><em>MEDE.</em></h2>
+    return f"""<div class="kpis-bloco">
+<h3 class="sub-titulo">Indicadores acompanhados</h3>
 <p class="body-copy">{e(d.get('kpis_lede') or 'Os indicadores que o projeto acompanha, com a leitura mais recente e a origem de cada número.')}</p>
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Indicador</th><th scope="col">Referência</th>
 <th scope="col">Última leitura</th><th scope="col">Fonte</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>
-<p class="table-hint">Arraste a tabela para o lado para ver a leitura e a fonte.</p></section>"""
+<p class="table-hint">Arraste a tabela para o lado para ver a leitura e a fonte.</p></div>"""
 
 
 def parceiros_block(pr, depth):
@@ -1814,7 +1840,8 @@ def op_project(pr):
     return f"""<section class="container op-section"><hr class="rule">
 <h2 class="section-title">DADOS<span class="orange">.</span></h2>
 <p class="body-copy">O que este projeto mobiliza para acontecer. Os campos preenchidos têm origem identificada; os demais dependem de dado da produção.</p>
-{op_tiles(perfil, f'operacao.perfil.{pr["slug"]}', order)}</section>"""
+{op_tiles(perfil, f'operacao.perfil.{pr["slug"]}', order)}
+{kpis_block(pr)}</section>"""
 
 
 def op_edition(pr, year):
@@ -1838,7 +1865,7 @@ def broadcast_block(depth):
     rows = []
     for r in data["registros"]:
         pr = by_slug[r["project"]]
-        href = f'{p}projetos/{pr["slug"]}/' + (f'{r["year"]}/' if r["year"] else "")
+        href = href_edicao(pr, r["year"], p)
         if r["metrica"]:
             metric = (f'<span class="val">{e(r["metrica"])}</span>'
                       f'<small>lido em {e(r["capturado_em"])}</small>')
@@ -1910,7 +1937,7 @@ def events_table(depth):
     aud = MODEL["audiencia"]["entries"]
     linhas = []
     edicoes = [(pr, y) for pr in PROJECTS for y in pr["years"]]
-    edicoes.sort(key=lambda t: (-t[1], t[0]["name"]))
+    edicoes.sort(key=lambda t: (-ano_de(t[1]), str(t[1]), t[0]["name"]))
     for pr, year in edicoes:
         key = f'{pr["slug"]}-{year}'
         ed = pr.get("editions", {}).get(str(year), {})
@@ -1920,7 +1947,8 @@ def events_table(depth):
         # número declarado vence estimativa, que vence projeção
         prioridade = {"declarado": 0, "estimado": 1, "projecao": 2}
         candidatos = sorted(
-            (x for x in aud if x["project"] == pr["slug"] and x["year"] == year
+            (x for x in aud if x["project"] == pr["slug"]
+             and x["year"] == ano_de(year)
              and x["family"] == "presencial" and x["value"]),
             key=lambda x: prioridade.get(x.get("tipo", ""), 3))
         publico = candidatos[0] if candidatos else None
@@ -2189,7 +2217,8 @@ def page_pessoa(x):
         pr = by_slug.get(v["projeto"])
         if not pr:
             continue
-        href = (f'{p}projetos/{pr["slug"]}/{v["ano"]}/' if v.get("ano") in pr["years"]
+        _ids = [x for x in pr["years"] if v.get("ano") and ano_de(x) == v["ano"]]
+        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
                 else f'{p}projetos/{pr["slug"]}/')
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{v.get('ano') or '—'}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
@@ -2290,8 +2319,9 @@ def page_artista(nome, onde):
 
     linhas = []
     for pr, ano, papel, fonte in onde:
-        href = (f'{p}projetos/{pr["slug"]}/{ano}/'
-                if ano.isdigit() and int(ano) in pr["years"] else f'{p}projetos/{pr["slug"]}/')
+        _ids = [x for x in pr["years"] if ano.isdigit() and ano_de(x) == int(ano)]
+        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
+                else f'{p}projetos/{pr["slug"]}/')
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{e(ano) if ano.isdigit() else '—'}</td><td>{e(papel)}</td><td>{fonte_link(fonte)}</td></tr>""")
     tabela = f"""<div class="table-wrap"><table class="amounts reach-table">
@@ -2411,7 +2441,8 @@ def page_atleta(x):
         pr = by_slug.get(v["projeto"])
         if not pr:
             continue
-        href = (f'{p}projetos/{pr["slug"]}/{v["ano"]}/' if v.get("ano") in pr["years"]
+        _ids = [x for x in pr["years"] if v.get("ano") and ano_de(x) == v["ano"]]
+        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
                 else f'{p}projetos/{pr["slug"]}/')
         quando = str(v["ano"]) if v.get("ano") else "—"
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
@@ -3364,7 +3395,7 @@ def page_atuacao():
                     stem = pr["slug"] + (f'-{c["year"]}' if c.get("year") else "")
                     thumb = slot(f"{stem}.jpg", "16:10", "Imagem do case", "slot-thumb")
             if pr:
-                href = f'{p}projetos/{pr["slug"]}/' + (f'{c["year"]}/' if c["year"] else "")
+                href = href_edicao(pr, c.get("year"), p)
                 page = (f'<a href="{href}">{icon("arrow_outward")} '
                         f'{e(pr["name"])}{" " + str(c["year"]) if c["year"] else ""}</a>')
             else:
@@ -3473,28 +3504,30 @@ def page_agenda():
         for year in pr["years"]:
             ed = pr["editions"].get(str(year), {})
             href = f'{href_pr}{year}/'
+            rot = rotulo_ed(pr, year)
+            ano = ano_de(year)
             etapas = ed.get("etapas") or []
             shows = ed.get("shows") or []
             if not etapas and not shows:
-                itens.append({"nome": f'{pr["name"]} {year}', "tipo": "Edição",
+                itens.append({"nome": f'{pr["name"]} {rot}', "tipo": "Edição",
                               "local": ed.get("place", pr["location"]), "href": href,
                               "ingressos": pr.get("ingressos", ""),
                               "datas": ed.get("datas")})
             for et in etapas:
-                itens.append({"nome": f'{pr["name"]} {year} · {et["nome"]}', "tipo": "Etapa",
+                itens.append({"nome": f'{pr["name"]} {rot} · {et["nome"]}', "tipo": "Etapa",
                               "local": et["nome"], "href": href,
                               "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": et["inicio"], "fim": et["fim"], "precisao": "dia",
                                          "status": et["status"]} if et["inicio"]
-                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                        else {"inicio": f"{ano}-01-01", "fim": f"{ano}-12-31",
                                               "precisao": "ano", "status": et["status"]})})
             for sh in shows:
-                itens.append({"nome": f'{pr["name"]} {year} · {sh["cidade"]}', "tipo": "Show",
+                itens.append({"nome": f'{pr["name"]} {rot} · {sh["cidade"]}', "tipo": "Show",
                               "local": sh["cidade"], "href": href,
                               "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": sh["data"], "fim": sh["data"], "precisao": "dia",
                                          "status": sh["status"]} if sh.get("data")
-                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                        else {"inicio": f"{ano}-01-01", "fim": f"{ano}-12-31",
                                               "precisao": "ano", "status": sh["status"]})})
             for r in ed.get("relacionados", []):
                 if not r.get("data"):
@@ -3504,7 +3537,7 @@ def page_agenda():
                               "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": r["data"], "fim": r["data_fim"] or r["data"],
                                          "precisao": "dia", "status": r["status"]} if r.get("data")
-                                        else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
+                                        else {"inicio": f"{ano}-01-01", "fim": f"{ano}-12-31",
                                               "precisao": "ano", "status": r["status"]})})
         if not pr["years"] and pr.get("datas_projeto"):
             itens.append({"nome": pr["name"], "tipo": "Ação", "local": pr["location"],

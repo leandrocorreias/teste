@@ -76,21 +76,7 @@
       frame.setAttribute('aria-hidden', 'true');
       frame.loading = 'eager';
       var fundo = cena.querySelector('.hero-fundo');
-      if (fundo) {
-        fundo.appendChild(frame);
-
-        // O vazado da manchete só entra quando o YouTube responde de fato.
-        // Nem a inserção do iframe nem o seu evento 'load' servem de prova: o
-        // navegador dispara 'load' também na página de erro de uma conexão
-        // recusada. Por isso a sonda é uma imagem do CDN do YouTube — ela só
-        // carrega se o domínio estiver mesmo acessível.
-        // Sem essa confirmação o fundo fica preto, e uma palavra vazada em
-        // preto sobre véu escuro desapareceria. Nesse caso ela segue laranja.
-        var sonda = new Image();
-        sonda.onload = function () { cena.classList.add('tem-video'); };
-        sonda.referrerPolicy = 'no-referrer';
-        sonda.src = 'https://i.ytimg.com/vi/' + id + '/default.jpg';
-      }
+      if (fundo) fundo.appendChild(frame);
     }
   }
 

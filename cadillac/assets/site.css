@@ -29,9 +29,9 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
 img{max-width:100%;display:block}
 h1,h2,h3,h4,p{margin-top:0}
-h1,h2,h3,h4,.h1-eco{font-family:var(--font-display);text-transform:uppercase;
+h1,h2,h3,h4{font-family:var(--font-display);text-transform:uppercase;
   letter-spacing:-.017em;line-height:.9}
-h1,.h1-eco{font-size:clamp(54px,9vw,164px);font-weight:800}
+h1{font-size:clamp(54px,9vw,164px);font-weight:800}
 h2{font-size:clamp(40px,6vw,96px);font-weight:800}
 h3{font-size:clamp(24px,3vw,44px)}
 p{line-height:1.7}
@@ -95,7 +95,7 @@ body.nav-open{overflow:hidden}
 /* 11,2vw é o maior corpo que mantém a manchete em três linhas — uma por frase,
    como foi escrita — de 320px a 2560px. Em 12vw, "EXTRAORDINÁRIO" não cabia
    entre 768px e 1360px e quebrava no meio da palavra. Medido, não estimado. */
-.hero-big h1,.hero-big .h1-eco{margin:0;max-width:1220px;min-width:0;overflow-wrap:break-word;
+.hero-big h1{margin:0;max-width:1220px;min-width:0;overflow-wrap:break-word;
   font-size:clamp(30px,11.2vw,164px)}
 .circle-link{flex-shrink:0;border:2px solid var(--ink);width:clamp(44px,8vw,84px);height:clamp(44px,8vw,84px);
   border-radius:50%;display:grid;place-items:center;transition:var(--t)}
@@ -652,7 +652,7 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   .site-header{height:68px}
   .hero{gap:46px}
   .hero-big{flex-direction:column;align-items:flex-start;gap:20px}
-  .hero-big h1,.hero-big .h1-eco{width:100%}
+  .hero-big h1{width:100%}
   .hero-bottom{flex-direction:column;align-items:flex-start;gap:18px}
   .hero-bottom>span:not(.hero-explore){display:none}
   .year-row{grid-template-columns:72px minmax(0,1fr);row-gap:8px}
@@ -1005,28 +1005,6 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
   .hero-fundo iframe{display:none}
 }
 
-/* ===================================================================== */
-/* EXTRAORDINÁRIO vazado — a palavra vira janela para o vídeo            */
-/*                                                                       */
-/* O véu e o vazado precisam ser a MESMA camada. Fossem duas, as letras  */
-/* revelariam o vídeo já escurecido pelo véu de baixo, com o mesmo brilho */
-/* da vizinhança — ou seja, nada se veria. Por isso o eco da manchete     */
-/* mora dentro de .hero-veu, que recebe mix-blend-mode:multiply: onde o   */
-/* eco é branco, multiply devolve o vídeo em brilho cheio; no resto, o    */
-/* gradiente escurece como antes.                                        */
-/*                                                                       */
-/* Só entra quando há vídeo (.tem-video, posta pelo script). Sem vídeo o  */
-/* fundo é preto, e letras pretas sobre véu escuro sumiriam: aí a palavra */
-/* continua laranja, como na versão sem vídeo.                           */
-/* ===================================================================== */
-.hero-eco{display:none}
-.hero-cine.tem-video .hero-veu{mix-blend-mode:multiply;display:flex;align-items:stretch}
-.hero-cine.tem-video .hero-eco{display:flex;color:transparent}
-.hero-cine.tem-video .hero-eco .h1-eco em{color:#fff;font-style:normal}
-.hero-cine.tem-video .hero-eco .circle-link{border-color:transparent;visibility:hidden}
-/* a palavra real cede o lugar ao vazado */
-.home-cine .hero-cine.tem-video .hero-big h1 em{color:transparent}
-
 /* Linha separando o menu do conteúdo */
 .home-cine .site-header{border-bottom:1px solid #ffffff2e}
 .home-cine .site-header.is-compact{border-bottom-color:var(--border)}
@@ -1072,8 +1050,6 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
 }
 /* O eco repete o pé para cair na mesma altura do bloco real, mas nada nele
    deve piscar nem ser lido: é uma sombra de posicionamento. */
-.hero-eco .hero-explore .mi{animation:none}
-.hero-eco .hero-bottom{border-top-color:transparent}
 
 /* Um leve avanço de escala joga para fora do quadro qualquer resto de interface
    que o player ainda desenhe nas bordas. O iframe já é inerte ao ponteiro. */
@@ -1092,8 +1068,6 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
   font-size:clamp(15px,1.5vw,17px);line-height:1.55}
 @media(max-width:700px){.showcase-cabeca{align-items:flex-start}}
 
-/* O apoio da manchete em negrito, como pedido */
-.hero-bottom p{font-weight:700}
 
 /* Rodapé reorganizado: cinco famílias em cima, governança na linha de baixo */
 .foot-bottom .foot-gov-nav{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
@@ -1308,3 +1282,9 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
   text-transform:uppercase}
 .num-tile small{font:400 12.5px/1.45 var(--font-text);color:var(--muted);
   text-wrap:balance}
+
+/* As duas últimas linhas da manchete em negativo, a 50%: o vídeo atravessa a
+   tipografia sem que ela deixe de ser texto selecionável e legível por leitor
+   de tela. A primeira linha fica sólida, para o olho ter onde se firmar. */
+.home-cine .hero-cine .hero-big h1 em,
+.home-cine .hero-cine .hero-big h1 .h-fantasma{color:rgba(255,255,255,.5)}

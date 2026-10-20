@@ -397,7 +397,6 @@ def media(project, classes="", eager=False, year=None, depth=0):
             f'<img class="media-img" src="{e(img["url"])}" alt="{e(img["alt"])}"'
             f'{loading} decoding="async">'
         )
-    inner.append(f'<span class="media-code">CADILLAC / ACERVO</span>')
     inner.append(f'<span class="media-symbol">{e(project["name"].upper())}</span>')
     if img and img.get("credit"):
         inner.append(f'<span class="source-credit">{e(img["credit"])}</span>')
@@ -656,14 +655,9 @@ def page_home():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero-cine" data-video="{youtube_id(MODEL['video']['reel']['url'])}">
 <div class="hero-fundo" aria-hidden="true"></div>
-<div class="hero-veu" aria-hidden="true">
-<div class="hero-cine-inner container hero-eco">
-<div class="hero-big"><p class="h1-eco">{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</p>
-<span class="circle-link"></span></div>
-<div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<span class="hero-explore">EXPLORE OS EVENTOS {icon('expand_more')}</span></div></div></div>
+<div class="hero-veu" aria-hidden="true"></div>
 <div class="hero-cine-inner container">
-<div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</h1>
+<div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br><span class="h-fantasma">{SITE['headline'][2]}</span></h1>
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de eventos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
 <a class="hero-explore" href="#projetos">EXPLORE OS EVENTOS {icon('expand_more')}</a></div></div></section>
@@ -1098,7 +1092,7 @@ def selo_data(datas, ingressos=""):
     if exata and ingressos:
         return (f'<a class="selo selo-ingressos" href="{e(ingressos)}" '
                 f'target="_blank" rel="noopener noreferrer">'
-                f'{icon("confirmation_number")} Ingressos {icon("open_in_new")}</a>')
+                f'{icon("confirmation_number")} Ingressos</a>')
     return f'<span class="selo selo-{datas["status"].replace(" ", "-")}">{icon(ic)} {e(rotulo)}</span>'
 
 

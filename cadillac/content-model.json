@@ -1,5 +1,5 @@
 {
-  "version": 21,
+  "version": 22,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -2691,7 +2691,8 @@
       "connect-heroes": "Divulgação Connect Heroes",
       "vert-battle": "Divulgação Vert Battle",
       "tamo-junto-bb": "Divulgação Festival Tamo Junto BB",
-      "dominguinho": "Divulgação Turnê Dominguinho"
+      "dominguinho": "Divulgação Turnê Dominguinho",
+      "atletas": "Divulgação Vert Battle"
     },
     "origem_arquivos": "As imagens de mr-moo-festival, connect-heroes, vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção. O crédito aparece sobre a imagem.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md."
@@ -5987,6 +5988,7 @@
         ]
       }
     ],
-    "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição ou na cobertura de imprensa de um projeto do acervo. Não significa contrato com a Cadillac nem patrocínio da empresa. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte."
+    "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição ou na cobertura de imprensa de um projeto do acervo. Não significa contrato com a Cadillac nem patrocínio da empresa. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte.",
+    "nota_fotos": "Os retratos dos atletas do circuito vertical vieram do quadro de confirmados do mídia kit oficial da temporada 2025, recortados por posição na página para que cada rosto fique com o nome certo. São imagens de divulgação: a autorização de uso de cada atleta ou da entidade organizadora é necessária antes de o site ir ao ar."
   }
 }

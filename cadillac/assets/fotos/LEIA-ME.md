@@ -10,16 +10,31 @@ mostra exatamente o nome que ele espera — basta usar o mesmo nome.
 
 Extraídas dos mídia kits e relatórios oficiais das produções. Antes de publicar, obtenha a autorização escrita de uso de cada produção — o passo a passo está em `../../FOTOS.md`.
 
+- `augusto-akio.jpg`
 - `connect-heroes-2026-01.jpg`
 - `connect-heroes-2026-02.jpg`
 - `connect-heroes-2026-03.jpg`
 - `connect-heroes.jpg`
+- `dan-cezar.jpg`
+- `dan-sabino.jpg`
+- `diego-takahashi.jpg`
 - `dominguinho.jpg`
+- `dora-varella.jpg`
+- `gui-khury.jpg`
+- `helena-laurino.jpg`
+- `lua-vicente.jpg`
+- `luigi-cini.jpg`
+- `manu-tomitake.jpg`
+- `marina-lima.jpg`
 - `mr-moo-festival-2027-01.jpg`
 - `mr-moo-festival-2027-02.jpg`
 - `mr-moo-festival-2027-03.jpg`
 - `mr-moo-festival-2027.jpg`
 - `mr-moo-festival.jpg`
+- `pietro-nunes.jpg`
+- `raicca-ventura.jpg`
+- `rony-gomes.jpg`
+- `sofia-curi.jpg`
 - `tamo-junto-bb-2024.jpg`
 - `tamo-junto-bb-2025-01.jpg`
 - `tamo-junto-bb-2025-02.jpg`
@@ -35,6 +50,7 @@ Extraídas dos mídia kits e relatórios oficiais das produções. Antes de publ
 - `vert-battle-2026-02.jpg`
 - `vert-battle-2026.jpg`
 - `vert-battle.jpg`
+- `yndiara-asp.jpg`
 
 ## Nomes que o site procura
 

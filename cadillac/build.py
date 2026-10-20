@@ -1693,8 +1693,12 @@ def page_atleta(x):
 
     foto = ROOT / "assets" / "fotos" / (x.get("foto") or "")
     if x.get("foto") and foto.exists():
-        img = (f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
-               f'alt="{e(x["nome"])}" width="800" height="800">')
+        credito = MODEL["photos"].get("creditos", {}).get("atletas", "")
+        img = (f'<figure class="atleta-figura">'
+               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(x["foto"])}" '
+               f'alt="{e(x["nome"])}" width="800" height="800">'
+               + (f'<figcaption>{icon("photo_camera")} {e(credito)}</figcaption>' if credito else "")
+               + "</figure>")
     else:
         img = slot(x.get("foto") or f'{x["slug"]}.jpg', "1:1", x["nome"], "slot-retrato", depth)
 

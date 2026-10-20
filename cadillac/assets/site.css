@@ -788,3 +788,6 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   overflow-wrap:anywhere}
 .parceiro-papel{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
 .parceiro-papel .cd-icon{font-size:15px;color:var(--orange-ink)}
+.atleta-figura{margin:0}
+.atleta-figura figcaption{display:flex;align-items:center;gap:6px;min-height:24px;margin-top:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.atleta-figura figcaption .cd-icon{font-size:15px}

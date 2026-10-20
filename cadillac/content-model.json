@@ -1,5 +1,5 @@
 {
-  "version": 40,
+  "version": 41,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -749,9 +749,19 @@
           },
           "etapas": [
             {
-              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
+              "nome": "2ª edição · Niterói, RJ",
               "inicio": "2026-12-12",
               "fim": "2026-12-12",
+              "status": "anunciada",
+              "fonte": [
+                "Informado pela direção do projeto",
+                null
+              ]
+            },
+            {
+              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
+              "inicio": null,
+              "fim": null,
               "status": "anunciada",
               "fonte": [
                 "Informado pela direção do projeto",

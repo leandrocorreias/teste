@@ -1688,6 +1688,29 @@ def mercado_block(pr):
 {paragrafo_nota(data['nota'])}</section>"""
 
 
+def faixa_foto(pr, chave, depth=2):
+    """Uma foto a meio caminho da secao, quando o projeto declara uma.
+
+    A pagina tinha oito fotos em bloco, no alto, e vinte mil caracteres de
+    texto depois. Distribuir uma foto por secao dá respiro e mostra o evento
+    ao lado do que se afirma sobre ele.
+    """
+    d = (pr.get("fotos_secao") or {}).get(chave)
+    if not d:
+        return ""
+    nome, alt = d[0], d[1]
+    # O ponto da foto que nao pode sair no corte em faixa: num retrato de dois
+    # atletas em pe, o meio do quadro e a cintura.
+    foco = d[2] if len(d) > 2 else "42%"
+    if not (ROOT / "assets" / "fotos" / nome).exists():
+        return ""
+    credito = MODEL["photos"].get("creditos_arquivo", {}).get(
+        nome, MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac"))
+    return (f'<figure class="faixa-foto" style="--foco:{foco}">'
+            + figura(f"assets/fotos/{nome}", alt, depth, "", "(min-width:900px) 1100px, 100vw")
+            + f'<figcaption>{icon("photo_camera")} {e(credito)}</figcaption></figure>')
+
+
 def jornada_block(pr):
     """Como uma edicao acontece, do primeiro dia ao mes seguinte.
 
@@ -1717,51 +1740,43 @@ def jornada_block(pr):
 <div class="jornada">{''.join(passos)}</div></section>"""
 
 
-def telas_block(pr):
-    """A mesma noite em cada tela, com a barra na proporcao do que entregou.
+def telas_block(pr, depth=2):
+    """A mesma noite em cada tela, uma ao lado da outra.
 
-    Numero solto em lista nao se compara. Aqui a barra mostra o tamanho de
-    cada tela ao lado das outras, e cada tela guarda a propria fonte.
+    A primeira versao punha as quatro em uma barra proporcional. Com 25 milhoes
+    de um lado e 240 mil do outro, tres das quatro viravam um risco de nada --
+    e o que elas entregam nao se compara em numero: alcance ao vivo, canal
+    pago, sob demanda e repercussao sao quatro negocios diferentes. Cada tela
+    passa a ter cartao proprio, com o papel que cumpre e o que foi medido.
     """
     data = pr.get("telas")
     if not data:
         return ""
-    itens = data["itens"]
-    maior = max([x.get("peso") or 0 for x in itens] + [1])
-    botoes, paineis = [], []
-    for i, x in enumerate(itens):
-        on = i == 0
-        largura = round(100 * (x.get("peso") or 0) / maior, 1)
-        botoes.append(
-            f'<button type="button" class="tela-aba" role="tab" id="tela-ab-{i}" '
-            f'aria-controls="tela-pn-{i}" aria-selected="{"true" if on else "false"}" '
-            f'tabindex="{"0" if on else "-1"}">'
-            f'<strong>{e(x["nome"])}</strong><small>{e(x["canal"])}</small>'
-            f'<span class="tela-barra"><i style="width:{largura}%"></i></span></button>')
+    cartoes = []
+    for x in data["itens"]:
         linhas = "".join(
-            f'<tr><th scope="row">{e(k)}</th><td>{e(v)}</td></tr>' for k, v in x["linhas"])
+            f'<li><span>{e(k)}</span><strong>{e(v)}</strong></li>' for k, v in x["linhas"])
         rotulo, url = x.get("fonte") or (None, None)
         fonte = ""
         if rotulo:
-            fonte = (f'<p class="tela-fonte">{icon("description")} '
+            fonte = ('<p class="tela-fonte">' + icon("description") + " "
                      + (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(rotulo)}</a>'
                         if url else e(rotulo)) + '</p>')
-        paineis.append(
-            f'<div class="tela-painel" role="tabpanel" id="tela-pn-{i}" '
-            f'aria-labelledby="tela-ab-{i}"{"" if on else " hidden"}>'
+        cartoes.append(
+            f'<article class="tela-card">'
+            f'<span class="tela-papel">{e(x.get("papel") or "")}</span>'
+            f'<h3>{e(x["nome"])}</h3><p class="tela-canal">{e(x["canal"])}</p>'
             f'<p class="tela-numero"><strong>{e(x["destaque"])}</strong>'
             f'<span>{e(x["unidade"])}</span></p>'
-            f'<div class="table-wrap"><table class="amounts"><tbody>{linhas}</tbody></table></div>'
-            f'{fonte}</div>')
+            f'<ul class="tela-linhas">{linhas}</ul>{fonte}</article>')
     return f"""<section class="container telas-section"><hr class="rule">
 <h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
 <p class="body-copy">{e(data['lede'])}</p>
-<div class="telas">
-<div class="tela-abas" role="tablist" aria-label="Telas da transmissão">{''.join(botoes)}</div>
-<div class="tela-paineis">{''.join(paineis)}</div></div></section>"""
+<div class="telas-grade">{''.join(cartoes)}</div>
+{faixa_foto(pr, "telas", depth)}</section>"""
 
 
-def card_block(pr):
+def card_block(pr, depth=2):
     """O card e o regulamento: o que se combinou e o que aconteceu.
 
     Uma competicao sem chave precisa explicar a propria regra, senao o leitor
@@ -1794,7 +1809,8 @@ def card_block(pr):
 <th scope="col">Combate</th><th scope="col">Peso</th>
 <th scope="col">Resultado</th><th scope="col">Fonte</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>
-{f'<div class="regra-grade">{regras}</div>' if regras else ''}{fontes}</section>"""
+{f'<div class="regra-grade">{regras}</div>' if regras else ''}{fontes}
+{faixa_foto(pr, "card", depth)}</section>"""
 
 
 def plano_block(pr):
@@ -1834,6 +1850,7 @@ def plano_block(pr):
 <div class="nucleo-grid">{verticais}</div>
 <h3 class="area-list-title">{e(data['fases_titulo'])}</h3>
 <div class="rota">{fases}</div>
+{faixa_foto(pr, "plano")}
 {paragrafo_nota(data['nota'])}</section>"""
 
 

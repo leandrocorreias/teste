@@ -1230,7 +1230,7 @@
       },
       "telas": {
         "titulo": "A mesma noite, quatro telas",
-        "lede": "Clique em cada tela para ver o que ela entregou na primeira edição.",
+        "lede": "Cada tela entrega uma coisa diferente, e as quatro acontecem na mesma noite: alcance ao vivo, distribuição em canal pago, conteúdo sob demanda e repercussão em rede.",
         "itens": [
           {
             "nome": "TV aberta",
@@ -1251,13 +1251,14 @@
             "fonte": [
               "Mídia kit oficial Connect Heroes V6 · documento da produção",
               null
-            ]
+            ],
+            "papel": "Alcance ao vivo"
           },
           {
             "nome": "TV por assinatura",
             "canal": "Combate e SporTV 3",
             "destaque": "2 canais",
-            "unidade": "na distribuição pelo Globoplay",
+            "unidade": "no pacote do Globoplay",
             "peso": 0,
             "linhas": [
               [
@@ -1268,7 +1269,8 @@
             "fonte": [
               "Mídia kit oficial Connect Heroes V6 · documento da produção",
               null
-            ]
+            ],
+            "papel": "Distribuição premium"
           },
           {
             "nome": "YouTube",
@@ -1293,7 +1295,8 @@
             "fonte": [
               "Connect Cast no YouTube",
               "https://www.youtube.com/@PodcastConnectCast"
-            ]
+            ],
+            "papel": "Sob demanda"
           },
           {
             "nome": "Redes",
@@ -1310,7 +1313,8 @@
             "fonte": [
               "Mídia kit oficial Connect Heroes V6 · documento da produção",
               null
-            ]
+            ],
+            "papel": "Repercussão"
           }
         ]
       },
@@ -1386,6 +1390,23 @@
             "Sportbuzz · o projeto e o card",
             "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
           ]
+        ]
+      },
+      "fotos_secao": {
+        "card": [
+          "connect-heroes-2026-09.jpg",
+          "Dois atletas de kimono se encaram antes do combate",
+          "28%"
+        ],
+        "telas": [
+          "connect-heroes-2026-10.jpg",
+          "Combate sem kimono registrado pela transmissão",
+          "40%"
+        ],
+        "plano": [
+          "connect-heroes-2026-11.jpg",
+          "Luta de kimono no tatame do Connect Heroes",
+          "45%"
         ]
       }
     },

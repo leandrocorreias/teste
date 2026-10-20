@@ -817,36 +817,46 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 .regra p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
 
 /* --- A mesma noite em cada tela ------------------------------------------
-   A barra embaixo de cada aba diz, sem texto, o tamanho de uma tela ao lado
-   das outras: 25 milhões em redes e 240 mil em TV não cabem na mesma frase. */
-.telas{margin-top:clamp(18px,2.4vw,26px)}
-.tela-abas{display:grid;gap:10px;grid-template-columns:1fr}
-@media(min-width:620px){.tela-abas{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.tela-abas{grid-template-columns:repeat(4,1fr)}}
-.tela-aba{display:flex;flex-direction:column;gap:5px;cursor:pointer;text-align:left;
-  font:inherit;color:inherit;background:var(--white);border:1px solid var(--border);
-  border-top:3px solid var(--border-strong);border-radius:var(--r-img);
-  padding:clamp(14px,1.8vw,20px);transition:var(--t)}
-.tela-aba strong{font:800 clamp(15px,1.6vw,19px)/1.15 var(--font-display);
+   Quatro cartões do mesmo tamanho, sem barra proporcional. 25 milhões em
+   redes e 240 mil televisores não se comparam em número: são quatro
+   entregas diferentes, e cada uma vale pelo que faz. */
+.telas-grade{display:grid;gap:14px;margin-top:clamp(18px,2.4vw,26px);
+  grid-template-columns:1fr}
+@media(min-width:620px){.telas-grade{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.telas-grade{grid-template-columns:repeat(4,1fr)}}
+.tela-card{display:flex;flex-direction:column;background:var(--white);
+  border:1px solid var(--border);border-top:3px solid var(--orange);
+  border-radius:var(--r-img);padding:clamp(18px,2.2vw,24px);transition:var(--t)}
+.tela-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(18,18,18,.08)}
+.tela-papel{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--orange-ink)}
+.tela-card h3{margin:8px 0 2px;font:800 clamp(17px,1.8vw,21px)/1.15 var(--font-display);
   text-transform:uppercase;letter-spacing:-.01em}
-.tela-aba small{font-size:12px;color:var(--muted)}
-.tela-aba:hover{border-top-color:var(--orange)}
-.tela-aba[aria-selected="true"]{border-top-color:var(--orange);
-  box-shadow:0 10px 24px rgba(18,18,18,.08)}
-.tela-barra{display:block;height:4px;margin-top:8px;border-radius:999px;
-  background:var(--border)}
-.tela-barra i{display:block;height:100%;border-radius:999px;background:var(--orange);
-  min-width:3px}
-.tela-painel{margin-top:clamp(16px,2vw,22px);background:var(--white);
-  border:1px solid var(--border);border-radius:var(--r-img);
-  padding:clamp(18px,2.4vw,28px)}
-.tela-numero{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:0 0 14px}
-.tela-numero strong{font:800 clamp(38px,5vw,62px)/.9 var(--font-display);
+.tela-canal{margin:0;font-size:13px;color:var(--muted)}
+.tela-numero{display:flex;flex-direction:column;gap:2px;margin:clamp(14px,1.8vw,20px) 0 0}
+.tela-numero strong{font:800 clamp(30px,3.4vw,44px)/.95 var(--font-display);
   letter-spacing:-.02em}
-.tela-numero span{font-size:14px;color:var(--muted)}
-.tela-fonte{display:flex;align-items:center;gap:8px;margin:14px 0 0;font-size:13px;
-  color:var(--muted)}
-.tela-fonte .cd-icon{font-size:18px;color:var(--orange-ink)}
+.tela-numero span{font-size:13px;color:var(--muted);line-height:1.45}
+.tela-linhas{list-style:none;margin:clamp(14px,1.8vw,18px) 0 0;padding:14px 0 0;
+  border-top:1px solid var(--border);display:flex;flex-direction:column;gap:9px}
+.tela-linhas li{display:flex;flex-direction:column;gap:1px}
+.tela-linhas span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:700;color:var(--muted)}
+.tela-linhas strong{font-size:14px;line-height:1.4;font-weight:700}
+.tela-fonte{display:flex;align-items:flex-start;gap:8px;margin:auto 0 0;padding-top:14px;
+  font-size:12px;color:var(--muted);line-height:1.45}
+.tela-fonte .cd-icon{font-size:17px;color:var(--orange-ink);flex:none}
+
+/* --- Foto no meio da seção ------------------------------------------------
+   Retrato cortado em faixa: o assunto dessas fotos está no meio do quadro. */
+.faixa-foto{margin:clamp(26px,3.4vw,40px) 0 0;position:relative}
+.faixa-foto picture,.faixa-foto img{display:block;width:100%}
+.faixa-foto img{height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center var(--foco,42%);
+  border-radius:var(--r-img)}
+@media(min-width:720px){.faixa-foto img{aspect-ratio:16/9}}
+.faixa-foto figcaption{display:flex;align-items:center;gap:7px;margin-top:9px;
+  font-size:12px;color:var(--muted)}
+.faixa-foto figcaption .cd-icon{font-size:17px;color:var(--orange-ink)}
 
 /* --- Rota do plano: um ano por vez ---------------------------------------- */
 .rota-anos{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(16px,2vw,22px)}

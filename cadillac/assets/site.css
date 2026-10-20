@@ -574,7 +574,11 @@ a.service-row{color:inherit}
 .logo-item{background:var(--paper);min-height:120px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:10px;padding:22px;text-align:center;transition:var(--t)}
 .logo-item:hover{background:var(--white)}
-.logo-item img{max-height:46px;width:auto;object-fit:contain}
+/* Logotipos de larguras muito diferentes dividem a mesma célula: o do IBC é quase
+   três vezes mais largo que alto, o do BB é quadrado. Limitar só a altura deixava
+   o logo largo transbordar a coluna; limitar também a largura faz cada um crescer
+   até o que couber, pela dimensão que o aperta primeiro. */
+.logo-item img{max-height:56px;max-width:100%;width:auto;object-fit:contain}
 .logo-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
 .logo-slot strong{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1.1}
 .logo-slot code{font:600 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);

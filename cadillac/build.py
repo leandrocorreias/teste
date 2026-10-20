@@ -661,14 +661,13 @@ def page_home():
 <hr class="rule">
 <div class="showcase-cabeca">
 <h2 class="section-title">EVENTOS<span class="orange">.</span></h2>
-<p class="showcase-lede">{plural(len(PROJECTS), 'propriedade', 'propriedades')} no acervo, da mais recente para a mais antiga. Cada uma com o que está documentado, a fonte de cada número e o papel da Cadillac no evento.</p>
 </div>
 <div class="works-grid">{cards}</div>
 <div class="section-end"><a class="pill-link" href="./projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>
-<section class="container clientes"><hr class="rule">
+<section class="clientes"><div class="container">
 <h2 class="section-title">NOSSOS<br><em>PARCEIROS.</em></h2>
 <div class="logo-wall">{logos}</div>
-{f'<p class="note">{e(MODEL["clientes"]["nota"])}</p>' if MODEL['clientes'].get('nota') else ''}</section>
+{f'<p class="note">{e(MODEL["clientes"]["nota"])}</p>' if MODEL['clientes'].get('nota') else ''}</div></section>
 <section class="statement" id="sobre"><div class="container statement-grid">
 <div><h2>O IMPOSSÍVEL NÃO<br>ENTRA <em>NA PLANILHA.</em></h2>
 {''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}

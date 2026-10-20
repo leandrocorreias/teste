@@ -211,6 +211,12 @@ def encurta(texto, limite):
 def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
     title, desc = encurta(title, 65), encurta(desc, 155)
     p = rel(depth)
+    # Cada página tem a própria imagem de compartilhamento, gerada por
+    # tools/og.py com a foto do assunto ao fundo. O arquivo se chama como o
+    # caminho da página, com hífens; sem ele, cai no cartão genérico.
+    og_chave = (path.strip("/").replace("/", "-") or "home") + ".jpg"
+    if not og_image and (ROOT / "assets" / "og" / og_chave).exists():
+        og_image = f"{BASE}/assets/og/{og_chave}"
     og = og_image or f"{BASE}/assets/og-cadillac.jpg"
     url = f"{BASE}/{path}" if path else f"{BASE}/"
     blocks = "".join(
@@ -246,7 +252,7 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
 <meta property="og:image" content="{og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logotipo da Cadillac Produções e Filmes">
+<meta property="og:image:alt" content="{e(title)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
@@ -541,6 +547,9 @@ def photo_for(project, year=None):
 
 
 def og_for(project, year=None):
+    alvo = f'projetos-{project["slug"]}' + (f"-{year}" if year else "")
+    if (ROOT / "assets" / "og" / f"{alvo}.jpg").exists():
+        return f"{BASE}/assets/og/{alvo}.jpg"
     for stem in (stems_edicao(project, year) if year else [project["slug"]]):
         if (ROOT / "assets" / "og" / f"{stem}.jpg").exists():
             return f"{BASE}/assets/og/{stem}.jpg"

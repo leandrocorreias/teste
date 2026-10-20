@@ -61,8 +61,11 @@
     if (id && !(menos && menos.matches)) {
       var params = [
         'autoplay=1', 'mute=1', 'loop=1', 'playlist=' + id,
+        // nada de controles, teclado, tela cheia, legendas, anotações,
+        // marca do player nem vídeos sugeridos: só a imagem correndo
         'controls=0', 'disablekb=1', 'fs=0', 'modestbranding=1',
-        'rel=0', 'playsinline=1', 'iv_load_policy=3'
+        'rel=0', 'playsinline=1', 'iv_load_policy=3',
+        'cc_load_policy=0', 'showinfo=0', 'autohide=1'
       ].join('&');
       var frame = document.createElement('iframe');
       frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
@@ -73,7 +76,21 @@
       frame.setAttribute('aria-hidden', 'true');
       frame.loading = 'eager';
       var fundo = cena.querySelector('.hero-fundo');
-      if (fundo) fundo.appendChild(frame);
+      if (fundo) {
+        fundo.appendChild(frame);
+
+        // O vazado da manchete só entra quando o YouTube responde de fato.
+        // Nem a inserção do iframe nem o seu evento 'load' servem de prova: o
+        // navegador dispara 'load' também na página de erro de uma conexão
+        // recusada. Por isso a sonda é uma imagem do CDN do YouTube — ela só
+        // carrega se o domínio estiver mesmo acessível.
+        // Sem essa confirmação o fundo fica preto, e uma palavra vazada em
+        // preto sobre véu escuro desapareceria. Nesse caso ela segue laranja.
+        var sonda = new Image();
+        sonda.onload = function () { cena.classList.add('tem-video'); };
+        sonda.referrerPolicy = 'no-referrer';
+        sonda.src = 'https://i.ytimg.com/vi/' + id + '/default.jpg';
+      }
     }
   }
 

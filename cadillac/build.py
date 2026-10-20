@@ -43,6 +43,7 @@ ICONES = {
     "festival", "filter_list", "groups", "home", "insights", "language", "mail", "menu",
     "movie", "music_note", "north", "open_in_new", "palette", "photo_camera", "place",
     "play_arrow", "public", "search", "skateboarding", "stacked_bar_chart", "verified",
+    "confirmation_number",
 }
 # Entram no subset sem passar por icon(): "close" é trocado pelo JS no botão do
 # menu e "download" só aparece quando há arquivo de kit publicado.
@@ -65,7 +66,6 @@ def atleta_href(nome, depth):
 NAV = [
     ("Eventos", "projetos/", "eventos", [
         (None, [("Todos os eventos", "projetos/"),
-                ("Segmentos", "projetos/#segmentos"),
                 ("Agenda", "agenda/")]),
     ]),
     ("Produtora", "produtora/", "produtora", [
@@ -239,12 +239,12 @@ def header(depth, active="", body_class=""):
 <header class="site-header"><div class="header-inner">
 <a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>
 <nav class="nav" aria-label="Menu principal">{''.join(desk)}</nav>
-<a class="contact-nav" href="{home}contato/">Vamos conversar {icon('arrow_outward')}</a>
+<a class="contact-nav btn-laranja" href="{home}contato/">Vamos conversar {icon('arrow_outward')}</a>
 <button class="hamburger" id="menuToggle" aria-expanded="false" aria-label="Abrir menu" aria-controls="mobileNav">{icon('menu')}</button>
 </div></header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Menu principal, versão compacta">
 {''.join(mob)}
-<a class="mob-contato" href="{home}contato/">Vamos conversar {icon('arrow_outward')}</a>
+<a class="mob-contato btn-laranja" href="{home}contato/">Vamos conversar {icon('arrow_outward')}</a>
 <p class="mob-grupo">Governança e políticas</p><div class="mob-links">{gov}</div></nav>"""
 
 
@@ -270,35 +270,17 @@ def crumbs(depth, trail):
 def footer(depth):
     p = rel(depth)
     home = p if depth else "./"
-    links = [("Projetos", home + "projetos/"),
-             ("Produtora", home + "produtora/"),
-             ("Atuação", home + "atuacao/"),
-             ("Agenda", home + "agenda/"),
-             ("Dados", home + "dados/"),
-             ("Imprensa", home + "imprensa/"),
-             ("Na mídia", home + "na-midia/"),
-             ("Relacionamento", home + "relacionamento/"),
-             ("Atletas", home + "atletas/"),
-             ("Artistas", home + "artistas/"),
-             ("Equipe", home + "equipe/"),
-             ("Contato", home + "contato/"),
-             ("English", home + "en/")]
-    nav = "".join(f'<a href="{u}">{l}</a>' for l, u in links)
+    # As mesmas cinco famílias do cabeçalho. O rodapé repetia treze links soltos,
+    # numa ordem que não era a do menu.
+    nav = "".join(f'<a href="{home}{alvo}">{e(rotulo)}</a>'
+                  for rotulo, alvo, _, _ in NAV)
     gov = "".join(f'<a href="{home}{u}">{e(l)}</a>' for l, u in GOVERNANCA)
     return f"""<footer class="footer"><div class="container foot-top">
-<a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"><span>Produções &amp; Filmes</span></a>
+<a class="footer-logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img src="{p}assets/logo-cadillac-branco.png" alt="Cadillac" width="1619" height="511"></a>
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
-<div class="container foot-gov"><p class="foot-gov-titulo">Governança e políticas</p>
-<nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav></div>
-<div class="container foot-desde">
-<a class="foot-desde-link" href="{home}produtora/#historia">
-<span class="foot-desde-anos">{ANO_BASE}<span class="foot-desde-tra">—</span>{ANO_ATUAL}</span>
-<span class="foot-desde-texto">{ANOS_CASA} anos produzindo esporte e cultura no Brasil.
-Constituída em {e(SITE['founded'])}, no {e(SITE['origin'].split(',')[0])}.
-<span class="foot-desde-cta">Ver a linha do tempo {icon('arrow_outward')}</span></span></a></div>
 <div class="container foot-bottom"><span>© {ANO_BASE}–{ANO_ATUAL} {e(SITE['name'])} Ltda.</span>
-<span>Informações documentais e imagens de terceiros identificadas por suas fontes. Layout original da Cadillac.</span>
-<a href="#top">{icon('north')} Voltar ao topo</a></div></footer>
+<nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav>
+</div></footer>
 <a class="to-top" href="#top" aria-label="Voltar ao topo">{icon('north')}</a>
 </body></html>"""
 
@@ -672,14 +654,23 @@ def page_home():
     body = f"""<main id="conteudo"><span id="top"></span>
 <section class="hero-cine" data-video="{youtube_id(MODEL['video']['reel']['url'])}">
 <div class="hero-fundo" aria-hidden="true"></div>
-<div class="hero-veu" aria-hidden="true"></div>
+<div class="hero-veu" aria-hidden="true">
+<div class="hero-cine-inner container hero-eco">
+<div class="hero-big"><p class="h1-eco">{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</p>
+<span class="circle-link"></span></div>
+<div class="hero-bottom"><p>{e(SITE['support'])}</p>
+<span class="hero-explore">EXPLORE OS PROJETOS {icon('expand_more')}</span></div></div></div>
 <div class="hero-cine-inner container">
 <div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</h1>
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></div></section>
+<a class="hero-explore" href="#projetos">EXPLORE OS PROJETOS {icon('expand_more')}</a></div></div></section>
 <section class="container showcase" id="projetos">
-<h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
+<hr class="rule">
+<div class="showcase-cabeca">
+<h2 class="section-title">PROJETOS<span class="orange">.</span></h2>
+<p class="showcase-lede">{plural(len(PROJECTS), 'propriedade', 'propriedades')} no acervo, da mais recente para a mais antiga. Cada uma com o que está documentado, a fonte de cada número e o papel da Cadillac no projeto.</p>
+</div>
 <div class="works-grid">{cards}</div>
 <div class="section-end"><a class="pill-link" href="./projetos/">Explorar o acervo completo {icon('arrow_outward')}</a></div></section>
 <section class="container editorial" id="historias">
@@ -722,17 +713,6 @@ def page_home():
 
 def page_projects():
     trail_html, trail_ld = crumbs(1, [("Projetos", None)])
-    cat_chips = ['<button class="chip" data-filter="categoria" data-value="todos" aria-pressed="true">'
-                 f'{icon("filter_list")} Todos</button>']
-    for key in M["categories"]:
-        c = CATS[key]
-        cat_chips.append(f'<button class="chip" data-filter="categoria" data-value="{key}" '
-                         f'aria-pressed="false">{icon(c["icon"])} {e(c["label"])}</button>')
-    year_chips = ['<button class="chip" data-filter="ano" data-value="todos" aria-pressed="true">'
-                  f'{icon("calendar_month")} Todos</button>']
-    for y in reversed(M["years"]):
-        year_chips.append(f'<button class="chip" data-filter="ano" data-value="{y}" '
-                          f'aria-pressed="false">{y}</button>')
     cards = "".join(card(pr, 1, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
     ld = {"@context": "https://schema.org", "@type": "CollectionPage",
           "name": "Projetos e cases", "url": f"{BASE}/projetos/",
@@ -744,18 +724,10 @@ def page_projects():
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>PROJETOS<span class="orange">.</span></h1>
-<p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo. Filtre por área, por ano ou busque pelo nome do projeto.</p></section>
-<section class="container index-grid" id="segmentos">
+<p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo, da mais recente para a mais antiga.</p></section>
+<section class="container index-grid">
 <h2 class="sr-only">Acervo de projetos</h2><hr class="rule">
-<div class="filters">
-<div class="filter-group"><span>Área de atuação</span><div class="chips">{''.join(cat_chips)}</div></div>
-<div class="filter-group"><span>Ano com edição catalogada</span><div class="chips">{''.join(year_chips)}</div></div>
-<div class="filter-group"><span>Buscar</span>
-<label class="search-field">{icon('search')}<span class="sr-only">Buscar projeto</span>
-<input id="projectSearch" type="search" placeholder="Nome, modalidade ou cidade" autocomplete="off"></label>
-<span class="filter-count" id="filterCount" role="status">{M['projects']} projetos</span></div></div>
-<div class="works-grid" id="projectBoard">{cards}</div>
-<p class="empty-state" id="emptyState">Nenhum projeto corresponde a esta combinação de filtros. Limpe a busca ou escolha <strong>Todos</strong>.</p>
+<div class="works-grid">{cards}</div>
 <p class="note">O acervo cresce por documentação. A ausência de um ano ou de um projeto nesta lista significa que o registro ainda não foi catalogado aqui, não que o evento não tenha existido.</p>
 </section></main>"""
     return write("projetos/index.html",
@@ -798,15 +770,9 @@ def page_project(pr):
 <span class="yr">{y}</span><span><strong>{e(pr['name'])} {y}</strong>
 <span class="yr-note">{e(note) if note else 'Edição catalogada'}</span></span>
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
-        chart = bars_horizontal([(str(y), len(pr["facts"].get(str(y), []))) for y in sorted(pr["years"], reverse=True)],
-                                ("registro", "registros"), w=560, row=38)
         cronograma.append(f"""<section class="container timeline">
 <hr class="rule">
-<h2 class="section-title">TODAS AS<br><em>EDIÇÕES NO ACERVO.</em></h2>{''.join(rows)}
-<div class="charts" style="padding-top:clamp(34px,5vw,60px)"><div class="chart-card">
-<h3>Registros por edição</h3><p class="chart-sub">Quantidade de fatos com fonte identificada em cada ano catalogado.</p>
-<figure>{chart}<figcaption>Série única. O número indica registros documentados nesta versão do acervo, não o tamanho do evento.</figcaption></figure>
-</div></div></section>""")
+<h2 class="section-title">TODAS AS<br><em>EDIÇÕES NO ACERVO.</em></h2>{''.join(rows)}</section>""")
         n += 1
     else:
         facts = "".join(
@@ -1108,10 +1074,29 @@ def periodo(datas):
     return txt, dias
 
 
-def selo_data(datas):
+def selo_data(datas, ingressos=""):
+    """Selo da data. O rótulo sai da data, não só do status registrado.
+
+    O status diz de onde a data veio; quem decide o que o visitante lê é o
+    calendário. Uma data que já passou é "Realizada", qualquer que fosse o
+    status. Uma data futura com bilheteria aberta vira "Ingressos" e leva ao
+    link oficial. Fora esses dois casos, vale o rótulo do status.
+
+    Sem esse cruzamento, renomear "confirmada" para "Realizada" diria que um
+    evento aconteceu antes de acontecer, e "Ingressos" apareceria em data já
+    vencida ou sem bilheteria nenhuma para onde apontar.
+    """
     if not datas:
         return ""
     rotulo, _, ic = MODEL["datas"]["status"][datas["status"]]
+    exata = datas.get("precisao") != "ano"
+    fim = datas.get("fim") or datas.get("inicio") or ""
+    if exata and fim and fim < MODEL["updated"]:
+        return f'<span class="selo selo-realizada">{icon("verified")} Realizada</span>'
+    if exata and ingressos:
+        return (f'<a class="selo selo-ingressos" href="{e(ingressos)}" '
+                f'target="_blank" rel="noopener noreferrer">'
+                f'{icon("confirmation_number")} Ingressos {icon("open_in_new")}</a>')
     return f'<span class="selo selo-{datas["status"].replace(" ", "-")}">{icon(ic)} {e(rotulo)}</span>'
 
 
@@ -2445,10 +2430,12 @@ def page_agenda():
             if not etapas and not shows:
                 itens.append({"nome": f'{pr["name"]} {year}', "tipo": "Edição",
                               "local": ed.get("place", pr["location"]), "href": href,
+                              "ingressos": pr.get("ingressos", ""),
                               "datas": ed.get("datas")})
             for et in etapas:
                 itens.append({"nome": f'{pr["name"]} {year} · {et["nome"]}', "tipo": "Etapa",
                               "local": et["nome"], "href": href,
+                              "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": et["inicio"], "fim": et["fim"], "precisao": "dia",
                                          "status": et["status"]} if et["inicio"]
                                         else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
@@ -2456,25 +2443,28 @@ def page_agenda():
             for sh in shows:
                 itens.append({"nome": f'{pr["name"]} {year} · {sh["cidade"]}', "tipo": "Show",
                               "local": sh["cidade"], "href": href,
+                              "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": sh["data"], "fim": sh["data"], "precisao": "dia",
                                          "status": sh["status"]} if sh.get("data")
                                         else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
                                               "precisao": "ano", "status": sh["status"]})})
             for r in ed.get("relacionados", []):
+                if not r.get("data"):
+                    continue
                 itens.append({"nome": f'{pr["name"]} · {r["o_que"]}', "tipo": "Relacionado",
                               "local": r["local"], "href": href,
+                              "ingressos": pr.get("ingressos", ""),
                               "datas": ({"inicio": r["data"], "fim": r["data_fim"] or r["data"],
                                          "precisao": "dia", "status": r["status"]} if r.get("data")
                                         else {"inicio": f"{year}-01-01", "fim": f"{year}-12-31",
                                               "precisao": "ano", "status": r["status"]})})
         if not pr["years"] and pr.get("datas_projeto"):
             itens.append({"nome": pr["name"], "tipo": "Ação", "local": pr["location"],
-                          "href": href_pr, "datas": pr["datas_projeto"]})
+                          "href": href_pr, "datas": pr["datas_projeto"],
+                          "ingressos": pr.get("ingressos", "")})
 
     exatos = [x for x in itens if x["datas"] and x["datas"]["precisao"] != "ano"]
-    sem_dia = [x for x in itens if not x["datas"] or x["datas"]["precisao"] == "ano"]
     exatos.sort(key=lambda x: x["datas"]["inicio"], reverse=True)
-    sem_dia.sort(key=lambda x: (x["datas"]["inicio"] if x["datas"] else ""), reverse=True)
 
     def linha(x):
         txt, dias = periodo(x["datas"])
@@ -2484,7 +2474,8 @@ def page_agenda():
             quando = e(txt) + (f'<small>{plural(dias, "dia", "dias")}</small>' if dias else "")
         return (f'<tr><th scope="row"><a href="{x["href"]}">{e(x["nome"])}</a>'
                 f'<small>{e(x["tipo"])}</small></th><td>{quando}</td>'
-                f'<td>{e(x["local"])}</td><td>{selo_data(x["datas"])}</td></tr>')
+                f'<td>{e(x["local"])}</td>'
+                f'<td>{selo_data(x["datas"], x.get("ingressos", ""))}</td></tr>')
 
     cab = ('<thead><tr><th scope="col">O quê</th><th scope="col">Quando</th>'
            '<th scope="col">Onde</th><th scope="col">Situação da data</th></tr></thead>')
@@ -2493,17 +2484,11 @@ def page_agenda():
 <p class="lede">Toda edição, etapa de circuito e show em um calendário único, do mais recente para o mais antigo. Cada linha diz de onde veio a data.</p>
 </section>
 <section class="container reach-section"><hr class="rule">
-<h2 class="section-title">COM DATA<br><em>DEFINIDA.</em></h2>
+<h2 class="sr-only">Com data definida</h2>
 <div class="table-wrap"><table class="amounts reach-table">{cab}
 <tbody>{''.join(linha(x) for x in exatos)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver onde e a situação.</p></section>
-<section class="container reach-section"><hr class="rule">
-<h2 class="section-title">AINDA SEM<br><em>DIA E MÊS.</em></h2>
-<p class="body-copy">Aconteceram, mas só o ano está documentado. Cada uma destas linhas vira data exata com o cronograma, o contrato ou o mapa de turnê da edição.</p>
-<div class="table-wrap"><table class="amounts reach-table">{cab}
-<tbody>{''.join(linha(x) for x in sem_dia)}</tbody></table></div>
-<p class="table-hint">Arraste a tabela para o lado para ver onde e a situação.</p>
-<p class="note">{e(MODEL['datas']['note'])}</p></section></main>"""
+</main>"""
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Agenda",
           "url": f"{BASE}/agenda/", "inLanguage": "pt-BR"}
     return write("agenda/index.html",

@@ -29,8 +29,9 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
 img{max-width:100%;display:block}
 h1,h2,h3,h4,p{margin-top:0}
-h1,h2,h3,h4{font-family:var(--font-display);text-transform:uppercase;letter-spacing:-.017em;line-height:.9}
-h1{font-size:clamp(54px,9vw,164px);font-weight:800}
+h1,h2,h3,h4,.h1-eco{font-family:var(--font-display);text-transform:uppercase;
+  letter-spacing:-.017em;line-height:.9}
+h1,.h1-eco{font-size:clamp(54px,9vw,164px);font-weight:800}
 h2{font-size:clamp(40px,6vw,96px);font-weight:800}
 h3{font-size:clamp(24px,3vw,44px)}
 p{line-height:1.7}
@@ -94,7 +95,7 @@ body.nav-open{overflow:hidden}
 /* 11,2vw é o maior corpo que mantém a manchete em três linhas — uma por frase,
    como foi escrita — de 320px a 2560px. Em 12vw, "EXTRAORDINÁRIO" não cabia
    entre 768px e 1360px e quebrava no meio da palavra. Medido, não estimado. */
-.hero-big h1{margin:0;max-width:1220px;min-width:0;overflow-wrap:break-word;
+.hero-big h1,.hero-big .h1-eco{margin:0;max-width:1220px;min-width:0;overflow-wrap:break-word;
   font-size:clamp(30px,11.2vw,164px)}
 .circle-link{flex-shrink:0;border:2px solid var(--ink);width:clamp(44px,8vw,84px);height:clamp(44px,8vw,84px);
   border-radius:50%;display:grid;place-items:center;transition:var(--t)}
@@ -651,9 +652,9 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   .site-header{height:68px}
   .hero{gap:46px}
   .hero-big{flex-direction:column;align-items:flex-start;gap:20px}
-  .hero-big h1{width:100%}
+  .hero-big h1,.hero-big .h1-eco{width:100%}
   .hero-bottom{flex-direction:column;align-items:flex-start;gap:18px}
-  .hero-bottom>span{display:none}
+  .hero-bottom>span:not(.hero-explore){display:none}
   .year-row{grid-template-columns:72px minmax(0,1fr);row-gap:8px}
   .year-row .yr-go{grid-column:2}
   .fact{grid-template-columns:34px minmax(0,1fr)}
@@ -934,7 +935,7 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
 .hero-fundo iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:177.78svh;min-width:100%;height:56.25vw;min-height:100%;border:0;pointer-events:none}
 .hero-veu{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,#000000d9 0%,#00000080 34%,#0000008c 68%,#000000e6 100%)}
+  background:linear-gradient(180deg,#000000ed 0%,#000000c7 30%,#000000cc 72%,#000000f2 100%)}
 /* A largura e a margem vêm de .container, que já aplica a goteira lateral.
    Redeclará-las aqui zeraria o recuo e encostaria o título na borda. */
 .hero-cine-inner{position:relative;z-index:2;display:flex;flex-direction:column;
@@ -984,3 +985,101 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
 @media(prefers-reduced-motion:reduce){
   .hero-fundo iframe{display:none}
 }
+
+/* ===================================================================== */
+/* EXTRAORDINÁRIO vazado — a palavra vira janela para o vídeo            */
+/*                                                                       */
+/* O véu e o vazado precisam ser a MESMA camada. Fossem duas, as letras  */
+/* revelariam o vídeo já escurecido pelo véu de baixo, com o mesmo brilho */
+/* da vizinhança — ou seja, nada se veria. Por isso o eco da manchete     */
+/* mora dentro de .hero-veu, que recebe mix-blend-mode:multiply: onde o   */
+/* eco é branco, multiply devolve o vídeo em brilho cheio; no resto, o    */
+/* gradiente escurece como antes.                                        */
+/*                                                                       */
+/* Só entra quando há vídeo (.tem-video, posta pelo script). Sem vídeo o  */
+/* fundo é preto, e letras pretas sobre véu escuro sumiriam: aí a palavra */
+/* continua laranja, como na versão sem vídeo.                           */
+/* ===================================================================== */
+.hero-eco{display:none}
+.hero-cine.tem-video .hero-veu{mix-blend-mode:multiply;display:flex;align-items:stretch}
+.hero-cine.tem-video .hero-eco{display:flex;color:transparent}
+.hero-cine.tem-video .hero-eco .h1-eco em{color:#fff;font-style:normal}
+.hero-cine.tem-video .hero-eco .circle-link{border-color:transparent;visibility:hidden}
+/* a palavra real cede o lugar ao vazado */
+.home-cine .hero-cine.tem-video .hero-big h1 em{color:transparent}
+
+/* Linha separando o menu do conteúdo */
+.home-cine .site-header{border-bottom:1px solid #ffffff2e}
+.home-cine .site-header.is-compact{border-bottom-color:var(--border)}
+
+/* "Vamos conversar" como botão cheio */
+.btn-laranja{background:var(--orange);color:#fff;border:0;border-radius:var(--r-pill);
+  padding:12px 20px;gap:7px;transition:background .2s ease,transform .2s ease}
+.btn-laranja:hover,.btn-laranja:focus-visible{background:var(--orange-ink);
+  color:#fff;transform:translateY(-1px)}
+.contact-nav.btn-laranja{border-bottom:0}
+.home-cine .site-header .contact-nav.btn-laranja,
+.home-cine .site-header.is-compact .contact-nav.btn-laranja{background:var(--orange);
+  color:#fff;border-bottom:0}
+.home-cine .site-header .contact-nav.btn-laranja:hover,
+.home-cine .site-header.is-compact .contact-nav.btn-laranja:hover{background:var(--orange-ink)}
+.mob-contato.btn-laranja{justify-content:center}
+
+/* "Explore os projetos": laranja, em negrito, com o chevron respirando.
+   Virou link de verdade: em laranja, em negrito e com movimento, ele parece
+   clicável — e o que parece clicável tem de levar a algum lugar. */
+.hero-explore{display:inline-flex;align-items:center;gap:7px;color:var(--orange);
+  font:700 13px/1 var(--font-text);letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:8px 2px;transition:color .2s ease}
+.hero-explore:hover,.hero-explore:focus-visible{color:#fff}
+.home-cine .hero-cine .hero-bottom .hero-explore{color:var(--orange)}
+.home-cine .hero-cine .hero-bottom .hero-explore:hover{color:#fff}
+.hero-explore .mi{font-size:20px;animation:respira 2.4s ease-in-out infinite}
+@keyframes respira{
+  0%,100%{transform:translateY(0);opacity:.75}
+  50%{transform:translateY(4px);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-explore .mi{animation:none;opacity:1}
+  .btn-laranja{transition:background .2s ease}
+  .btn-laranja:hover{transform:none}
+}
+
+/* No celular, a cena tem altura de sobra e o espaço entre a manchete e o pé
+   virava um vazio. O conteúdo passa a ficar centrado na vertical. */
+@media(max-width:760px){
+  .hero-cine-inner{justify-content:center;gap:clamp(28px,5vh,44px);
+    padding-top:clamp(100px,14vh,140px);padding-bottom:clamp(28px,5vh,48px)}
+}
+/* O eco repete o pé para cair na mesma altura do bloco real, mas nada nele
+   deve piscar nem ser lido: é uma sombra de posicionamento. */
+.hero-eco .hero-explore .mi{animation:none}
+.hero-eco .hero-bottom{border-top-color:transparent}
+
+/* Um leve avanço de escala joga para fora do quadro qualquer resto de interface
+   que o player ainda desenhe nas bordas. O iframe já é inerte ao ponteiro. */
+.hero-fundo iframe{transform:translate(-50%,-50%) scale(1.06)}
+
+/* Sem vídeo, a palavra volta a ser sólida — e no escuro pede o laranja vivo,
+   não o laranja de texto sobre papel. */
+.home-cine .hero-cine .hero-big h1 em{color:var(--orange)}
+
+/* Título da seção de projetos, na parte clara */
+.showcase-cabeca{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:clamp(18px,4vw,56px);flex-wrap:wrap;
+  margin:clamp(22px,3vw,35px) 0 clamp(34px,5vw,60px)}
+.showcase-cabeca .section-title{margin:0;font-size:clamp(40px,6.4vw,92px)}
+.showcase-lede{margin:0 0 6px;max-width:46ch;color:var(--ink-2);
+  font-size:clamp(15px,1.5vw,17px);line-height:1.55}
+@media(max-width:700px){.showcase-cabeca{align-items:flex-start}}
+
+/* O apoio da manchete em negrito, como pedido */
+.hero-bottom p{font-weight:700}
+
+/* Rodapé reorganizado: cinco famílias em cima, governança na linha de baixo */
+.foot-bottom .foot-gov-nav{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
+  padding-right:clamp(0px,5vw,66px)}
+.foot-bottom .foot-gov-nav a{font-size:12px;color:rgba(255,255,255,.62);
+  border-bottom:1px solid transparent;transition:color .2s ease,border-color .2s ease}
+.foot-bottom .foot-gov-nav a:hover,
+.foot-bottom .foot-gov-nav a:focus-visible{color:#fff;border-bottom-color:var(--orange)}

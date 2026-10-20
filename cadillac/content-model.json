@@ -1,5 +1,5 @@
 {
-  "version": 29,
+  "version": 34,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -103,13 +103,13 @@
           "place": "Niterói, RJ",
           "note": "Projeto aprovado para captação",
           "datas": {
-            "inicio": "2022-01-01",
-            "fim": "2022-12-31",
-            "precisao": "ano",
-            "status": "a confirmar",
+            "inicio": "2022-06-01",
+            "fim": "2022-06-26",
+            "precisao": "dia",
+            "status": "confirmada",
             "fonte": [
-              "Publicação oficial do projeto 23397",
-              "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
+              "Prefeitura de Niterói, competições do Itacoatiara Pro 2022",
+              "https://niteroi.rj.gov.br/competicoes-esportivas-do-itacoatiara-pro-2022-seguem-durante-o-mes-em-diferentes-pontos-de-niteroi/"
             ]
           }
         },
@@ -118,13 +118,13 @@
           "place": "Niterói, RJ",
           "note": "Registro de imprensa sobre a programação do fim de semana",
           "datas": {
-            "inicio": "2024-01-01",
-            "fim": "2024-12-31",
-            "precisao": "ano",
-            "status": "a confirmar",
+            "inicio": "2024-06-01",
+            "fim": "2024-06-10",
+            "precisao": "dia",
+            "status": "divulgada",
             "fonte": [
-              "Caderno Pop, música, cultura de rua e skate no Itacoatiara Pro",
-              "https://cadernopop.com.br/musica-cultura-de-rua-e-skate-agitam-o-final-de-semana-do-itacoatiara-pro/"
+              "IBC World Bodyboarding Tour, ficha do Itacoatiara Pro World Festival 2024",
+              "https://ibcworldtour.com/events/itacoatiara-pro-world-festival-2024/"
             ]
           }
         }
@@ -749,19 +749,9 @@
           },
           "etapas": [
             {
-              "nome": "2ª edição · Niterói, RJ",
-              "inicio": null,
-              "fim": null,
-              "status": "anunciada",
-              "fonte": [
-                "Informado pela direção do projeto",
-                null
-              ]
-            },
-            {
               "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
-              "inicio": null,
-              "fim": null,
+              "inicio": "2026-12-12",
+              "fim": "2026-12-12",
               "status": "anunciada",
               "fonte": [
                 "Informado pela direção do projeto",
@@ -770,12 +760,12 @@
             },
             {
               "nome": "1ª edição · Grand Hyatt Rio de Janeiro",
-              "inicio": null,
-              "fim": null,
-              "status": "reportada",
+              "inicio": "2026-07-11",
+              "fim": "2026-07-11",
+              "status": "divulgada",
               "fonte": [
-                "Connect Heroes no Instagram",
-                "https://www.instagram.com/connectheroes/"
+                "Sportbuzz, Connect Heroes 1 no Grand Hyatt Rio",
+                "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
               ]
             }
           ]
@@ -1714,13 +1704,13 @@
           "place": "Juruti, PA",
           "note": "Contratação registrada em ficha pública",
           "datas": {
-            "inicio": "2018-01-01",
-            "fim": "2018-12-31",
-            "precisao": "ano",
-            "status": "a confirmar",
+            "inicio": "2018-07-26",
+            "fim": "2018-07-28",
+            "precisao": "dia",
+            "status": "reportada",
             "fonte": [
-              "Contrato e ficha do TCM-PA",
-              "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
+              "Jeso Carneiro, 24ª edição do Festival das Tribos de Juruti, 25/07/2018",
+              "http://www.jesocarneiro.com.br/cidade/juruti/24a-edicao-dos-festival-das-tribos-de-juruti-inicia-amanha-com-a-festa-dos-visitantes.html"
             ]
           }
         }
@@ -2073,7 +2063,8 @@
         "status": "a confirmar",
         "fonte_texto": "Informado pela direção da Cadillac; ficha técnica independente pendente",
         "nota": "Enquanto a ficha técnica não chega, o público desta turnê aparece identificado e fica fora dos totais de alcance da Cadillac, como todo número de terceiro neste acervo."
-      }
+      },
+      "ingressos": "https://turnedominguinho.ingresse.com/"
     },
     {
       "slug": "arte-em-circuito",
@@ -4332,8 +4323,7 @@
         "Só o ano está documentado; dia e mês dependem da produção",
         "search"
       ]
-    },
-    "note": "Uma data só aparece como confirmada quando vem de organizador, entidade ou publicação oficial. Onde há apenas o ano, a página diz isso em vez de inventar um intervalo."
+    }
   },
   "reservado": {
     "titulo": "Dados reservados",
@@ -4878,7 +4868,7 @@
       "publicado_em": null,
       "arquivo": "assets/video/reel.mp4",
       "poster": "assets/fotos/reel-poster.jpg",
-      "nota": "Vídeo institucional da Cadillac, hospedado no YouTube. O player só carrega depois do clique: até lá a página não envia requisição nem cookie para a plataforma."
+      "nota": ""
     },
     "por_projeto": {
       "dominguinho": {
@@ -4886,24 +4876,24 @@
         "titulo": "Dominguinho Vol. 2, show completo",
         "arquivo": "assets/video/dominguinho.mp4",
         "poster": null,
-        "nota": "Vídeo publicado no canal João Gomes Cantor, no YouTube. O player só carrega depois do clique."
+        "nota": ""
       },
       "vert-battle": {
         "url": "https://www.youtube.com/watch?v=3xGzZshILg0",
         "titulo": "Vert Battle em Goiânia",
         "arquivo": "assets/video/vert-battle.mp4",
         "poster": null,
-        "nota": "Registro da etapa de Goiânia publicado no YouTube. O player só carrega depois do clique."
+        "nota": ""
       },
       "itacoatiara-pro": {
         "url": "https://www.youtube.com/watch?v=kzDP7ZS6Axg",
         "titulo": "Itacoatiara Pro, final do skate",
         "arquivo": "assets/video/itacoatiara-pro.mp4",
         "poster": null,
-        "nota": "Registro da final do skate publicado no YouTube. O player só carrega depois do clique."
+        "nota": ""
       }
     },
-    "nota": "Aceita arquivo local em assets/video ou URL de YouTube e Vimeo. Sem vídeo, o espaço fica reservado e nada quebra. Para o vídeo entrar no JSON-LD como VideoObject, preencha publicado_em (data de publicação, AAAA-MM-DD) e duracao_iso (por exemplo PT1M42S): sem a data, o Google trata o dado estruturado como incompleto e é melhor não emiti-lo."
+    "nota": ""
   },
   "imprensa": {
     "lede": "Material pronto para quem vai escrever, apresentar ou avaliar a Cadillac.",

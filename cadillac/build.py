@@ -1360,15 +1360,22 @@ def galeria_projeto(pr, depth):
     itens = []
     for i, n in enumerate(nomes, start=1):
         credito = por_arquivo.get(n, padrao)
+        # A lupa abria o JPEG cheio, 250 a 450 KB por foto. O WebP de 1600px
+        # mostra o mesmo na tela por uma fracao disso; o JPEG fica de reserva
+        # para quem nao le WebP, trocado pelo proprio onerror da imagem.
+        grande = f'assets/fotos/{n.rsplit(".", 1)[0]}-1600.webp'
+        if not (ROOT / grande).exists():
+            grande = f'assets/fotos/{n}'
         itens.append(
             f'<button type="button" class="gal-item" '
-            f'data-full="{rel(depth)}assets/fotos/{e(n)}" '
+            f'data-full="{rel(depth)}{e(grande)}" '
+            f'data-full-reserva="{rel(depth)}assets/fotos/{e(n)}" '
             f'data-credito="{e(credito)}" data-legenda="{e(pr["name"])}" '
             f'aria-label="Ampliar foto {i} de {e(pr["name"])}">'
             + figura(f'assets/fotos/{n}', pr["name"], depth, "",
                      "(min-width:900px) 25vw, (min-width:560px) 33vw, 50vw")
-            + 
-            f'<span class="gal-credito">{icon("photo_camera")} {e(credito)}</span></button>')
+            + f'<span class="gal-credito">{icon("photo_camera")} '
+              f'{e(credito)}</span></button>')
 
     faltam = GALERIA_ALVO - len(nomes)
     for i in range(len(nomes) + 1, GALERIA_ALVO + 1):

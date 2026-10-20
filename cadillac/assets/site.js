@@ -112,6 +112,14 @@
       if (!fotos.length) return;
       atual = (i + fotos.length) % fotos.length;
       var f = fotos[atual];
+      // A lupa pede o WebP; se o navegador nao ler o formato, cai no JPEG.
+      // Uma tentativa so: sem a trava, um arquivo mesmo ausente entraria em
+      // laco, pedindo a reserva, falhando e pedindo de novo.
+      var reserva = f.getAttribute('data-full-reserva');
+      img.onerror = function () {
+        img.onerror = null;
+        if (reserva && img.src !== reserva) img.src = reserva;
+      };
       img.src = f.getAttribute('data-full');
       img.alt = f.getAttribute('data-legenda') || '';
       pe.textContent = f.getAttribute('data-credito') +

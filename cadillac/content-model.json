@@ -7171,16 +7171,16 @@
                 [
                   "youtube-nocookie.com (Google)",
                   "Vídeo institucional de fundo",
-                  "Só na página inicial, automaticamente"
+                  "Na página inicial, automaticamente"
                 ],
                 [
                   "youtube-nocookie.com (Google)",
-                  "Vídeos que você escolhe assistir",
-                  "Só depois que você clica em reproduzir"
+                  "Vídeos do acervo",
+                  "Quando o vídeo entra na tela, automaticamente"
                 ]
               ]
             },
-            "destaque": "O domínio youtube-nocookie.com reduz o uso de cookies publicitários, mas não é garantia de ausência de tratamento de dados: o IP é transmitido do mesmo jeito. Por isso ele aparece aqui, e só na página inicial."
+            "destaque": "O domínio youtube-nocookie.com reduz o uso de cookies publicitários, mas não é garantia de ausência de tratamento de dados: o IP é transmitido do mesmo jeito. Quem pede menos movimento nas preferências do sistema continua vendo só a capa, e aí nada é carregado do Google."
           },
           {
             "titulo": "Categorias de cookies",
@@ -7217,7 +7217,7 @@
                 [
                   "Conteúdo externo",
                   "Vídeo do YouTube",
-                  "Só a página inicial, mais o que você clicar"
+                  "Nas páginas com vídeo"
                 ]
               ]
             }
@@ -7226,14 +7226,14 @@
             "titulo": "Conteúdos incorporados",
             "paragrafos": [
               "Fontes, ícones e miniaturas de vídeo são arquivos deste site. Não há folha de estilo, fonte nem imagem vinda de outro domínio.",
-              "Nas páginas internas, o player de vídeo só é carregado depois que você clica: até lá a página mostra uma foto do próprio acervo. Na página inicial, o vídeo de fundo é carregado automaticamente."
+              "Os vídeos são a exceção: o player do YouTube começa a tocar, sem som, quando o vídeo entra na tela. Até ali a página mostra uma foto do próprio acervo. Se você tiver ativado \"reduzir movimento\" no sistema, o player não carrega sozinho e só entra se você clicar."
             ]
           },
           {
             "titulo": "Como gerenciar",
             "paragrafos": [
               "Você pode usar as configurações do seu navegador para bloquear, limitar ou excluir cookies e para bloquear conteúdo de terceiros.",
-              "Como este site não grava nada no seu dispositivo e não busca recursos em outros domínios, bloquear cookies e conteúdo de terceiros não prejudica a navegação em nada. O único efeito possível é o vídeo de fundo da página inicial não aparecer."
+              "Como este site não grava nada no seu dispositivo e não busca recursos em outros domínios, bloquear cookies e conteúdo de terceiros não prejudica a navegação. O único efeito é os vídeos não aparecerem."
             ]
           },
           {
@@ -7305,9 +7305,9 @@
                   "Bloqueio pelo navegador"
                 ],
                 [
-                  "Vídeos das páginas internas",
-                  "Só depois do seu clique",
-                  "Não clicar"
+                  "Vídeos do acervo",
+                  "Tocam ao entrar na tela, sem som",
+                  "\"Reduzir movimento\" no sistema, ou bloqueio pelo navegador"
                 ]
               ]
             }
@@ -7316,7 +7316,7 @@
             "titulo": "O que você pode fazer no navegador",
             "paragrafos": [
               "Todos os navegadores atuais permitem bloquear cookies de terceiros, bloquear domínios específicos e navegar em janela anônima.",
-              "Como o site serve os próprios arquivos, essas proteções não tiram nada da navegação. Bloquear o domínio do YouTube impede apenas o vídeo de fundo da página inicial."
+              "Como o site serve os próprios arquivos, essas proteções não tiram nada da navegação. Bloquear o domínio do YouTube impede apenas os vídeos. Ativar \"reduzir movimento\" no sistema já basta para que nenhum vídeo carregue sozinho."
             ]
           },
           {

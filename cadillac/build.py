@@ -926,7 +926,7 @@ def page_project(pr):
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
         cronograma.append(f"""<section class="container timeline">
 <hr class="rule">
-<h2 class="section-title">TODAS AS<br><em>EDIÇÕES NO ACERVO.</em></h2>{''.join(rows)}</section>""")
+<h2 class="section-title">EDIÇÕES<span class="orange">.</span></h2>{''.join(rows)}</section>""")
         n += 1
     else:
         facts = "".join(
@@ -945,7 +945,7 @@ def page_project(pr):
 
     if MODEL["video"]["por_projeto"].get(pr["slug"]):
         sections.append(f"""<section class="container reel-section"><hr class="rule">
-<h2 class="section-title">O EVENTO<br><em>EM VÍDEO.</em></h2>
+<h2 class="section-title">TEASER<br><em>DO EVENTO.</em></h2>
 {video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"], depth)}</section>""")
     sections.append(contexto_block(pr))
     sections.append(frentes_block(pr))
@@ -1416,20 +1416,10 @@ def galeria_projeto(pr, depth):
             f'<div class="gal-item gal-reserva">{icon("photo_camera")}'
             f'<code>assets/fotos/{e(arquivo)}</code></div>')
 
-    if faltam == GALERIA_ALVO:
-        rodape = (f'<p class="carrossel-credito">Nenhuma fotografia deste projeto no acervo. '
-                  f'As oito posições esperam o arquivo com o nome indicado.</p>')
-    elif faltam:
-        rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} '
-                  f'{plural(len(nomes), "imagem", "imagens")} de {GALERIA_ALVO}. '
-                  f'{plural(faltam, "posição aguarda", "posições aguardam")} o arquivo.</p>')
-    else:
-        creditos = {por_arquivo.get(n, padrao) for n in nomes}
-        unico = creditos.pop() if len(creditos) == 1 else None
-        rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} {e(unico)} · '
-                  f'{plural(len(nomes), "imagem", "imagens")}</p>') if unico else (
-                  f'<p class="carrossel-credito">{plural(len(nomes), "imagem", "imagens")}, '
-                  f'com o crédito de cada uma sobre a foto.</p>')
+    # Sem rodape. Ele contava quantas fotos ha e quantas faltam - a contagem o
+    # visitante faz com os olhos, e a pendencia e assunto da producao. O
+    # credito continua onde importa: sobre cada foto e na legenda da lupa.
+    rodape = ""
 
     return f"""<section class="container galeria-section" aria-label="Fotos de {e(pr['name'])}">
 <div class="gal-grid">{''.join(itens)}</div>
@@ -1543,7 +1533,7 @@ def papel_block(pr):
         return ""
     rotulo, _, ic = MODEL["datas"]["status"][data["status"]]
     return f"""<section class="container papel-section"><hr class="rule">
-<h2 class="section-title">O PAPEL<br><em>DA CADILLAC.</em></h2>
+<h2 class="section-title">CADILLAC<span class="orange">.</span></h2>
 <div class="papel-card">
 <h3>{e(data['rotulo'])}</h3>
 <p>{e(data['texto'])}</p>
@@ -1972,8 +1962,11 @@ def video_block(chave, titulo, depth=0):
                       f'loading="lazy" allowfullscreen></iframe>')
         else:
             player = f'<video controls preload="none" poster="{e(fonte.get("poster") or "")}"><source src="{e(url)}"></video>'
-        legenda = (f'{paragrafo_nota(fonte["nota"])}' if fonte.get("nota") else "")
-        return f'<div class="video-wrap">{player}</div>{legenda}'
+        legenda = paragrafo_nota(fonte.get("nota"))
+        # O titulo fica embaixo do quadro, nao dentro dele: e a mesma posicao
+        # em que o cartao de evento poe o nome, logo abaixo da imagem.
+        rotulo = f'<p class="video-titulo">{e(titulo)}</p>' if titulo else ""
+        return f'<div class="video-wrap">{player}</div>{rotulo}{legenda}'
     return (f'<div class="video-wrap video-slot" role="img" aria-label="Espaço reservado para vídeo">'
             f'<span class="slot-mark">{icon("play_arrow")}</span><strong>{e(titulo)}</strong>'
             f'<code>{e(fonte.get("arquivo") or "video.mp4")}</code>'

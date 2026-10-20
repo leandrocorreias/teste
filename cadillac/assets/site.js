@@ -266,15 +266,41 @@
 /* Player de vídeo sob demanda: o embed de terceiro só entra depois do clique. */
 (function () {
   var facades = [].slice.call(document.querySelectorAll('.video-facade'));
+
+  /* Troca a capa pelo player. mudo diz se entra sem som: o navegador so deixa
+     tocar sozinho quando esta mudo, entao a entrada automatica e muda e a do
+     clique tem som. foco so faz sentido quando houve clique — mover o foco
+     sozinho tiraria a pessoa de onde ela estava lendo. */
+  function abrir(botao, mudo) {
+    if (!botao.parentNode) return;
+    var frame = document.createElement('iframe');
+    frame.src = botao.dataset.embed + '?autoplay=1&rel=0&playsinline=1'
+              + (mudo ? '&mute=1' : '');
+    frame.title = botao.dataset.titulo || 'Vídeo';
+    frame.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    frame.setAttribute('allowfullscreen', '');
+    botao.parentNode.replaceChild(frame, botao);
+    if (!mudo) frame.focus();
+  }
+
   facades.forEach(function (botao) {
-    botao.addEventListener('click', function () {
-      var frame = document.createElement('iframe');
-      frame.src = botao.dataset.embed + '?autoplay=1&rel=0';
-      frame.title = botao.dataset.titulo || 'Vídeo';
-      frame.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
-      frame.setAttribute('allowfullscreen', '');
-      botao.parentNode.replaceChild(frame, botao);
-      frame.focus();
-    });
+    botao.addEventListener('click', function () { abrir(botao, false); });
   });
+
+  /* O video comeca sozinho quando entra na tela. Quem pediu menos movimento no
+     sistema continua com a capa e o botao: a preferencia do sistema vale mais
+     que a vontade da pagina. Sem IntersectionObserver, idem. */
+  var paradoQuieto = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (facades.length && !paradoQuieto && 'IntersectionObserver' in window) {
+    var olho = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (ent) {
+        if (!ent.isIntersecting) return;
+        olho.unobserve(ent.target);
+        abrir(ent.target, true);
+      });
+    }, { threshold: 0.5 });
+    facades.forEach(function (botao) { olho.observe(botao); });
+  }
 })();

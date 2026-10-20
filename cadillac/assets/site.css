@@ -1637,6 +1637,19 @@ main > .clientes:last-child{margin-bottom:0}
 #assessoria .gov-dados th{width:min(38%,240px)}
 
 /* --- Formulários do Relacionamento ---------------------------------------- */
+/* Cada formulário fica atrás do próprio botão. A seta gira quando abre, que é
+   o que diz, sem texto, que o botão não leva para outra página. */
+.form-abre{margin-top:clamp(24px,3vw,38px)}
+.form-abre>summary{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  list-style:none;width:auto}
+.form-abre>summary::-webkit-details-marker{display:none}
+.form-abre>summary .cd-icon{transition:transform var(--t)}
+.form-abre[open]>summary .cd-icon{transform:rotate(90deg)}
+.form-abre[open]>summary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.form-corpo{animation:abre-form .22s ease}
+@keyframes abre-form{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.form-corpo{animation:none}}
+.form-abre .form-rel{margin-top:14px}
 .form-rel{margin-top:clamp(24px,3vw,38px);border:1px solid var(--border);
   border-radius:var(--r-img);background:var(--white);padding:clamp(22px,3vw,36px)}
 .form-rel h3{margin:0;font-size:clamp(19px,2vw,24px)}
@@ -1648,6 +1661,9 @@ main > .clientes:last-child{margin-bottom:0}
   .form-rel .campo:has(textarea){grid-column:1/-1}
 }
 .form-rel .campo{margin:0;display:flex;flex-direction:column;gap:7px}
+/* display:flex na classe vence o [hidden] do navegador, e o campo condicional
+   aparecia mesmo escondido. A regra precisa ser dita aqui. */
+.form-rel .campo[hidden]{display:none}
 .form-rel label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
 .form-rel label span{text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)}
 .form-rel input,.form-rel select,.form-rel textarea{width:100%;font:inherit;font-size:15px;
@@ -1677,17 +1693,30 @@ main > .clientes:last-child{margin-bottom:0}
 .cr-links .cd-icon{color:var(--orange-ink);font-size:18px}
 
 /* Propriedades que se patrocinam */
+/* Colunas fixas, nao auto-fit: com cinco propriedades o auto-fit deixava
+   quatro em cima e uma sozinha embaixo. Em tres colunas a sobra e menor. */
 .prop-grade{display:grid;gap:14px;margin-top:clamp(18px,2.4vw,26px);
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+  grid-template-columns:1fr}
+@media(min-width:620px){.prop-grade{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.prop-grade{grid-template-columns:repeat(3,1fr)}}
 .prop-card{display:flex;flex-direction:column;gap:8px;padding:clamp(18px,2.2vw,26px);
   border:1px solid var(--border);border-left:3px solid var(--orange);
   border-radius:var(--r-img);background:var(--white);transition:var(--t)}
 .prop-card:hover{transform:translateY(-2px);border-color:var(--orange)}
 .prop-card h3{margin:0;font-size:clamp(18px,1.9vw,22px)}
 .prop-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
-.prop-ver{margin-top:auto;display:inline-flex;align-items:center;gap:7px;
+.prop-pe{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;
+  align-items:center;gap:10px 16px}
+.prop-ver{display:inline-flex;align-items:center;gap:7px;
   font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
   color:var(--orange-ink)}
+/* O botão de patrocinar é a ação da vez: vem cheio, o link de conhecer fica ao lado. */
+.prop-quero{display:inline-flex;align-items:center;gap:7px;cursor:pointer;
+  font:inherit;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  padding:9px 15px;border:0;border-radius:999px;background:var(--orange);color:#fff;
+  transition:var(--t)}
+.prop-quero:hover{background:var(--orange-ink)}
+.prop-quero .cd-icon{font-size:17px}
 .sub-titulo{margin:clamp(24px,3vw,34px) 0 10px;font-size:clamp(17px,1.8vw,21px)}
 
 /* --- Contato: caixas, horário e endereços --------------------------------- */

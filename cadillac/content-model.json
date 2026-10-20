@@ -6813,7 +6813,7 @@
           "Ativação de marca em arena, palco e áreas de experiência",
           "Projetos inscritos em leis de incentivo à cultura e ao esporte"
         ],
-        "pendencia": "A tabela de cotas por projeto é material comercial e não é publicada aqui.",
+        "pendencia": "",
         "propriedades": [
           [
             "vert-battle",
@@ -6841,7 +6841,160 @@
             "Turnê nacional com João Gomes, Mestrinho e Jota.pê"
           ]
         ],
-        "propriedades_nota": "Cada propriedade tem página própria, com histórico, público documentado e cobertura de imprensa."
+        "propriedades_nota": "",
+        "form": {
+          "titulo": "Quero patrocinar",
+          "intro": "Diga qual propriedade interessa e o que a marca precisa alcançar. Respondemos com as cotas disponíveis para o período.",
+          "campos": [
+            {
+              "nome": "propriedade",
+              "rotulo": "Propriedade de interesse",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Vert Battle",
+                "Itacoatiara Pro",
+                "Connect Heroes",
+                "Mr. Moo Festival",
+                "Dominguinho",
+                "Mais de uma",
+                "Ainda não sei, quero uma recomendação"
+              ]
+            },
+            {
+              "nome": "quais",
+              "rotulo": "Quais propriedades",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "propriedade": "Mais de uma"
+              }
+            },
+            {
+              "nome": "perfil",
+              "rotulo": "Perfil de quem patrocina",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Marca ou anunciante",
+                "Agência representando uma marca",
+                "Estatal ou órgão público",
+                "Instituição ou fundação",
+                "Lei de incentivo à cultura ou ao esporte"
+              ]
+            },
+            {
+              "nome": "marca",
+              "rotulo": "Marca ou instituição",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "cliente",
+              "rotulo": "Marca representada",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Agência representando uma marca"
+              }
+            },
+            {
+              "nome": "incentivo",
+              "rotulo": "Lei pretendida",
+              "tipo": "select",
+              "obrig": false,
+              "so_se": {
+                "perfil": "Lei de incentivo à cultura ou ao esporte"
+              },
+              "opcoes": [
+                "Lei Rouanet",
+                "Lei de Incentivo ao Esporte",
+                "Lei estadual ou municipal",
+                "A definir"
+              ]
+            },
+            {
+              "nome": "objetivo",
+              "rotulo": "O que a marca busca",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Exposição em TV e streaming",
+                "Ativação de produto no evento",
+                "Naming rights",
+                "Conteúdo produzido na operação",
+                "Relacionamento com convidados",
+                "Território de marca em um segmento"
+              ]
+            },
+            {
+              "nome": "segmento",
+              "rotulo": "Território pretendido",
+              "tipo": "text",
+              "obrig": false,
+              "so_se": {
+                "objetivo": "Território de marca em um segmento"
+              },
+              "dica": "Esporte, música, cultura, sustentabilidade, tecnologia."
+            },
+            {
+              "nome": "periodo",
+              "rotulo": "Período pretendido",
+              "tipo": "select",
+              "obrig": true,
+              "opcoes": [
+                "Próxima edição",
+                "Temporada inteira",
+                "Contrato de mais de um ano",
+                "A combinar"
+              ]
+            },
+            {
+              "nome": "verba",
+              "rotulo": "Faixa de investimento",
+              "tipo": "select",
+              "obrig": false,
+              "opcoes": [
+                "Até R$ 100 mil",
+                "De R$ 100 mil a R$ 500 mil",
+                "De R$ 500 mil a R$ 1 milhão",
+                "Acima de R$ 1 milhão",
+                "Prefiro conversar antes"
+              ],
+              "dica": "Ajuda a chegar com a cota certa na primeira resposta."
+            },
+            {
+              "nome": "nome",
+              "rotulo": "Seu nome",
+              "tipo": "text",
+              "obrig": true
+            },
+            {
+              "nome": "cargo",
+              "rotulo": "Cargo",
+              "tipo": "text",
+              "obrig": false
+            },
+            {
+              "nome": "email",
+              "rotulo": "E-mail",
+              "tipo": "email",
+              "obrig": true
+            },
+            {
+              "nome": "telefone",
+              "rotulo": "Telefone ou WhatsApp",
+              "tipo": "tel",
+              "obrig": false
+            },
+            {
+              "nome": "mensagem",
+              "rotulo": "O que mais devemos saber",
+              "tipo": "textarea",
+              "obrig": false
+            }
+          ]
+        }
       },
       {
         "id": "marcas",

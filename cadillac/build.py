@@ -2527,14 +2527,18 @@ def formulario(bid, form, caixa, depth):
         campos.append(f'<p class="campo"{cond}><label for="{nid}">{e(c["rotulo"])}'
                       + ("" if c.get("obrig") else ' <span>opcional</span>')
                       + f'</label>{entrada}{dica}</p>')
-    return f"""<form class="form-rel" data-form="{bid}" data-caixa="{e(caixa)}"
+    # O formulario fica atras de um botao. Aberto de uma vez, uma pagina com
+    # cinco deles vira uma parede de campos e ninguem acha o que procura.
+    return f"""<details class="form-abre" id="form-{bid}">
+<summary class="pill-link">{e(form['titulo'])} {icon('arrow_forward')}</summary>
+<div class="form-corpo">
+<form class="form-rel" data-form="{bid}" data-caixa="{e(caixa)}"
       data-assunto="{e(form['titulo'])}">
-<h3>{e(form['titulo'])}</h3>
 <p class="form-intro">{e(form['intro'])}</p>
 <div class="campos">{''.join(campos)}</div>
 <div class="form-pe"><button type="submit" class="pill-link">Enviar {icon('mail')}</button>
 <small>Abre seu programa de e-mail com tudo preenchido. Anexo, se houver, entra ali.</small></div>
-</form>"""
+</form></div></details>"""
 
 
 def contatos_rapidos(depth, titulo="Prefere outro caminho"):
@@ -2595,10 +2599,19 @@ def page_relacionamento():
             extra = f'<div class="logo-wall">{marcas}</div>'
         if b.get("propriedades"):
             # as propriedades que se patrocinam, cada uma levando a propria pagina
+            # Dois caminhos por propriedade: conhecer ou patrocinar. O segundo
+            # abre o formulario do bloco com a propriedade ja escolhida.
             cartoes = "".join(
-                f'<a class="prop-card" href="{p}projetos/{e(slug)}/">'
+                f'<article class="prop-card">'
                 f'<h3>{e(nome)}</h3><p>{e(desc)}</p>'
-                f'<span class="prop-ver">Ver a propriedade {icon("arrow_outward")}</span></a>'
+                f'<div class="prop-pe">'
+                f'<a class="prop-ver" href="{p}projetos/{e(slug)}/">'
+                f'Ver a propriedade {icon("arrow_outward")}</a>'
+                + (f'<button type="button" class="prop-quero" '
+                   f'data-abre="form-{b["id"]}" data-campo="{b["id"]}-propriedade" '
+                   f'data-escolha="{e(nome)}">Quero patrocinar {icon("campaign")}</button>'
+                   if b.get("form") else "")
+                + '</div></article>'
                 for slug, nome, desc in b["propriedades"] if slug in by_slug)
             extra += (f'<div class="prop-grade">{cartoes}</div>'
                       + paragrafo_nota(b.get("propriedades_nota")))

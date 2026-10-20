@@ -314,6 +314,29 @@
      assume o valor esperado: quem vem oferecer um show não lê as perguntas
      de atleta. Enquanto escondido, ele também perde o "required", senão o
      navegador barraria o envio por um campo que ninguém vê. */
+  /* O botao de uma propriedade abre o formulario do bloco com ela ja
+     escolhida, rola ate ele e poe o foco no primeiro campo que falta. */
+  [].slice.call(document.querySelectorAll('[data-abre]')).forEach(function (bt) {
+    bt.addEventListener('click', function () {
+      var caixa = document.getElementById(bt.getAttribute('data-abre'));
+      if (!caixa) return;
+      caixa.open = true;
+      var campo = document.getElementById(bt.getAttribute('data-campo'));
+      if (campo) {
+        campo.value = bt.getAttribute('data-escolha');
+        campo.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      caixa.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var form = caixa.querySelector('form');
+      var falta = form && [].slice.call(form.querySelectorAll(
+        'input:not([disabled]),select:not([disabled]),textarea:not([disabled])'))
+        .filter(function (el) { return !(el.value || '').trim(); })[0];
+      if (falta) {
+        setTimeout(function () { falta.focus({ preventScroll: true }); }, 350);
+      }
+    });
+  });
+
   [].slice.call(document.querySelectorAll('.form-rel')).forEach(function (form) {
     var condicionais = [].slice.call(form.querySelectorAll('[data-so-se]'));
 

@@ -1936,10 +1936,31 @@ def page_artista(nome, onde):
     alvo = slugify(nome)
     trail_html, trail_ld = crumbs(depth, [("Artistas", p + "artistas/"), (nome, None)])
 
-    iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
-    img = (f'<figure class="atleta-figura">'
-           f'<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>'
-           f'</figure>')
+    ficha = MODEL["elenco"].get("fichas", {}).get(alvo, {})
+    arq = ROOT / "assets" / "fotos" / (ficha.get("foto") or "")
+    if ficha.get("foto") and arq.exists():
+        img = (f'<figure class="atleta-figura">'
+               f'<img class="pessoa-foto" src="{p}assets/fotos/{e(ficha["foto"])}" '
+               f'alt="{e(nome)}" width="800" height="800"></figure>')
+    else:
+        iniciais = "".join(w[0] for w in nome.split()[:2]).upper()
+        img = (f'<figure class="atleta-figura">'
+               f'<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>'
+               f'</figure>')
+
+    destaques = "".join(
+        f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}'
+        + (f'<small class="out">{fonte_link(f, "")}</small>' if f else "")
+        + "</p></div>"
+        for i, (t, f) in enumerate(ficha.get("destaques") or [], start=1))
+
+    palcos = sorted({papel for _, _, papel, _ in onde})
+    anos = sorted({a for _, a, _, _ in onde if a.isdigit()})
+    eventos = sorted({pr["name"] for pr, _, _, _ in onde})
+    resumo = (f'{nome} aparece em {plural(len(onde), "edição", "edições")} '
+              f'deste acervo, em {plural(len(eventos), "evento", "eventos")}'
+              + (f', entre {anos[0]} e {anos[-1]}' if len(anos) > 1 else
+                 f', em {anos[0]}' if anos else '') + '.')
 
     linhas = []
     for pr, ano, papel, fonte in onde:
@@ -1971,8 +1992,13 @@ def page_artista(nome, onde):
 <a class="back" href="{p}artistas/">{icon('arrow_back')} Todos os artistas</a>
 <div class="atleta-topo"><div class="atleta-retrato">{img}</div>
 <div><h1>{e(nome)}<span class="orange">.</span></h1>
-<p class="lede">{e(onde[0][2])}</p>
-<div class="taglist"><span>{icon('music_note')} {plural(len(onde), 'edição no acervo', 'edições no acervo')}</span></div></div></div></section>
+<p class="lede">{e(ficha.get('bio') or onde[0][2])}</p>
+<div class="taglist"><span>{icon('music_note')} {e(onde[0][2])}</span>
+<span>{icon('calendar_month')} {plural(len(onde), 'edição no acervo', 'edições no acervo')}</span></div></div></div></section>
+<section class="container facts-section"><hr class="rule">
+<h2 class="section-title">DOSSIÊ<br><em>DO ARTISTA.</em></h2>
+<div class="facts">{destaques or f'<div class="fact"><span class="n">01</span><p>{e(resumo)}</p></div>'}</div>
+{'' if destaques else '<p class="note">A ficha ainda não tem fatos levantados além do que a tabela abaixo registra. Entram aqui quando houver fonte, como nas fichas de atleta.</p>'}</section>
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>
 <p class="body-copy">As edições deste acervo em que a apresentação está registrada, da mais

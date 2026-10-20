@@ -1,5 +1,5 @@
 {
-  "version": 47,
+  "version": 48,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -4284,7 +4284,8 @@
         ]
       }
     },
-    "note": "Nomes recuperados da programação oficial e da cobertura de imprensa de cada edição, com a fonte ao lado. Onde as publicações divergem sobre palco, dia ou grafia do nome, a divergência está escrita na própria linha em vez de ser resolvida por conta própria. Aparecer aqui significa ter se apresentado no evento, não ter sido contratado pela Cadillac."
+    "note": "Nomes recuperados da programação oficial e da cobertura de imprensa de cada edição, com a fonte ao lado. Onde as publicações divergem sobre palco, dia ou grafia do nome, a divergência está escrita na própria linha em vez de ser resolvida por conta própria. Aparecer aqui significa ter se apresentado no evento, não ter sido contratado pela Cadillac.",
+    "fichas": {}
   },
   "datas": {
     "status": {

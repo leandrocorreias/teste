@@ -1336,3 +1336,18 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
 .kpi-selo.kpi-interno{background:var(--graphite);color:#fff}
 .kpi-selo.kpi-a-medir{background:#f5f3ee;color:#9a9590;border:1px dashed #d6d2ca}
 a.kpi-selo:hover{filter:brightness(.94)}
+
+/* Alinhamento da linha de baixo do rodapé.
+   Em grade, e não em flex com espaço entre: assim os três blocos ficam em
+   colunas fixas no desktop e empilhados à esquerda no celular, sem a
+   irregularidade de espaçamento que o wrap do flex produzia. */
+.foot-bottom{display:grid;align-items:center;gap:12px 24px;
+  grid-template-columns:auto 1fr auto;padding-bottom:4px}
+.foot-bottom>span{justify-self:start}
+.foot-bottom .foot-gov-nav{justify-self:center;gap:7px 16px;padding-right:0}
+.foot-bottom .foot-by{justify-self:end;margin-left:0;padding-right:clamp(0px,5vw,66px)}
+@media(max-width:1180px){
+  .foot-bottom{grid-template-columns:1fr;gap:14px}
+  .foot-bottom .foot-gov-nav{justify-self:start}
+  .foot-bottom .foot-by{justify-self:start;padding-right:0}
+}

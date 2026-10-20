@@ -631,12 +631,6 @@ def page_home():
         f'<span class="svc-i">{icon(a["icon"])}</span><h3>{e(a["title"])}</h3>'
         f'<p>{e(a["lede"])}</p><span class="card-arrow">{icon("arrow_outward")}</span></a>'
         for a in MODEL["atuacao"]["areas"])
-    highlights = []
-    for pr in PROJECTS[-3:]:
-        cat = CATS[pr["category"]]
-        highlights.append(f"""<article>
-<h3>{e(pr['name'])}</h3><p>{e(pr['desc'])}</p>
-<a class="pill-link" href="./projetos/{pr['slug']}/">Conhecer {icon('arrow_outward')}</a></article>""")
     logos = []
     for c in MODEL["clientes"]["itens"]:
         arq = ROOT / "assets" / "marcas" / c["logo"]
@@ -671,14 +665,10 @@ def page_home():
 </div>
 <div class="works-grid">{cards}</div>
 <div class="section-end"><a class="pill-link" href="./projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>
-<section class="container editorial" id="historias">
-<hr class="rule">
-<h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
-<div class="article-grid">{''.join(highlights)}</div></section>
 <section class="container clientes"><hr class="rule">
 <h2 class="section-title">NOSSOS<br><em>PARCEIROS.</em></h2>
 <div class="logo-wall">{logos}</div>
-<p class="note">{e(MODEL['clientes']['nota'])}</p></section>
+{f'<p class="note">{e(MODEL["clientes"]["nota"])}</p>' if MODEL['clientes'].get('nota') else ''}</section>
 <section class="statement" id="sobre"><div class="container statement-grid">
 <div><h2>O IMPOSSÍVEL<br>NÃO ENTRA <em>NA PLANILHA.</em></h2>
 {''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}
@@ -690,7 +680,6 @@ def page_home():
 <div class="section-end"><a class="pill-link" href="./atuacao/">Como a gente trabalha, com casos {icon('arrow_outward')}</a></div></section>
 <section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
-<hr class="rule">
 <div class="editorial-header"><h2 class="section-title">NA<br><em>MÍDIA.</em></h2>
 <a class="pill-link" href="./na-midia/">Ver todas as fontes {icon('arrow_outward')}</a></div>
 <div class="article-grid">{press_html}</div></section>

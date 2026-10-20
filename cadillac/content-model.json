@@ -1,5 +1,5 @@
 {
-  "version": 49,
+  "version": 50,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -4805,7 +4805,7 @@
         "logo": "ccbb.svg"
       }
     ],
-    "nota": "Presença nesta lista indica relação identificada em fonte pública no projeto indicado. Não significa contrato com a Cadillac nem relação de cliente continuada. Use apenas logotipos com autorização de uso da marca."
+    "nota": ""
   },
   "cases": {
     "lede": "Desafio, solução, entrega e resultado de cada edição, no formato que um patrocinador lê.",

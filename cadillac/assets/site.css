@@ -1096,8 +1096,7 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
 .hero-bottom p{font-weight:700}
 
 /* Rodapé reorganizado: cinco famílias em cima, governança na linha de baixo */
-.foot-bottom .foot-gov-nav{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
-  padding-right:clamp(0px,5vw,66px)}
+.foot-bottom .foot-gov-nav{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
 .foot-bottom .foot-gov-nav a{font-size:12px;color:rgba(255,255,255,.62);
   border-bottom:1px solid transparent;transition:color .2s ease,border-color .2s ease}
 .foot-bottom .foot-gov-nav a:hover,
@@ -1263,3 +1262,14 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
 /* Área de atuação do cartão: só o ícone, com o rótulo no title e para leitor de tela */
 .card-meta .meta-area{gap:0}
 .card-meta .meta-area .mi{font-size:17px}
+
+/* Assinatura de quem fez, no canto inferior direito do rodapé */
+.foot-by{display:inline-flex;align-items:center;gap:6px;margin-left:auto;
+  padding-right:clamp(0px,5vw,66px);
+  font:400 12px/1 var(--font-text);color:rgba(255,255,255,.5);white-space:nowrap;
+  transition:color .2s ease}
+.foot-by strong{font-weight:700;color:rgba(255,255,255,.78)}
+.foot-by .mi{font-size:14px}
+.foot-by:hover,.foot-by:focus-visible{color:#fff}
+.foot-by:hover strong,.foot-by:focus-visible strong{color:var(--orange)}
+@media(max-width:700px){.foot-by{margin-left:0}}

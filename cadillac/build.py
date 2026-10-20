@@ -280,6 +280,7 @@ def footer(depth):
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
 <div class="container foot-bottom"><span>© {ANO_BASE}–{ANO_ATUAL} {e(SITE['name'])} Ltda.</span>
 <nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav>
+<a class="foot-by" href="https://instfy.com" target="_blank" rel="noopener noreferrer">Powered by <strong>instfy</strong> {icon('open_in_new')}</a>
 </div></footer>
 <a class="to-top" href="#top" aria-label="Voltar ao topo">{icon('north')}</a>
 </body></html>"""
@@ -308,8 +309,8 @@ def bloco_fontes(sources, depth, titulo):
     if not sources:
         return f"""<section class="container sources"><hr class="rule">
 <h2>NA MÍDIA.</h2>
-<p class="body-copy">A cobertura de imprensa dos projetos está reunida em um acervo
-único, organizado por projeto.</p>{ir_para_midia}</section>"""
+<p class="body-copy">A cobertura de imprensa dos eventos está reunida em um acervo
+único, organizado por evento.</p>{ir_para_midia}</section>"""
     return f"""<section class="container sources"><hr class="rule">
 <h2>{titulo}</h2>{source_list(sources)}{ir_para_midia}</section>"""
 
@@ -679,22 +680,22 @@ def page_home():
 <h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
 <div class="article-grid">{''.join(highlights)}</div></section>
 <section class="container clientes"><hr class="rule">
-<h2 class="section-title">COM QUEM<br><em>A GENTE TRABALHA.</em></h2>
+<h2 class="section-title">NOSSOS<br><em>PARCEIROS.</em></h2>
 <div class="logo-wall">{logos}</div>
 <p class="note">{e(MODEL['clientes']['nota'])}</p></section>
 <section class="statement" id="sobre"><div class="container statement-grid">
 <div><h2>O IMPOSSÍVEL<br>NÃO ENTRA <em>NA PLANILHA.</em></h2>
 {''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}
-<p class="statement-meta">{e(SITE['legal'])} · CNPJ {SITE['cnpj']} · Desde {e(SITE['founded'])} · {e(SITE['origin'])}</p></div></div></section>
+</div></div></section>
 <section class="container services" id="atuacao">
 <hr class="rule">
-<h2 class="section-title">DA IDEIA À<br><em>EXPERIÊNCIA.</em></h2>
+<h2 class="section-title">DA EXECUÇÃO<br><em>AOS DADOS.</em></h2>
 <div class="service-list">{services}</div>
 <div class="section-end"><a class="pill-link" href="./atuacao/">Como a gente trabalha, com casos {icon('arrow_outward')}</a></div></section>
 <section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
 <hr class="rule">
-<div class="editorial-header"><h2 class="section-title">HISTÓRIAS<br>QUE CIRCULAM.</h2>
+<div class="editorial-header"><h2 class="section-title">CADILLAC<br>NA MÍDIA.</h2>
 <a class="pill-link" href="./na-midia/">Ver todas as fontes {icon('arrow_outward')}</a></div>
 <div class="article-grid">{press_html}</div></section>
 <section class="contact" id="contato"><div class="container"><h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>
@@ -809,7 +810,7 @@ def page_project(pr):
     sections.append(faq_html)
     sections.append(creditos_projeto(pr, depth))
     sections.append(participacoes_block(pr, depth))
-    sections.append(bloco_fontes(pr["sources"], depth, "FONTES PARA IR ALÉM."))
+    sections.append(bloco_fontes(pr["sources"], depth, "MAIS NA MÍDIA."))
     n += 1
 
     related = [x for x in PROJECTS if x["slug"] != slug and x["category"] == pr["category"]]

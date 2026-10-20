@@ -4798,7 +4798,8 @@
         "nome": "Funarte",
         "papel": "Instituição cultural",
         "projeto": "arte-em-circuito",
-        "logo": "funarte.svg"
+        "logo": "funarte.png",
+        "altura": 51
       },
       {
         "nome": "CCBB",

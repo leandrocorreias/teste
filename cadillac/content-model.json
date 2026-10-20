@@ -4805,7 +4805,8 @@
         "nome": "CCBB",
         "papel": "Instituição cultural",
         "projeto": "ccbb-mac-bahia",
-        "logo": "ccbb.svg"
+        "logo": "ccbb.png",
+        "altura": 52
       }
     ],
     "nota": ""

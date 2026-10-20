@@ -925,6 +925,20 @@ a.fase-link:hover .fase-ir,a.fase-link:focus-visible .fase-ir{border-bottom-colo
 @media(max-width:1000px){.nav,.contact-nav{display:none}.hamburger{display:flex}}
 
 /* --- produtora --- */
+/* Manifesto: titulo a esquerda, prosa a direita.
+   O titulo herdava a margem de topo de .section-title (35px) e a prosa nao,
+   entao as duas colunas comecavam em alturas diferentes e o texto parecia
+   estar acima do titulo. Zerada a margem e com align-items:start, as duas
+   partem da mesma linha.
+   O titulo tambem transbordava: "MANIFESTO" no corpo de .section-title e mais
+   largo que a coluna de 359px e as letras encostavam no paragrafo ao lado.
+   Aqui ele e dimensionado pela largura da propria coluna. */
+#manifesto .resumo-grid{align-items:start}
+#manifesto .section-title{margin-top:0;margin-bottom:clamp(20px,2.6vw,30px);
+  font-size:clamp(34px,4.6vw,62px);line-height:.92;overflow-wrap:break-word}
+@media(min-width:900px){
+  #manifesto .section-title{font-size:min(clamp(34px,4.2vw,58px),13cqw)}
+}
 .manifesto-linhas{margin-top:clamp(18px,2.4vw,30px);
   border-left:3px solid var(--orange);padding-left:clamp(14px,1.8vw,22px)}
 .manifesto-linha{font:800 clamp(20px,2.5vw,31px)/1.1 var(--font-display);letter-spacing:-.015em;
@@ -1506,3 +1520,54 @@ main > .clientes:last-child{margin-bottom:0}
    que importa para o leitor de tela nao e a mesma do olho. */
 .papel-card h2{font-size:17px;line-height:1.3;margin:0 0 8px;
   display:flex;align-items:center;gap:9px}
+
+/* --- Submenu de segundo nível ---------------------------------------------
+   O painel da Produtora despejava onze links de uma vez. Agora mostra cinco,
+   e "Time" e "Nossa essência" abrem para o lado. O gatilho é hover e foco,
+   como o nível de cima: continua sem JavaScript, e o teclado alcança tudo
+   porque :focus-within mantém o painel aberto enquanto o foco está dentro. */
+.nav-sub{position:relative}
+.nav-sub-top{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:34px;padding:3px 0;font:500 14px/1.3 var(--font-text);color:var(--ink);
+  text-decoration:none;cursor:pointer;transition:color var(--t),padding-left var(--t)}
+.nav-sub-top .mi{font-size:18px;color:var(--muted);transition:transform var(--t),color var(--t)}
+.nav-sub:hover>.nav-sub-top,.nav-sub:focus-within>.nav-sub-top{color:var(--orange-ink);padding-left:5px}
+.nav-sub:hover>.nav-sub-top .mi,
+.nav-sub:focus-within>.nav-sub-top .mi{color:var(--orange-ink);transform:translateX(3px)}
+.nav-sub-panel{position:absolute;top:-14px;left:100%;z-index:70;min-width:196px;
+  padding-left:10px;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .16s ease,transform .16s ease;transform:translateX(-6px)}
+.nav-sub:hover>.nav-sub-panel,
+.nav-sub:focus-within>.nav-sub-panel{opacity:1;visibility:visible;pointer-events:auto;
+  transform:translateX(0)}
+.nav-sub-panel>.nav-links{background:var(--white);border:1px solid var(--border);
+  border-top:3px solid var(--orange);padding:clamp(12px,1.4vw,18px);
+  box-shadow:0 18px 44px #10101018}
+/* Perto da borda direita o painel filho sairia da tela: abre para a esquerda. */
+.nav-item:last-of-type .nav-sub-panel,
+.nav-item:nth-last-of-type(2) .nav-sub-panel{left:auto;right:100%;padding-left:0;padding-right:10px}
+
+/* No celular o submenu é um acordeão dentro do acordeão. */
+.mob-sub{border-top:1px solid var(--border)}
+.mob-sub>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 0;font:700 13px/1.3 var(--font-text);letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink);cursor:pointer;list-style:none}
+.mob-sub>summary::-webkit-details-marker{display:none}
+.mob-sub>summary .mi{transition:transform var(--t)}
+.mob-sub[open]>summary .mi{transform:rotate(180deg)}
+.mob-sub>summary:hover{color:var(--orange-ink)}
+.mob-sub .mob-links{padding:0 0 8px 14px;border-left:2px solid var(--border)}
+
+/* Listas com seta. O <ul> ficava com o marcador padrão do navegador e ainda
+   recebia a seta dentro do <li>: dois sinais para a mesma coisa, uma bola e
+   uma seta lado a lado. Fica a seta, que é a do projeto, alinhada na margem
+   com recuo pendurado para a segunda linha não encostar nela. */
+.entrega{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px}
+.entrega li{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:10px;
+  line-height:1.62}
+.entrega li>.mi{font-size:18px;color:var(--orange-ink);margin-top:2px}
+
+/* Documento em vigor: a barra vira verde. A laranja marca pendência no resto
+   do site, e um documento aprovado não é pendência nenhuma. */
+.gov-vigente{border-left-color:#1e7a4a}
+.gov-vigente h2 .mi{color:#1e7a4a}

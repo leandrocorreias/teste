@@ -4,8 +4,8 @@
   "site": {
     "name": "Cadillac Produções e Filmes",
     "short": "Cadillac",
-    "url": "https://cadillacproducoes.com.br",
-    "email": "contato@cadillacproducoes.com.br",
+    "url": "https://cadillac.art.br",
+    "email": "contato@cadillac.art.br",
     "tagline": "Produção de eventos, projetos esportivos e culturais no Brasil.",
     "base_year": 2013,
     "legal": "Cadillac Produções e Filmes Ltda.",
@@ -3628,7 +3628,7 @@
         ]
       }
     },
-    "note": "Os campos em branco dependem de dado que fica com a produção: planilha de credenciamento, mapa de equipe, contrato de locação do espaço e lista de fornecedores. Preencha em operacao.fichas no content-model.json e rode o gerador."
+    "note": ""
   },
   "transmissoes": {
     "lede": "Todo evento aqui teve parceiro de transmissão. Esta é a lista do que foi ao ar, com o que é preciso registrar para que o número se sustente: a URL exata, a data da transmissão, a métrica e o dia em que ela foi lida.",
@@ -3770,7 +3770,7 @@
         ]
       }
     ],
-    "note": "Nenhuma contagem foi lida ainda. Para cada linha, o que falta é a URL do vídeo ou o relatório da emissora e a data da leitura. Preencha em transmissoes.registros no content-model.json: a linha passa a mostrar o número, a plataforma e quando foi medido."
+    "note": ""
   },
   "elenco": {
     "lede": "Quem esteve no palco, na pista e na linha de frente de cada edição, conforme os registros públicos.",
@@ -4306,7 +4306,63 @@
       }
     },
     "note": "Nomes recuperados da programação oficial e da cobertura de imprensa de cada edição, com a fonte ao lado. Onde as publicações divergem sobre palco, dia ou grafia do nome, a divergência está escrita na própria linha em vez de ser resolvida por conta própria. Aparecer aqui significa ter se apresentado no evento, não ter sido contratado pela Cadillac.",
-    "fichas": {}
+    "fichas": {},
+    "ordem": {
+      "João Gomes": 92,
+      "Marcelo Falcão": 92,
+      "BaianaSystem": 91,
+      "Bruno e Marrone": 91,
+      "Nando Reis": 91,
+      "Nação Zumbi": 91,
+      "Vanessa da Mata": 91,
+      "Jota.pê": 72,
+      "Black Alien": 71,
+      "DJ Marlboro": 71,
+      "Filipe Ret": 71,
+      "Grupo Revelação": 71,
+      "Jão": 71,
+      "L7nnon": 71,
+      "Lexa": 71,
+      "Mestrinho": 71,
+      "Toni Garrido": 71,
+      "André Frateschi": 57,
+      "DJ Papatinho": 56,
+      "Lary": 56,
+      "Mateus Fazeno Rock": 56,
+      "Nando Reis e Sebastião": 56,
+      "Os Garotin": 56,
+      "Rachel Reis": 56,
+      "Supla & Os Punks de Boutique": 56,
+      "Àttooxxá": 56,
+      "Oriente": 42,
+      "Brothers of Brazil": 41,
+      "Joyce Alane": 41,
+      "Lourena": 41,
+      "Melly": 41,
+      "Orquestra da Grota": 41,
+      "Orquestra Sinfônica Chiquinha Gonzaga": 41,
+      "2ZDinizz": 2,
+      "Banda Boca Seca": 1,
+      "Banda DuSouto": 1,
+      "Banda Fundec de Duque de Caxias": 1,
+      "Bicho Solto": 1,
+      "Bloco Pra Quem Gosta é Bom": 1,
+      "Blood Mary": 1,
+      "DJ Gabi Matos": 1,
+      "DJ Hey Doc": 1,
+      "DJ Iara Kavene": 1,
+      "DJ Milena Scheide": 1,
+      "DJ Pauly": 1,
+      "DKV": 1,
+      "Gabi": 1,
+      "Hellbenders": 1,
+      "Ian Medeiros": 1,
+      "Navala": 1,
+      "Os Transacionais": 1,
+      "Rastacry": 1,
+      "Reação em Cadeia": 1,
+      "Tali": 1
+    }
   },
   "datas": {
     "status": {
@@ -4775,7 +4831,7 @@
         ]
       }
     },
-    "nota": "Vínculo aqui significa atuação registrada em fonte pública ou informada pela direção da Cadillac. Cargo, bio, foto e vínculo por projeto de cada pessoa entram conforme a direção confirma: os campos em aberto aparecem marcados, com o caminho exato no modelo de conteúdo."
+    "nota": ""
   },
   "clientes": {
     "lede": "Marcas, instituições e entidades que aparecem nos registros dos projetos.",
@@ -4835,7 +4891,7 @@
         "O desenho que a Cadillac propôs"
       ],
       "entrega": [
-        "O que entregamos",
+        "Entregas",
         "Lista do que foi operado, item a item"
       ],
       "resultado": [
@@ -4952,9 +5008,9 @@
     ],
     "contato": {
       "nome": "Assessoria e imprensa",
-      "email": "contato@cadillacproducoes.com.br"
+      "email": "contato@cadillac.art.br"
     },
-    "nota": "Arquivos que ainda não existem aparecem como espaço reservado, com o caminho esperado."
+    "nota": ""
   },
   "contato": {
     "lede": "Eventos, parcerias, patrocínio ou imprensa. Respondemos em até dois dias úteis.",
@@ -5001,7 +5057,7 @@
     "canais": [
       [
         "E-mail",
-        "contato@cadillacproducoes.com.br",
+        "contato@cadillac.art.br",
         "mail"
       ],
       [
@@ -5020,7 +5076,8 @@
         "public"
       ]
     ],
-    "nota": "O formulário precisa de um endereço de envio para funcionar em site estático. Preencha contato.endpoint com a URL do serviço escolhido, por exemplo Formspree ou Basin. Sem endpoint, o botão abre o e-mail do visitante com o assunto já preenchido."
+    "nota": "",
+    "email_formularios": "relacionamento@cadillac.art.br"
   },
   "en": {
     "titulo": "Cadillac Produções & Filmes",
@@ -5128,7 +5185,8 @@
         "fonte": [
           "Meio & Mensagem, Rayssa Leal é a nova patrocinada do BB",
           "https://www.meioemensagem.com.br/marketing/rayssa-leal-e-a-nova-patrocinada-do-bb"
-        ]
+        ],
+        "ordem": 86
       },
       {
         "slug": "italo-ferreira",
@@ -5161,7 +5219,8 @@
         "fonte": [
           "Poder360, Banco do Brasil como incentivador do surfe nacional",
           "https://www.poder360.com.br/opiniao/banco-do-brasil-se-consolida-como-incentivador-do-surfe-nacional/"
-        ]
+        ],
+        "ordem": 193
       },
       {
         "slug": "isaquias-queiroz",
@@ -5208,7 +5267,8 @@
         "fonte": [
           "Máquina do Esporte, BB acerta patrocínio ao campeão olímpico Isaquias Queiroz",
           "https://maquinadoesporte.com.br/outros/banco-do-brasil-acerta-patrocinio-ao-campeao-olimpico-isaquias-queiroz"
-        ]
+        ],
+        "ordem": 133
       },
       {
         "slug": "augusto-akio",
@@ -5287,7 +5347,8 @@
         "fonte": [
           "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
           "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
-        ]
+        ],
+        "ordem": 179
       },
       {
         "slug": "ana-patricia",
@@ -5324,7 +5385,8 @@
         "fonte": [
           "Apresentação oficial Festival Tamo Junto BB · documento da produção",
           null
-        ]
+        ],
+        "ordem": 13
       },
       {
         "slug": "duda-lisboa",
@@ -5361,7 +5423,8 @@
         "fonte": [
           "Apresentação oficial Festival Tamo Junto BB · documento da produção",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "gui-khury",
@@ -5401,7 +5464,8 @@
         "fonte": [
           "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
           "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "helena-laurino",
@@ -5434,7 +5498,8 @@
         "fonte": [
           "Lance, Gui Khury vence a etapa de Goiânia do Vert Battle",
           "https://www.lance.com.br/mais-esportes/apos-vitoria-de-khury-vert-battle-chega-a-niteroi-para-a-2a-etapa-do-campeonato-brasileiro.html"
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "luigi-cini",
@@ -5481,7 +5546,8 @@
         "fonte": [
           "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
           "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
-        ]
+        ],
+        "ordem": 163
       },
       {
         "slug": "raicca-ventura",
@@ -5535,7 +5601,8 @@
         "fonte": [
           "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
           "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
-        ]
+        ],
+        "ordem": 173
       },
       {
         "slug": "davison-fortunato",
@@ -5610,7 +5677,8 @@
         "fonte": [
           "Máquina do Esporte, BB fecha patrocínio a mais seis skatistas",
           "https://maquinadoesporte.com.br/skate/banco-do-brasil-investe-no-skate-e-fecha-patrocinio-a-mais-seis-atletas/"
-        ]
+        ],
+        "ordem": 73
       },
       {
         "slug": "daniela-vitoria",
@@ -5650,7 +5718,8 @@
         "fonte": [
           "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
           "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
-        ]
+        ],
+        "ordem": 13
       },
       {
         "slug": "felipe-nunes",
@@ -5673,7 +5742,8 @@
         "fonte": [
           "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
           "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "nando-araujo",
@@ -5696,7 +5766,8 @@
         "fonte": [
           "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
           "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "marina-gabriela",
@@ -5719,7 +5790,8 @@
         "fonte": [
           "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
           "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "filipe-mota",
@@ -5742,7 +5814,8 @@
         "fonte": [
           "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
           "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "tatiana-weston-webb",
@@ -5765,7 +5838,8 @@
         "fonte": [
           "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
           "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "filipe-toledo",
@@ -5788,7 +5862,8 @@
         "fonte": [
           "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
           "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "taina-hinckel",
@@ -5811,7 +5886,8 @@
         "fonte": [
           "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
           "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "silvana-lima",
@@ -5834,7 +5910,8 @@
         "fonte": [
           "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
           "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "juliana-santos",
@@ -5857,7 +5934,8 @@
         "fonte": [
           "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
           "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
-        ]
+        ],
+        "ordem": 10
       },
       {
         "slug": "dan-sabino",
@@ -5890,7 +5968,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "rony-gomes",
@@ -5939,7 +6018,8 @@
         "fonte": [
           "CBSk, etapa de Belo Horizonte",
           "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
-        ]
+        ],
+        "ordem": 6
       },
       {
         "slug": "dora-varella",
@@ -5981,7 +6061,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 6
       },
       {
         "slug": "yndiara-asp",
@@ -6023,7 +6104,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 6
       },
       {
         "slug": "marina-lima",
@@ -6063,7 +6145,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "pietro-nunes",
@@ -6096,7 +6179,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "lua-vicente",
@@ -6129,7 +6213,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "manu-tomitake",
@@ -6162,7 +6247,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "dan-cezar",
@@ -6195,7 +6281,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "diego-takahashi",
@@ -6228,7 +6315,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "sofia-curi",
@@ -6261,7 +6349,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "thomas-augusto",
@@ -6294,7 +6383,8 @@
         "fonte": [
           "CBSk, etapa de Belo Horizonte",
           "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "maria-luiza-santiago",
@@ -6327,7 +6417,8 @@
         "fonte": [
           "CBSk, etapa de Belo Horizonte",
           "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "jd-sanchez",
@@ -6367,7 +6458,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "arisa-trew",
@@ -6400,7 +6492,8 @@
         "fonte": [
           "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "pedro-barros",
@@ -6433,7 +6526,8 @@
         "fonte": [
           "Projeto Itacoatiara Pro 10 anos · documento da produção",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "isadora-pacheco",
@@ -6466,7 +6560,8 @@
         "fonte": [
           "Projeto Itacoatiara Pro 10 anos · documento da produção",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "italo-penarrubia",
@@ -6499,7 +6594,8 @@
         "fonte": [
           "Projeto Itacoatiara Pro 10 anos · documento da produção",
           null
-        ]
+        ],
+        "ordem": 3
       },
       {
         "slug": "vitor-ferreira",
@@ -6532,7 +6628,8 @@
         "fonte": [
           "ge, Vitor Ferreira campeão no surfe",
           "https://ge.globo.com/surfe/noticia/2026/06/06/vitor-ferreira-conquista-o-titulo-do-campeonato-profissional-de-surf-no-itacoatiara-pro-2026.ghtml"
-        ]
+        ],
+        "ordem": 3
       }
     ],
     "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição, na cobertura de imprensa de um projeto do acervo ou na lista de patrocinados do Banco do Brasil. Não significa contrato com a Cadillac nem patrocínio da empresa. A composição do squad muda ao longo do tempo: as fontes recuperadas são de 2022 a 2025, e a lista oficial atual está nos canais do próprio banco. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte.",
@@ -6586,7 +6683,7 @@
           "projetos/"
         ]
       ],
-      "nota": "Cada marco desta linha tem a fonte na página do projeto correspondente. Não registrar um ano aqui não significa ausência de trabalho naquele ano."
+      "nota": ""
     },
     "manifesto": {
       "titulo": "Manifesto",
@@ -6690,7 +6787,7 @@
         "pendencia": "Não há vagas abertas publicadas no momento, e o banco de talentos ainda não tem formulário próprio."
       }
     ],
-    "nota": "Enquanto os formulários específicos não entram no ar, todos os caminhos acima passam pelo contato da produção."
+    "nota": ""
   },
   "governanca": {
     "titulo": "Governança e políticas",
@@ -6704,7 +6801,7 @@
         "versao": "1.0",
         "tipo": "Documento institucional",
         "icone": "verified",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "Princípios que orientam as decisões da empresa e a relação com clientes, patrocinadores, fornecedores, poder público e comunidades.",
         "secoes": [
           {
@@ -6798,7 +6895,8 @@
               "Violações podem resultar em medidas corretivas, disciplinares ou contratuais, respeitados a legislação e o direito de defesa."
             ]
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       },
       {
         "slug": "codigo-de-conduta",
@@ -6808,7 +6906,7 @@
         "versao": "1.0",
         "tipo": "Documento operacional",
         "icone": "groups",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "Regras de comportamento esperadas de sócios, equipe, fornecedores e prestadores durante a operação dos eventos.",
         "secoes": [
           {
@@ -6892,7 +6990,8 @@
               "O descumprimento deste Código pode resultar em orientação formal, advertência, afastamento de atividade, rescisão contratual ou encaminhamento às autoridades competentes, conforme a gravidade e a legislação aplicável."
             ]
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       },
       {
         "slug": "privacidade",
@@ -6902,7 +7001,7 @@
         "versao": "1.0",
         "tipo": "Proteção de dados pessoais",
         "icone": "description",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "Como dados pessoais são coletados, usados, armazenados e eliminados, e quais são os direitos do titular segundo a Lei Geral de Proteção de Dados.",
         "secoes": [
           {
@@ -6926,11 +7025,11 @@
               ],
               [
                 "Contato de privacidade",
-                "contato@cadillacproducoes.com.br"
+                "contato@cadillac.art.br"
               ],
               [
                 "Encarregado (DPO)",
-                null
+                "dpo@cadillac.art.br"
               ]
             ]
           },
@@ -7034,7 +7133,8 @@
               "A versão vigente e sua data de atualização permanecem disponíveis nesta página."
             ]
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       },
       {
         "slug": "cookies",
@@ -7044,7 +7144,7 @@
         "versao": "1.0",
         "tipo": "Tecnologias de navegação",
         "icone": "public",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "O que este site guarda no seu navegador, quais provedores externos ele contata e o que você pode controlar.",
         "secoes": [
           {
@@ -7143,7 +7243,8 @@
               "Não é correto afirmar que todo site precisa de banner de cookies. A necessidade depende das tecnologias utilizadas e das bases legais aplicáveis — e, hoje, este site não utiliza tecnologia que a exija."
             ]
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       },
       {
         "slug": "preferencias-de-cookies",
@@ -7153,7 +7254,7 @@
         "versao": "1.0",
         "tipo": "Controle de privacidade",
         "icone": "filter_list",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "O estado atual das tecnologias deste site e o que você pode controlar hoje.",
         "secoes": [
           {
@@ -7230,7 +7331,8 @@
             ],
             "destaque": "Enquanto essas três condições não puderem ser cumpridas tecnicamente, a tecnologia não entra no site."
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       },
       {
         "slug": "canal-de-etica",
@@ -7240,7 +7342,7 @@
         "versao": "1.0",
         "tipo": "Integridade e comunicação",
         "icone": "campaign",
-        "estado": "minuta",
+        "estado": "vigente",
         "resumo": "Como comunicar conduta contrária aos princípios da empresa, às políticas internas ou à legislação.",
         "secoes": [
           {
@@ -7297,7 +7399,7 @@
             "dados": [
               [
                 "E-mail para relatos",
-                "contato@cadillacproducoes.com.br"
+                "contato@cadillac.art.br"
               ],
               [
                 "Assunto sugerido",
@@ -7322,7 +7424,8 @@
               "Registro de casos e indicadores anuais para prestação de contas a patrocinadores."
             ]
           }
-        ]
+        ],
+        "aprovado_em": "2026-10-20"
       }
     ],
     "estados": {
@@ -7332,11 +7435,11 @@
       ],
       "vigente": [
         "Vigente",
-        "Documento aprovado pela direção e em vigor."
+        "Documento aprovado pela direção da Cadillac e em vigor."
       ]
     },
     "nota": "",
-    "aviso": "Os seis documentos abaixo são minutas. Estão publicados para leitura e revisão, não como políticas formalmente aprovadas. A Política de privacidade e a Política de cookies descrevem o funcionamento real deste site, auditado no código publicado; os códigos de ética e de conduta precisam ser adotados formalmente pela empresa para produzirem efeito.",
+    "aviso": "Os seis documentos abaixo estão aprovados pela direção e em vigor. A Política de privacidade e a Política de cookies descrevem o funcionamento real deste site, auditado no código publicado.",
     "pendencias": {
       "titulo": "O que falta para virarem documentos oficiais",
       "itens": [
@@ -7345,20 +7448,8 @@
           "A Política de privacidade precisa informar o endereço do controlador. Não consta no modelo."
         ],
         [
-          "Contato de privacidade dedicado",
-          "Hoje aponta para o e-mail geral. O recomendado é um endereço próprio, como privacidade@, que não se misture a propostas comerciais."
-        ],
-        [
-          "Encarregado pelo tratamento de dados",
-          "A LGPD pede a indicação de um encarregado e a divulgação de sua identidade."
-        ],
-        [
           "Destinatário do Canal de ética",
           "Precisa ser independente dos sócios, com alçada para apurar conduta da direção."
-        ],
-        [
-          "Aprovação formal",
-          "Cada documento precisa de data de aprovação, data de vigência e responsável pela aprovação."
         ],
         [
           "Revisão jurídica",

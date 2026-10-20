@@ -94,13 +94,17 @@ NAV = [
         (None, [("Nossa história", "produtora/#historia"),
                 ("Manifesto", "produtora/#manifesto"),
                 ("Atuação", "atuacao/")]),
-        # "Sócios" saiu: o grupo deixou de existir quando os socios e a equipe
-        # fixa viraram um bloco so. O link ainda resolvia, mas levava a uma
-        # ancora cujo titulo na pagina ja era outro.
-        ("Nosso time", [("Equipe", "equipe/"),
-                        ("Atletas", "atletas/"),
-                        ("Artistas", "artistas/")]),
-        ("Nossa essência", [("Missão", "produtora/#missao"),
+        # Time e Nossa essência sao submenus, nao rotulos. Antes o painel da
+        # Produtora despejava os onze links de uma vez, com os titulos de grupo
+        # servindo so de separador visual: a lista inteira abria junto e quem
+        # procurava "Atuação" varria onze linhas. Agora o painel mostra cinco
+        # itens e estes dois abrem o proprio nivel.
+        ("Time", "equipe/", [("Equipe", "equipe/"),
+                             ("Atletas", "atletas/"),
+                             ("Artistas", "artistas/"),
+                             ("Parceiros", "parceiros/")]),
+        ("Nossa essência", "produtora/#missao",
+                           [("Missão", "produtora/#missao"),
                             ("Visão", "produtora/#visao"),
                             ("Valores", "produtora/#valores"),
                             ("Objetivos", "produtora/#objetivos")]),
@@ -240,14 +244,27 @@ def header(depth, active="", body_class=""):
     for i, (label, target, key, grupos) in enumerate(NAV):
         cur = ' aria-current="page"' if key == active else ""
         colunas, linhas_mob = [], []
-        for titulo, itens in grupos:
+        for grupo in grupos:
+            # (None, itens) e uma lista solta; (titulo, alvo, itens) e um
+            # submenu que abre o proprio nivel.
+            if len(grupo) == 2:
+                titulo, itens = grupo
+                alvo = None
+            else:
+                titulo, alvo, itens = grupo
             links = "".join(f'<a href="{home}{u}">{e(l)}</a>' for l, u in itens)
-            colunas.append(
-                (f'<p class="nav-grupo">{e(titulo)}</p>' if titulo else "")
-                + f'<div class="nav-links">{links}</div>')
-            if titulo:
-                linhas_mob.append(f'<p class="mob-grupo">{e(titulo)}</p>')
-            linhas_mob.append(links)
+            if alvo:
+                colunas.append(
+                    f'<div class="nav-sub"><a class="nav-sub-top" href="{home}{alvo}">'
+                    f'{e(titulo)}{icon("chevron_right")}</a>'
+                    f'<div class="nav-sub-panel"><div class="nav-links">{links}</div></div></div>')
+                # no celular o mesmo submenu e um acordeao dentro do acordeao
+                linhas_mob.append(
+                    f'<details class="mob-sub"><summary>{e(titulo)}{icon("expand_more")}</summary>'
+                    f'<div class="mob-links">{links}</div></details>')
+            else:
+                colunas.append(f'<div class="nav-links">{links}</div>')
+                linhas_mob.append(links)
         desk.append(
             f'<div class="nav-item"><a class="nav-top" href="{home}{target}"{cur}>{e(label)}'
             f'{icon("expand_more")}</a>'
@@ -451,6 +468,19 @@ def marca(p, nome, classe, eager=False):
     if not (ROOT / f"assets/{nome}.webp").exists():
         return img
     return f'<picture><source type="image/webp" srcset="{p}assets/{nome}.webp">{img}</picture>'
+
+
+def paragrafo_nota(texto):
+    """Um paragrafo de nota, ou nada.
+
+    Varias notas sao opcionais no modelo, e o gerador emitia o <p> de qualquer
+    jeito: esvaziar uma nota deixava um paragrafo oco ocupando espaco na
+    pagina. Eram 19 deles.
+    """
+    texto = (texto or "").strip()
+    if not texto:
+        return ""
+    return '<p class="note">' + e(texto) + '</p>'
 
 
 def photo_for(project, year=None):
@@ -760,7 +790,7 @@ def page_home():
     cards = "".join(card(pr, 0, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
     services = "".join(
         f'<a class="service-row" href="./atuacao/#{a["slug"]}">'
-        f'<span class="svc-i">{icon(a["icon"])}</span><h3>{e(a["title"])}</h3>'
+        f'<h3>{e(a["title"])}</h3>'
         f'<p>{e(a["lede"])}</p><span class="card-arrow">{icon("arrow_outward")}</span></a>'
         for a in MODEL["atuacao"]["areas"])
     logos = []
@@ -806,7 +836,7 @@ def page_home():
 <section class="clientes"><div class="container">
 <h2 class="section-title">NOSSOS<br><em>PARCEIROS.</em></h2>
 <div class="logo-wall">{logos}</div>
-{f'<p class="note">{e(MODEL["clientes"]["nota"])}</p>' if MODEL['clientes'].get('nota') else ''}</div></section>
+{f'{paragrafo_nota(MODEL["clientes"]["nota"])}' if MODEL['clientes'].get('nota') else ''}</div></section>
 <section class="statement" id="sobre"><div class="container statement-grid">
 <div><h2>O IMPOSSÍVEL NÃO<br>ENTRA <em>NA PLANILHA.</em></h2>
 {''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}
@@ -814,7 +844,7 @@ def page_home():
 <section class="container services" id="atuacao">
 <h2 class="section-title">DA EXECUÇÃO<br><em>AOS DADOS.</em></h2>
 <div class="service-list">{services}</div>
-<div class="section-end"><a class="pill-link" href="./atuacao/">Como a gente trabalha, com casos {icon('arrow_outward')}</a></div></section>
+<div class="section-end"><a class="pill-link" href="./atuacao/">Conheça nosso trabalho {icon('arrow_outward')}</a></div></section>
 <section class="dark-strip"><div class="container"><h2>NÃO É SÓ O QUE<br>ACONTECE. <em>É O QUE FICA.</em></h2></div></section>
 <section class="container editorial">
 <div class="editorial-header"><h2 class="section-title">NA<br><em>MÍDIA.</em></h2>
@@ -1007,7 +1037,7 @@ def shows_block(pr, year):
 <tbody>{''.join(linhas)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver local, situação e fonte.</p>
 {f'<h3 class="cases-title">Apresentações relacionadas</h3><div class="table-wrap"><table class="amounts reach-table">{cabecalho}<tbody>{"".join(rel)}</tbody></table></div>' if rel else ''}
-<p class="note">{e(ed.get('note_shows', ''))}</p></section>"""
+{paragrafo_nota(ed.get('note_shows', ''))}</section>"""
 
 
 def page_edition(pr, year):
@@ -1081,7 +1111,7 @@ def page_edition(pr, year):
 {slot(f'{slug}-{year}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide', depth, credito)}
 {slot(f'{slug}-{year}-02.jpg', '4:5', 'Bastidores', '', depth, credito)}
 {slot(f'{slug}-{year}-03.jpg', '4:5', 'Atletas e público', '', depth, credito)}</div>
-<p class="note">Os três espaços acima entram no ar assim que os arquivos forem colocados em <code>assets/fotos/</code> com esses nomes. Publique apenas imagem com direito de uso verificado.</p></section>
+</section>
 <section class="container insights">
 <hr class="rule">
 <div class="insight-content"><h2>ALÉM DA ARENA.</h2>
@@ -1428,15 +1458,15 @@ def contexto_block(pr):
     for chave, titulo, ic in (("necessidade", "A necessidade", "search"),
                               ("oportunidade", "A oportunidade", "insights")):
         if d.get("contexto", {}).get(chave):
-            blocos.append(f"""<div class="nucleo"><h3>{icon(ic)} {titulo}</h3>
+            blocos.append(f"""<div class="nucleo"><h3>{titulo}</h3>
 <p>{e(d['contexto'][chave])}</p></div>""")
     valor = "".join(
-        f"""<div class="nucleo vertical"><h3>{icon('verified')} {e(t)}</h3><p>{e(x)}</p></div>"""
+        f"""<div class="nucleo vertical"><h3>{e(t)}</h3><p>{e(x)}</p></div>"""
         for t, x in (d.get("valor") or []))
     return f"""<section class="container plano-section"><hr class="rule">
 <h2 class="section-title">O QUE ESTE EVENTO<br><em>RESOLVE.</em></h2>
 {f'<div class="nucleo-grid">{"".join(blocos)}</div>' if blocos else ''}
-{f'<h3 class="area-list-title">{icon("campaign")} Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
+{f'<h3 class="area-list-title">Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
 </section>"""
 
 
@@ -1446,13 +1476,13 @@ def frentes_block(pr):
     if not d:
         return ""
     cards = "".join(
-        f"""<div class="frente"><h3>{icon(ic)} {e(nome)}</h3><p>{e(txt)}</p></div>"""
+        f"""<div class="frente"><h3>{e(nome)}</h3><p>{e(txt)}</p></div>"""
         for nome, txt, ic in d["itens"])
     return f"""<section class="container reach-section"><hr class="rule">
 <h2 class="section-title">{e(d['titulo']).upper()}<br><em>{e(d['subtitulo'])}</em></h2>
 <p class="body-copy">{e(d['lede'])}</p>
 <div class="frentes-grid">{cards}</div>
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def antecedente_block(pr):
@@ -1463,10 +1493,10 @@ def antecedente_block(pr):
     fontes = " · ".join(fonte_link(f) for f in (d.get("fontes") or []))
     return f"""<section class="container papel-section"><hr class="rule">
 <h2 class="section-title">ANTES<br><em>DISSO.</em></h2>
-<div class="papel-card"><h3>{icon('calendar_month')} {e(d['titulo'])}</h3>
+<div class="papel-card"><h3>{e(d['titulo'])}</h3>
 <p>{e(d['texto'])}</p>
 {f'<div class="taglist">{fontes}</div>' if fontes else ''}</div>
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def kpis_block(pr):
@@ -1503,7 +1533,7 @@ def parceiros_block(pr, depth):
     return f"""<section class="container reach-section"><hr class="rule">
 <h2 class="section-title">QUEM ESTÁ<br><em>NESTE EVENTO.</em></h2>
 <div class="parceiros-grid">{cards}</div>
-<p class="note">{e(d.get('parceiros_nota') or 'Marcas e instituições identificadas no material oficial do projeto. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso.')}</p></section>"""
+{paragrafo_nota(d.get('parceiros_nota') or 'Marcas e instituições identificadas no material oficial do projeto. Presença aqui indica relação registrada no projeto, não contrato com a Cadillac. Logotipos só vão ao ar com autorização de uso.')}</section>"""
 
 
 def papel_block(pr):
@@ -1515,11 +1545,11 @@ def papel_block(pr):
     return f"""<section class="container papel-section"><hr class="rule">
 <h2 class="section-title">O PAPEL<br><em>DA CADILLAC.</em></h2>
 <div class="papel-card">
-<h3>{icon(data.get('icone', 'engineering'))} {e(data['rotulo'])}</h3>
+<h3>{e(data['rotulo'])}</h3>
 <p>{e(data['texto'])}</p>
 <div class="taglist"><span class="selo selo-{data['status'].replace(' ', '-')}">{icon(ic)} {e(rotulo)}</span>
 <span>{icon('description')} {e(data['fonte_texto'])}</span></div></div>
-<p class="note">{e(data['nota'])}</p></section>"""
+{paragrafo_nota(data['nota'])}</section>"""
 
 
 def historico_block(pr):
@@ -1552,7 +1582,7 @@ def historico_block(pr):
 <thead><tr><th scope="col">Edição</th><th scope="col">Onde</th><th scope="col">Público</th><th scope="col">Situação da data</th></tr></thead>
 <tbody>{''.join(linhas)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver público e situação da data.</p>
-<p class="note">{e(data['nota'])}</p></section>"""
+{paragrafo_nota(data['nota'])}</section>"""
 
 
 def mercado_block(pr):
@@ -1568,7 +1598,7 @@ def mercado_block(pr):
 <h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
 <p class="body-copy">{e(data['lede'])}</p>
 <div class="op-grid">{tiles}</div>
-<p class="note">{e(data['nota'])}</p></section>"""
+{paragrafo_nota(data['nota'])}</section>"""
 
 
 def plano_block(pr):
@@ -1577,10 +1607,10 @@ def plano_block(pr):
     if not data:
         return ""
     nucleos = "".join(
-        f"""<div class="nucleo"><h3>{icon(ic)} {e(nome)}</h3><p>{e(desc)}</p></div>"""
+        f"""<div class="nucleo"><h3>{e(nome)}</h3><p>{e(desc)}</p></div>"""
         for nome, desc, ic in data["nucleos"])
     verticais = "".join(
-        f"""<div class="nucleo vertical"><h3>{icon(ic)} {e(nome)}</h3><p>{e(desc)}</p></div>"""
+        f"""<div class="nucleo vertical"><h3>{e(nome)}</h3><p>{e(desc)}</p></div>"""
         for nome, desc, ic in data["verticais"])
     fases = "".join(
         f"""<div class="fase"><span class="fase-ano">{ano}</span>
@@ -1590,13 +1620,13 @@ def plano_block(pr):
 <h2 class="section-title">{e(data['titulo']).upper()}<br><em>O plano de longo prazo.</em></h2>
 <p class="body-copy plano-proposito">{e(data['proposito'])}</p>
 <p class="body-copy">{e(data['conceito'])}</p>
-<h3 class="area-list-title">{icon('stacked_bar_chart')} Núcleos</h3>
+<h3 class="area-list-title">Núcleos</h3>
 <div class="nucleo-grid">{nucleos}</div>
-<h3 class="area-list-title">{icon('place')} Verticais</h3>
+<h3 class="area-list-title">Verticais</h3>
 <div class="nucleo-grid">{verticais}</div>
-<h3 class="area-list-title">{icon('calendar_month')} {e(data['fases_titulo'])}</h3>
+<h3 class="area-list-title">{e(data['fases_titulo'])}</h3>
 <div class="fases">{fases}</div>
-<p class="note">{e(data['nota'])}</p></section>"""
+{paragrafo_nota(data['nota'])}</section>"""
 
 
 def participacoes_block(pr, depth):
@@ -1646,7 +1676,7 @@ def op_edition(pr, year):
     return f"""<section class="container op-section"><hr class="rule">
 <h2 class="section-title">A OPERAÇÃO<br><em>DESTA EDIÇÃO.</em></h2>
 {op_tiles(ficha, f'operacao.fichas.{key}', order)}
-<p class="note">{e(MODEL["operacao"]["note"])}</p></section>"""
+{paragrafo_nota(MODEL["operacao"]["note"])}</section>"""
 
 
 def broadcast_block(depth):
@@ -1689,7 +1719,7 @@ def broadcast_block(depth):
 <p class="table-hint">Arraste a tabela para o lado para ver o registro e a referência.</p></div></div>
 <h3 class="cases-title">Como cada número é lido</h3>
 <div class="method">{how}</div>
-<p class="note">{e(data['note'])}</p></section>"""
+{paragrafo_nota(data['note'])}</section>"""
 
 
 def cast_block(pr, year=None, numero="05", depth=2):
@@ -1713,14 +1743,14 @@ def cast_block(pr, year=None, numero="05", depth=2):
                      else f'<strong>{e(nome)}</strong>')
             linhas.append(f'<li>{marca}<span>{e(papel)}</span></li>')
         itens = "".join(linhas)
-        colunas.append(f"""<div class="cast-col"><h3>{icon(ic)} {titulo}</h3><ul>{itens}</ul></div>""")
+        colunas.append(f"""<div class="cast-col"><h3>{titulo}</h3><ul>{itens}</ul></div>""")
     fonte = ""
     if bloco.get("fonte"):
         fonte = f'<p class="cast-source">Fonte: {fonte_link(bloco["fonte"])}</p>'
     return f"""<section class="container cast-section"><hr class="rule">
 <h2 class="section-title">QUEM ESTEVE<br><em>EM CENA.</em></h2>
 <div class="cast-grid">{''.join(colunas)}</div>{fonte}
-<p class="note">{e(data["note"])}</p></section>"""
+{paragrafo_nota(data["note"])}</section>"""
 
 
 def events_table(depth):
@@ -1942,7 +1972,7 @@ def video_block(chave, titulo, depth=0):
                       f'loading="lazy" allowfullscreen></iframe>')
         else:
             player = f'<video controls preload="none" poster="{e(fonte.get("poster") or "")}"><source src="{e(url)}"></video>'
-        legenda = (f'<p class="note">{e(fonte["nota"])}</p>' if fonte.get("nota") else "")
+        legenda = (f'{paragrafo_nota(fonte["nota"])}' if fonte.get("nota") else "")
         return f'<div class="video-wrap">{player}</div>{legenda}'
     return (f'<div class="video-wrap video-slot" role="img" aria-label="Espaço reservado para vídeo">'
             f'<span class="slot-mark">{icon("play_arrow")}</span><strong>{e(titulo)}</strong>'
@@ -2155,7 +2185,7 @@ recente para a mais antiga.</p>
 <div class="section-end"><a class="pill-link" href="{p}artistas/">Ver o elenco {icon('arrow_outward')}</a></div></section>
 <section class="container sources"><hr class="rule">
 <h2>SOBRE ESTA FICHA.</h2>
-<p class="note">{e(MODEL['elenco']['note'])}</p></section></main>"""
+{paragrafo_nota(MODEL['elenco']['note'])}</section></main>"""
     return write(f"artistas/{alvo}/index.html",
                  head(depth, f"{nome} | Artistas | Cadillac Produções",
                       f"{nome}: {onde[0][2]}. Edições do acervo Cadillac em que a apresentação "
@@ -2170,12 +2200,14 @@ def page_atletas():
     trail_html, trail_ld = crumbs(depth, [("Atletas", None)])
     grupos = []
     for chave, (titulo, desc, ic) in data["grupos"].items():
-        gente = [x for x in data["lista"] if x["grupo"] == chave]
+        # Maior "ordem" primeiro; o nome desempata para a lista nao dancar
+        # entre builds quando duas fichas tem o mesmo peso.
+        gente = sorted([x for x in data["lista"] if x["grupo"] == chave],
+                       key=lambda y: (-(y.get("ordem") or 0), y["nome"]))
         if not gente:
             continue
         grupos.append(f"""<section class="container reach-section" id="{chave}"><hr class="rule">
-<div class="area-head"><span class="svc-i">{icon(ic)}</span>
-<div><h2>{e(titulo)}<span class="orange">.</span></h2><p class="lede">{e(desc)}</p></div></div>
+<div class="area-head"><div><h2>{e(titulo)}<span class="orange">.</span></h2><p class="lede">{e(desc)}</p></div></div>
 <div class="atletas-grid">{''.join(ficha_atleta_card(x, depth) for x in gente)}</div></section>""")
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Atletas",
           "url": f"{BASE}/atletas/", "inLanguage": "pt-BR",
@@ -2191,7 +2223,7 @@ def page_atletas():
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">O QUE AINDA<br><em>PRECISA SER CONFIRMADO.</em></h2>
 <ul class="pendencias">{''.join(f'<li>{icon("search")} {e(t)}</li>' for t in data.get("pendencias", []))}</ul>
-<p class="note">{e(data['nota'])}</p></section></main>"""
+{paragrafo_nota(data['nota'])}</section></main>"""
     return write("atletas/index.html",
                  head(depth, "Atletas | Quem compete nos eventos | Cadillac Produções",
                       "Fichas dos atletas que competem nos projetos da Cadillac: trajetória "
@@ -2270,7 +2302,7 @@ def page_atleta(x):
 <div class="section-end"><a class="pill-link" href="{p}atletas/">Ver todos os atletas {icon('arrow_outward')}</a></div></section>
 <section class="container sources"><hr class="rule">
 <h2>FONTE DESTA FICHA.</h2>{source_list([x["fonte"]] if x.get("fonte") else [])}
-<p class="note">{e(data['nota'])}</p></section></main>"""
+{paragrafo_nota(data['nota'])}</section></main>"""
     return write(f"atletas/{x['slug']}/index.html",
                  head(depth, f"{x['nome']} | Atletas | Cadillac Produções",
                       f"{x['nome']}, {x['modalidade'].lower()}: trajetória documentada e as edições "
@@ -2367,7 +2399,7 @@ def page_produtora():
 <section class="container plano-section" id="historia"><hr class="rule">
 <h2 class="section-title">{e(h['titulo']).upper()}{f'<br><em>{e(h["lede"])}</em>' if h.get('lede') else '<span class="orange">.</span>'}</h2>
 <div class="fases">{marcos}</div>
-<p class="note">{e(h['nota'])}</p></section>
+{f'{paragrafo_nota(h["nota"])}' if h.get('nota') else ''}</section>
 
 <section class="container resumo-section" id="manifesto"><hr class="rule">
 <div class="resumo-grid"><div><h2 class="section-title">{e(man['titulo']).upper()}<span class="orange">.</span></h2>
@@ -2379,7 +2411,7 @@ def page_produtora():
 
 <section class="container reach-section" id="essencia"><hr class="rule">
 <h2 class="section-title">{e(ess['titulo']).upper()}<span class="orange">.</span></h2>
-{f'<p class="note">{e(ess["aviso"])}</p>' if ess.get('aviso') else ''}</section>
+{f'{paragrafo_nota(ess["aviso"])}' if ess.get('aviso') else ''}</section>
 {blocos}</main>"""
     return write("produtora/index.html",
                  head(depth, "Produtora | História, manifesto e essência | Cadillac Produções",
@@ -2415,8 +2447,13 @@ def page_artistas():
         for nome, papel in bloco.get("artistas", []):
             nomes.setdefault(nome, []).append((by_slug[slug], ano, papel, bloco.get("fonte")))
 
+    # Ordem de importancia. O unico sinal documentado aqui e quantas edicoes do
+    # acervo cada nome assina: a lista era alfabetica, o que punha 2zdinizz na
+    # frente de Nacao Zumbi. Quem aparece em mais edicoes vem primeiro, e o
+    # alfabeto desempata. O campo elenco.ordem permite corrigir a mao.
+    peso = MODEL["elenco"].get("ordem") or {}
     cartoes = []
-    for nome in sorted(nomes, key=lambda x: x.lower()):
+    for nome in sorted(nomes, key=lambda x: (-(peso.get(x) or len(nomes[x])), x.lower())):
         onde = sorted(nomes[nome], key=lambda v: -(int(v[1]) if v[1].isdigit() else 0))
         cartoes.append(ficha_artista_card(nome, onde[0][2], onde, depth))
 
@@ -2434,7 +2471,7 @@ apresentação está registrada. {plural(len(nomes), 'nome catalogado', 'nomes c
 <h2 class="sr-only">Artistas catalogados</h2>
 <div class="atletas-grid">{''.join(cartoes)}</div></section>
 <section class="container reach-section"><hr class="rule">
-<p class="note">{e(MODEL['elenco']['note'])}</p></section></main>"""
+{paragrafo_nota(MODEL['elenco']['note'])}</section></main>"""
     return write("artistas/index.html",
                  head(depth, "Artistas | Quem passou pelos palcos | Cadillac Produções",
                       "Artistas e bandas registrados nas edições dos projetos Cadillac, com a "
@@ -2447,18 +2484,31 @@ def page_relacionamento():
     depth, p = 1, rel(1)
     d = MODEL["relacionamento"]
     trail_html, trail_ld = crumbs(depth, [("Relacionamento", None)])
-    marcas = "".join(
-        f"""<a class="logo-item" href="{p}projetos/{e(c['projeto'])}/" title="{e(c['papel'])}">
-<span class="logo-slot"><strong>{e(c['nome'])}</strong></span>
-<span class="logo-papel">{e(c['papel'])}</span></a>"""
-        for c in MODEL["clientes"]["itens"])
+    # Os mesmos logotipos do mural da home e da pagina de parceiros. Aqui a
+    # secao mostrava so o nome em texto, de quando nenhum arquivo existia.
+    marcas_cel = []
+    for c in MODEL["clientes"]["itens"]:
+        arq = ROOT / "assets" / "marcas" / c["logo"]
+        alt = c.get("altura")
+        estilo = f' style="--logo-h:{int(alt)}px"' if alt else ""
+        if arq.exists():
+            lw, lh = dimensoes(f'assets/marcas/{c["logo"]}')
+            visual = (f'<img src="{p}assets/marcas/{e(c["logo"])}" alt="{e(c["nome"])}" '
+                      f'width="{lw}" height="{lh}" loading="lazy" decoding="async">')
+        else:
+            visual = f'<span class="logo-slot"><strong>{e(c["nome"])}</strong></span>'
+        marcas_cel.append(
+            f'<a class="logo-item" href="{p}projetos/{e(c["projeto"])}/" '
+            f'title="{e(c["papel"])}"{estilo}>{visual}'
+            f'<span class="logo-papel">{e(c["papel"])}</span></a>')
+    marcas = "".join(marcas_cel)
     blocos = []
     for b in d["blocos"]:
         itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in b["itens"])
         pend = (f'<p class="note">{icon("search")} {e(b["pendencia"])}</p>' if b["pendencia"] else "")
         extra = f'<div class="logo-wall">{marcas}</div>' if b["id"] == "marcas" else ""
         blocos.append(f"""<section class="container reach-section" id="{b['id']}"><hr class="rule">
-<h2 class="section-title">{icon(b['icone'])} {e(b['titulo']).upper()}<span class="orange">.</span></h2>
+<h2 class="section-title">{e(b['titulo']).upper()}<span class="orange">.</span></h2>
 <p class="body-copy">{e(b['texto'])}</p>
 {f'<ul class="entrega">{itens}</ul>' if itens else ''}{extra}{pend}
 <div class="section-end"><a class="pill-link" href="{p}contato/">Falar com a produção {icon('mail')}</a></div></section>""")
@@ -2469,7 +2519,7 @@ def page_relacionamento():
 <p class="lede">{e(d['lede'])}</p></section>
 {''.join(blocos)}
 <section class="container reach-section"><hr class="rule">
-<p class="note">{e(d['nota'])}</p></section></main>"""
+{paragrafo_nota(d['nota'])}</section></main>"""
     return write("relacionamento/index.html",
                  head(depth, "Relacionamento | Patrocínio e novos negócios | Cadillac Produções",
                       "Patrocínios, marcas e ativações, novos negócios, fornecedores e talentos: "
@@ -2510,7 +2560,7 @@ def _secao_gov(s):
     if s.get("destaque"):
         partes.append(f'<p class="gov-destaque">{e(s["destaque"])}</p>')
     if s.get("aviso"):
-        partes.append(f'<div class="papel-card gov-aviso"><h3>{icon("search")} Por que não há '
+        partes.append(f'<div class="papel-card gov-aviso"><h3>Por que não há '
                       f'formulário aqui</h3><p>{e(s["aviso"])}</p></div>')
     return f'<section class="gov-secao">{"".join(partes)}</section>'
 
@@ -2519,6 +2569,7 @@ def page_governanca_doc(doc):
     depth, p = 2, rel(2)
     d = MODEL["governanca"]
     rotulo, explica = d["estados"][doc["estado"]]
+    classe_estado = "gov-vigente" if doc["estado"] == "vigente" else ""
     trail_html, trail_ld = crumbs(depth, [("Governança e políticas", p + "governanca/"),
                                           (doc["titulo"], None)])
     irmas = "".join(
@@ -2535,8 +2586,9 @@ def page_governanca_doc(doc):
 <dl class="gov-ficha"><div><dt>Documento</dt><dd>{e(doc['codigo'])}</dd></div>
 <div><dt>Versão</dt><dd>{e(doc['versao'])}</dd></div>
 <div><dt>Situação</dt><dd>{e(rotulo)}</dd></div>
+{f'<div><dt>Aprovado em</dt><dd>{e(dia_mes(doc["aprovado_em"], True))}</dd></div>' if doc.get('aprovado_em') else ''}
 <div><dt>Atualizado em</dt><dd>{e(dia_mes(MODEL['updated'], True))}</dd></div></dl>
-<div class="papel-card gov-estado"><h2>{icon('search')} {e(rotulo)}</h2><p>{e(explica)}</p></div>
+<div class="papel-card gov-estado {classe_estado}"><h2>{icon('verified') if doc['estado'] == 'vigente' else icon('search')} {e(rotulo)}</h2><p>{e(explica)}</p></div>
 </section>
 <section class="container gov-corpo">{''.join(_secao_gov(s) for s in doc['secoes'])}</section>
 <section class="container gov-irmas"><h2 class="section-title">OUTROS<em> DOCUMENTOS.</em></h2>
@@ -2567,7 +2619,7 @@ def page_governanca():
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>GOVERNANÇA<br>E POLÍTICAS<span class="orange">.</span></h1>
 <p class="lede">{e(d['lede'])}</p>
-<div class="papel-card gov-estado"><h2>{icon('search')} Minutas, não políticas vigentes</h2>
+<div class="papel-card gov-estado gov-vigente"><h2>{icon('verified')} Aprovados e em vigor</h2>
 <p>{e(d['aviso'])}</p></div></section>
 <section class="container gov-grade"><h2 class="sr-only">Documentos de governança</h2>{cartoes}</section>
 <section class="container reach-section"><h2 class="section-title">{e(d['pendencias']['titulo']).upper()}<span class="orange">.</span></h2>
@@ -2580,6 +2632,66 @@ def page_governanca():
                  + header(depth, "governanca") + body + footer(depth))
 
 
+def page_parceiros():
+    """Marcas e instituicoes do acervo, em pagina propria.
+
+    O mural da home mostra os logotipos; aqui cada um ganha o papel que exerce
+    e o evento em que a relacao esta registrada, que e o que um patrocinador
+    novo quer conferir.
+    """
+    depth, p = 1, rel(depth := 1)
+    d = MODEL["clientes"]
+    by_slug = {pr["slug"]: pr for pr in PROJECTS}
+    trail_html, trail_ld = crumbs(depth, [("Parceiros", None)])
+
+    cartoes, linhas = [], []
+    for c in d["itens"]:
+        pr = by_slug.get(c["projeto"])
+        alvo = f'{p}projetos/{c["projeto"]}/'
+        arq = ROOT / "assets" / "marcas" / c["logo"]
+        alt = c.get("altura")
+        estilo = f' style="--logo-h:{int(alt)}px"' if alt else ""
+        if arq.exists():
+            lw, lh = dimensoes(f'assets/marcas/{c["logo"]}')
+            marca = (f'<img src="{p}assets/marcas/{e(c["logo"])}" alt="{e(c["nome"])}" '
+                     f'width="{lw}" height="{lh}" loading="lazy" decoding="async">')
+        else:
+            marca = f'<span class="logo-slot"><strong>{e(c["nome"])}</strong></span>'
+        cartoes.append(f'<a class="logo-item" href="{alvo}" title="{e(c["papel"])}"{estilo}>'
+                       f'{marca}<span class="logo-papel">{e(c["papel"])}</span></a>')
+        onde = (f'<a href="{alvo}">{e(pr["name"])} {icon("arrow_outward")}</a>'
+                if pr else e(c["projeto"]))
+        linhas.append(f'<tr><th scope="row">{e(c["nome"])}</th>'
+                      f'<td>{e(c["papel"])}</td><td>{onde}</td></tr>')
+
+    ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Parceiros",
+          "url": f"{BASE}/parceiros/", "inLanguage": "pt-BR",
+          "mainEntity": {"@type": "ItemList", "numberOfItems": len(d["itens"]),
+                         "itemListElement": [
+                             {"@type": "ListItem", "position": i, "name": c["nome"]}
+                             for i, c in enumerate(d["itens"], start=1)]}}
+    body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
+<section class="page-hero container"><h1>PARCEIROS<span class="orange">.</span></h1>
+<p class="lede">{e(d['lede'])}</p></section>
+<section class="clientes"><div class="container">
+<h2 class="sr-only">Marcas e instituições</h2>
+<div class="logo-wall">{''.join(cartoes)}</div></div></section>
+<section class="container reach-section">
+<h2 class="section-title">ONDE CADA<br><em>RELAÇÃO ESTÁ REGISTRADA.</em></h2>
+<div class="table-wrap"><table class="amounts">
+<thead><tr><th scope="col">Parceiro</th><th scope="col">Papel</th>
+<th scope="col">Evento</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+<div class="section-end"><a class="pill-link" href="{p}relacionamento/">Falar sobre parceria {icon('arrow_outward')}</a></div>
+</section></main>"""
+    return write("parceiros/index.html",
+                 head(depth, "Parceiros | Cadillac Produções",
+                      "Marcas, instituições e entidades registradas nos projetos da Cadillac: "
+                      "Banco do Brasil, Prefeitura de Niterói, CBSk, IBC World Tour, Funarte e CCBB.",
+                      "parceiros/", [ld, trail_ld])
+                 + header(depth, "produtora") + body + footer(depth))
+
+
 def page_equipe():
     depth, p = 1, rel(1)
     data = MODEL["pessoas"]
@@ -2589,10 +2701,17 @@ def page_equipe():
         gente = [x for x in data["equipe"] if x["tipo"] == chave]
         if not gente:
             continue
+        # Mesmo cartao de Atletas e Artistas: retrato, nome, papel, e o clique
+        # leva ao perfil. A pagina mostrava fichas abertas, cada uma com a lista
+        # de vinculos: o visitante lia tudo de todo mundo antes de escolher
+        # alguem. O detalhe fica no perfil, que ja existe para cada pessoa.
+        cartoes = "".join(
+            ficha_simples(x["nome"], x.get("cargo") or titulo, x.get("foto"),
+                          f'equipe/{x["slug"]}/', depth)
+            for x in gente)
         grupos.append(f"""<section class="container reach-section" id="{chave}"><hr class="rule">
-<div class="area-head"><span class="svc-i">{icon(ic)}</span>
-<div><h2>{e(titulo)}<span class="orange">.</span></h2><p class="lede">{e(desc)}</p></div></div>
-<div class="pessoas-grid">{''.join(f'<div id="{x["slug"]}">{ficha_pessoa(x, depth)}</div>' for x in gente)}</div></section>""")
+<div class="area-head"><div><h2>{e(titulo)}<span class="orange">.</span></h2><p class="lede">{e(desc)}</p></div></div>
+<div class="atletas-grid">{cartoes}</div></section>""")
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Equipe",
           "url": f"{BASE}/equipe/", "inLanguage": "pt-BR"}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
@@ -2600,7 +2719,7 @@ def page_equipe():
 <p class="lede">{e(data['lede'])}</p></section>
 {''.join(grupos)}
 <section class="container reach-section"><hr class="rule">
-<p class="note">{e(data['nota'])}</p></section></main>"""
+{paragrafo_nota(data['nota'])}</section></main>"""
     return write("equipe/index.html",
                  head(depth, "Equipe | Quem assina os eventos | Cadillac Produções",
                       "Núcleo da Cadillac, sócios por projeto, especialistas e parceiros externos, "
@@ -2777,7 +2896,7 @@ def perfil_block(depth):
 <div class="pf-paineis">{''.join(painéis)}</div></div>
 <div class="pf-leituras">{leitura}</div>
 {pendentes}
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def quadro_kpis(depth):
@@ -2812,7 +2931,7 @@ def quadro_kpis(depth):
                     f'{icon(estados[estado][2])} {e(rot)}</span>')
             linhas.append(f'<li><span>{e(nome)}</span>{selo}</li>')
         cartoes.append(
-            f'<div class="kpi-card"><h3>{icon(a["icone"])} {e(a["nome"])}</h3>'
+            f'<div class="kpi-card"><h3>{e(a["nome"])}</h3>'
             f'<ul class="kpi-lista">{"".join(linhas)}</ul></div>')
 
     return f"""<section class="container reach-section" id="kpis"><hr class="rule">
@@ -2821,7 +2940,7 @@ def quadro_kpis(depth):
 <div class="kpi-resumo">{resumo}</div>
 <p class="kpi-total">{total} indicadores em {plural(len(d['areas']), 'área', 'áreas')}.</p>
 <div class="kpi-grid">{''.join(cartoes)}</div>
-<p class="note">{e(d['nota'])}</p></section>
+{paragrafo_nota(d['nota'])}</section>
 
 
 """
@@ -2839,7 +2958,7 @@ def impacto_block(depth):
 <h2 class="section-title">IMPACTO<br><em>E RESULTADOS.</em></h2>
 <p class="body-copy">{e(d['lede'])}</p>
 <div class="op-grid">{tiles}</div>
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def relatorios_block(depth):
@@ -2856,7 +2975,7 @@ def relatorios_block(depth):
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Documento</th><th scope="col">Período</th>
 <th scope="col">Situação</th></tr></thead><tbody>{linhas}</tbody></table></div>
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def certificacoes_block(depth):
@@ -2864,14 +2983,14 @@ def certificacoes_block(depth):
     if not d:
         return ""
     cards = "".join(
-        f"""<div class="frente"><h3>{icon(ic)} {e(t)}</h3><p>{e(txt)}</p>
+        f"""<div class="frente"><h3>{e(t)}</h3><p>{e(txt)}</p>
 <span class="atleta-n">{fonte_link(f, "")}</span></div>"""
         for t, txt, ic, f in d["itens"])
     return f"""<section class="container reach-section" id="certificacoes"><hr class="rule">
 <h2 class="section-title">CERTIFICAÇÕES<br><em>E CHANCELAS.</em></h2>
 <p class="body-copy">{e(d['lede'])}</p>
 <div class="frentes-grid">{cards}</div>
-<p class="note">{e(d['nota'])}</p></section>"""
+{paragrafo_nota(d['nota'])}</section>"""
 
 
 def page_data():
@@ -2927,7 +3046,7 @@ def page_data():
 <section class="container sector" id="setor"><hr class="rule">
 <h2 class="section-title">O SETOR EM QUE<br><em>A GENTE OPERA.</em></h2>
 <div class="hero-metrics">{sector_html}</div>
-<p class="note">{e(MODEL['sector']['note'])}</p></section>
+{paragrafo_nota(MODEL['sector']['note'])}</section>
 <section class="container sources">
 <hr class="rule">
 <h2>DADOS COM ORIGEM.</h2>
@@ -3007,11 +3126,10 @@ def page_atuacao():
             cases.append(f"""<article class="case">{thumb}<h4>{e(c["title"])}</h4><p>{e(c["text"])}</p>
 <div class="case-links">{page}{link}</div></article>""")
         sections.append(f"""<section class="container area" id="{a["slug"]}">
-<div class="area-head"><span class="svc-i">{icon(a["icon"])}</span>
-<div><h2>{e(a["title"])}<span class="orange">.</span></h2><p class="lede">{e(a["lede"])}</p></div></div>
+<div class="area-head"><div><h2>{e(a["title"])}<span class="orange">.</span></h2><p class="lede">{e(a["lede"])}</p></div></div>
 <div class="area-body"><div class="area-text">{"".join(f"<p>{e(t)}</p>" for t in a["paragraphs"])}</div>
-<div class="area-list"><h3>O que entregamos</h3><ul>{items}</ul></div></div>
-<h3 class="cases-title">Casos no acervo</h3>
+<div class="area-list"><h3>Entregas</h3><ul>{items}</ul></div></div>
+<h3 class="cases-title">Case</h3>
 <div class="cases">{"".join(cases)}</div></section>""")
 
     index.append(f'<a class="chip" href="#sobre">{icon("verified")} A Cadillac</a>')
@@ -3025,8 +3143,7 @@ def page_atuacao():
 <div class="method">{method}</div></section>
 {"".join(sections)}
 <section class="container area" id="sobre">
-<div class="area-head"><span class="svc-i">{icon('verified')}</span>
-<div><h2>A Cadillac<span class="orange">.</span></h2>
+<div class="area-head"><div><h2>A Cadillac<span class="orange">.</span></h2>
 <p class="lede">{e(SITE['tagline'])}</p></div></div>
 <div class="area-body"><div class="area-text">{''.join(f'<p>{e(t)}</p>' for t in SITE['institutional'])}</div>
 <div class="area-list"><h3>Identificação</h3><ul>
@@ -3036,8 +3153,7 @@ def page_atuacao():
 <li>{icon('place')} {e(SITE['origin'])}</li>
 <li>{icon('mail')} {e(SITE['email'])}</li></ul></div></div></section>
 <section class="container area" id="ecossistema">
-<div class="area-head"><span class="svc-i">{icon('public')}</span>
-<div><h2>Ecossistema<span class="orange">.</span></h2>
+<div class="area-head"><div><h2>Ecossistema<span class="orange">.</span></h2>
 <p class="lede">{e(MODEL['ecossistema']['lede'])}</p></div></div>
 <h3 class="cases-title">Cada um tem um papel</h3>
 <div class="method">{papeis}</div>
@@ -3046,7 +3162,7 @@ def page_atuacao():
 <thead><tr><th scope="col">Quem</th><th scope="col">Papel</th><th scope="col">Onde</th><th scope="col">O que o registro diz</th></tr></thead>
 <tbody>{eco_linhas}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver o papel e o registro.</p>
-<p class="note">{e(MODEL['ecossistema']['note'])}</p></section>
+{paragrafo_nota(MODEL['ecossistema']['note'])}</section>
 <section class="container related">
 <h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
 <p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
@@ -3091,7 +3207,7 @@ def page_ecossistema():
 <thead><tr><th scope="col">Quem</th><th scope="col">Papel</th><th scope="col">Onde</th><th scope="col">O que o registro diz</th></tr></thead>
 <tbody>{"".join(rows)}</tbody></table></div>
 <p class="table-hint">Arraste a tabela para o lado para ver o papel e o registro.</p>
-<p class="note">{e(data["note"])}</p></section></main>"""
+{paragrafo_nota(data["note"])}</section></main>"""
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Ecossistema",
           "url": f"{BASE}/ecossistema/", "inLanguage": "pt-BR"}
     return write("ecossistema/index.html",
@@ -3266,7 +3382,7 @@ def page_reservado():
 <div class="table-wrap"><table class="amounts reach-table">
 <thead><tr><th scope="col">Edição</th><th scope="col">Preenchido</th><th scope="col">Falta levantar</th></tr></thead>
 <tbody>{''.join(linhas_op)}</tbody></table></div>
-<p class="note">{e(data['nota'])}</p></section></main>"""
+{paragrafo_nota(data['nota'])}</section></main>"""
     pagina = (head(depth, "Dados reservados | Uso interno",
                    "Material interno de estudo e referência. Página sem indexação.",
                    "reservado/") + header(depth) + body + footer(depth))
@@ -3299,7 +3415,7 @@ def page_imprensa():
 <section class="container reach-section" id="fotos-videos"><hr class="rule">
 <h2 class="section-title">MATERIAL<br><em>PARA BAIXAR.</em></h2>
 <div class="kit-grid">{''.join(itens)}</div>
-<p class="note">{e(data['nota'])}</p></section>
+{paragrafo_nota(data['nota'])}</section>
 <section class="container reach-section" id="releases"><hr class="rule">
 <h2 class="section-title">RELEASES<span class="orange">.</span></h2>
 <p class="body-copy">Os textos de divulgação de cada edição entram aqui conforme a assessoria os
@@ -3333,17 +3449,17 @@ def page_contato():
             campo = f'<input id="{nome}" name="{nome}" type="{tipo}"{req}>'
         campos.append(f'<p class="campo"><label for="{nome}">{e(rotulo)}'
                       f'{"" if obrig else " <span>opcional</span>"}</label>{campo}</p>')
-    destino = data["endpoint"] or f'mailto:{SITE["email"]}'
+    # Formulario vai para relacionamento@, nao para o contato geral: e a caixa
+    # que recebe proposta, patrocinio, fornecedor e imprensa.
+    caixa = data.get("email_formularios") or SITE["email"]
+    destino = data["endpoint"] or f'mailto:{caixa}'
     metodo = "post" if data["endpoint"] else "get"
-    aviso = ("" if data["endpoint"] else
-             f'<p class="note">{icon("description")} O formulário ainda não tem endereço de envio: '
-             f'por enquanto ele abre o e-mail do visitante. Preencha <code>contato.endpoint</code> '
-             f'no modelo de conteúdo para receber as mensagens direto.</p>')
+    aviso = ""
     canais = "".join(
         f'<li>{icon(ic)} <strong>{e(nome)}</strong>'
         + (f'<a href="mailto:{e(valor)}">{e(valor)}</a>' if nome == "E-mail" and valor
            else (f'<span>{e(valor)}</span>' if valor
-                 else f'<span class="vazio-inline">a preencher · contato.canais</span>'))
+                 else f'<span class="vazio-inline">a informar</span>'))
         + '</li>'
         for nome, valor, ic in data["canais"])
     ld = {"@context": "https://schema.org", "@type": "ContactPage", "name": "Contato",
@@ -3356,7 +3472,7 @@ def page_contato():
 <h2>Mande sua mensagem</h2>{''.join(campos)}
 <button class="pill-link" type="submit">Enviar {icon('mail')}</button>{aviso}</form>
 <div class="area-list"><h3>Canais diretos</h3><ul class="canais">{canais}</ul>
-<p class="note">{e(data['nota'])}</p></div></section></main>"""
+{paragrafo_nota(data['nota'])}</div></section></main>"""
     return write("contato/index.html",
                  head(depth, "Contato | Cadillac Produções",
                       "Fale com a Cadillac sobre projetos, parcerias, patrocínio ou imprensa.",
@@ -3418,7 +3534,7 @@ def page_404():
     # O Apache serve esta pagina para qualquer endereco perdido, inclusive
     # /eventos/algo/inexistente/, entao caminho relativo apontaria para o
     # lugar errado. Absolutizamos — mas so ate a barra, sem o dominio: assim a
-    # mesma pagina funciona em cadillacproducoes.com.br e em instfy.com/cadillac
+    # mesma pagina funciona em cadillac.art.br e em instfy.com/cadillac
     # sem sair da origem, que e o que a politica de conteudo exige.
     raiz = BASE.split("//", 1)[-1]
     raiz = raiz[raiz.index("/"):] + "/" if "/" in raiz else "/"
@@ -3459,6 +3575,7 @@ def main():
     written = [page_home(), page_projects(), page_atuacao(), page_agenda(), page_press(),
                page_data(), page_produtora(), page_atletas(), page_artistas(), page_equipe(),
                page_relacionamento(), page_imprensa(), page_contato(), page_governanca(),
+        page_parceiros(),
         *[page_governanca_doc(x) for x in MODEL["governanca"]["itens"]],
                page_en(), page_reservado(), page_404()]
     for x in ATLETAS:

@@ -1,5 +1,5 @@
 {
-  "version": 23,
+  "version": 24,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -4229,6 +4229,30 @@
             "citada no projeto entre as atletas previstas para o skate"
           ]
         ]
+      },
+      "ccbb-mac-bahia": {
+        "atletas": [
+          [
+            "Augusto Akio",
+            "citado na ação de skate dentro do museu"
+          ],
+          [
+            "Daniela Vitória",
+            "citada na ação de skate dentro do museu"
+          ],
+          [
+            "Davison Fortunato",
+            "citado na ação de skate dentro do museu"
+          ],
+          [
+            "SKTBR",
+            "integrantes do coletivo citados na ação"
+          ]
+        ],
+        "fonte": [
+          "Registro público da ação no MAC Bahia, janeiro de 2026",
+          null
+        ]
       }
     },
     "por_projeto": {
@@ -4993,7 +5017,7 @@
     "grupos": {
       "squad-bb": [
         "Squad BB",
-        "Nomes que o material do Tamo Junto BB reúne como os gigantes do esporte presentes no festival. Patrocínio, quando confirmado em fonte pública, está dito na ficha.",
+        "O time de atletas patrocinados pelo Banco do Brasil, somado aos nomes que o material do Tamo Junto BB reúne como presenças no festival. Parte deles também compete no circuito vertical e aparece nas edições do acervo.",
         "verified"
       ],
       "vert-battle": [
@@ -5029,6 +5053,13 @@
             [
               "Bem Paraná, Augusto Akio e o bronze no skate em Paris 2024",
               "https://www.bemparana.com.br/esportes/conheca-augusto-akio-o-japinha-malabarista-que-conquistou-o-bronze-no-skate-em-paris-2024/amp/"
+            ]
+          ],
+          [
+            "O banco patrocina o skate desde 2021, quando começou justamente com ela.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
             ]
           ]
         ],
@@ -5112,6 +5143,13 @@
               "Máquina do Esporte, BB acerta patrocínio ao campeão olímpico Isaquias Queiroz",
               "https://maquinadoesporte.com.br/outros/banco-do-brasil-acerta-patrocinio-ao-campeao-olimpico-isaquias-queiroz"
             ]
+          ],
+          [
+            "Publicação mais recente o descreve com cinco medalhas olímpicas na canoagem; a reportagem do patrocínio falava em três no Rio 2016 e o ouro em Tóquio.",
+            [
+              "Promoview, BB divulga seu novo squad de skatistas",
+              "https://www.promoview.com.br/mercado/marcas/patrocinios/banco-do-brasil-novo-squad-skatistas/"
+            ]
           ]
         ],
         "participacoes": [
@@ -5166,6 +5204,13 @@
               "Mídia kit oficial Vert Battle 2025 · Cadillac Production",
               null
             ]
+          ],
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
           ]
         ],
         "participacoes": [
@@ -5184,6 +5229,15 @@
             "papel": "Citado no material do festival entre os nomes do esporte presentes",
             "fonte": [
               "Apresentação oficial Festival Tamo Junto BB · documento da produção",
+              null
+            ]
+          },
+          {
+            "projeto": "ccbb-mac-bahia",
+            "ano": 2026,
+            "papel": "Entre os atletas da ação de skate no MAC Bahia",
+            "fonte": [
+              "Registro público da ação no MAC Bahia, janeiro de 2026",
               null
             ]
           }
@@ -5392,10 +5446,17 @@
         "nome": "Raicca Ventura",
         "apelido": null,
         "modalidade": "Skate park e vertical",
-        "grupo": "vert-battle",
+        "grupo": "squad-bb",
         "foto": "raicca-ventura.jpg",
         "bio": "Skatista brasileira com resultados de destaque no circuito mundial de park.",
         "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ],
           [
             "Quarto lugar no Mundial de Skate Park, o melhor resultado brasileiro na modalidade segundo a cobertura.",
             [
@@ -5432,6 +5493,328 @@
         "fonte": [
           "Folha Vitória, Luigi Cini vence classificatório olímpico e Raicca Ventura é bronze",
           "https://www.folhavitoria.com.br/esportes/luigi-cini-vence-classificatorio-olimpico-de-skate-park-na-argentina-raicca-ventura-e-bronze/"
+        ]
+      },
+      {
+        "slug": "davison-fortunato",
+        "nome": "Davison Fortunato",
+        "apelido": null,
+        "modalidade": "Skate street",
+        "grupo": "squad-bb",
+        "foto": "davison-fortunato.jpg",
+        "bio": "Skatista paulistano de manobras altas, apresentador e articulador de projetos de base. Entrou no Squad BB em setembro de 2022, numa seleção que olhou o que cada atleta representa para o esporte e para a sociedade, não só o desempenho.",
+        "destaques": [
+          [
+            "Entrou no Squad BB em setembro de 2022, junto com outros cinco atletas.",
+            [
+              "Máquina do Esporte, BB fecha patrocínio a mais seis skatistas",
+              "https://maquinadoesporte.com.br/skate/banco-do-brasil-investe-no-skate-e-fecha-patrocinio-a-mais-seis-atletas/"
+            ]
+          ],
+          [
+            "A escolha dos atletas considerou o que cada um representa para o esporte e como contribui para a sociedade, e não apenas medalhas.",
+            [
+              "Máquina do Esporte, BB fecha patrocínio a mais seis skatistas",
+              "https://maquinadoesporte.com.br/skate/banco-do-brasil-investe-no-skate-e-fecha-patrocinio-a-mais-seis-atletas/"
+            ]
+          ],
+          [
+            "É apresentador da SLS, a Street League de Skate.",
+            [
+              "A Tarde, seis skatistas integram time de diversidade",
+              "https://atarde.com.br/esportes/apos-encontro-em-salvador-seis-skatistas-integram-time-de-diversidade-1243419"
+            ]
+          ],
+          [
+            "Atua em causas ligadas à diversidade, à equidade de gênero e à valorização da cultura urbana.",
+            [
+              "A Tarde, seis skatistas integram time de diversidade",
+              "https://atarde.com.br/esportes/apos-encontro-em-salvador-seis-skatistas-integram-time-de-diversidade-1243419"
+            ]
+          ],
+          [
+            "Organiza campeonatos próprios: o Skate Jam Suzano, que premia com intercâmbio cultural na Flórida, o Amazing AM, circuito interestadual de street, e o Girls Skate Jam, só de mulheres.",
+            [
+              "Marcas pelo Mundo, Davison Fortunato estrela campanha global da Lacoste",
+              "https://marcaspelomundo.com.br/anunciantes/davison-fortunato-estrela-campanha-global-da-lacoste/"
+            ]
+          ],
+          [
+            "Foi escolhido para representar o Brasil e a América Latina em campanha global da Lacoste.",
+            [
+              "Marcas pelo Mundo, Davison Fortunato estrela campanha global da Lacoste",
+              "https://marcaspelomundo.com.br/anunciantes/davison-fortunato-estrela-campanha-global-da-lacoste/"
+            ]
+          ],
+          [
+            "Seu nome aparece em algumas publicações como Davidson Fortunato.",
+            [
+              "Marcas pelo Mundo, Davison Fortunato estrela campanha global da Lacoste",
+              "https://marcaspelomundo.com.br/anunciantes/davison-fortunato-estrela-campanha-global-da-lacoste/"
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "ccbb-mac-bahia",
+            "ano": 2026,
+            "papel": "Entre os atletas da ação de skate no MAC Bahia",
+            "fonte": [
+              "Registro público da ação no MAC Bahia, janeiro de 2026",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Máquina do Esporte, BB fecha patrocínio a mais seis skatistas",
+          "https://maquinadoesporte.com.br/skate/banco-do-brasil-investe-no-skate-e-fecha-patrocinio-a-mais-seis-atletas/"
+        ]
+      },
+      {
+        "slug": "daniela-vitoria",
+        "nome": "Daniela Vitória",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "squad-bb",
+        "foto": "daniela-vitoria.jpg",
+        "bio": "Skatista do Squad BB.",
+        "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ],
+          [
+            "Entre os atletas citados na ação de skate dentro do MAC Bahia, em janeiro de 2026.",
+            [
+              "Registro público da ação no MAC Bahia, janeiro de 2026",
+              null
+            ]
+          ]
+        ],
+        "participacoes": [
+          {
+            "projeto": "ccbb-mac-bahia",
+            "ano": 2026,
+            "papel": "Entre os atletas da ação de skate no MAC Bahia",
+            "fonte": [
+              "Registro público da ação no MAC Bahia, janeiro de 2026",
+              null
+            ]
+          }
+        ],
+        "fonte": [
+          "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+          "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+        ]
+      },
+      {
+        "slug": "felipe-nunes",
+        "nome": "Felipe Nunes",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "squad-bb",
+        "foto": "felipe-nunes.jpg",
+        "bio": "Skatista do Squad BB.",
+        "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+          "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+        ]
+      },
+      {
+        "slug": "nando-araujo",
+        "nome": "Nando Araújo",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "squad-bb",
+        "foto": "nando-araujo.jpg",
+        "bio": "Skatista do Squad BB.",
+        "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+          "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+        ]
+      },
+      {
+        "slug": "marina-gabriela",
+        "nome": "Marina Gabriela",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "squad-bb",
+        "foto": "marina-gabriela.jpg",
+        "bio": "Skatista do Squad BB.",
+        "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+          "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+        ]
+      },
+      {
+        "slug": "filipe-mota",
+        "nome": "Filipe Mota",
+        "apelido": null,
+        "modalidade": "Skate",
+        "grupo": "squad-bb",
+        "foto": "filipe-mota.jpg",
+        "bio": "Skatista do Squad BB.",
+        "destaques": [
+          [
+            "Integra o time de skate patrocinado pelo Banco do Brasil, o Squad BB.",
+            [
+              "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+              "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Marcas pelo Mundo, BB apresenta seus novos patrocinados no skate",
+          "https://marcaspelomundo.com.br/anunciantes/banco-do-brasil-apresenta-seus-novos-patrocinados-no-skate/"
+        ]
+      },
+      {
+        "slug": "tatiana-weston-webb",
+        "nome": "Tatiana Weston-Webb",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "tatiana-weston-webb.jpg",
+        "bio": "Surfista do time patrocinado pelo Banco do Brasil.",
+        "destaques": [
+          [
+            "Integra o time de surfe patrocinado pelo Banco do Brasil.",
+            [
+              "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+              "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+          "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+        ]
+      },
+      {
+        "slug": "filipe-toledo",
+        "nome": "Filipe Toledo",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "filipe-toledo.jpg",
+        "bio": "Surfista do time patrocinado pelo Banco do Brasil.",
+        "destaques": [
+          [
+            "Integra o time de surfe patrocinado pelo Banco do Brasil.",
+            [
+              "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+              "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+          "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+        ]
+      },
+      {
+        "slug": "taina-hinckel",
+        "nome": "Tainá Hinckel",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "taina-hinckel.jpg",
+        "bio": "Surfista do time patrocinado pelo Banco do Brasil.",
+        "destaques": [
+          [
+            "Integra o time de surfe patrocinado pelo Banco do Brasil.",
+            [
+              "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+              "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+          "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+        ]
+      },
+      {
+        "slug": "silvana-lima",
+        "nome": "Silvana Lima",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "silvana-lima.jpg",
+        "bio": "Surfista do time patrocinado pelo Banco do Brasil.",
+        "destaques": [
+          [
+            "Integra o time de surfe patrocinado pelo Banco do Brasil.",
+            [
+              "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+              "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+          "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+        ]
+      },
+      {
+        "slug": "juliana-santos",
+        "nome": "Juliana Santos",
+        "apelido": null,
+        "modalidade": "Surfe",
+        "grupo": "squad-bb",
+        "foto": "juliana-santos.jpg",
+        "bio": "Surfista do time patrocinado pelo Banco do Brasil.",
+        "destaques": [
+          [
+            "Integra o time de surfe patrocinado pelo Banco do Brasil.",
+            [
+              "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+              "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
+            ]
+          ]
+        ],
+        "participacoes": [],
+        "fonte": [
+          "Waves, Italo Ferreira fecha patrocínio com o Banco do Brasil",
+          "https://www.waves.com.br/noticias/banco-do-brasil-italo-fecha-patrocinio/"
         ]
       },
       {
@@ -6110,7 +6493,12 @@
         ]
       }
     ],
-    "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição ou na cobertura de imprensa de um projeto do acervo. Não significa contrato com a Cadillac nem patrocínio da empresa. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte.",
-    "nota_fotos": "Os retratos dos atletas do circuito vertical vieram do quadro de confirmados do mídia kit oficial da temporada 2025, recortados por posição na página para que cada rosto fique com o nome certo. São imagens de divulgação: a autorização de uso de cada atleta ou da entidade organizadora é necessária antes de o site ir ao ar."
+    "nota": "Aparecer aqui significa estar citado na programação, na ficha de uma edição, na cobertura de imprensa de um projeto do acervo ou na lista de patrocinados do Banco do Brasil. Não significa contrato com a Cadillac nem patrocínio da empresa. A composição do squad muda ao longo do tempo: as fontes recuperadas são de 2022 a 2025, e a lista oficial atual está nos canais do próprio banco. Data de nascimento, cidade, equipe e redes de cada atleta ainda não foram levantadas e entram em atletas.lista[].bio quando houver fonte.",
+    "nota_fotos": "Os retratos dos atletas do circuito vertical vieram do quadro de confirmados do mídia kit oficial da temporada 2025, recortados por posição na página para que cada rosto fique com o nome certo. São imagens de divulgação: a autorização de uso de cada atleta ou da entidade organizadora é necessária antes de o site ir ao ar.",
+    "pendencias": [
+      "Dani Martins aparece em uma reportagem entre os novos integrantes do squad de skate; não foi possível confirmar se é a mesma atleta que Daniela Vitória, então o nome não virou ficha.",
+      "O vôlei é o patrocínio mais antigo do banco, mas as fontes recuperadas não nomeiam atletas de um squad de vôlei. Ana Patrícia e Duda entram como presenças citadas no festival.",
+      "A lista oficial e atual do Squad BB deve ser confirmada junto ao banco antes de qualquer uso comercial desta página."
+    ]
   }
 }

@@ -1708,6 +1708,8 @@ def page_atletas():
 <p class="lede">{e(data['lede'])}</p></section>
 {''.join(grupos)}
 <section class="container reach-section"><hr class="rule">
+<h2 class="section-title">O QUE AINDA<br><em>PRECISA SER CONFIRMADO.</em></h2>
+<ul class="pendencias">{''.join(f'<li>{icon("search")} {e(t)}</li>' for t in data.get("pendencias", []))}</ul>
 <p class="note">{e(data['nota'])}</p></section></main>"""
     return write("atletas/index.html",
                  head(depth, "Atletas | Quem compete nos projetos | Cadillac Produções",

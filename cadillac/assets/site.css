@@ -804,3 +804,9 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
   letter-spacing:.035em;text-transform:uppercase}
 .frente h3 .cd-icon{font-size:21px;color:var(--orange-ink);flex-shrink:0}
 .frente p{font-size:13.5px;line-height:1.62;color:var(--muted)}
+.pendencias{list-style:none;margin:clamp(14px,2vw,22px) 0 clamp(18px,2.4vw,26px);padding:0;display:flex;flex-direction:column;gap:12px}
+.pendencias li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.62;padding-left:14px;border-left:3px solid var(--border-strong)}
+.pendencias li .cd-icon{font-size:19px;color:var(--orange-ink);flex-shrink:0}
+.pendencias{list-style:none;margin:clamp(14px,2vw,22px) 0 clamp(18px,2.4vw,26px);padding:0;display:flex;flex-direction:column;gap:12px}
+.pendencias li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.62;padding-left:14px;border-left:3px solid var(--border-strong)}
+.pendencias li .cd-icon{font-size:19px;color:var(--orange-ink);flex-shrink:0}

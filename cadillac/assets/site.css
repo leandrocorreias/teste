@@ -11,7 +11,7 @@
   --border:#d8d6d0;--border-strong:#1c1c1c;--white:#fff;
   --surface-dark:#171717;--grid:#cfcdc7;
   --max:1410px;--gutter:clamp(17px,4vw,52px);
-  --r:4px;--r-pill:40px;
+  --r:4px;--r-pill:40px;--r-img:12px;
   --t:.22s cubic-bezier(.3,.7,.3,1);
   --font-display:'Roboto Condensed','Arial Narrow',Impact,sans-serif;
   --font-text:'Manrope',system-ui,Arial,sans-serif;
@@ -1273,3 +1273,20 @@ a.pess:hover,a.pess:focus-visible{background:rgba(255,89,0,.06);transform:transl
 .foot-by:hover,.foot-by:focus-visible{color:#fff}
 .foot-by:hover strong,.foot-by:focus-visible strong{color:var(--orange)}
 @media(max-width:700px){.foot-by{margin-left:0}}
+
+/* Cantos levemente arredondados nas imagens.
+   O raio vai na superfície, e não na <img>, porque ela é posicionada em inset:0
+   dentro dela: arredondar só a imagem deixaria o fundo escuro aparecendo nas
+   quinas. Com overflow:hidden na superfície, o recorte pega imagem e véu. */
+.media-surface,
+.photo-shot,
+.photo-slot,
+.gal-item,
+.pessoa-foto,
+.pessoa-iniciais,
+.pessoa .photo-slot{border-radius:var(--r-img)}
+.atleta-card .pessoa-foto,
+.atleta-card .pessoa-iniciais,
+.atleta-card .photo-slot{border-radius:var(--r-img) var(--r-img) 0 0}
+/* o retrato redondo do time não entra: já é um círculo */
+.pess-retrato{border-radius:50%}

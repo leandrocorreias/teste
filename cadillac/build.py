@@ -726,7 +726,7 @@ def page_projects():
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
-<p class="lede">Propriedades, produções e histórias reunidas em um acervo vivo, da mais recente para a mais antiga.</p></section>
+<p class="lede">Eventos, produções e histórias reunidos em um acervo vivo, do mais recente para o mais antigo.</p></section>
 <section class="container index-grid">
 <h2 class="sr-only">Acervo de eventos</h2><hr class="rule">
 <div class="works-grid">{cards}</div>

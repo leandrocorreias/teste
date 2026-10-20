@@ -16,6 +16,9 @@ MODEL = json.loads((ROOT / "content-model.json").read_text(encoding="utf-8"))
 SITE = MODEL["site"]
 BASE = SITE["url"].rstrip("/")
 CATS = MODEL["categories"]
+ANO_BASE = SITE["base_year"]
+ANO_ATUAL = int(MODEL["updated"][:4])
+ANOS_CASA = ANO_ATUAL - ANO_BASE
 def _recencia(pr):
     """Ano mais recente do projeto; sem edição, lê o fim do período."""
     if pr["years"]:
@@ -283,7 +286,13 @@ def footer(depth):
 <nav class="foot-nav" aria-label="Rodapé">{nav}</nav></div>
 <div class="container foot-gov"><p class="foot-gov-titulo">Governança e políticas</p>
 <nav class="foot-gov-nav" aria-label="Governança e políticas">{gov}</nav></div>
-<div class="container foot-bottom"><span>© 2026 {e(SITE['name'])} Ltda.</span>
+<div class="container foot-desde">
+<a class="foot-desde-link" href="{home}produtora/#historia">
+<span class="foot-desde-anos">{ANO_BASE}<span class="foot-desde-tra">—</span>{ANO_ATUAL}</span>
+<span class="foot-desde-texto">{ANOS_CASA} anos produzindo esporte e cultura no Brasil.
+Constituída em {e(SITE['founded'])}, no {e(SITE['origin'].split(',')[0])}.
+<span class="foot-desde-cta">Ver a linha do tempo {icon('arrow_outward')}</span></span></a></div>
+<div class="container foot-bottom"><span>© {ANO_BASE}–{ANO_ATUAL} {e(SITE['name'])} Ltda.</span>
 <span>Informações documentais e imagens de terceiros identificadas por suas fontes. Layout original da Cadillac.</span>
 <a href="#top">{icon('north')} Voltar ao topo</a></div></footer>
 <a class="to-top" href="#top" aria-label="Voltar ao topo">{icon('north')}</a>

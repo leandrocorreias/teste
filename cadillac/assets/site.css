@@ -889,3 +889,21 @@ a.frente:hover,a.frente:focus-visible{border-top-color:var(--orange-ink);transfo
 .noticia-meta{font:400 13px/1.3 var(--font-text);color:var(--muted);
   display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .noticia-meta .mi{font-size:15px}
+
+/* Rodapé: os anos de casa */
+.foot-desde{padding-top:clamp(20px,3vw,28px);padding-bottom:clamp(20px,3vw,28px);
+  border-top:1px solid rgba(255,255,255,.1)}
+.foot-desde-link{display:flex;align-items:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap;
+  text-decoration:none;color:inherit;min-height:44px}
+.foot-desde-anos{font:800 clamp(30px,5vw,52px)/1 var(--font-display);letter-spacing:-.01em;
+  color:#fff;white-space:nowrap;flex:none}
+.foot-desde-tra{color:var(--orange);margin:0 .12em}
+.foot-desde-texto{font:400 clamp(14px,1.5vw,16px)/1.5 var(--font-text);
+  color:rgba(255,255,255,.72);max-width:52ch}
+.foot-desde-cta{display:inline-flex;align-items:center;gap:5px;color:var(--orange);
+  white-space:nowrap;border-bottom:1px solid transparent;transition:border-color .2s ease}
+.foot-desde-cta .mi{font-size:17px}
+.foot-desde-link:hover .foot-desde-cta,
+.foot-desde-link:focus-visible .foot-desde-cta{border-bottom-color:var(--orange)}
+@media(max-width:560px){.foot-desde-link{gap:10px}
+  .foot-desde-texto{padding-right:72px}}

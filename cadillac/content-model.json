@@ -4785,7 +4785,8 @@
         "nome": "Confederação Brasileira de Skate",
         "papel": "Entidade esportiva",
         "projeto": "vert-battle",
-        "logo": "cbsk.png"
+        "logo": "cbsk.png",
+        "altura": 54
       },
       {
         "nome": "IBC World Tour",

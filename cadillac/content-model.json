@@ -796,7 +796,13 @@
           "Os reels do projeto somaram 25 milhões de visualizações ao longo de julho, e o conjunto de transmissão e reprises passou de 2 milhões de visualizações.",
           "Os números de audiência acima são declarados pela produção no mídia kit oficial (V6) e ainda não têm relatório de emissora nem print de painel anexado a esta página.",
           "A segunda edição está anunciada para dezembro de 2026, em Niterói, mudando de cidade em relação à primeira.",
-          "O lançamento para a imprensa acontece no MAC Niterói, o Museu de Arte Contemporânea, para convidados especiais."
+          "O lançamento para a imprensa acontece no MAC Niterói, o Museu de Arte Contemporânea, para convidados especiais.",
+          "A primeira edição foi criada pelo apresentador Alexandre Lemos, do podcast Connect Cast, e montada para 300 convidados.",
+          "O evento não tem chave: cada combate é montado por rivalidade ou revanche, no modelo de superluta.",
+          "O card principal pagou R$ 10 mil de bônus por finalização, e o preliminar, R$ 5 mil — o prêmio existe para estimular a busca pelo acabamento.",
+          "Todos os atletas recebem bolsa independentemente do resultado, e a produção verifica os antecedentes criminais de cada participante.",
+          "Na luta principal, Fabrício Andrey venceu Meyram Maquiné por decisão unânime, em 70 kg, no primeiro duelo entre os dois sem kimono.",
+          "Diogo Reis venceu a revanche contra Rerisson Gabriel por decisão dividida, em 64 kg."
         ]
       },
       "mercado": {
@@ -955,6 +961,30 @@
         [
           "Grand Hyatt Rio de Janeiro",
           "https://www.hyatt.com/pt-BR/hotel/brazil/grand-hyatt-rio-de-janeiro/riogh"
+        ],
+        [
+          "Portal do Vale Tudo · resultados da 1ª edição",
+          "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
+        ],
+        [
+          "Portal do Vale Tudo · prévia da estreia",
+          "https://www.portaldovaletudo.com.br/connect-heroes-estreia-neste-sabado-com-rivalidades-revanche-e-incentivo-a-busca-pela-finalizacao/"
+        ],
+        [
+          "Sportbuzz · o projeto e o card",
+          "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
+        ],
+        [
+          "Diário do Rio · o projeto no Rio de Janeiro",
+          "https://diariodorio.com/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-de-janeiro/"
+        ],
+        [
+          "Jits Magazine · headliners da edição inaugural",
+          "https://jitsmagazine.com/connect-heroes-announces-superb-headliners-for-inaugural-event/"
+        ],
+        [
+          "Psicóticos por Vale Tudo · o projeto e o card",
+          "https://psicoticosporvaletudo.com.br/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
         ]
       ],
       "yearsources": {
@@ -1252,6 +1282,80 @@
               null
             ]
           }
+        ]
+      },
+      "card": {
+        "titulo": "O card da estreia",
+        "lede": "Sem chave e sem sorteio: cada combate foi montado por rivalidade ou revanche. Os resultados abaixo são os publicados pela imprensa especializada.",
+        "linhas": [
+          [
+            "Fabrício Andrey x Meyram Maquiné",
+            "70 kg · sem kimono",
+            "Fabrício Andrey venceu por decisão unânime",
+            [
+              "Portal do Vale Tudo · resultados da 1ª edição",
+              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
+            ]
+          ],
+          [
+            "Diogo Reis x Rerisson Gabriel",
+            "64 kg",
+            "Diogo Reis venceu por decisão dividida",
+            [
+              "Portal do Vale Tudo · resultados da 1ª edição",
+              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
+            ]
+          ],
+          [
+            "Piter Frank",
+            "85 kg",
+            "Piter Frank venceu por chave de braço",
+            [
+              "Portal do Vale Tudo · resultados da 1ª edição",
+              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
+            ]
+          ],
+          [
+            "Pedro Machado x Felipe Assis",
+            "Card principal",
+            "Combate anunciado no card divulgado antes do evento",
+            [
+              "Sportbuzz · o projeto e o card",
+              "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
+            ]
+          ]
+        ],
+        "regras": [
+          [
+            "Sem chave",
+            "Os combates são montados por rivalidade e revanche, não por sorteio de chaveamento."
+          ],
+          [
+            "Bônus por finalização",
+            "R$ 10 mil por finalização no card principal e R$ 5 mil no preliminar, para estimular a busca pelo acabamento."
+          ],
+          [
+            "Bolsa independente do resultado",
+            "Todos os atletas recebem, vencendo ou perdendo."
+          ],
+          [
+            "Checagem de antecedentes",
+            "A produção verifica os antecedentes criminais de cada participante."
+          ],
+          [
+            "Trezentos lugares",
+            "A primeira edição foi montada para 300 convidados, não para arquibancada aberta."
+          ]
+        ],
+        "regras_fonte": [
+          [
+            "Portal do Vale Tudo · prévia da estreia",
+            "https://www.portaldovaletudo.com.br/connect-heroes-estreia-neste-sabado-com-rivalidades-revanche-e-incentivo-a-busca-pela-finalizacao/"
+          ],
+          [
+            "Sportbuzz · o projeto e o card",
+            "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
+          ]
         ]
       }
     },

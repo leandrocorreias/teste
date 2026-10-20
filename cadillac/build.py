@@ -978,6 +978,7 @@ def page_project(pr):
     sections.append(antecedente_block(pr))
     sections.append(papel_block(pr))
     sections.append(jornada_block(pr))
+    sections.append(card_block(pr))
     sections.append(telas_block(pr))
     sections.extend(cronograma)
     sections.append(historico_block(pr))
@@ -1699,6 +1700,42 @@ def telas_block(pr):
 <div class="telas">
 <div class="tela-abas" role="tablist" aria-label="Telas da transmissão">{''.join(botoes)}</div>
 <div class="tela-paineis">{''.join(paineis)}</div></div></section>"""
+
+
+def card_block(pr):
+    """O card e o regulamento: o que se combinou e o que aconteceu.
+
+    Uma competicao sem chave precisa explicar a propria regra, senao o leitor
+    procura o chaveamento e nao acha. A tabela traz o combate, o resultado e a
+    fonte de cada linha; os cartoes ao lado, as regras que desenham o formato.
+    """
+    data = pr.get("card")
+    if not data:
+        return ""
+    linhas = []
+    for dupla, peso, resultado, fonte in data["linhas"]:
+        rotulo, url = fonte
+        marca = (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(rotulo)}</a>'
+                 if url else e(rotulo))
+        linhas.append(f'<tr><th scope="row">{e(dupla)}</th><td>{e(peso)}</td>'
+                      f'<td>{e(resultado)}</td><td>{marca}</td></tr>')
+    regras = "".join(
+        f'<article class="regra"><h3>{e(t)}</h3><p>{e(d)}</p></article>'
+        for t, d in data.get("regras") or [])
+    fontes = ""
+    if data.get("regras_fonte"):
+        itens = " · ".join(
+            f'<a href="{e(u)}" target="_blank" rel="noopener noreferrer">{e(r)}</a>' if u else e(r)
+            for r, u in data["regras_fonte"])
+        fontes = f'<p class="tela-fonte">{icon("description")} <span>{itens}</span></p>'
+    return f"""<section class="container card-section"><hr class="rule">
+<h2 class="section-title">{e(data['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(data['lede'])}</p>
+<div class="table-wrap"><table class="amounts"><thead><tr>
+<th scope="col">Combate</th><th scope="col">Peso</th>
+<th scope="col">Resultado</th><th scope="col">Fonte</th></tr></thead>
+<tbody>{''.join(linhas)}</tbody></table></div>
+{f'<div class="regra-grade">{regras}</div>' if regras else ''}{fontes}</section>"""
 
 
 def plano_block(pr):

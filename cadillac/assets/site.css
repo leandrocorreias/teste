@@ -804,6 +804,18 @@ a:hover>.cd-icon,button:hover>.cd-icon{transform:translate(2px,-2px)}
 .jornada-corpo p{margin:0 0 clamp(16px,2vw,22px);padding-left:calc(2ch + clamp(14px,2vw,24px));
   font-size:clamp(14px,1.5vw,16px);line-height:1.65;color:var(--ink-2);max-width:68ch}
 
+/* --- Card e regulamento --------------------------------------------------- */
+.regra-grade{display:grid;gap:12px;margin-top:clamp(18px,2.2vw,26px);
+  grid-template-columns:1fr}
+@media(min-width:620px){.regra-grade{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.regra-grade{grid-template-columns:repeat(3,1fr)}}
+.regra{background:var(--white);border:1px solid var(--border);
+  border-left:3px solid var(--orange);border-radius:var(--r-img);
+  padding:clamp(16px,2vw,22px)}
+.regra h3{margin:0 0 6px;font:800 clamp(15px,1.6vw,18px)/1.15 var(--font-display);
+  text-transform:uppercase;letter-spacing:-.01em}
+.regra p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+
 /* --- A mesma noite em cada tela ------------------------------------------
    A barra embaixo de cada aba diz, sem texto, o tamanho de uma tela ao lado
    das outras: 25 milhões em redes e 240 mil em TV não cabem na mesma frase. */

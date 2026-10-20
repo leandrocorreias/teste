@@ -1485,3 +1485,13 @@ a.kpi-selo:hover{filter:brightness(.94)}
 .gov-links .gov-volta{background:var(--orange);color:#fff}
 .gov-links .gov-volta:hover,
 .gov-links .gov-volta:focus-visible{background:var(--orange-ink);color:#fff}
+
+/* Respiro entre o fim do conteúdo e o rodapé.
+   Toda página terminava encostada na faixa escura: a última seção e o rodapé
+   se tocavam em zero pixel, e o bloco final parecia colado. A exceção são as
+   faixas de cor que sangram de ponta a ponta — a laranja do contato encontra
+   o preto do rodapé de propósito, e um vão de papel no meio quebraria a
+   emenda. */
+main > section:last-child{margin-bottom:clamp(40px,4.4vw,60px)}
+main > .contact:last-child,
+main > .clientes:last-child{margin-bottom:0}

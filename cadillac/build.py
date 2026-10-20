@@ -660,7 +660,13 @@ def page_home():
         else:
             marca = (f'<span class="logo-slot"><strong>{e(c["nome"])}</strong>'
                      f'<code>assets/marcas/{e(c["logo"])}</code></span>')
-        logos.append(f'<a class="logo-item" href="{alvo}" title="{e(c["papel"])}">{marca}'
+        # Um mural de logotipos se equilibra por peso visual, nao por altura.
+        # Limitados so pela altura, uma marca deitada como a da Prefeitura ocupa
+        # cinco vezes a area de uma quadrada como a do BB e domina a faixa. Quem
+        # precisa descer traz "altura" no modelo, em pixels.
+        alt = c.get("altura")
+        estilo = f' style="--logo-h:{int(alt)}px"' if alt else ""
+        logos.append(f'<a class="logo-item" href="{alvo}" title="{e(c["papel"])}"{estilo}>{marca}'
                      f'<span class="logo-papel">{e(c["papel"])}</span></a>')
     logos = "".join(logos)
     press_html = "".join(

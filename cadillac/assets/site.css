@@ -574,7 +574,12 @@ a.service-row{color:inherit}
 
 /* Marcas */
 .clientes{padding:clamp(40px,5.5vw,72px) 0}
-.logo-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));
+/* Três colunas, não seis. Com seis, cada célula tinha 165px úteis — e o
+   logotipo da Prefeitura, que é cinco vezes mais largo que alto, caía para
+   33px de altura: o brasão virava borrão e "PREFEITURA DE" sumia. A largura
+   da célula é o que limita um logotipo deitado, então ela é que precisa
+   crescer. Em 1360px a célula passa de 209px para 418px. */
+.logo-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
   gap:1px;background:var(--border);border:1px solid var(--border)}
 .logo-item{background:var(--paper);min-height:120px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:10px;padding:22px;text-align:center;transition:var(--t)}
@@ -583,12 +588,19 @@ a.service-row{color:inherit}
    três vezes mais largo que alto, o do BB é quadrado. Limitar só a altura deixava
    o logo largo transbordar a coluna; limitar também a largura faz cada um crescer
    até o que couber, pela dimensão que o aperta primeiro. */
-.logo-item img{max-height:64px;max-width:100%;width:auto;object-fit:contain}
+.logo-item img{max-height:var(--logo-h,64px);max-width:100%;width:auto;object-fit:contain}
 .logo-slot{display:flex;flex-direction:column;align-items:center;gap:8px}
 .logo-slot strong{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1.1}
 .logo-slot code{font:600 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);
   overflow-wrap:anywhere}
 .logo-papel{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+/* O rótulo ancora no pé da célula, não no fim do grupo. Antes a célula
+   centrava logotipo e rótulo juntos, então quem tinha logotipo baixo subia o
+   rótulo junto: os seis rótulos ficavam em alturas diferentes. Com margem
+   automática em cima e embaixo do logotipo, a sobra se distribui ao redor
+   dele e o rótulo encosta no fundo — igual em todas as células, seja o
+   logotipo alto, deitado ou ainda um marcador de texto. */
+.logo-item>img,.logo-item>.logo-slot{margin-block:auto}
 
 /* Kit de imprensa */
 .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;

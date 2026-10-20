@@ -4778,7 +4778,8 @@
         "nome": "Prefeitura de Niterói",
         "papel": "Poder público",
         "projeto": "itacoatiara-pro",
-        "logo": "prefeitura-niteroi.svg"
+        "logo": "prefeitura-niteroi.png",
+        "altura": 46
       },
       {
         "nome": "Confederação Brasileira de Skate",

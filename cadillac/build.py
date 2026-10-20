@@ -205,9 +205,12 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
 {blocks}{extra}</head>"""
 
 
-def header(depth, active=""):
+def header(depth, active="", body_class=""):
     """Cabeçalho com submenus. Sem JavaScript: abre no hover e no foco do teclado,
-    e no celular usa <details>, que é acordeão nativo."""
+    e no celular usa <details>, que é acordeão nativo.
+
+    body_class permite que a home peça o cabeçalho sobreposto ao vídeo do herói.
+    """
     p = rel(depth)
     home = p if depth else "./"
     desk, mob = [], []
@@ -231,7 +234,8 @@ def header(depth, active=""):
             f'<summary>{e(label)}{icon("expand_more")}</summary>'
             f'<div class="mob-links">{"".join(linhas_mob)}</div></details>')
     gov = "".join(f'<a href="{home}{u}">{e(l)}</a>' for l, u in GOVERNANCA)
-    return f"""<body><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    cls = f' class="{body_class}"' if body_class else ""
+    return f"""<body{cls}><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header"><div class="header-inner">
 <a class="logo" href="{home}" aria-label="Cadillac Produções e Filmes, página inicial"><img class="logo-mark" src="{p}assets/logo-cadillac.png" alt="Cadillac" width="1619" height="511"><span class="logo-sub">Produções<br>&amp; Filmes</span></a>
 <nav class="nav" aria-label="Menu principal">{''.join(desk)}</nav>
@@ -666,11 +670,14 @@ def page_home():
         f'<h3>{e(title)}</h3><small>{icon("open_in_new")} {e(outlet)} · cobertura externa</small></a>'
         for i, (outlet, title, url) in enumerate(MODEL["featured_press"], start=1))
     body = f"""<main id="conteudo"><span id="top"></span>
-<section class="hero container">
+<section class="hero-cine" data-video="{youtube_id(MODEL['video']['reel']['url'])}">
+<div class="hero-fundo" aria-hidden="true"></div>
+<div class="hero-veu" aria-hidden="true"></div>
+<div class="hero-cine-inner container">
 <div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br>{SITE['headline'][2]}</h1>
 <a class="circle-link" href="./projetos/" aria-label="Ver o acervo de projetos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></section>
+<span>EXPLORE OS PROJETOS {icon('expand_more')}</span></div></div></section>
 <section class="container reel-section">{video_block('reel', MODEL['video']['reel'].get('titulo') or 'Reel institucional Cadillac')}</section>
 <section class="container showcase" id="projetos">
 <h2 class="sr-only">Projetos em destaque</h2><hr class="rule">
@@ -711,7 +718,7 @@ def page_home():
                       "Conheça o universo Cadillac: projetos esportivos, festivais, edições históricas, "
                       "notícias e dados documentados com fontes públicas.",
                       "", [x for x in (org, website, video_ld()) if x])
-                 + header(0, "home") + body + footer(0))
+                 + header(0, "home", body_class="home-cine") + body + footer(0))
 
 
 def page_projects():

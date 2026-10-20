@@ -48,6 +48,35 @@
     });
   }
 
+  /* --- Herói da home: vídeo de fundo ------------------------------------
+     O iframe é inserido por aqui, e não pelo HTML, por três razões:
+     quem prefere menos movimento não recebe o player nem a requisição ao
+     YouTube; a janela já tem tamanho conhecido quando ele entra, o que evita
+     um reflow na primeira pintura; e o domínio sem cookie é usado sempre.
+     Falhando qualquer coisa, o herói permanece preto com a tipografia branca. */
+  var cena = document.querySelector('.hero-cine');
+  if (cena) {
+    var id = cena.getAttribute('data-video');
+    var menos = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (id && !(menos && menos.matches)) {
+      var params = [
+        'autoplay=1', 'mute=1', 'loop=1', 'playlist=' + id,
+        'controls=0', 'disablekb=1', 'fs=0', 'modestbranding=1',
+        'rel=0', 'playsinline=1', 'iv_load_policy=3'
+      ].join('&');
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params;
+      frame.title = 'Vídeo institucional da Cadillac, sem som, ao fundo';
+      frame.setAttribute('allow', 'autoplay; encrypted-media');
+      frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      frame.setAttribute('tabindex', '-1');
+      frame.setAttribute('aria-hidden', 'true');
+      frame.loading = 'eager';
+      var fundo = cena.querySelector('.hero-fundo');
+      if (fundo) fundo.appendChild(frame);
+    }
+  }
+
   /* --- Header compacto e botão "voltar ao topo" ------------------------ */
   var toTop = document.querySelector('.to-top');
   var onScroll = function () {

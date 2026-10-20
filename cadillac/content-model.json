@@ -2750,7 +2750,7 @@
   "declared_metrics": [
     {
       "event": "Itacoatiara Pro 2026",
-      "href": "projetos/itacoatiara-pro/2026/",
+      "href": "eventos/itacoatiara-pro/2026/",
       "value": "≈ 500",
       "what": "Atletas inscritos",
       "nature": "Número informado pela Prefeitura de Niterói, sem auditoria independente",
@@ -2761,7 +2761,7 @@
     },
     {
       "event": "Itacoatiara Pro 2026",
-      "href": "projetos/itacoatiara-pro/2026/",
+      "href": "eventos/itacoatiara-pro/2026/",
       "value": "US$ 35 mil",
       "what": "Premiação anunciada da Men's Prime Series",
       "nature": "Valor anunciado pelo IBC World Tour para a etapa",
@@ -2772,7 +2772,7 @@
     },
     {
       "event": "Vert Battle 2026, Belo Horizonte",
-      "href": "projetos/vert-battle/2026/",
+      "href": "eventos/vert-battle/2026/",
       "value": "≈ 6.000",
       "what": "Espectadores na etapa",
       "nature": "Número informado pela CBSk, entidade organizadora da modalidade",
@@ -2783,7 +2783,7 @@
     },
     {
       "event": "Vert Battle 2026, Belo Horizonte",
-      "href": "projetos/vert-battle/2026/",
+      "href": "eventos/vert-battle/2026/",
       "value": "R$ 100 mil",
       "what": "Premiação total anunciada",
       "nature": "Valor anunciado pela CBSk para a etapa",
@@ -2794,7 +2794,7 @@
     },
     {
       "event": "Tamo Junto BB 2024, Natal",
-      "href": "projetos/tamo-junto-bb/2024/",
+      "href": "eventos/tamo-junto-bb/2024/",
       "value": "> 30 mil/dia",
       "what": "Público relatado",
       "nature": "Relato público de executivo ligado ao patrocinador. Não auditado e sem unicidade: não é público único do festival",
@@ -2805,7 +2805,7 @@
     },
     {
       "event": "Dominguinho 2026",
-      "href": "projetos/dominguinho/",
+      "href": "eventos/dominguinho/",
       "value": "> 300 milhões",
       "what": "Streams do projeto musical",
       "nature": "Métrica do projeto nas plataformas, atribuída pela imprensa. Não é audiência de evento nem resultado da Cadillac",
@@ -2816,7 +2816,7 @@
     },
     {
       "event": "Dominguinho 2026",
-      "href": "projetos/dominguinho/",
+      "href": "eventos/dominguinho/",
       "value": "43",
       "what": "Shows realizados na turnê",
       "nature": "Número divulgado pela imprensa em agosto de 2026, referente àquela data",
@@ -7076,31 +7076,31 @@
           "2018",
           "Festival de Tribos de Juruti",
           "O registro do TCM-PA identifica a Cadillac como contratada para a apresentação de André Frateschi na Festa dos Visitantes, dentro do XXIV Festival de Tribos, no Pará.",
-          "projetos/festival-de-tribos-juruti/2018/"
+          "eventos/festival-de-tribos-juruti/2018/"
         ],
         [
           "2022",
           "Itacoatiara Pro 10 anos",
           "A empresa é proponente do projeto, aprovado para captação. O desenho do festival previa oito modalidades, 26 dias de atividade e programação cultural em oito pontos de Niterói.",
-          "projetos/itacoatiara-pro/2022/"
+          "eventos/itacoatiara-pro/2022/"
         ],
         [
           "2024",
           "Tamo Junto BB em Natal",
           "A primeira edição do festival do Banco do Brasil, na Arena das Dunas, reúne skate, vôlei de praia, surfe, corrida e e-Sports com mais de 100 mil pessoas circulando.",
-          "projetos/tamo-junto-bb/2024/"
+          "eventos/tamo-junto-bb/2024/"
         ],
         [
           "2025",
           "Temporada do Vert Battle",
           "Quatro etapas do Campeonato Brasileiro de Skate Vertical, de Goiânia a Fortaleza, com transmissão da Globo e do SporTV. O material oficial da temporada é assinado pela Cadillac Production.",
-          "projetos/vert-battle/2025/"
+          "eventos/vert-battle/2025/"
         ],
         [
           "2026",
           "O ano mais cheio do acervo",
           "Itacoatiara Pro na 14ª edição, turnê Dominguinho, Connect Heroes na estreia, skate dentro do MAC Bahia e a entrada no Mr. Moo Festival.",
-          "projetos/"
+          "eventos/"
         ]
       ],
       "nota": ""

@@ -69,3 +69,9 @@ ErrorDocument 404 /cadillac/404.html
 # endereco entra do mesmo jeito. Esta regra nega o acesso no servidor.
 # Para liberar so para voce, troque por protecao com senha (AuthType Basic).
 RedirectMatch 404 ^/cadillac/reservado(/.*)?$
+
+# O acervo passou de /projetos/ para /eventos/, que e como o menu, os textos e
+# as pessoas chamam. Quem ja tem o link antigo salvo, ou o publicou em algum
+# lugar, continua chegando: o 301 leva ao endereco novo e passa ao buscador o
+# que mudou, em vez de devolver um 404.
+RedirectMatch 301 ^/cadillac/projetos(/.*)?$ /cadillac/eventos$1

@@ -59,7 +59,7 @@ def rotulo_ed(pr, eid):
 
 def href_edicao(pr, ano, p):
     """Link da edicao a partir do ano. Com duas no mesmo ano, leva ao projeto."""
-    base = f'{p}projetos/{pr["slug"]}/'
+    base = f'{p}eventos/{pr["slug"]}/'
     if not ano:
         return base
     ids = [x for x in pr["years"] if ano_de(x) == int(ano)]
@@ -112,8 +112,8 @@ def atleta_href(nome, depth):
 # Cada entrada: rótulo, destino do próprio item, chave de página ativa e os
 # grupos do submenu. Grupo sem título vira lista direta.
 NAV = [
-    ("Eventos", "projetos/", "eventos", [
-        (None, [("Todos os eventos", "projetos/"),
+    ("Eventos", "eventos/", "eventos", [
+        (None, [("Todos os eventos", "eventos/"),
                 ("Agenda", "agenda/")]),
     ]),
     ("Produtora", "produtora/", "produtora", [
@@ -553,7 +553,7 @@ def photo_for(project, year=None):
 
 
 def og_for(project, year=None):
-    alvo = f'projetos-{project["slug"]}' + (f"-{year}" if year else "")
+    alvo = f'eventos-{project["slug"]}' + (f"-{year}" if year else "")
     if (ROOT / "assets" / "og" / f"{alvo}.jpg").exists():
         return f"{BASE}/assets/og/{alvo}.jpg"
     for stem in (stems_edicao(project, year) if year else [project["slug"]]):
@@ -655,7 +655,7 @@ def card(project, depth, eager=False):
             f'<span>{icon("place")} {e(project["location"])}</span>'
             f'<span>{icon("calendar_month")} {e(project["period"])}</span>')
     img = media(project, eager=eager, depth=depth)
-    return f"""<a class="work-card" data-project data-categoria="{project['category']}" data-anos="{years}" data-busca="{e(search_blob)}" href="{p}projetos/{project['slug']}/">
+    return f"""<a class="work-card" data-project data-categoria="{project['category']}" data-anos="{years}" data-busca="{e(search_blob)}" href="{p}eventos/{project['slug']}/">
 {img}
 <div class="card-info"><div><h3>{e(project['name'])}</h3><div class="card-meta">{meta}</div></div>
 <span class="card-arrow">{icon('arrow_outward')}</span></div></a>"""
@@ -771,7 +771,7 @@ def coverage_matrix(depth):
             # Um ano pode ter mais de uma edição: a célula leva à primeira delas.
             ids = [x for x in pr["years"] if ano_de(x) == y]
             if ids:
-                cells.append(f'<td><a class="cell" href="{p}projetos/{pr["slug"]}/{ids[0]}/" '
+                cells.append(f'<td><a class="cell" href="{p}eventos/{pr["slug"]}/{ids[0]}/" '
                              f'aria-label="{e(pr["name"])} {y}, edição documentada">{y}</a></td>')
             else:
                 cells.append('<td><span class="cell" aria-label="sem registro catalogado">—</span></td>')
@@ -861,7 +861,7 @@ def page_home():
     logos = []
     for c in MODEL["clientes"]["itens"]:
         arq = ROOT / "assets" / "marcas" / c["logo"]
-        alvo = f'./projetos/{c["projeto"]}/'
+        alvo = f'./eventos/{c["projeto"]}/'
         if arq.exists():
             lw, lh = dimensoes(f'assets/marcas/{c["logo"]}')
             marca = (f'<img src="./assets/marcas/{e(c["logo"])}" alt="{e(c["nome"])}" '
@@ -905,16 +905,16 @@ def page_home():
 <div class="hero-veu" aria-hidden="true"></div>
 <div class="hero-cine-inner container">
 <div class="hero-big"><h1>{SITE['headline'][0]}<br><em>{SITE['headline'][1]}</em><br><span class="h-fantasma">{SITE['headline'][2]}</span></h1>
-<a class="circle-link" href="./projetos/" aria-label="Ver o acervo de eventos">{icon('arrow_outward')}</a></div>
+<a class="circle-link" href="./eventos/" aria-label="Ver o acervo de eventos">{icon('arrow_outward')}</a></div>
 <div class="hero-bottom"><p>{e(SITE['support'])}</p>
-<a class="hero-explore" href="#projetos">EXPLORE OS EVENTOS {icon('expand_more')}</a></div></div></section>
-<section class="container showcase" id="projetos">
+<a class="hero-explore" href="#eventos">EXPLORE OS EVENTOS {icon('expand_more')}</a></div></div></section>
+<section class="container showcase" id="eventos">
 <hr class="rule">
 <div class="showcase-cabeca">
 <h2 class="section-title">EVENTOS<span class="orange">.</span></h2>
 </div>
 <div class="works-grid">{cards}</div>
-<div class="section-end"><a class="pill-link" href="./projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>
+<div class="section-end"><a class="pill-link" href="./eventos/">Todos os eventos {icon('arrow_outward')}</a></div></section>
 <section class="clientes"><div class="container">
 <h2 class="section-title">NOSSOS<br><em>PARCEIROS.</em></h2>
 <div class="logo-wall">{logos}</div>
@@ -935,7 +935,7 @@ def page_home():
 <section class="contact" id="contato"><div class="container"><h2>TEM UMA IDEIA GRANDE?<br><em>ENTÃO CHAMA A GENTE.</em></h2>
 <p>Eventos, parcerias, imprensa ou produção.</p>
 <a class="contact-link" href="mailto:{SITE['email']}">{icon('mail')} FALE COM A CADILLAC</a>
-<div class="contact-ways"><a class="pill-link" href="./projetos/">Ver eventos {icon('arrow_outward')}</a>
+<div class="contact-ways"><a class="pill-link" href="./eventos/">Ver eventos {icon('arrow_outward')}</a>
 <a class="pill-link" href="./dados/">Ver dados {icon('insights')}</a></div>
 <div class="contact-dados">{contato_linhas}</div></div></section>
 </main>"""
@@ -951,12 +951,12 @@ def page_projects():
     trail_html, trail_ld = crumbs(1, [("Eventos", None)])
     cards = "".join(card(pr, 1, eager=(i == 0)) for i, pr in enumerate(PROJECTS))
     ld = {"@context": "https://schema.org", "@type": "CollectionPage",
-          "name": "Eventos e cases", "url": f"{BASE}/projetos/",
+          "name": "Eventos e cases", "url": f"{BASE}/eventos/",
           "mainEntity": {"@type": "ItemList", "numberOfItems": len(PROJECTS),
                          "itemListElement": [
                              {"@type": "ListItem", "position": i,
                               "name": pr["name"],
-                              "url": f"{BASE}/projetos/{pr['slug']}/"}
+                              "url": f"{BASE}/eventos/{pr['slug']}/"}
                              for i, pr in enumerate(PROJECTS, start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>EVENTOS<span class="orange">.</span></h1>
@@ -966,18 +966,18 @@ def page_projects():
 <h2 class="sr-only">Acervo de eventos</h2>
 <div class="works-grid">{cards}</div>
 </section></main>"""
-    return write("projetos/index.html",
+    return write("eventos/index.html",
                  head(1, "Eventos e cases | Cadillac Produções",
                       "Acervo de eventos da Cadillac: Itacoatiara Pro, Vert Battle, Tamo Junto BB, "
                       "Dominguinho, Arte em Circuito, MAC Bahia e Festival de Tribos de Juruti.",
-                      "projetos/", [ld, trail_ld]) + header(1, "projetos") + body + footer(1))
+                      "eventos/", [ld, trail_ld]) + header(1, "eventos") + body + footer(1))
 
 
 def page_project(pr):
     depth, p = 2, rel(2)
     slug = pr["slug"]
     cat = CATS[pr["category"]]
-    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"), (pr["name"], None)])
+    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "eventos/"), (pr["name"], None)])
     n_facts, n_sources = project_facts(pr), len(project_sources(pr))
     metric = ""
 
@@ -1005,7 +1005,7 @@ def page_project(pr):
             note = " · ".join(x for x in [txt or ed.get("period"), ed.get("place"),
                                           plural(dias, "dia", "dias") if dias else None] if x)
             rot = rotulo_ed(pr, y)
-            rows.append(f"""<a class="year-row" href="{p}projetos/{slug}/{y}/">
+            rows.append(f"""<a class="year-row" href="{p}eventos/{slug}/{y}/">
 <span class="yr">{ano_de(y)}</span><span><strong>{e(pr['name'])} {e(rot)}</strong>
 <span class="yr-note">{e(note) if note else 'Edição catalogada'}</span></span>
 <span class="yr-go">Explorar edição {icon('arrow_outward')}</span></a>""")
@@ -1072,22 +1072,22 @@ Quero patrocinar {icon('campaign')}</a>
 <hr class="rule">
 <h2 class="section-title">VEJA MAIS<span class="orange">.</span></h2>
 <div class="works-grid grid-4">{rel_cards}</div>
-<div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os eventos {icon('arrow_outward')}</a></div></section>""")
+<div class="section-end"><a class="pill-link" href="{p}eventos/">Todos os eventos {icon('arrow_outward')}</a></div></section>""")
 
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": pr["name"],
-          "url": f"{BASE}/projetos/{slug}/", "description": pr["desc"], "inLanguage": "pt-BR",
+          "url": f"{BASE}/eventos/{slug}/", "description": pr["desc"], "inLanguage": "pt-BR",
           "publisher": {"@type": "Organization", "name": SITE["name"]}}
     blocks = [ld, trail_ld] + ([faq_ld] if faq_ld else [])
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="project-hero container">
-<a class="back" href="{p}projetos/">{icon('arrow_back')} Todos os eventos</a>
+<a class="back" href="{p}eventos/">{icon('arrow_back')} Todos os eventos</a>
 <div class="project-title"><h1>{e(pr['name'])}<span class="orange">.</span></h1><p>{e(pr['desc'])}</p></div>
 {media(pr, 'banner', eager=True, depth=depth)}{metric}</section>
 {''.join(sections)}</main>"""
-    return write(f"projetos/{slug}/index.html",
+    return write(f"eventos/{slug}/index.html",
                  head(depth, f"{pr['name']} | Cadillac Produções",
                       f"{pr['name']}: {pr['desc']}",
-                      f"projetos/{slug}/", blocks, og_image=og_for(pr)) + header(depth, "projetos") + body + footer(depth))
+                      f"eventos/{slug}/", blocks, og_image=og_for(pr)) + header(depth, "eventos") + body + footer(depth))
 
 
 def shows_block(pr, year):
@@ -1151,8 +1151,8 @@ def page_edition(pr, year):
                    f"{slug}-{year}")
     credito = MODEL["photos"].get("creditos", {}).get(slug, "Acervo Cadillac")
     ed = pr.get("editions", {}).get(ystr, {})
-    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "projetos/"),
-                                          (pr["name"], p + f"projetos/{slug}/"),
+    trail_html, trail_ld = crumbs(depth, [("Eventos", p + "eventos/"),
+                                          (pr["name"], p + f"eventos/{slug}/"),
                                           (f"Edição {rot}", None)])
     facts = pr["facts"].get(ystr, [])
     facts_html = "".join(f'<div class="fact"><span class="n">{i:02d}</span><p>{e(t)}</p></div>'
@@ -1175,13 +1175,13 @@ def page_edition(pr, year):
     nav_links = []
     if idx > 0:
         prev = years_sorted[idx - 1]
-        nav_links.append(f'<a href="{p}projetos/{slug}/{prev}/">{icon("arrow_back")} Edição {e(rotulo_ed(pr, prev))}</a>')
+        nav_links.append(f'<a href="{p}eventos/{slug}/{prev}/">{icon("arrow_back")} Edição {e(rotulo_ed(pr, prev))}</a>')
     if idx < len(years_sorted) - 1:
         nxt = years_sorted[idx + 1]
-        nav_links.append(f'<a href="{p}projetos/{slug}/{nxt}/">Edição {e(rotulo_ed(pr, nxt))} {icon("arrow_forward")}</a>')
+        nav_links.append(f'<a href="{p}eventos/{slug}/{nxt}/">Edição {e(rotulo_ed(pr, nxt))} {icon("arrow_forward")}</a>')
     others = [y for y in pr["years"] if y != year]
     other_html = "".join(
-        f'<a href="{p}projetos/{slug}/{y}/">{e(rotulo_ed(pr, y))} {icon("arrow_outward")}</a>'
+        f'<a href="{p}eventos/{slug}/{y}/">{e(rotulo_ed(pr, y))} {icon("arrow_outward")}</a>'
         for y in others) or "<span>Primeira edição catalogada</span>"
 
     fotos = [slot(f'{prefixo}-01.jpg', '16:9', 'Foto principal da edição', 'slot-wide',
@@ -1198,13 +1198,13 @@ def page_edition(pr, year):
 <div class="gallery">{"".join(fotos)}</div></section>''' if fotos else "")
 
     ld = {"@context": "https://schema.org", "@type": "WebPage",
-          "name": f"{pr['name']} {rot}", "url": f"{BASE}/projetos/{slug}/{year}/",
+          "name": f"{pr['name']} {rot}", "url": f"{BASE}/eventos/{slug}/{year}/",
           "inLanguage": "pt-BR",
           "about": {"@type": "Event", "name": f"{pr['name']} {rot}",
                     "location": {"@type": "Place", "name": ed.get("place", pr["location"])}}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="edition-hero container">
-<a class="back" href="{p}projetos/{slug}/">{icon('arrow_back')} Histórico de {e(pr['name'])}</a>
+<a class="back" href="{p}eventos/{slug}/">{icon('arrow_back')} Histórico de {e(pr['name'])}</a>
 <h1>{e(pr['name'])}<br><em>{e(rot)}.</em></h1>
 <p class="lede">{e(pr['desc'])}</p>
 <div class="taglist">{''.join(meta_tags)}</div>
@@ -1234,11 +1234,11 @@ def page_edition(pr, year):
 <section class="container sources">
 <div class="year-links"><span>Navegar nas edições</span>{''.join(nav_links)}</div>
 <div class="year-links"><span>Outros anos</span>{other_html}</div></section></main>"""
-    return write(f"projetos/{slug}/{year}/index.html",
+    return write(f"eventos/{slug}/{year}/index.html",
                  head(depth, f"{pr['name']} {rot} | Cadillac Produções",
                       f"{pr['name']} {rot}: datas, fatos documentados, elenco e fontes públicas da edição.",
-                      f"projetos/{slug}/{year}/", [ld, trail_ld], og_image=og_for(pr, year))
-                 + header(depth, "projetos") + body + footer(depth))
+                      f"eventos/{slug}/{year}/", [ld, trail_ld], og_image=og_for(pr, year))
+                 + header(depth, "eventos") + body + footer(depth))
 
 
 def page_press():
@@ -1265,7 +1265,7 @@ def page_press():
 <p class="group-count">{icon(cat['icon'])} {plural(len(uniq), 'fonte catalogada', 'fontes catalogadas')}</p>
 {source_list(uniq)}
 <div class="year-links"><span>Contexto</span>
-<a href="{p}projetos/{pr['slug']}/">Página do evento {icon('arrow_outward')}</a></div></article>""")
+<a href="{p}eventos/{pr['slug']}/">Página do evento {icon('arrow_outward')}</a></div></article>""")
     recentes = []
     for pr in PROJECTS:
         for y in pr["yearsources"]:
@@ -1892,7 +1892,7 @@ def participacoes_block(pr, depth):
     linhas = []
     for item in data["itens"]:
         alvo = by_slug[item["projeto"]]
-        href = f'{p}projetos/{alvo["slug"]}/' + (f'{item["ano"]}/' if item["ano"] else "")
+        href = f'{p}eventos/{alvo["slug"]}/' + (f'{item["ano"]}/' if item["ano"] else "")
         quando = str(item["ano"]) if item["ano"] else "Histórico"
         label, url = item["fonte"]
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(alvo['name'])}{' ' + str(item['ano']) if item['ano'] else ''}</a></th>
@@ -2051,7 +2051,7 @@ def events_table(depth):
         quando = (f'{e(txt)}<small>{selo_data(ed.get("datas"))}'
                   f'{" · " + plural(dias, "dia", "dias") if dias else ""}</small>'
                   if txt else '<span class="val pend">a confirmar</span>')
-        linhas.append(f"""<tr><th scope="row"><a href="{p}projetos/{pr['slug']}/{year}/">{e(pr['name'])} {year}</a>
+        linhas.append(f"""<tr><th scope="row"><a href="{p}eventos/{pr['slug']}/{year}/">{e(pr['name'])} {year}</a>
 <small>{plural(inscritos, 'inscrito', 'inscritos') if inscritos else 'inscritos a levantar'}</small></th>
 <td>{quando}</td>
 <td>{e(ed.get('place', pr['location']))}</td>
@@ -2084,7 +2084,7 @@ def ficha_pessoa(pessoa, depth, com_vinculos=True):
             alvo = next((x for x in PROJECTS if x["slug"] == v["projeto"]), None)
             if not alvo:
                 continue
-            href = f'{p}projetos/{alvo["slug"]}/' + (f'{v["ano"]}/' if v.get("ano") else "")
+            href = f'{p}eventos/{alvo["slug"]}/' + (f'{v["ano"]}/' if v.get("ano") else "")
             fonte = ""
             if v.get("fonte"):
                 label, url = v["fonte"]
@@ -2297,8 +2297,8 @@ def page_pessoa(x):
         if not pr:
             continue
         _ids = [x for x in pr["years"] if v.get("ano") and ano_de(x) == v["ano"]]
-        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
-                else f'{p}projetos/{pr["slug"]}/')
+        href = (f'{p}eventos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
+                else f'{p}eventos/{pr["slug"]}/')
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{v.get('ano') or '—'}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
     tabela = (f"""<div class="table-wrap"><table class="amounts reach-table">
@@ -2399,8 +2399,8 @@ def page_artista(nome, onde):
     linhas = []
     for pr, ano, papel, fonte in onde:
         _ids = [x for x in pr["years"] if ano.isdigit() and ano_de(x) == int(ano)]
-        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
-                else f'{p}projetos/{pr["slug"]}/')
+        href = (f'{p}eventos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
+                else f'{p}eventos/{pr["slug"]}/')
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{e(ano) if ano.isdigit() else '—'}</td><td>{e(papel)}</td><td>{fonte_link(fonte)}</td></tr>""")
     tabela = f"""<div class="table-wrap"><table class="amounts reach-table">
@@ -2521,8 +2521,8 @@ def page_atleta(x):
         if not pr:
             continue
         _ids = [x for x in pr["years"] if v.get("ano") and ano_de(x) == v["ano"]]
-        href = (f'{p}projetos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
-                else f'{p}projetos/{pr["slug"]}/')
+        href = (f'{p}eventos/{pr["slug"]}/{_ids[0]}/' if len(_ids) == 1
+                else f'{p}eventos/{pr["slug"]}/')
         quando = str(v["ano"]) if v.get("ano") else "—"
         linhas.append(f"""<tr><th scope="row"><a href="{href}">{e(pr['name'])}</a></th>
 <td>{quando}</td><td>{e(v['papel'])}</td><td>{fonte_link(v.get('fonte'))}</td></tr>""")
@@ -2831,7 +2831,7 @@ def page_relacionamento():
         else:
             visual = f'<span class="logo-slot"><strong>{e(c["nome"])}</strong></span>'
         marcas_cel.append(
-            f'<a class="logo-item" href="{p}projetos/{e(c["projeto"])}/" '
+            f'<a class="logo-item" href="{p}eventos/{e(c["projeto"])}/" '
             f'title="{e(c["papel"])}"{estilo}>{visual}'
             f'<span class="logo-papel">{e(c["papel"])}</span></a>')
     marcas = "".join(marcas_cel)
@@ -2852,7 +2852,7 @@ def page_relacionamento():
                 f'<article class="prop-card">'
                 f'<h3>{e(nome)}</h3><p>{e(desc)}</p>'
                 f'<div class="prop-pe">'
-                f'<a class="prop-ver" href="{p}projetos/{e(slug)}/">'
+                f'<a class="prop-ver" href="{p}eventos/{e(slug)}/">'
                 f'Ver a propriedade {icon("arrow_outward")}</a>'
                 + (f'<button type="button" class="prop-quero" '
                    f'data-abre="form-{b["id"]}" data-campo="{b["id"]}-propriedade" '
@@ -3012,7 +3012,7 @@ def page_parceiros():
     cartoes, linhas = [], []
     for c in d["itens"]:
         pr = by_slug.get(c["projeto"])
-        alvo = f'{p}projetos/{c["projeto"]}/'
+        alvo = f'{p}eventos/{c["projeto"]}/'
         arq = ROOT / "assets" / "marcas" / c["logo"]
         alt = c.get("altura")
         estilo = f' style="--logo-h:{int(alt)}px"' if alt else ""
@@ -3221,7 +3221,7 @@ def perfil_block(depth):
             extras.append(f'<div class="pf-extra"><h4>Origem do público</h4>'
                           f'<div class="pf-geo">{tiles}</div></div>')
 
-        ir = (f'<a class="pill-link" href="{rel(depth)}projetos/{pr["slug"]}/">'
+        ir = (f'<a class="pill-link" href="{rel(depth)}eventos/{pr["slug"]}/">'
               f'Ver o projeto {icon("arrow_outward")}</a>') if pr else ""
         painéis.append(
             f'<div class="pf-painel" id="{pid}" role="tabpanel" '
@@ -3235,7 +3235,7 @@ def perfil_block(depth):
 
     if sem_perfil:
         itens = "".join(
-            f'<li><a href="{rel(depth)}projetos/{pr["slug"]}/">{e(pr["name"])}</a>'
+            f'<li><a href="{rel(depth)}eventos/{pr["slug"]}/">{e(pr["name"])}</a>'
             f'<span>{e(CATS[pr["category"]]["label"])}</span></li>' for pr in sem_perfil)
         pendentes = (
             f'<div class="pf-pendentes"><h3>{plural(len(sem_perfil), "evento ainda sem perfil declarado", "eventos ainda sem perfil declarado")}</h3>'
@@ -3446,7 +3446,7 @@ def page_atuacao():
     for nome, papel, onde, slug, nota, confirmado in eco["entities"]:
         selo = (f'<span class="tag-ok">{icon("verified")} Fonte pública</span>' if confirmado
                 else f'<span class="tag-wait">{icon("description")} A confirmar</span>')
-        link = (f'<a href="{p}projetos/{slug}/">{e(onde)} {icon("arrow_outward")}</a>'
+        link = (f'<a href="{p}eventos/{slug}/">{e(onde)} {icon("arrow_outward")}</a>'
                 if slug else e(onde))
         eco_linhas.append(f'<tr><th scope="row">{e(nome)}</th><td>{e(papel)}</td>'
                           f'<td>{link}</td><td>{e(nota)}<small>{selo}</small></td></tr>')
@@ -3522,7 +3522,7 @@ def page_atuacao():
 <section class="container related">
 <h2 class="section-title">VER TUDO<br><em>NO ACERVO.</em></h2>
 <p class="body-copy">Cada caso acima tem página própria, com as outras edições, os fatos documentados e as fontes completas.</p>
-<div class="section-end"><a class="pill-link" href="{p}projetos/">Explorar os eventos {icon('arrow_outward')}</a></div>
+<div class="section-end"><a class="pill-link" href="{p}eventos/">Explorar os eventos {icon('arrow_outward')}</a></div>
 <p class="note">Os casos descrevem o que está documentado em fonte pública. Onde a atribuição depende de contrato ou ficha técnica ainda em validação, o texto diz isso em vez de afirmar autoria.</p>
 </section></main>"""
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Atuação",
@@ -3547,7 +3547,7 @@ def page_ecossistema():
     for name, role, where, slug, note, confirmed in data["entities"]:
         status = (f'<span class="tag-ok">{icon("verified")} Fonte pública</span>' if confirmed
                   else f'<span class="tag-wait">{icon("description")} A confirmar</span>')
-        link = f'<a href="{p}projetos/{slug}/">{e(where)} {icon("arrow_outward")}</a>' if slug else e(where)
+        link = f'<a href="{p}eventos/{slug}/">{e(where)} {icon("arrow_outward")}</a>' if slug else e(where)
         rows.append(f"""<tr><th scope="row">{e(name)}</th><td>{e(role)}</td>
 <td>{link}</td><td>{e(note)}<small>{status}</small></td></tr>""")
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
@@ -3579,7 +3579,7 @@ def page_agenda():
     trail_html, trail_ld = crumbs(depth, [("Agenda", None)])
     itens = []
     for pr in PROJECTS:
-        href_pr = f'{p}projetos/{pr["slug"]}/'
+        href_pr = f'{p}eventos/{pr["slug"]}/'
         for year in pr["years"]:
             ed = pr["editions"].get(str(year), {})
             href = f'{href_pr}{year}/'
@@ -3666,7 +3666,7 @@ def page_reservado():
 
     fin = []
     for r in data["financeiro"]:
-        onde = (f'<a href="{p}projetos/{r["slug"]}/">{e(r["projeto"])} {icon("arrow_outward")}</a>'
+        onde = (f'<a href="{p}eventos/{r["slug"]}/">{e(r["projeto"])} {icon("arrow_outward")}</a>'
                 if r["slug"] in by_slug else e(r["projeto"]))
         fin.append(f"""<tr><th scope="row">{onde}<small>{e(r['registro'])}</small></th>
 <td><span class="val">{brl(r['valor'])}</span></td>
@@ -3707,7 +3707,7 @@ def page_reservado():
             preenchidos = [f'{campos[k][0]}: {v[0] if isinstance(v, list) else v}'
                            for k, v in ficha.items() if v]
             faltam = [campos[k][0] for k in campos if not ficha.get(k)]
-            linhas_op.append(f"""<tr><th scope="row"><a href="{p}projetos/{pr['slug']}/{y}/">{e(pr['name'])} {y}</a></th>
+            linhas_op.append(f"""<tr><th scope="row"><a href="{p}eventos/{pr['slug']}/{y}/">{e(pr['name'])} {y}</a></th>
 <td>{e(" · ".join(preenchidos)) or "—"}</td><td>{e(", ".join(faltam))}</td></tr>""")
 
     body = f"""<main id="conteudo"><span id="top"></span>
@@ -3762,7 +3762,9 @@ def page_imprensa():
             marca = ""
         else:
             acao = f'<span class="selo selo-a-confirmar">{icon("search")} A produzir</span>'
-            marca = f'<code>{e(it["arquivo"])}</code>'
+            # O nome do arquivo que falta e recado de producao, como o espaco
+            # reservado da galeria: nao vai para a pagina publicada.
+            marca = f'<code>{e(it["arquivo"])}</code>' if MOSTRAR_CAMPOS else ""
         itens.append(f"""<article class="kit-item"><h3>{e(it['titulo'])}</h3>
 <p>{e(it['descricao'])}</p>{marca}{acao}</article>""")
     rel_data = data.get("releases") or {"texto": "", "itens": []}
@@ -3913,7 +3915,7 @@ def page_en():
     data = MODEL["en"]
     frentes = "".join(f'<article><h3>{e(t)}</h3><p>{e(d)}</p></article>' for t, d in data["frentes"])
     projetos = "".join(
-        f'<tr><th scope="row"><a href="{p}projetos/{pr["slug"]}/">{e(pr["name"])}</a></th>'
+        f'<tr><th scope="row"><a href="{p}eventos/{pr["slug"]}/">{e(pr["name"])}</a></th>'
         f'<td>{e(pr["kind"])}</td><td>{e(pr["location"])}</td><td>{e(pr["period"])}</td></tr>'
         for pr in PROJECTS)
     body = f"""<main id="conteudo"><span id="top"></span>
@@ -3954,7 +3956,7 @@ def page_404():
 <section class="container error-page"><h1>404<span class="orange">.</span></h1>
 <p>A página que você procurou saiu de cartaz. O acervo continua no ar — siga por um destes caminhos.</p>
 <div class="error-actions">
-<a class="pill-link" href="./projetos/">Ver eventos {icon('arrow_outward')}</a>
+<a class="pill-link" href="./eventos/">Ver eventos {icon('arrow_outward')}</a>
 <a class="pill-link" href="./dados/">Ver dados {icon('insights')}</a>
 <a class="pill-link" href="./">Página inicial {icon('home')}</a></div></section></main>"""
     page = (head(0, "Página não encontrada | Cadillac Produções",
@@ -3975,13 +3977,13 @@ def page_404():
 
 
 def page_sitemap():
-    urls = ["", "projetos/", "atuacao/", "agenda/", "na-midia/", "dados/", "produtora/",
+    urls = ["", "eventos/", "atuacao/", "agenda/", "na-midia/", "dados/", "produtora/",
             "atletas/", "artistas/", "equipe/", "relacionamento/", "imprensa/",
             "governanca/", "contato/", "en/"]
     for pr in PROJECTS:
-        urls.append(f"projetos/{pr['slug']}/")
+        urls.append(f"eventos/{pr['slug']}/")
         for y in pr["years"]:
-            urls.append(f"projetos/{pr['slug']}/{y}/")
+            urls.append(f"eventos/{pr['slug']}/{y}/")
     for x in ATLETAS:
         urls.append(f"atletas/{x['slug']}/")
     for x in MODEL["pessoas"]["equipe"]:

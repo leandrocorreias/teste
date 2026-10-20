@@ -122,11 +122,11 @@ def paginas():
 
     itens = [("", None, True)]  # a home é o cartão invertido, só a marca
     for pr in build.PROJECTS:
-        itens.append((f'projetos/{pr["slug"]}/', foto(pr), False))
+        itens.append((f'eventos/{pr["slug"]}/', foto(pr), False))
         for y in pr["years"]:
-            itens.append((f'projetos/{pr["slug"]}/{y}/', foto(pr, y), False))
+            itens.append((f'eventos/{pr["slug"]}/{y}/', foto(pr, y), False))
     secoes = [
-        ("projetos/", f("vert-battle")),
+        ("eventos/", f("vert-battle")),
         ("produtora/", f("tamo-junto-bb")),
         ("equipe/", f("mr-moo-festival")),
         ("atletas/", f("vert-battle")),

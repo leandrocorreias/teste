@@ -1238,14 +1238,27 @@ def galeria_projeto(pr, depth):
     nomes = sorted(x.name for x in pasta.glob(f'{pr["slug"]}*.jpg') if x.name != capa)
     if len(nomes) < 2:
         return ""
-    credito = MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac")
+    padrao = MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac")
+    por_arquivo = MODEL["photos"].get("creditos_arquivo", {})
     itens = "".join(
-        f'<figure class="carrossel-item"><img src="{rel(depth)}assets/fotos/{e(n)}" '
-        f'alt="{e(pr["name"])}" loading="lazy" decoding="async"></figure>'
+        f'<figure class="carrossel-item">'
+        f'<img src="{rel(depth)}assets/fotos/{e(n)}" alt="{e(pr["name"])}" '
+        f'loading="lazy" decoding="async">'
+        f'<figcaption>{icon("photo_camera")} {e(por_arquivo.get(n, padrao))}</figcaption>'
+        f'</figure>'
         for n in nomes)
+    # Quando toda a faixa tem a mesma origem, o crédito aparece uma vez só, no pé.
+    # Havendo autoria própria em alguma imagem, cada uma leva o seu.
+    creditos = {por_arquivo.get(n, padrao) for n in nomes}
+    unico = creditos.pop() if len(creditos) == 1 else None
+    classe = "carrossel" + ("" if unico else " com-credito")
+    rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} {e(unico)} · '
+              f'{plural(len(nomes), "imagem", "imagens")}</p>') if unico else (
+              f'<p class="carrossel-credito">{plural(len(nomes), "imagem", "imagens")}, '
+              f'com o crédito de cada uma sobre a foto.</p>')
     return f"""<section class="container carrossel-section" aria-label="Fotos de {e(pr['name'])}">
-<div class="carrossel" tabindex="0">{itens}</div>
-<p class="carrossel-credito">{icon('photo_camera')} {e(credito)} · {plural(len(nomes), 'imagem', 'imagens')}</p></section>"""
+<div class="{classe}" tabindex="0">{itens}</div>
+{rodape}</section>"""
 
 
 def resumo_block(pr):

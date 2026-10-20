@@ -813,11 +813,11 @@ def page_project(pr):
 
     related = [x for x in PROJECTS if x["slug"] != slug and x["category"] == pr["category"]]
     related += [x for x in PROJECTS if x["slug"] != slug and x not in related]
-    rel_cards = "".join(card(x, depth) for x in related[:2])
+    rel_cards = "".join(card(x, depth) for x in related[:3])
     sections.append(f"""<section class="container related">
 <hr class="rule">
-<h2 class="section-title">OUTRAS HISTÓRIAS<br><em>DO ACERVO.</em></h2>
-<div class="works-grid">{rel_cards}</div>
+<h2 class="section-title">OUTROS<br><em>EVENTOS.</em></h2>
+<div class="works-grid grid-4">{rel_cards}</div>
 <div class="section-end"><a class="pill-link" href="{p}projetos/">Todos os projetos {icon('arrow_outward')}</a></div></section>""")
 
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": pr["name"],
@@ -1181,7 +1181,7 @@ def audience_blocks(depth):
     method = "".join(f'<li>{icon("arrow_forward")} {e(t)}</li>' for t in data["method"])
     pend = sum(t["pend"] for t in totals.values())
     return f"""<section class="container reach-section" id="alcance"><hr class="rule">
-<h2 class="section-title">QUANTA GENTE<br><em>A GENTE ALCANÇA.</em></h2>
+<h2 class="section-title">NOSSO<br><em>ALCANCE.</em></h2>
 <p class="body-copy">{e(data['lede'])}</p>
 <div class="data-stats reach-grid">{''.join(panels)}</div>
 <div class="charts"><div class="chart-card span-2"><h3>Linha a linha, com o responsável pelo número</h3>
@@ -1219,36 +1219,58 @@ def op_tiles(values, scope_key, order):
     return f'<div class="op-grid">{"".join(tiles)}</div>'
 
 
-def galeria_projeto(pr, depth):
-    """Faixa de fotos do projeto. Rola na horizontal no celular, vira grade no desktop.
+GALERIA_ALVO = 8
 
-    Sem JavaScript: scroll-snap nativo, navegável por teclado e por gesto.
+
+def galeria_projeto(pr, depth):
+    """Galeria do projeto: oito posições, em grade. Clicar amplia a foto.
+
+    O alvo é oito imagens por projeto. As que ainda não chegaram aparecem como
+    reserva com o nome exato do arquivo esperado, em vez de a grade encolher e
+    esconder o que falta.
     """
     pasta = ROOT / "assets" / "fotos"
     capa = f'{pr["slug"]}.jpg'
-    nomes = sorted(x.name for x in pasta.glob(f'{pr["slug"]}*.jpg') if x.name != capa)
-    if len(nomes) < 2:
-        return ""
+    nomes = sorted(x.name for x in pasta.glob(f'{pr["slug"]}*.jpg') if x.name != capa)[:GALERIA_ALVO]
     padrao = MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac")
     por_arquivo = MODEL["photos"].get("creditos_arquivo", {})
-    itens = "".join(
-        f'<figure class="carrossel-item">'
-        f'<img src="{rel(depth)}assets/fotos/{e(n)}" alt="{e(pr["name"])}" '
-        f'loading="lazy" decoding="async">'
-        f'<figcaption>{icon("photo_camera")} {e(por_arquivo.get(n, padrao))}</figcaption>'
-        f'</figure>'
-        for n in nomes)
-    # Quando toda a faixa tem a mesma origem, o crédito aparece uma vez só, no pé.
-    # Havendo autoria própria em alguma imagem, cada uma leva o seu.
-    creditos = {por_arquivo.get(n, padrao) for n in nomes}
-    unico = creditos.pop() if len(creditos) == 1 else None
-    classe = "carrossel" + ("" if unico else " com-credito")
-    rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} {e(unico)} · '
-              f'{plural(len(nomes), "imagem", "imagens")}</p>') if unico else (
-              f'<p class="carrossel-credito">{plural(len(nomes), "imagem", "imagens")}, '
-              f'com o crédito de cada uma sobre a foto.</p>')
-    return f"""<section class="container carrossel-section" aria-label="Fotos de {e(pr['name'])}">
-<div class="{classe}" tabindex="0">{itens}</div>
+
+    itens = []
+    for i, n in enumerate(nomes, start=1):
+        credito = por_arquivo.get(n, padrao)
+        itens.append(
+            f'<button type="button" class="gal-item" '
+            f'data-full="{rel(depth)}assets/fotos/{e(n)}" '
+            f'data-credito="{e(credito)}" data-legenda="{e(pr["name"])}" '
+            f'aria-label="Ampliar foto {i} de {e(pr["name"])}">'
+            f'<img src="{rel(depth)}assets/fotos/{e(n)}" alt="{e(pr["name"])}" '
+            f'loading="lazy" decoding="async">'
+            f'<span class="gal-credito">{icon("photo_camera")} {e(credito)}</span></button>')
+
+    faltam = GALERIA_ALVO - len(nomes)
+    for i in range(len(nomes) + 1, GALERIA_ALVO + 1):
+        arquivo = f'{pr["slug"]}-{i:02d}.jpg'
+        itens.append(
+            f'<div class="gal-item gal-reserva">{icon("photo_camera")}'
+            f'<code>assets/fotos/{e(arquivo)}</code></div>')
+
+    if faltam == GALERIA_ALVO:
+        rodape = (f'<p class="carrossel-credito">Nenhuma fotografia deste projeto no acervo. '
+                  f'As oito posições esperam o arquivo com o nome indicado.</p>')
+    elif faltam:
+        rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} '
+                  f'{plural(len(nomes), "imagem", "imagens")} de {GALERIA_ALVO}. '
+                  f'{plural(faltam, "posição aguarda", "posições aguardam")} o arquivo.</p>')
+    else:
+        creditos = {por_arquivo.get(n, padrao) for n in nomes}
+        unico = creditos.pop() if len(creditos) == 1 else None
+        rodape = (f'<p class="carrossel-credito">{icon("photo_camera")} {e(unico)} · '
+                  f'{plural(len(nomes), "imagem", "imagens")}</p>') if unico else (
+                  f'<p class="carrossel-credito">{plural(len(nomes), "imagem", "imagens")}, '
+                  f'com o crédito de cada uma sobre a foto.</p>')
+
+    return f"""<section class="container galeria-section" aria-label="Fotos de {e(pr['name'])}">
+<div class="gal-grid">{''.join(itens)}</div>
 {rodape}</section>"""
 
 
@@ -1922,10 +1944,18 @@ def page_produtora():
     trail_html, trail_ld = crumbs(depth, [("Produtora", None)])
 
     h = d["historia"]
-    marcos = "".join(
-        f"""<div class="fase"><span class="fase-ano">{e(ano)}</span>
-<div><strong>{e(t)}</strong><p>{e(txt)}</p></div></div>"""
-        for ano, t, txt in h["marcos"])
+    def marco(m):
+        ano, t, txt = m[0], m[1], m[2]
+        alvo = m[3] if len(m) > 3 else ""
+        corpo = (f'<span class="fase-ano">{e(ano)}</span>'
+                 f'<div><strong>{e(t)}</strong><p>{e(txt)}</p>'
+                 + (f'<span class="fase-ir">Ver a edição {icon("arrow_outward")}</span>' if alvo else "")
+                 + '</div>')
+        if alvo:
+            return f'<a class="fase fase-link" href="{p}{alvo}">{corpo}</a>'
+        return f'<div class="fase">{corpo}</div>'
+
+    marcos = "".join(marco(m) for m in h["marcos"])
 
     man = d["manifesto"]
     linhas = "".join(f'<p class="manifesto-linha">{e(x)}</p>' for x in man["linhas"])
@@ -1936,18 +1966,50 @@ def page_produtora():
     n_equipe = len(MODEL["pessoas"]["equipe"])
     n_artistas = len({nome for b in MODEL["elenco"]["por_edicao"].values()
                       for nome, _ in b.get("artistas", [])})
-    time_cards = "".join(
-        f"""<a class="frente" href="{p}{href}"><h3>{icon(ic)} {e(t)}</h3><p>{e(txt)}</p>
-<span class="atleta-n">{e(qtd)}</span></a>"""
-        for t, txt, ic, href, qtd in [
-            ("Sócios", "Quem assina a casa e responde pelas decisões.", "verified",
-             "equipe/#nucleo", plural(n_socios, "pessoa no núcleo", "pessoas no núcleo")),
-            ("Equipe", "Núcleo, sócios por projeto, especialistas e parceiros externos.", "groups",
-             "equipe/", plural(n_equipe, "ficha", "fichas")),
-            ("Atletas", "Quem compete nas propriedades do acervo.", "skateboarding",
-             "atletas/", plural(n_atletas, "ficha", "fichas")),
-            ("Artistas", "Quem passou pelos palcos dos festivais e das turnês.", "music_note",
-             "artistas/", plural(n_artistas, "nome catalogado", "nomes catalogados"))])
+    def ficha_pessoa(nome, papel, foto, href=""):
+        """Retrato quando o arquivo existe; iniciais quando não. Nunca um vazio."""
+        arq = ROOT / "assets" / "fotos" / foto if foto else None
+        if arq and arq.exists():
+            visual = (f'<img src="{p}assets/fotos/{e(foto)}" alt="" loading="lazy" '
+                      f'decoding="async" width="800" height="800">')
+        else:
+            iniciais = "".join(x[0] for x in nome.split()[:2]).upper()
+            visual = f'<span class="iniciais" aria-hidden="true">{e(iniciais)}</span>'
+        corpo = (f'<span class="pess-retrato">{visual}</span>'
+                 f'<strong>{e(nome)}</strong>'
+                 f'<span class="pess-papel">{e(papel)}</span>')
+        if href:
+            return f'<a class="pess" href="{p}{href}">{corpo}</a>'
+        return f'<div class="pess">{corpo}</div>'
+
+    def grupo_pessoas(titulo, itens, alvo, rotulo_alvo):
+        if not itens:
+            return ""
+        fichas = "".join(ficha_pessoa(*x) for x in itens)
+        return (f'<div class="time-grupo"><div class="time-grupo-cab">'
+                f'<h3>{e(titulo)}</h3>'
+                f'<a class="pill-link" href="{p}{alvo}">{e(rotulo_alvo)} {icon("arrow_outward")}</a>'
+                f'</div><div class="pess-grid">{fichas}</div></div>')
+
+    socios = [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/#nucleo")
+              for x in MODEL["pessoas"]["equipe"] if x.get("tipo") == "nucleo"]
+    equipe = [(x["nome"], x.get("cargo", ""), x.get("foto", ""), "equipe/")
+              for x in MODEL["pessoas"]["equipe"] if x.get("tipo") != "nucleo"]
+    atletas = [(a["nome"], a.get("modalidade", ""), a.get("foto", ""),
+                f'atletas/{a["slug"]}/') for a in MODEL["atletas"]["lista"]]
+    vistos, artistas = set(), []
+    for ed in MODEL["elenco"]["por_edicao"].values():
+        for nome, papel in ed.get("artistas", []):
+            if nome in vistos:
+                continue
+            vistos.add(nome)
+            artistas.append((nome, papel, "", "artistas/"))
+
+    time_cards = (
+        grupo_pessoas("Sócios", socios, "equipe/#nucleo", "Ver o núcleo")
+        + grupo_pessoas("Equipe", equipe, "equipe/", "Ver a equipe")
+        + grupo_pessoas("Atletas", atletas, "atletas/", "Ver as fichas")
+        + grupo_pessoas("Artistas", artistas, "artistas/", "Ver o elenco"))
 
     ess = d["essencia"]
     blocos = "".join(
@@ -1963,21 +2025,21 @@ def page_produtora():
 <p class="lede">{e(d['lede'])}</p></section>
 
 <section class="container plano-section" id="historia"><hr class="rule">
-<h2 class="section-title">{e(h['titulo']).upper()}<br><em>{e(h['lede'])}</em></h2>
+<h2 class="section-title">{e(h['titulo']).upper()}{f'<br><em>{e(h["lede"])}</em>' if h.get('lede') else '<span class="orange">.</span>'}</h2>
 <div class="fases">{marcos}</div>
 <p class="note">{e(h['nota'])}</p></section>
 
 <section class="container resumo-section" id="manifesto"><hr class="rule">
 <div class="resumo-grid"><div><h2 class="section-title">{e(man['titulo']).upper()}<span class="orange">.</span></h2>
-{linhas}</div><div class="manifesto-corpo">{corpo}</div></div></section>
+<div class="manifesto-linhas">{linhas}</div></div><div class="manifesto-corpo">{corpo}</div></div></section>
 
 <section class="container reach-section" id="time"><hr class="rule">
 <h2 class="section-title">NOSSO<br><em>TIME.</em></h2>
-<div class="frentes-grid">{time_cards}</div></section>
+<div class="time-todos">{time_cards}</div></section>
 
 <section class="container reach-section" id="essencia"><hr class="rule">
 <h2 class="section-title">{e(ess['titulo']).upper()}<span class="orange">.</span></h2>
-<p class="note">{e(ess['aviso'])}</p></section>
+{f'<p class="note">{e(ess["aviso"])}</p>' if ess.get('aviso') else ''}</section>
 {blocos}</main>"""
     return write("produtora/index.html",
                  head(depth, "Produtora | História, manifesto e essência | Cadillac Produções",
@@ -1985,6 +2047,19 @@ def page_produtora():
                       "princípios que orientam a operação dos projetos.",
                       "produtora/", [ld, trail_ld])
                  + header(depth, "produtora") + body + footer(depth))
+
+
+def ficha_artista_card(nome, papel, onde, depth):
+    """Mesmo cartão dos atletas. Sem retrato no acervo, entram as iniciais."""
+    p = rel(depth)
+    pr, ano = onde[0][0], onde[0][1]
+    href = f'{p}projetos/{pr["slug"]}/' + (f"{ano}/" if ano.isdigit() and int(ano) in pr["years"] else "")
+    iniciais = "".join(x[0] for x in nome.split()[:2]).upper()
+    return f"""<a class="atleta-card" href="{href}">
+<span class="pessoa-foto pessoa-iniciais" aria-hidden="true">{e(iniciais)}</span>
+<div class="atleta-info"><h3>{e(nome)}</h3>
+<span class="atleta-mod">{icon('music_note')} {e(papel)}</span>
+<span class="atleta-n">{plural(len(onde), 'edição no acervo', 'edições no acervo')}</span></div></a>"""
 
 
 def page_artistas():
@@ -2000,25 +2075,25 @@ def page_artistas():
             continue
         for nome, papel in bloco.get("artistas", []):
             nomes.setdefault(nome, []).append((by_slug[slug], ano, papel, bloco.get("fonte")))
-    linhas = []
+
+    cartoes = []
     for nome in sorted(nomes, key=lambda x: x.lower()):
-        onde = []
-        for pr, ano, papel, fonte in sorted(nomes[nome], key=lambda v: -(int(v[1]) if v[1].isdigit() else 0)):
-            href = f'{p}projetos/{pr["slug"]}/' + (f"{ano}/" if ano.isdigit() and int(ano) in pr["years"] else "")
-            onde.append(f'<li><a href="{href}">{e(pr["name"])}{" " + ano if ano.isdigit() else ""}</a>'
-                        f'<span>{e(papel)}</span></li>')
-        linhas.append(f"""<tr><th scope="row">{e(nome)}</th>
-<td><ul class="vinculos compacto">{"".join(onde)}</ul></td></tr>""")
+        onde = sorted(nomes[nome], key=lambda v: -(int(v[1]) if v[1].isdigit() else 0))
+        cartoes.append(ficha_artista_card(nome, onde[0][2], onde, depth))
+
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Artistas",
-          "url": f"{BASE}/artistas/", "inLanguage": "pt-BR"}
+          "url": f"{BASE}/artistas/", "inLanguage": "pt-BR",
+          "mainEntity": {"@type": "ItemList", "numberOfItems": len(nomes),
+                         "itemListElement": [
+                             {"@type": "ListItem", "position": i, "name": n}
+                             for i, n in enumerate(sorted(nomes, key=lambda x: x.lower()), start=1)]}}
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="page-hero container"><h1>ARTISTAS<span class="orange">.</span></h1>
 <p class="lede">Quem passou pelos palcos dos projetos do acervo, com a edição em que cada
 apresentação está registrada. {plural(len(nomes), 'nome catalogado', 'nomes catalogados')}.</p></section>
 <section class="container reach-section"><hr class="rule">
-<div class="table-wrap"><table class="amounts reach-table">
-<thead><tr><th scope="col">Artista</th><th scope="col">Onde se apresentou</th></tr></thead>
-<tbody>{''.join(linhas)}</tbody></table></div>
+<div class="atletas-grid">{''.join(cartoes)}</div></section>
+<section class="container reach-section"><hr class="rule">
 <p class="note">{e(MODEL['elenco']['note'])}</p></section></main>"""
     return write("artistas/index.html",
                  head(depth, "Artistas | Quem passou pelos palcos | Cadillac Produções",

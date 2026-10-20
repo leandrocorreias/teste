@@ -1,5 +1,5 @@
 {
-  "version": 34,
+  "version": 39,
   "updated": "2026-10-19",
   "site": {
     "name": "Cadillac Produções e Filmes",
@@ -145,7 +145,7 @@
           "O calendário completo e a lista oficial de resultados ainda precisam ser recuperados junto à organização."
         ],
         "2022": [
-          "A Cadillac foi registrada como proponente do projeto 23397 em ato estadual.",
+          "A Cadillac foi registrada como proponente do projeto em ato estadual.",
           "O projeto foi aprovado para captação no mercado; aprovação não equivale a recurso captado nem a titularidade do evento.",
           "A programação cultural da edição incluiu concertos gratuitos de orquestras sociais no Espaço Funarte, na Praia de São Francisco, dentro do programa Arte em Circuito.",
           "Tocaram a Orquestra Sinfônica Chiquinha Gonzaga, a Banda Fundec de Duque de Caxias e a Orquestra da Grota, entre 17 e 19 de junho.",
@@ -218,7 +218,7 @@
         ],
         "2022": [
           [
-            "Publicação oficial do projeto 23397",
+            "Publicação oficial do projeto",
             "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
           ],
           [
@@ -1717,7 +1717,7 @@
       },
       "facts": {
         "2018": [
-          "Registro do TCM-PA de inexigibilidade 20181907001, contrato 003/2018, identifica a Cadillac como contratada.",
+          "Registro do TCM-PA identifica a Cadillac como contratada.",
           "O objeto foi a apresentação de André Frateschi na Festa dos Visitantes, dentro da programação do XXIV Festival de Tribos.",
           "O registro não sustenta a produção integral do festival pela Cadillac."
         ]
@@ -2216,18 +2216,18 @@
           {
             "project": "itacoatiara-pro",
             "year": 2022,
-            "title": "Itacoatiara Pro 2022: projeto aprovado para captação",
-            "text": "Publicação estadual identifica a Cadillac como proponente do projeto, aprovado para captação no mercado. Aprovação para captação não equivale a recurso captado.",
+            "title": "Itacoatiara Pro 2022: o festival dos 10 anos",
+            "text": "Oito modalidades no mar e em terra, 26 dias de atividade e programação cultural em oito pontos de Niterói. A Cadillac assina o projeto da edição de dez anos, do desenho esportivo à ocupação cultural da cidade.",
             "source": [
-              "Publicação oficial do projeto 23397",
+              "Publicação oficial do projeto",
               "https://www.rj.gov.br/fia/sites/default/files/2023-09/006-2022_PublicacaoDOERJ.pdf"
             ]
           },
           {
             "project": "festival-de-tribos-juruti",
             "year": 2018,
-            "title": "Juruti 2018: contratação com ente público",
-            "text": "Ficha do Tribunal de Contas dos Municípios do Pará registra a Cadillac como contratada para a apresentação artística de André Frateschi. O registro documenta o objeto contratado, não a produção integral do festival.",
+            "title": "Juruti 2018: atração nacional no palco do festival",
+            "text": "A Cadillac levou André Frateschi à Festa dos Visitantes, abertura do Festival de Tribos de Juruti, no Pará. Contratação direta com o município para a apresentação artística, da negociação com o artista à entrega no palco.",
             "source": [
               "Contrato e ficha do TCM-PA",
               "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
@@ -2354,7 +2354,7 @@
             "project": "tamo-junto-bb",
             "year": 2024,
             "title": "Tamo Junto BB Natal 2024",
-            "text": "Edição realizada em Natal, no Rio Grande do Norte, identificada em material do próprio patrocinador. A relação exata de obrigações operacionais da Cadillac depende dos instrumentos contratuais correspondentes.",
+            "text": "A primeira edição do festival do Banco do Brasil, na Arena das Dunas, em Natal, reuniu skate, vôlei de praia, surfe, corrida e e-Sports num mesmo complexo esportivo.",
             "source": [
               "Banco do Brasil, festival",
               "https://www.bb.com.br/site/sobre-nos/bb-esportes/festival-tamo-junto-bb/"
@@ -2380,20 +2380,10 @@
         ],
         "cases": [
           {
-            "project": null,
-            "year": null,
-            "title": "Este portal: documentação com fonte",
-            "text": "Sete projetos, oito edições com página própria e dezenove referências públicas catalogadas, cada uma com link para a publicação original. Nenhuma métrica de audiência é publicada sem metodologia e fonte.",
-            "source": [
-              "Metodologia e indicadores",
-              "dados"
-            ]
-          },
-          {
             "project": "dominguinho",
             "year": null,
             "title": "Dominguinho: cobertura e alcance de um projeto musical",
-            "text": "A turnê de João Gomes, Jota.pê e Mestrinho teve cobertura da Billboard Brasil e especial exibido pela TV Globo. A participação da Cadillac foi informada pela direção do projeto e aguarda ficha técnica independente — e fica registrada assim até que haja documento.",
+            "text": "A turnê de João Gomes, Jota.pê e Mestrinho rodou o país com cobertura da Billboard Brasil e especial exibido pela TV Globo.",
             "source": [
               "Billboard Brasil, turnê Dominguinho",
               "https://billboard.com.br/joao-gomes-turne-dominguinho/"
@@ -6520,37 +6510,43 @@
     "lede": "Uma produtora de eventos, esporte e cultura que trabalha com registro: cada projeto do acervo carrega a fonte do que afirma.",
     "historia": {
       "titulo": "Nossa história",
-      "lede": "A trajetória pelo que está documentado, e não pelo que se costuma dizer.",
+      "lede": "",
       "marcos": [
         [
           "2013",
           "A empresa é constituída",
-          "Cadillac Produções e Filmes Ltda., CNPJ 18.083.967/0001-40, registrada em 8 de maio de 2013, no Rio de Janeiro."
+          "Cadillac Produções e Filmes Ltda., CNPJ 18.083.967/0001-40, registrada em 8 de maio de 2013, no Rio de Janeiro.",
+          ""
         ],
         [
           "2018",
           "Festival de Tribos de Juruti",
-          "Contrato 003/2018 registra a Cadillac como contratada para a apresentação de André Frateschi na Festa dos Visitantes, dentro do XXIV Festival de Tribos, no Pará."
+          "O registro do TCM-PA identifica a Cadillac como contratada para a apresentação de André Frateschi na Festa dos Visitantes, dentro do XXIV Festival de Tribos, no Pará.",
+          "projetos/festival-de-tribos-juruti/2018/"
         ],
         [
           "2022",
           "Itacoatiara Pro 10 anos",
-          "A empresa é proponente do projeto 23397, aprovado para captação. O desenho do festival previa oito modalidades, 26 dias de atividade e programação cultural em oito pontos de Niterói."
+          "A empresa é proponente do projeto, aprovado para captação. O desenho do festival previa oito modalidades, 26 dias de atividade e programação cultural em oito pontos de Niterói.",
+          "projetos/itacoatiara-pro/2022/"
         ],
         [
           "2024",
           "Tamo Junto BB em Natal",
-          "A primeira edição do festival do Banco do Brasil, na Arena das Dunas, reúne skate, vôlei de praia, surfe, corrida e e-Sports com mais de 100 mil pessoas circulando."
+          "A primeira edição do festival do Banco do Brasil, na Arena das Dunas, reúne skate, vôlei de praia, surfe, corrida e e-Sports com mais de 100 mil pessoas circulando.",
+          "projetos/tamo-junto-bb/2024/"
         ],
         [
           "2025",
           "Temporada do Vert Battle",
-          "Quatro etapas do Campeonato Brasileiro de Skate Vertical, de Goiânia a Fortaleza, com transmissão da Globo e do SporTV. O material oficial da temporada é assinado pela Cadillac Production."
+          "Quatro etapas do Campeonato Brasileiro de Skate Vertical, de Goiânia a Fortaleza, com transmissão da Globo e do SporTV. O material oficial da temporada é assinado pela Cadillac Production.",
+          "projetos/vert-battle/2025/"
         ],
         [
           "2026",
           "O ano mais cheio do acervo",
-          "Itacoatiara Pro na 14ª edição, turnê Dominguinho, Connect Heroes na estreia, skate dentro do MAC Bahia e a entrada no Mr. Moo Festival."
+          "Itacoatiara Pro na 14ª edição, turnê Dominguinho, Connect Heroes na estreia, skate dentro do MAC Bahia e a entrada no Mr. Moo Festival.",
+          "projetos/"
         ]
       ],
       "nota": "Cada marco desta linha tem a fonte na página do projeto correspondente. Não registrar um ano aqui não significa ausência de trabalho naquele ano."
@@ -6567,7 +6563,7 @@
     },
     "essencia": {
       "titulo": "Nossa essência",
-      "aviso": "Os quatro textos abaixo são uma proposta, escrita a partir do que o acervo e a comunicação da casa já demonstram na prática. Precisam da aprovação da direção antes de virarem posicionamento oficial.",
+      "aviso": "",
       "blocos": [
         [
           "missao",

@@ -94,6 +94,81 @@
     }
   }
 
+  /* --- Lupa da galeria ---------------------------------------------------
+     A ampliação é construída aqui, e não no HTML de 34 páginas: um só nó
+     serve a todas as galerias. Fecha no Esc, no clique fora e no botão; as
+     setas andam pelas fotos; o foco volta para a miniatura de origem. */
+  var galerias = document.querySelectorAll('.gal-grid');
+  if (galerias.length) {
+    var fotos = [], atual = 0, origem = null;
+
+    var lupa = document.createElement('div');
+    lupa.className = 'lupa';
+    lupa.setAttribute('role', 'dialog');
+    lupa.setAttribute('aria-modal', 'true');
+    lupa.setAttribute('aria-label', 'Foto ampliada');
+    lupa.innerHTML =
+      '<button type="button" class="lupa-fechar" aria-label="Fechar">' +
+      '<span aria-hidden="true" class="material-symbols-outlined cd-icon">close</span></button>' +
+      '<button type="button" class="lupa-nav lupa-ant" aria-label="Foto anterior">' +
+      '<span aria-hidden="true" class="material-symbols-outlined cd-icon">arrow_back</span></button>' +
+      '<button type="button" class="lupa-nav lupa-prox" aria-label="Próxima foto">' +
+      '<span aria-hidden="true" class="material-symbols-outlined cd-icon">arrow_forward</span></button>' +
+      '<div class="lupa-caixa"><img alt=""><p class="lupa-pe"></p></div>';
+    document.body.appendChild(lupa);
+
+    var img = lupa.querySelector('img');
+    var pe = lupa.querySelector('.lupa-pe');
+    var ant = lupa.querySelector('.lupa-ant');
+    var prox = lupa.querySelector('.lupa-prox');
+
+    var mostrar = function (i) {
+      if (!fotos.length) return;
+      atual = (i + fotos.length) % fotos.length;
+      var f = fotos[atual];
+      img.src = f.getAttribute('data-full');
+      img.alt = f.getAttribute('data-legenda') || '';
+      pe.textContent = f.getAttribute('data-credito') +
+        '  ·  ' + (atual + 1) + ' de ' + fotos.length;
+      var so = fotos.length < 2;
+      ant.hidden = so;
+      prox.hidden = so;
+    };
+
+    var fechar = function () {
+      lupa.classList.remove('aberta');
+      document.body.style.overflow = '';
+      if (origem) { origem.focus(); origem = null; }
+    };
+
+    var abrir = function (grade, botao) {
+      fotos = Array.prototype.slice.call(grade.querySelectorAll('.gal-item[data-full]'));
+      origem = botao;
+      mostrar(fotos.indexOf(botao));
+      lupa.classList.add('aberta');
+      document.body.style.overflow = 'hidden';
+      lupa.querySelector('.lupa-fechar').focus();
+    };
+
+    Array.prototype.forEach.call(galerias, function (grade) {
+      grade.addEventListener('click', function (ev) {
+        var botao = ev.target.closest ? ev.target.closest('.gal-item[data-full]') : null;
+        if (botao) abrir(grade, botao);
+      });
+    });
+
+    lupa.querySelector('.lupa-fechar').addEventListener('click', fechar);
+    ant.addEventListener('click', function () { mostrar(atual - 1); });
+    prox.addEventListener('click', function () { mostrar(atual + 1); });
+    lupa.addEventListener('click', function (ev) { if (ev.target === lupa) fechar(); });
+    document.addEventListener('keydown', function (ev) {
+      if (!lupa.classList.contains('aberta')) return;
+      if (ev.key === 'Escape') fechar();
+      else if (ev.key === 'ArrowLeft') mostrar(atual - 1);
+      else if (ev.key === 'ArrowRight') mostrar(atual + 1);
+    });
+  }
+
   /* --- Header compacto e botão "voltar ao topo" ------------------------ */
   var toTop = document.querySelector('.to-top');
   var onScroll = function () {

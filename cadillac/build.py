@@ -2077,9 +2077,8 @@ def page_pessoa(x):
 
     cargo = (f'<div class="taglist"><span>{icon("groups")} {e(x["cargo"])}</span></div>'
              if x.get("cargo") else "")
-    bio = (f'<p class="lede">{e(x["bio"])}</p>' if x.get("bio") else
-           '<p class="lede">A ficha desta pessoa ainda não tem biografia. '
-           'Entra aqui quando a casa enviar.</p>')
+    bio = f'<p class="lede">{e(x["bio"])}</p>' if x.get("bio") else ""
+
     body = f"""<main id="conteudo"><span id="top"></span>{trail_html}
 <section class="container atleta-hero">
 <a class="back" href="{p}equipe/">{icon('arrow_back')} Toda a equipe</a>
@@ -2188,7 +2187,7 @@ def page_artista(nome, onde):
 <section class="container facts-section"><hr class="rule">
 <h2 class="section-title">DOSSIÊ<br><em>DO ARTISTA.</em></h2>
 <div class="facts">{destaques or f'<div class="fact"><span class="n">01</span><p>{e(resumo)}</p></div>'}</div>
-{'' if destaques else '<p class="note">A ficha ainda não tem fatos levantados além do que a tabela abaixo registra. Entram aqui quando houver fonte, como nas fichas de atleta.</p>'}</section>
+</section>
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>
 <p class="body-copy">As edições deste acervo em que a apresentação está registrada, da mais

@@ -17,6 +17,25 @@ MODEL = json.loads((ROOT / "content-model.json").read_text(encoding="utf-8"))
 SITE = MODEL["site"]
 BASE = SITE["url"].rstrip("/")
 CATS = MODEL["categories"]
+
+
+def _carimbo(nome):
+    """Oito caracteres do hash do arquivo, para o endereço mudar quando ele muda.
+
+    Antes o carimbo vinha da versão do modelo. Mas CSS e JS são mantidos à mão e
+    mudam sem que o modelo mude: três alterações seguidas de estilo mantiveram o
+    mesmo endereço, e o navegador serviu por um ano o arquivo guardado — a página
+    nova com a aparência velha. Com o hash do conteúdo, qualquer edição no arquivo
+    muda o endereço, e só ela.
+    """
+    import hashlib
+    caminho = ROOT / "assets" / nome
+    if not caminho.exists():
+        return "0"
+    return hashlib.sha256(caminho.read_bytes()).hexdigest()[:8]
+
+
+CARIMBO = {"site.css": _carimbo("site.css"), "site.js": _carimbo("site.js")}
 ANO_BASE = SITE["base_year"]
 ANO_ATUAL = int(MODEL["updated"][:4])
 ANOS_CASA = ANO_ATUAL - ANO_BASE
@@ -202,8 +221,8 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
 <link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="{p}assets/favicon-180.png">
 {fonts}
-<link rel="stylesheet" href="{p}assets/site.css?v={MODEL['version']}">
-<script defer src="{p}assets/site.js?v={MODEL['version']}"></script>
+<link rel="stylesheet" href="{p}assets/site.css?v={CARIMBO['site.css']}">
+<script defer src="{p}assets/site.js?v={CARIMBO['site.js']}"></script>
 {blocks}{extra}</head>"""
 
 

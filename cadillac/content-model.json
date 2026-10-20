@@ -755,23 +755,53 @@
           },
           "etapas": [
             {
-              "nome": "Competição · Grand Hyatt Rio de Janeiro",
+              "nome": "Fight week no Grand Hyatt Rio · atletas, equipe e imprensa no hotel",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Mídia kit oficial Connect Heroes V6 · documento da produção",
+                null
+              ]
+            },
+            {
+              "nome": "Pesagem e coletiva de imprensa",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Mídia kit oficial Connect Heroes V6 · documento da produção",
+                null
+              ]
+            },
+            {
+              "nome": "Competição · card principal e preliminar",
               "inicio": "2026-07-11",
               "fim": "2026-07-11",
               "status": "confirmada",
               "fonte": [
-                "Sportbuzz, Connect Heroes 1 no Grand Hyatt Rio",
+                "Sportbuzz · Connect Heroes no Grand Hyatt Rio",
                 "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
               ]
             },
             {
-              "nome": "Fight week no hotel · pesagem e coletiva de imprensa",
-              "inicio": null,
-              "fim": null,
+              "nome": "Transmissão ao vivo · Xsports, Combate e SporTV 3 e canal próprio",
+              "inicio": "2026-07-11",
+              "fim": "2026-07-11",
               "status": "confirmada",
               "fonte": [
                 "Mídia kit oficial Connect Heroes V6 · documento da produção",
                 null
+              ]
+            },
+            {
+              "nome": "Janela de reprises na emissora · 27 exibições",
+              "inicio": "2026-07-11",
+              "fim": "2026-08-09",
+              "status": "confirmada",
+              "fonte": [
+                "Portal do Vale Tudo · resultados da 1ª edição",
+                "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
               ]
             }
           ]
@@ -793,19 +823,29 @@
           },
           "etapas": [
             {
-              "nome": "2ª edição · Niterói, RJ",
-              "inicio": "2026-12-12",
-              "fim": "2026-12-12",
-              "status": "anunciada",
+              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
+              "inicio": null,
+              "fim": null,
+              "status": "a confirmar",
               "fonte": [
                 "Informado pela direção do projeto",
                 null
               ]
             },
             {
-              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
+              "nome": "Fight week · programação a divulgar",
               "inicio": null,
               "fim": null,
+              "status": "a confirmar",
+              "fonte": [
+                "Informado pela direção do projeto",
+                null
+              ]
+            },
+            {
+              "nome": "Competição · Niterói, RJ",
+              "inicio": "2026-12-12",
+              "fim": "2026-12-12",
               "status": "anunciada",
               "fonte": [
                 "Informado pela direção do projeto",
@@ -1076,25 +1116,25 @@
           ]
         ],
         "contexto": {
-          "necessidade": "O jiu-jítsu brasileiro virou uma economia de bilhões e segue com pouca presença em televisão aberta. O praticante consome o esporte, compra kimono e paga mensalidade, mas raramente encontra a modalidade produzida como espetáculo, com narrativa, hospitalidade e padrão de imagem que sustente uma marca grande ao lado.",
-          "oportunidade": "Duas propriedades lideram o mercado e a terceira posição está em disputa aberta. Quem combinar distribuição em TV e streaming com experiência presencial de alto padrão ocupa esse espaço antes que ele se feche. É exatamente o desenho do Connect Heroes."
+          "necessidade": "O jiu-jítsu brasileiro é uma economia de bilhões com presença mínima em televisão aberta. São milhões de praticantes que treinam, compram kimono e pagam mensalidade todo mês, e quase nenhuma ocasião em que a modalidade aparece produzida como espetáculo — com narrativa, hospitalidade e padrão de imagem à altura de uma marca grande ao lado.",
+          "oportunidade": "Duas propriedades lideram o mercado e a terceira posição está em disputa aberta. O espaço pertence a quem juntar distribuição em TV e streaming com experiência presencial de alto padrão, e juntar antes que ele se feche. É o desenho do Connect Heroes, e é por isso que a primeira edição já nasceu em três telas e em hotel cinco estrelas."
         },
         "valor": [
           [
-            "Três telas, uma só operação",
-            "A mesma noite acontece ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio no YouTube. A marca aparece nas três sem três contratos."
+            "Multitransmissão simultânea",
+            "A mesma noite entra ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio do projeto. Um sinal, três janelas de distribuição, um contrato só para a marca."
           ],
           [
-            "Uma semana, não uma noite",
-            "A fight week dentro do hotel gera coletiva, pesagem, bastidores e conteúdo de quarta a domingo. O investimento rende dias de exposição, não três horas."
+            "Uma noite para mudar toda uma história",
+            "O card é montado por rivalidade e revanche, não por sorteio. Cada combate carrega uma história que o público já acompanha, e é essa história que a transmissão conta — dentro e fora do tatame."
           ],
           [
-            "Ambiente que a marca quer ocupar",
-            "Hotel cinco estrelas, público sentado, hospitalidade e atletas hospedados no local. É um contexto de marca diferente do ginásio."
+            "Unindo as maiores marcas do mundo",
+            "Hotel cinco estrelas, público sentado, hospitalidade e atletas hospedados no mesmo endereço. É o contexto que uma marca global reconhece como seu, e que o ginásio não entrega."
           ],
           [
-            "Vida longa depois do evento",
-            "A primeira edição foi reprisada 27 vezes em quatro semanas. A entrega não termina no apito final."
+            "Foco em 2032",
+            "Cada edição alimenta o World Connect Heroes, o plano que organiza o esporte até os Jogos de 2032. Quem entra agora entra num calendário de longo prazo, não em um patrocínio de uma noite."
           ]
         ],
         "kpis_lede": "Os indicadores que o projeto acompanha. A coluna de leitura traz o número declarado pela produção; o selo muda quando chegar relatório de emissora ou captura de painel.",
@@ -1194,7 +1234,11 @@
             "Canal e produção de conteúdo do projeto"
           ]
         ],
-        "parceiros_nota": ""
+        "parceiros_nota": "",
+        "contexto_titulo": [
+          "CHEGAMOS PARA TRANSFORMAR",
+          "O JIU-JÍTSU NO MUNDO."
+        ]
       },
       "ordem": 6,
       "chamada": "Jiu-jítsu tratado como espetáculo.",
@@ -1229,8 +1273,8 @@
         ]
       },
       "telas": {
-        "titulo": "A mesma noite, quatro telas",
-        "lede": "Cada tela entrega uma coisa diferente, e as quatro acontecem na mesma noite: alcance ao vivo, distribuição em canal pago, conteúdo sob demanda e repercussão em rede.",
+        "titulo": "Multitransmissão",
+        "lede": "A mesma noite vai ao ar em quatro frentes ao mesmo tempo. Cada uma entrega uma coisa diferente para quem patrocina: alcance ao vivo em TV aberta, distribuição em canal pago, conteúdo sob demanda e repercussão em rede.",
         "itens": [
           {
             "nome": "TV aberta",
@@ -1408,7 +1452,18 @@
           "Luta de kimono no tatame do Connect Heroes",
           "45%"
         ]
-      }
+      },
+      "abertura_titulo": [
+        "O INÍCIO DE UMA",
+        "JORNADA."
+      ],
+      "abertura_lede": "Evento global com início no Rio de Janeiro. O Connect Heroes nasceu para ser global: a primeira edição aconteceu no Brasil, e o desenho do projeto aponta para Estados Unidos, Emirados Árabes Unidos, Japão, Austrália e Europa.",
+      "op_ordem": [
+        "paises",
+        "nucleos",
+        "modalidades",
+        "transmissao"
+      ]
     },
     {
       "slug": "vert-battle",
@@ -3082,7 +3137,7 @@
     ],
     "creditos": {
       "mr-moo-festival": "Divulgação Mr. Moo Festival",
-      "connect-heroes": "Divulgação Connect Heroes",
+      "connect-heroes": "",
       "vert-battle": "Divulgação Vert Battle",
       "tamo-junto-bb": "Divulgação Festival Tamo Junto BB",
       "dominguinho": "Divulgação Turnê Dominguinho",
@@ -3642,6 +3697,16 @@
         "Transmissão",
         "canal ou plataforma que transmitiu",
         "movie"
+      ],
+      "paises": [
+        "Mercados no plano",
+        "países prioritários do plano internacional",
+        "public"
+      ],
+      "nucleos": [
+        "Núcleos do ecossistema",
+        "frentes que organizam o esporte dentro do plano",
+        "stacked_bar_chart"
       ]
     },
     "perfil": {
@@ -3694,17 +3759,21 @@
         ]
       },
       "connect-heroes": {
-        "cidades": [
-          1,
-          "Rio de Janeiro, RJ"
-        ],
         "modalidades": [
-          1,
-          "Jiu-jítsu e grappling"
+          2,
+          "Jiu-jítsu com kimono e grappling sem kimono"
         ],
         "transmissao": [
           "Xsports, Combate e SporTV 3",
           "Ao vivo e reprises, com distribuição pelo Globoplay"
+        ],
+        "paises": [
+          5,
+          "Brasil, Estados Unidos, Emirados Árabes Unidos, Japão e Europa"
+        ],
+        "nucleos": [
+          8,
+          "Sport, Athletes, Teams & Academies, Media, Fan & Experience, Commercial, Commerce e Tech & Data"
         ]
       },
       "mr-moo-festival": {

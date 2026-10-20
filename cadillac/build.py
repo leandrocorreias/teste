@@ -968,9 +968,11 @@ def page_project(pr):
 
     sections, n = [], 1
 
+    ab = pr.get("abertura_titulo") or ["UM EVENTO.", "MUITAS HISTÓRIAS."]
+    ab_lede = f'<p class="abertura-lede">{e(pr["abertura_lede"])}</p>' if pr.get("abertura_lede") else ""
     sections.append(f"""<section class="container detail-intro">
-<div><h2>UM EVENTO.<br>MUITAS HISTÓRIAS.</h2></div>
-<div><p>{e(pr['intro'])}</p>
+<div><h2>{e(ab[0])}<br>{e(ab[1])}</h2></div>
+<div>{ab_lede}<p>{e(pr['intro'])}</p>
 <div class="taglist"><span>{icon(cat['icon'])} {e(cat['label'])}</span>
 <span>{icon('festival')} {e(pr['kind'])}</span>
 <span>{icon('place')} {e(pr['location'])}</span>
@@ -1459,7 +1461,10 @@ def op_tiles(values, scope_key, order):
 <small>{e(help_text)}</small>{chip}</div>""")
         else:
             shown = big(value) if isinstance(value, int) else e(value)
-            tiles.append(f"""<div class="op-tile">{icon(ic)}
+            # Numero em corpo grande, texto em corpo de leitura: "Xsports,
+            # Combate e SporTV 3" no tamanho de um numero vira um bloco preto.
+            classe = "op-tile" if isinstance(value, int) else "op-tile op-texto"
+            tiles.append(f"""<div class="{classe}">{icon(ic)}
 <strong>{shown}</strong><span>{e(label)}</span>
 <small>{e(basis or help_text)}</small></div>""")
     return f'<div class="op-grid">{"".join(tiles)}</div>'
@@ -1498,8 +1503,9 @@ def galeria_projeto(pr, depth):
             f'aria-label="Ampliar foto {i} de {e(pr["name"])}">'
             + figura(f'assets/fotos/{n}', pr["name"], depth, "",
                      "(min-width:900px) 25vw, (min-width:560px) 33vw, 50vw")
-            + f'<span class="gal-credito">{icon("photo_camera")} '
-              f'{e(credito)}</span></button>')
+            + (f'<span class="gal-credito">{icon("photo_camera")} {e(credito)}</span>'
+               if credito else "")
+            + '</button>')
 
     # O espaco reservado com nome de arquivo e recado de bastidor: diz a quem
     # produz qual foto falta. Na pagina publicada vira buraco cinza, entao so
@@ -1545,15 +1551,18 @@ def contexto_block(pr):
     for chave, titulo, ic in (("necessidade", "A necessidade", "search"),
                               ("oportunidade", "A oportunidade", "insights")):
         if d.get("contexto", {}).get(chave):
-            blocos.append(f"""<div class="nucleo"><h3>{titulo}</h3>
-<p>{e(d['contexto'][chave])}</p></div>""")
+            blocos.append(f'<article class="ctx-card"><span class="ctx-papel">{icon(ic)} {titulo}</span>'
+                          f'<p>{e(d["contexto"][chave])}</p></article>')
+    # A proposta de valor numerada: quatro argumentos, nao quatro cartoes soltos.
     valor = "".join(
-        f"""<div class="nucleo vertical"><h3>{e(t)}</h3><p>{e(x)}</p></div>"""
-        for t, x in (d.get("valor") or []))
+        f'<article class="valor-card"><span class="valor-n">{i:02d}</span>'
+        f'<div><h3>{e(t)}</h3><p>{e(x)}</p></div></article>'
+        for i, (t, x) in enumerate(d.get("valor") or [], start=1))
+    ctx = d.get("contexto_titulo") or ["O QUE ESTE EVENTO", "RESOLVE."]
     return f"""<section class="container plano-section"><hr class="rule">
-<h2 class="section-title">O QUE ESTE EVENTO<br><em>RESOLVE.</em></h2>
-{f'<div class="nucleo-grid">{"".join(blocos)}</div>' if blocos else ''}
-{f'<h3 class="area-list-title">Proposta de valor</h3><div class="nucleo-grid">{valor}</div>' if valor else ''}
+<h2 class="section-title">{e(ctx[0])}<br><em>{e(ctx[1])}</em></h2>
+{f'<div class="ctx-grade">{"".join(blocos)}</div>' if blocos else ''}
+{f'<h3 class="area-list-title">O que a marca leva</h3><div class="valor-grade">{valor}</div>' if valor else ''}
 </section>"""
 
 
@@ -1706,9 +1715,11 @@ def faixa_foto(pr, chave, depth=2):
         return ""
     credito = MODEL["photos"].get("creditos_arquivo", {}).get(
         nome, MODEL["photos"].get("creditos", {}).get(pr["slug"], "Acervo Cadillac"))
+    legenda = (f'<figcaption>{icon("photo_camera")} {e(credito)}</figcaption>'
+               if credito else "")
     return (f'<figure class="faixa-foto" style="--foco:{foco}">'
             + figura(f"assets/fotos/{nome}", alt, depth, "", "(min-width:900px) 1100px, 100vw")
-            + f'<figcaption>{icon("photo_camera")} {e(credito)}</figcaption></figure>')
+            + legenda + '</figure>')
 
 
 def jornada_block(pr):
@@ -1819,10 +1830,12 @@ def plano_block(pr):
     if not data:
         return ""
     nucleos = "".join(
-        f"""<div class="nucleo"><h3>{e(nome)}</h3><p>{e(desc)}</p></div>"""
+        f'<article class="nucleo"><span class="nucleo-i">{icon(ic)}</span>'
+        f'<h3>{e(nome)}</h3><p>{e(desc)}</p></article>'
         for nome, desc, ic in data["nucleos"])
     verticais = "".join(
-        f"""<div class="nucleo vertical"><h3>{e(nome)}</h3><p>{e(desc)}</p></div>"""
+        f'<article class="nucleo vertical"><span class="nucleo-i">{icon(ic)}</span>'
+        f'<h3>{e(nome)}</h3><p>{e(desc)}</p></article>'
         for nome, desc, ic in data["verticais"])
     # A rota ate 2032 era uma lista de sete paragrafos longos, e ninguem lia o
     # setimo. Agora e uma linha de anos: escolhe-se o ano e le-se so ele.
@@ -1886,7 +1899,8 @@ def op_project(pr):
     if publicos:
         perfil.setdefault("publico", [max(publicos),
                                       "Maior público registrado entre as edições catalogadas"])
-    order = ["cidades", "modalidades", "publico", "staff", "fornecedores", "dias_montagem"]
+    order = pr.get("op_ordem") or [
+        "cidades", "modalidades", "publico", "staff", "fornecedores", "dias_montagem"]
     return f"""<section class="container op-section"><hr class="rule">
 <h2 class="section-title">DADOS<span class="orange">.</span></h2>
 <p class="body-copy">O que este projeto mobiliza para acontecer. Os campos preenchidos têm origem identificada; os demais dependem de dado da produção.</p>

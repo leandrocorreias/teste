@@ -2195,6 +2195,75 @@ def page_equipe():
                       "equipe/", [ld, trail_ld]) + header(depth, "sobre") + body + footer(depth))
 
 
+def numeros_block(depth):
+    """O acervo em poucos números, um por dimensão, com o escopo dito.
+
+    Estrutura emprestada de como as grandes operadoras de live entertainment
+    abrem os seus números: um número por dimensão, uma linha de escopo, e
+    grandezas diferentes nunca no mesmo total. A diferença é a origem — aqui
+    tudo é contado do próprio acervo em tempo de geração, então nenhum destes
+    números pode divergir do que as páginas mostram.
+
+    Público e audiência ficam de fora de propósito: são declarados por
+    terceiros, vivem nas famílias que não se somam, e misturá-los com contagem
+    de acervo criaria exatamente o número sem lastro que o resto do site evita.
+    """
+    cidades, estados = set(), set()
+    for pr in PROJECTS:
+        loc = pr.get("location", "")
+        if "," in loc:
+            c, uf = loc.rsplit(",", 1)
+            cidades.add(c.strip()); estados.add(uf.strip())
+        for ed in (pr.get("editions") or {}).values():
+            for sh in (ed.get("shows") or []):
+                if sh.get("cidade"):
+                    cidades.add(sh["cidade"].rsplit(",", 1)[0].strip())
+    edicoes = sum(len(pr.get("years") or []) for pr in PROJECTS)
+    etapas = sum(len(ed.get("etapas") or [])
+                 for pr in PROJECTS for ed in (pr.get("editions") or {}).values())
+    shows = sum(len(ed.get("shows") or [])
+                for pr in PROJECTS for ed in (pr.get("editions") or {}).values())
+    fatos = sum(len(v) for pr in PROJECTS for v in (pr.get("facts") or {}).values())
+    fontes = set()
+    for pr in PROJECTS:
+        for _, u in (pr.get("sources") or []):
+            if u: fontes.add(u)
+        for ys in (pr.get("yearsources") or {}).values():
+            for _, u in ys:
+                if u: fontes.add(u)
+    artistas = set()
+    for ed in MODEL["elenco"]["por_edicao"].values():
+        for nome, _ in ed.get("artistas", []):
+            artistas.add(nome)
+
+    linhas = [
+        (len(PROJECTS), "Eventos", "propriedades com página própria no acervo", "festival"),
+        (edicoes, "Edições", "anos catalogados, de 2018 a 2027", "calendar_month"),
+        (etapas + shows, "Etapas e shows", "datas individuais dentro das edições", "place"),
+        (len(cidades), "Cidades", f'em {plural(len(estados), "estado", "estados")}', "public"),
+        (len(MODEL["atletas"]["lista"]), "Atletas", "fichas com trajetória e participações", "skateboarding"),
+        (len(artistas), "Artistas", "nomes registrados nos palcos das edições", "music_note"),
+        (fatos, "Registros", "fatos com fonte identificada", "description"),
+        (len(fontes), "Fontes públicas", "links para a publicação original", "open_in_new"),
+    ]
+    tiles = "".join(
+        f'<div class="num-tile"><span class="num-ic">{icon(ic)}</span>'
+        f'<strong>{n}</strong><b>{e(rot)}</b><small>{e(sub)}</small></div>'
+        for n, rot, sub, ic in linhas)
+    return f"""<section class="container numeros-section" id="numeros"><hr class="rule">
+<h2 class="section-title">CADILLAC<br><em>EM NÚMEROS.</em></h2>
+<p class="body-copy">Tudo nesta faixa é contado do próprio acervo quando a página é
+gerada. Nenhum destes números é digitado à mão, e por isso nenhum deles pode divergir
+do que as páginas de evento mostram.</p>
+<div class="num-grid">{tiles}</div>
+<p class="note">Público e audiência não entram aqui. São declarados pelas produções,
+medidos de formas diferentes e organizados em famílias que não se somam — estão logo
+acima, cada um com a sua origem.</p></section>
+
+
+"""
+
+
 def perfil_block(depth):
     """Perfil do público declarado por cada produção.
 
@@ -2357,7 +2426,8 @@ def page_data():
 {audience_blocks(depth)}
 {events_table(depth)}
 {broadcast_block(depth)}
-<section class="container charts" id="numeros">
+{numeros_block(depth)}
+<section class="container charts">
 <div class="chart-card"><h3>Edições por ano</h3>
 <p class="chart-sub">Quantas edições a Cadillac tem documentadas em cada ano, do mais recente ao mais antigo.</p>
 <figure>{bars_vertical(per_year, ('edição', 'edições'))}

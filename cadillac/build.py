@@ -37,7 +37,12 @@ def _carimbo(nome):
 
 
 CARIMBO = {"site.css": _carimbo("site.css"), "site.js": _carimbo("site.js"),
-           "fontes.css": _carimbo("fontes/fontes.css")}
+           "fontes.css": _carimbo("fontes/fontes.css"),
+           # O icone mudou de desenho: sem carimbo, o navegador continuaria
+           # mostrando o antigo, que fica em cache por semanas.
+           "favicon.svg": _carimbo("favicon.svg"),
+           "favicon-32.png": _carimbo("favicon-32.png"),
+           "favicon-180.png": _carimbo("favicon-180.png")}
 ANO_BASE = SITE["base_year"]
 ANO_ATUAL = int(MODEL["updated"][:4])
 ANOS_CASA = ANO_ATUAL - ANO_BASE
@@ -257,8 +262,9 @@ def head(depth, title, desc, path, jsonld=(), extra="", og_image=None):
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
 <meta name="twitter:image" content="{og}">
-<link rel="icon" href="{p}assets/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="{p}assets/favicon-180.png">
+<link rel="icon" href="{p}assets/favicon.svg?v={CARIMBO["favicon.svg"]}" type="image/svg+xml">
+<link rel="icon" href="{p}assets/favicon-32.png?v={CARIMBO["favicon-32.png"]}" sizes="32x32">
+<link rel="apple-touch-icon" href="{p}assets/favicon-180.png?v={CARIMBO["favicon-180.png"]}">
 {fonts}
 <link rel="stylesheet" href="{p}assets/site.css?v={CARIMBO['site.css']}">
 <script defer src="{p}assets/site.js?v={CARIMBO['site.js']}"></script>

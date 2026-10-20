@@ -727,7 +727,7 @@ def page_project(pr):
             for i, t in enumerate(pr.get("records", []), start=1))
         cronograma.append(f"""<section class="container facts-section">
 <hr class="rule">
-<h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
+<h2 class="section-title">DOSSIÊ<br><em>DO PROJETO.</em></h2>
 <div class="facts">{facts}</div>
 <p class="note">{e(pr.get("nota_registro") or "")} Quando houver documentação por ano, cada edição ganha página própria com fontes.</p></section>""")
         n += 1
@@ -1740,7 +1740,7 @@ def page_atleta(x):
 <div class="taglist"><span>{icon('skateboarding')} {e(x['modalidade'])}</span>
 <span>{icon(ic_grupo)} {e(titulo_grupo)}</span></div></div></div></section>
 <section class="container facts-section"><hr class="rule">
-<h2 class="section-title">O QUE ESTÁ<br><em>DOCUMENTADO.</em></h2>
+<h2 class="section-title">DOSSIÊ<br><em>DO ATLETA.</em></h2>
 <div class="facts">{destaques or '<p class="note">Sem registro levantado até agora.</p>'}</div></section>
 <section class="container reach-section"><hr class="rule">
 <h2 class="section-title">NO ACERVO<br><em>DA CADILLAC.</em></h2>

@@ -9,7 +9,20 @@ não foi feito.
 
 ---
 
-## Como rodar
+## Onde está rodando
+
+**Hospedado:** https://instfy-intelligence-studio.vercel.app
+Vercel (team `lecorreia40-1962s-projects`), branch `instfy-intelligence-studio`
+do repositório `leandrocorreias/teste`, root `instfy-studio`, Node 22.
+Postgres do marketplace Vercel/Supabase, com `prisma migrate deploy` aplicando
+as 28 tabelas no build. **Vercel Authentication ligada** — o link exige login na
+conta Vercel, porque a aplicação não tem autenticação própria.
+
+No primeiro acesso a um banco vazio, a aplicação mostra a tela "Inicializar o
+Intelligence Studio" com um botão que semeia organização, layouts, questionário
+e catálogo.
+
+**Local:**
 
 ```bash
 cd instfy-studio
@@ -228,10 +241,16 @@ Declarado explicitamente, em vez de omitido:
    (`scripts/acceptance.mjs`) em vez de specs de `@playwright/test`. Cobre os
    mesmos caminhos, mas não simula cliques no navegador. As interações de
    formulário foram verificadas manualmente, não automatizadas.
-7. **PPTX é fiel ao texto, não ao visual.** PowerPoint não reproduz os
+7. **Produção não foi exercitada além do build.** A política de rede desta
+   sessão nega o host `vercel.app` (403 no CONNECT), então **nenhuma página da
+   URL real foi aberta ou testada daqui**. O que se sabe de produção é que o
+   build concluiu READY e que a migração rodou. O fluxo de primeiro acesso foi
+   validado localmente contra um banco vazio, não contra o Postgres hospedado.
+   Esta é a maior lacuna de verificação deste relatório.
+8. **PPTX é fiel ao texto, não ao visual.** PowerPoint não reproduz os
    grafismos CSS; os archetypes foram mapeados para formas nativas com os mesmos
    tokens. O PDF continua sendo o artefato de apresentação.
-8. **Regra de limiar da proposta de comunicação.** O texto original condiciona a
+9. **Regra de limiar da proposta de comunicação.** O texto original condiciona a
    gestão a 20% acima de R$ 10.000/mês investidos, com verba mínima nos meses 2
    e 3. **Isso não foi transformado em regra automática** — está registrado como
    observação no serviço do catálogo, para revisão e aprovação caso a caso,
@@ -241,10 +260,14 @@ Declarado explicitamente, em vez de omitido:
 
 ## Riscos
 
+- **Produção não observada.** Ver item 7 acima. Pode haver falha de runtime que
+  só apareça no primeiro acesso real.
 - **Caminho de IA real não verificado.** Parsing de resposta, validação de
   schema e fallback estão testados por tipo e por unidade, mas não contra um
   provedor real. Espere ajustes na primeira execução com chave.
-- **Sem autenticação.** Qualquer processo na máquina alcança as rotas de API.
+- **Sem autenticação própria.** Qualquer processo na máquina alcança as rotas de
+  API localmente. Na versão hospedada, a única barreira é a proteção de acesso
+  da plataforma; se ela for desligada, o link fica aberto a qualquer pessoa.
 - **Fontes externas.** As páginas carregam Inter do Google Fonts. Sem rede, o PDF
   cai para a fonte do sistema e a métrica tipográfica muda — o layout continua
   válido, mas o visual difere.
@@ -258,12 +281,14 @@ Declarado explicitamente, em vez de omitido:
 
 ## Próximos passos sugeridos
 
-1. Rodar o aceite com uma chave de IA real e corrigir o que aparecer no parsing
+1. Abrir a URL hospedada, tocar em "Inicializar agora" e percorrer os dois
+   fluxos, confirmando o que não pôde ser verificado daqui.
+2. Rodar o aceite com uma chave de IA real e corrigir o que aparecer no parsing
    e na validação dos estágios de análise, narrativa e plano de layout.
-2. Autenticação local mínima e verificação de `organizationId` por sessão antes
-   de qualquer uso fora de `localhost`.
-3. Retomada de jobs órfãos na inicialização (varrer `status: running`).
-4. Converter o aceite de API em specs de `@playwright/test`, cobrindo as
+3. Autenticação própria e verificação de `organizationId` por sessão, antes de
+   qualquer uso que não dependa da proteção da plataforma.
+4. Retomada de jobs órfãos na inicialização (varrer `status: running`).
+5. Converter o aceite de API em specs de `@playwright/test`, cobrindo as
    interações de formulário que hoje só foram verificadas à mão.
-5. Edição de kits de marca e de tokens de tema pela tela `/settings/brand`.
-6. Auto-hospedar a família tipográfica para tornar o PDF independente de rede.
+6. Edição de kits de marca e de tokens de tema pela tela `/settings/brand`.
+7. Auto-hospedar a família tipográfica para tornar o PDF independente de rede.

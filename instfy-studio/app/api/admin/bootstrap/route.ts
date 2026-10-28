@@ -15,18 +15,30 @@ function secretMatches(provided: string | null): boolean {
 }
 
 /**
- * One-off initialisation of a hosted database: applies the seed (organization,
- * sample catalog, demo clients). Idempotent — every write is an upsert.
+ * Initialises a database: applies the seed (organization, sample catalog, demo
+ * clients). Idempotent — every write is an upsert.
  *
- * Guarded by BOOTSTRAP_SECRET. With the variable unset the route is disabled,
- * so a deployment that forgot to configure it cannot be seeded by a stranger.
+ * Authorisation has two modes:
+ *  - An EMPTY database (no Organization row) may be seeded without a secret.
+ *    There is nothing to read or destroy yet, and on a hosted deployment the
+ *    whole app already sits behind the platform's access protection. This is
+ *    what lets the first-run screen initialise itself from the browser.
+ *  - A database that already holds an organization requires BOOTSTRAP_SECRET,
+ *    so re-seeding over live data is never a single unauthenticated request.
  */
 export async function POST(request: Request) {
-  if (!process.env.BOOTSTRAP_SECRET?.trim()) {
-    return NextResponse.json({ error: 'Bootstrap desabilitado: BOOTSTRAP_SECRET não está configurado.' }, { status: 403 });
-  }
-  if (!secretMatches(request.headers.get('x-bootstrap-secret'))) {
-    return NextResponse.json({ error: 'Segredo de bootstrap inválido.' }, { status: 401 });
+  const alreadyInitialised = (await prisma.organization.count()) > 0;
+
+  if (alreadyInitialised) {
+    if (!process.env.BOOTSTRAP_SECRET?.trim()) {
+      return NextResponse.json(
+        { error: 'Banco já inicializado. Re-semear exige BOOTSTRAP_SECRET configurado.' },
+        { status: 403 },
+      );
+    }
+    if (!secretMatches(request.headers.get('x-bootstrap-secret'))) {
+      return NextResponse.json({ error: 'Segredo de bootstrap inválido.' }, { status: 401 });
+    }
   }
 
   try {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Shell, PageHeader, EmptyState } from '@/components/Shell';
 import { prisma, getOrg } from '@/lib/db';
+import { SetupScreen } from './SetupScreen';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +19,11 @@ const STATUS_LABEL: Record<string, string> = {
 };
 
 export default async function Dashboard() {
+  // A fresh deployment starts with an empty database: offer to initialise it
+  // rather than failing with a stack trace.
+  const existing = await prisma.organization.findFirst({ where: { deletedAt: null } });
+  if (!existing) return <SetupScreen />;
+
   const org = await getOrg();
   const [projects, documents, proposals, services] = await Promise.all([
     prisma.project.findMany({

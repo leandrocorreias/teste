@@ -11,12 +11,18 @@ const SOURCE = 'prisma/schema.prisma';
 const TARGET = 'prisma/schema.sqlite.prisma';
 
 const canonical = readFileSync(SOURCE, 'utf8');
-if (!canonical.includes('provider = "postgresql"')) {
-  console.error(`${SOURCE} não declara o provider postgresql. Abortando para não gerar schema inconsistente.`);
+const DATASOURCE = /datasource db \{[\s\S]*?\n\}/;
+const match = canonical.match(DATASOURCE);
+if (!match || !match[0].includes('provider = "postgresql"')) {
+  console.error(`${SOURCE} não declara um datasource postgresql. Abortando para não gerar schema inconsistente.`);
   process.exit(1);
 }
 
-const derived = canonical.replace('provider = "postgresql"', 'provider = "sqlite"');
+// SQLite has no connection pooler, so it takes a single DATABASE_URL and no directUrl.
+const derived = canonical.replace(
+  DATASOURCE,
+  'datasource db {\n  provider = "sqlite"\n  url      = env("DATABASE_URL")\n}',
+);
 writeFileSync(
   TARGET,
   `// GERADO POR scripts/schema-sqlite.mjs — NÃO EDITE.\n// Fonte: ${SOURCE}. Única diferença permitida: o provider do datasource.\n${derived}`,

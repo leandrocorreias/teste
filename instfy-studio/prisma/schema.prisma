@@ -4,7 +4,12 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // Names injected by the Vercel Postgres (Supabase) marketplace store.
+  // url is the pooled connection used at runtime; directUrl is the direct
+  // connection Prisma needs for schema operations, which cannot run over a
+  // transaction pooler.
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Organization {

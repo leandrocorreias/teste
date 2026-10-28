@@ -1,0 +1,499 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  legalName String?
+  taxId     String?
+  website   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  users     User[]
+  clients   Client[]
+  projects  Project[]
+  services  Service[]
+  forms     Form[]
+  brandKits BrandKit[]
+  documents Document[]
+  auditLogs AuditLog[]
+  settings  OrgSetting[]
+}
+
+model OrgSetting {
+  id    String @id @default(cuid())
+  orgId String
+  key   String
+  value String
+  org   Organization @relation(fields: [orgId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([orgId, key])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  orgId     String
+  name      String
+  email     String   @unique
+  role      String   @default("strategist")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  org       Organization @relation(fields: [orgId], references: [id])
+  approvals Approval[]
+}
+
+model Client {
+  id         String   @id @default(cuid())
+  orgId      String
+  name       String
+  legalName  String?
+  taxId      String?
+  sector     String   @default("outro")
+  website    String?
+  city       String?
+  state      String?
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  deletedAt  DateTime?
+
+  org       Organization @relation(fields: [orgId], references: [id])
+  contacts  Contact[]
+  projects  Project[]
+  brandKits BrandKit[]
+
+  @@index([orgId])
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  clientId  String
+  name      String
+  role      String?
+  email     String?
+  phone     String?
+  isPrimary Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([clientId])
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  orgId       String
+  clientId    String
+  name        String
+  code        String?
+  sector      String   @default("outro")
+  status      String   @default("discovery")
+  summary     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  org         Organization @relation(fields: [orgId], references: [id])
+  client      Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+  findings    Finding[]
+  narratives  Narrative[]
+  proposals   Proposal[]
+  documents   Document[]
+  jobs        GenerationJob[]
+  aiRuns      AiRun[]
+  approvals   Approval[]
+  sources     ResearchSource[]
+
+  @@index([orgId])
+  @@index([clientId])
+}
+
+model Form {
+  id          String   @id @default(cuid())
+  orgId       String
+  slug        String
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  org         Organization  @relation(fields: [orgId], references: [id])
+  versions    FormVersion[]
+
+  @@unique([orgId, slug])
+}
+
+model FormVersion {
+  id          String   @id @default(cuid())
+  formId      String
+  version     Int
+  schemaJson  String
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  form        Form         @relation(fields: [formId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+
+  @@unique([formId, version])
+}
+
+model Submission {
+  id            String   @id @default(cuid())
+  projectId     String
+  formVersionId String
+  status        String   @default("draft")
+  submittedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  project       Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  formVersion   FormVersion @relation(fields: [formVersionId], references: [id])
+  answers       Answer[]
+
+  @@index([projectId])
+}
+
+model Answer {
+  id           String   @id @default(cuid())
+  submissionId String
+  questionId   String
+  valueJson    String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@unique([submissionId, questionId])
+}
+
+model ResearchSource {
+  id         String   @id @default(cuid())
+  projectId  String
+  title      String
+  url        String?
+  kind       String   @default("form_answer")
+  excerpt    String?
+  retrievedAt DateTime?
+  createdAt  DateTime @default(now())
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Finding {
+  id           String   @id @default(cuid())
+  projectId    String
+  dimension    String
+  title        String
+  body         String
+  evidenceType String
+  sourceRefs   String   @default("[]")
+  confidence   Int      @default(50)
+  orderIndex   Int      @default(0)
+  approved     Boolean  @default(false)
+  editedByHuman Boolean @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Narrative {
+  id         String   @id @default(cuid())
+  projectId  String
+  version    Int      @default(1)
+  title      String
+  subtitle   String?
+  bodyJson   String
+  status     String   @default("draft")
+  approvedAt DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, version])
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  orgId       String
+  code        String
+  name        String
+  category    String
+  summary     String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  org         Organization     @relation(fields: [orgId], references: [id])
+  versions    ServiceVersion[]
+
+  @@unique([orgId, code])
+}
+
+model ServiceVersion {
+  id            String   @id @default(cuid())
+  serviceId     String
+  version       Int
+  billingModel  String
+  scopeJson     String   @default("[]")
+  exclusionsJson String  @default("[]")
+  defaultQty    Int      @default(1)
+  notes         String?
+  isCurrent     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  service       Service        @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  pricingRules  PricingRule[]
+  proposalItems ProposalItem[]
+
+  @@unique([serviceId, version])
+}
+
+model PricingRule {
+  id               String  @id @default(cuid())
+  serviceVersionId String
+  kind             String
+  amountCents      Int?
+  percentBasisPoints Int?
+  percentOf        String?
+  tiersJson        String  @default("[]")
+  currency         String  @default("BRL")
+  label            String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  serviceVersion   ServiceVersion @relation(fields: [serviceVersionId], references: [id], onDelete: Cascade)
+
+  @@index([serviceVersionId])
+}
+
+model Proposal {
+  id              String   @id @default(cuid())
+  projectId       String
+  version         Int      @default(1)
+  title           String
+  status          String   @default("draft")
+  currency        String   @default("BRL")
+  termMonths      Int      @default(12)
+  taxRateBasisPoints Int?
+  issuedAt        DateTime?
+  validUntil      DateTime?
+  preparedForJson String   @default("[]")
+  narrativeJson   String   @default("{}")
+  conditionsJson  String   @default("[]")
+  totalsSnapshot  String?
+  aiCopyStatus    String   @default("none")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime?
+  project         Project           @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  items           ProposalItem[]
+  schedules       PaymentSchedule[]
+  documents       Document[]
+  approvals       Approval[]
+
+  @@unique([projectId, version])
+}
+
+model ProposalItem {
+  id                String  @id @default(cuid())
+  proposalId        String
+  serviceVersionId  String?
+  orderIndex        Int     @default(0)
+  label             String
+  description       String?
+  billingModel      String
+  quantity          Int     @default(1)
+  unitAmountCents   Int     @default(0)
+  percentBasisPoints Int?
+  percentBaseCents  Int?
+  tiersJson         String  @default("[]")
+  monthsCovered     Int?
+  bonified          Boolean @default(false)
+  discountPct       Int     @default(0)
+  discountApproved  Boolean @default(false)
+  discountApprovedBy String?
+  isThirdPartySpend Boolean @default(false)
+  scopeJson         String  @default("[]")
+  exclusionsJson    String  @default("[]")
+  priceSnapshot     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  proposal          Proposal        @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  serviceVersion    ServiceVersion? @relation(fields: [serviceVersionId], references: [id])
+
+  @@index([proposalId])
+}
+
+model PaymentSchedule {
+  id          String   @id @default(cuid())
+  proposalId  String
+  orderIndex  Int      @default(0)
+  label       String
+  dueRule     String
+  amountCents Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  proposal    Proposal @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+
+  @@index([proposalId])
+}
+
+model BrandKit {
+  id          String   @id @default(cuid())
+  orgId       String
+  clientId    String?
+  name        String
+  tokensJson  String
+  logoPath    String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  org         Organization @relation(fields: [orgId], references: [id])
+  client      Client?      @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+}
+
+model LayoutTemplate {
+  id          String   @id @default(cuid())
+  layoutId    String   @unique
+  name        String
+  kind        String
+  description String?
+  capacityJson String  @default("{}")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Document {
+  id         String   @id @default(cuid())
+  orgId      String
+  projectId  String?
+  proposalId String?
+  kind       String
+  title      String
+  status     String   @default("draft")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  deletedAt  DateTime?
+  org        Organization      @relation(fields: [orgId], references: [id])
+  project    Project?          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  proposal   Proposal?         @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  versions   DocumentVersion[]
+  jobs       GenerationJob[]
+
+  @@index([orgId])
+  @@index([projectId])
+}
+
+model DocumentVersion {
+  id         String   @id @default(cuid())
+  documentId String
+  version    Int
+  theme      String   @default("instfy-light")
+  format     String   @default("pdf")
+  filePath   String?
+  fileBytes  Int?
+  pageCount  Int?
+  specJson   String   @default("{}")
+  checksum   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  document   Document       @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  pages      DocumentPage[]
+
+  @@unique([documentId, version, format])
+}
+
+model DocumentPage {
+  id                String @id @default(cuid())
+  documentVersionId String
+  orderIndex        Int
+  layoutId          String
+  contentJson       String
+  warningsJson      String @default("[]")
+  createdAt         DateTime @default(now())
+  documentVersion   DocumentVersion @relation(fields: [documentVersionId], references: [id], onDelete: Cascade)
+
+  @@index([documentVersionId])
+}
+
+model GenerationJob {
+  id          String   @id @default(cuid())
+  projectId   String?
+  documentId  String?
+  kind        String
+  status      String   @default("queued")
+  attempts    Int      @default(0)
+  maxAttempts Int      @default(3)
+  payloadJson String   @default("{}")
+  resultJson  String?
+  error       String?
+  startedAt   DateTime?
+  finishedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  project     Project?  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  document    Document? @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+}
+
+model AiRun {
+  id            String   @id @default(cuid())
+  projectId     String?
+  stage         String
+  provider      String
+  model         String
+  demoMode      Boolean  @default(false)
+  status        String   @default("ok")
+  promptHash    String?
+  inputTokens   Int?
+  outputTokens  Int?
+  latencyMs     Int?
+  validationOk  Boolean  @default(true)
+  error         String?
+  createdAt     DateTime @default(now())
+  project       Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Approval {
+  id         String   @id @default(cuid())
+  projectId  String?
+  proposalId String?
+  userId     String?
+  subject    String
+  decision   String
+  note       String?
+  createdAt  DateTime @default(now())
+  project    Project?  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  proposal   Proposal? @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+  user       User?     @relation(fields: [userId], references: [id])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  orgId      String
+  actor      String   @default("system")
+  action     String
+  entity     String
+  entityId   String?
+  metaJson   String   @default("{}")
+  createdAt  DateTime @default(now())
+  org        Organization @relation(fields: [orgId], references: [id])
+
+  @@index([orgId])
+}

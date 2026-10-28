@@ -7,6 +7,7 @@
 import { chromium, type Browser } from 'playwright';
 import { writeFile } from 'node:fs/promises';
 import { ensureArtifactDir, ensureParentDir } from './artifacts';
+import { BASE_PATH } from './base-path';
 
 const PRESENTATION_PX = { width: 1280, height: 720 };
 /** A4 at 96dpi, matching the .instfy-page CSS box. */
@@ -128,7 +129,7 @@ export function renderPresentationPdf(
   opts?: { screenshotPages?: number },
 ): Promise<RenderResult> {
   const base = process.env.APP_BASE_URL || 'http://localhost:3100';
-  return renderUrl(`${base}/print/presentation/${documentVersionId}`, filePath, 'presentation', opts);
+  return renderUrl(`${base}${BASE_PATH}/print/presentation/${documentVersionId}`, filePath, 'presentation', opts);
 }
 
 export function renderProposalPdf(
@@ -137,5 +138,5 @@ export function renderProposalPdf(
   opts?: { screenshotPages?: number },
 ): Promise<RenderResult> {
   const base = process.env.APP_BASE_URL || 'http://localhost:3100';
-  return renderUrl(`${base}/print/proposal/${documentVersionId}`, filePath, 'document', opts);
+  return renderUrl(`${base}${BASE_PATH}/print/proposal/${documentVersionId}`, filePath, 'document', opts);
 }

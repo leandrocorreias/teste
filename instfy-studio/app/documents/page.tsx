@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Shell, PageHeader, EmptyState } from '@/components/Shell';
 import { prisma, getOrg } from '@/lib/db';
+import { withBasePath } from '@/lib/base-path';
 
 export const dynamic = 'force-dynamic';
 
@@ -75,7 +76,7 @@ export default async function DocumentsPage() {
                           <td className="py-2.5 text-ink-mute">{v.createdAt.toLocaleString('pt-BR')}</td>
                           <td className="py-2.5">
                             {v.filePath ? (
-                              <a href={`/api/documents/${v.id}/file`} target="_blank" rel="noreferrer" className="font-semibold text-forest-600 hover:underline">
+                              <a href={withBasePath(`/api/documents/${v.id}/file`)} target="_blank" rel="noreferrer" className="font-semibold text-forest-600 hover:underline">
                                 Baixar
                               </a>
                             ) : (

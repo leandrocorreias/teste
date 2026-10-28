@@ -7,6 +7,7 @@ import type { SlidePage } from '@/lib/design/schema';
 import { SlideRenderer } from '@/components/slides';
 import { THEMES, tokensToCssVars, resolveTokens, type ThemeId } from '@/lib/design/tokens';
 import { Alert, Spinner, api, useAsyncAction } from '@/components/ui';
+import { withBasePath } from '@/lib/base-path';
 
 interface JobStatus {
   status: string;
@@ -72,7 +73,7 @@ export function PresentationStudio({
     const latestPdf = versions.find((v) => v.format === 'pdf');
     if (pdfEngine === 'browser') {
       if (!latestPdf) return;
-      window.open(`/api/documents/${latestPdf.id}/pptx`, '_blank', 'noopener');
+      window.open(withBasePath(`/api/documents/${latestPdf.id}/pptx`), '_blank', 'noopener');
       return;
     }
     setJob(null);
@@ -90,7 +91,7 @@ export function PresentationStudio({
     );
     if (!result) return;
     if (result.engine === 'browser' && result.printUrl) {
-      window.open(result.printUrl, '_blank', 'noopener');
+      window.open(withBasePath(result.printUrl), '_blank', 'noopener');
       router.refresh();
       return;
     }
@@ -240,7 +241,7 @@ export function PresentationStudio({
                     <td className="px-4 py-2.5 text-ink-mute">{new Date(v.createdAt).toLocaleString('pt-BR')}</td>
                     <td className="px-4 py-2.5">
                       {v.hasFile ? (
-                        <a href={`/api/documents/${v.id}/file`} target="_blank" rel="noreferrer" className="font-semibold text-forest-600 hover:underline">Baixar PDF</a>
+                        <a href={withBasePath(`/api/documents/${v.id}/file`)} target="_blank" rel="noreferrer" className="font-semibold text-forest-600 hover:underline">Baixar PDF</a>
                       ) : (
                         <span className="text-xs text-ink-mute">não gerado</span>
                       )}

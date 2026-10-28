@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { withBasePath } from '@/lib/base-path';
 
 export function Alert({ kind, children }: { kind: 'error' | 'warn' | 'ok' | 'info'; children: React.ReactNode }) {
   const styles: Record<string, string> = {
@@ -47,7 +48,8 @@ export function useAsyncAction() {
 
 /** Thin fetch wrapper that surfaces API error messages instead of swallowing them. */
 export async function api<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, {
+  // Next.js does not prefix fetch URLs with basePath; do it here, once.
+  const res = await fetch(withBasePath(url), {
     ...init,
     headers: { 'content-type': 'application/json', ...(init?.headers ?? {}) },
   });

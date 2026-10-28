@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { InstfyLockup } from '@/components/InstfyMark';
+import { withBasePath } from '@/lib/base-path';
 
 /**
  * First-run screen for an empty database.
@@ -21,7 +22,7 @@ export function SetupScreen() {
     setPending(true);
     setError(null);
     try {
-      const res = await fetch('/api/admin/bootstrap', { method: 'POST' });
+      const res = await fetch(withBasePath('/api/admin/bootstrap'), { method: 'POST' });
       const body = await res.json().catch(() => null);
       if (!res.ok) throw new Error(body?.error ?? `Erro ${res.status}`);
       setResult(body.seeded);

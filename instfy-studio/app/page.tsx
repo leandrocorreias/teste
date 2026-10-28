@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Shell, PageHeader, EmptyState } from '@/components/Shell';
 import { prisma, getOrg } from '@/lib/db';
+import { withBasePath } from '@/lib/base-path';
 import { SetupScreen } from './SetupScreen';
 
 export const dynamic = 'force-dynamic';
@@ -131,7 +132,7 @@ export default async function Dashboard() {
                         <span>{latest.pageCount ?? 0} páginas</span>
                         {latest.fileBytes && <span>{Math.round(latest.fileBytes / 1024)} KB</span>}
                         {latest.filePath && (
-                          <a href={`/api/documents/${latest.id}/file`} className="font-semibold text-forest-600 hover:underline">
+                          <a href={withBasePath(`/api/documents/${latest.id}/file`)} className="font-semibold text-forest-600 hover:underline">
                             Baixar
                           </a>
                         )}

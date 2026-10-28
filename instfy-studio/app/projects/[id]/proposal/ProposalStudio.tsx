@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Alert, Spinner, api, useAsyncAction } from '@/components/ui';
+import { withBasePath } from '@/lib/base-path';
 import type { ProposalSpec } from '@/lib/proposal-spec';
 import type { PricingFlag, PricingTotals } from '@/lib/pricing';
 
@@ -190,7 +191,7 @@ export function ProposalStudio({
     );
     if (!result) return;
     if (result.engine === 'browser' && result.printUrl) {
-      window.open(result.printUrl, '_blank', 'noopener');
+      window.open(withBasePath(result.printUrl), '_blank', 'noopener');
       router.refresh();
       return;
     }
@@ -550,7 +551,7 @@ export function ProposalStudio({
                       </div>
                     </div>
                     {d.hasFile && (
-                      <a href={`/api/documents/${d.id}/file`} target="_blank" rel="noreferrer" className="text-xs font-semibold text-forest-600 hover:underline">
+                      <a href={withBasePath(`/api/documents/${d.id}/file`)} target="_blank" rel="noreferrer" className="text-xs font-semibold text-forest-600 hover:underline">
                         Baixar
                       </a>
                     )}

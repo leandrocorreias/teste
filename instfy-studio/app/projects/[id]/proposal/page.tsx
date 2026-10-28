@@ -5,6 +5,7 @@ import { ProjectTabs } from '@/components/ProjectTabs';
 import { prisma, getOrg } from '@/lib/db';
 import { ProposalStudio } from './ProposalStudio';
 import { centsToBRL } from '@/lib/money';
+import { pdfEngine } from '@/lib/pdf-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -72,6 +73,7 @@ export default async function ProposalPage({ params }: { params: Promise<{ id: s
       <ProjectTabs projectId={id} active="proposal" />
       <ProposalStudio
         projectId={id}
+        pdfEngine={pdfEngine()}
         discountCapPct={Number(capSetting?.value ?? '0') || 0}
         catalog={catalog}
         proposals={proposals.map((p) => ({

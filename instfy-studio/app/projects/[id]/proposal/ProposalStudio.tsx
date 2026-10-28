@@ -71,11 +71,13 @@ export function ProposalStudio({
   discountCapPct,
   catalog,
   proposals,
+  pdfEngine,
 }: {
   projectId: string;
   discountCapPct: number;
   catalog: CatalogEntry[];
   proposals: ProposalRow[];
+  pdfEngine: 'server' | 'browser';
 }) {
   const router = useRouter();
   const [selectedId, setSelectedId] = useState<string | null>(proposals[0]?.id ?? null);
@@ -181,9 +183,18 @@ export function ProposalStudio({
     if (!selectedId) return;
     setJob(null);
     const result = await generate.run(() =>
-      api<{ jobId: string }>(`/api/proposals/${selectedId}/generate`, { method: 'POST', body: JSON.stringify({ screenshots: false }) }),
+      api<{ jobId: string | null; engine: string; printUrl?: string }>(`/api/proposals/${selectedId}/generate`, {
+        method: 'POST',
+        body: JSON.stringify({ screenshots: false }),
+      }),
     );
-    if (result) setJobId(result.jobId);
+    if (!result) return;
+    if (result.engine === 'browser' && result.printUrl) {
+      window.open(result.printUrl, '_blank', 'noopener');
+      router.refresh();
+      return;
+    }
+    if (result.jobId) setJobId(result.jobId);
   }
 
   function addFromCatalog(entry: CatalogEntry) {
@@ -499,8 +510,14 @@ export function ProposalStudio({
               Aprovar condições comerciais
             </button>
             <button onClick={generatePdf} className="btn-primary w-full text-xs" disabled={generate.pending || items.length === 0}>
-              {generate.pending ? <Spinner label="Gerando…" /> : 'Gerar PDF da proposta'}
+              {generate.pending ? <Spinner label="Gerando…" /> : pdfEngine === 'browser' ? 'Montar e abrir para impressão' : 'Gerar PDF da proposta'}
             </button>
+            {pdfEngine === 'browser' && (
+              <p className="text-[11px] leading-relaxed text-ink-mute">
+                O PDF é impresso pelo seu navegador a partir da rota de impressão da aplicação. A proposta abre em nova aba
+                com o botão de impressão; os valores já vêm congelados no snapshot desta versão.
+              </p>
+            )}
             {copy.error && <Alert kind="error">{copy.error}</Alert>}
             {copy.ok && <Alert kind="ok">{copy.ok}</Alert>}
             {generate.error && <Alert kind="error">{generate.error}</Alert>}

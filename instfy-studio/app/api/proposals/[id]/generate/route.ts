@@ -8,6 +8,7 @@ import { artifactPath, fileSize } from '@/lib/artifacts';
 import { enqueue, runJob } from '@/lib/jobs';
 import { renderProposalPdf } from '@/lib/pdf';
 import { blockingFlags } from '@/lib/pricing';
+import { pdfEngine } from '@/lib/pdf-engine';
 
 const body = z.object({
   themeId: z.enum(['instfy-light', 'instfy-dark', 'instfy-client']).default('instfy-light'),
@@ -53,6 +54,21 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       blockingAtGeneration: blocking.map((f) => f.message),
     },
   });
+
+  if (pdfEngine() === 'browser') {
+    await prisma.document.update({ where: { id: document.id }, data: { status: 'ready' } });
+    await audit(org.id, 'generate_proposal', 'DocumentVersion', documentVersion.id, { pages: pageCount, engine: 'browser' });
+    return NextResponse.json({
+      jobId: null,
+      engine: 'browser',
+      documentId: document.id,
+      documentVersionId: documentVersion.id,
+      version: documentVersion.version,
+      pages: pageCount,
+      printUrl: `/print/proposal/${documentVersion.id}`,
+      blocking: blocking.map((f) => f.message),
+    });
+  }
 
   const filePath = artifactPath(
     proposal.project.client.name,
@@ -101,6 +117,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
 
   return NextResponse.json({
     jobId: job.id,
+    engine: 'server',
     documentId: document.id,
     documentVersionId: documentVersion.id,
     version: documentVersion.version,

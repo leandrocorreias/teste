@@ -26,13 +26,11 @@ export interface PptxResult {
   pageCount: number;
 }
 
-export async function renderPresentationPptx(
+/** Builds the deck in memory. No filesystem access, so it runs on serverless. */
+export async function buildPresentationPptx(
   pages: SlidePage[],
-  opts: { filePath: string; themeId: ThemeId; clientName: string; title: string; demoMode: boolean },
-): Promise<PptxResult> {
-  await ensureArtifactDir();
-  await ensureParentDir(opts.filePath);
-
+  opts: { themeId: ThemeId; clientName: string; title: string; demoMode: boolean },
+): Promise<Buffer> {
   const t = resolveTokens(opts.themeId);
   const pptx = new PptxGenJS();
   pptx.defineLayout({ name: 'INSTFY_16x9', width: W, height: H });
@@ -229,7 +227,17 @@ export async function renderPresentationPptx(
     }
   }
 
-  const buffer = (await pptx.write({ outputType: 'nodebuffer' })) as Buffer;
+  return (await pptx.write({ outputType: 'nodebuffer' })) as Buffer;
+}
+
+/** Writes the deck to the artifact directory. Requires a writable disk. */
+export async function renderPresentationPptx(
+  pages: SlidePage[],
+  opts: { filePath: string; themeId: ThemeId; clientName: string; title: string; demoMode: boolean },
+): Promise<PptxResult> {
+  await ensureArtifactDir();
+  await ensureParentDir(opts.filePath);
+  const buffer = await buildPresentationPptx(pages, opts);
   await writeFile(opts.filePath, buffer);
   return { filePath: opts.filePath, bytes: buffer.length, pageCount: pages.length };
 }

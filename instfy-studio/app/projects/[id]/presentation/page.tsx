@@ -5,6 +5,7 @@ import { ProjectTabs } from '@/components/ProjectTabs';
 import { prisma, getOrg } from '@/lib/db';
 import { slidePage, type SlidePage } from '@/lib/design/schema';
 import { PresentationStudio } from './PresentationStudio';
+import { pdfEngine } from '@/lib/pdf-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +28,8 @@ export default async function PresentationPage({ params }: { params: Promise<{ i
     },
   });
 
-  const latest = document?.versions[0];
+  // The preview must come from a PDF version: PPTX versions carry no page rows.
+  const latest = document?.versions.find((v) => v.format === 'pdf');
   const pages: SlidePage[] = [];
   const warnings: Array<{ code: string; message: string }> = [];
   for (const row of latest?.pages ?? []) {
@@ -54,10 +56,12 @@ export default async function PresentationPage({ params }: { params: Promise<{ i
         currentTheme={(latest?.theme as 'instfy-light') ?? 'instfy-light'}
         pages={pages}
         warnings={warnings}
+        pdfEngine={pdfEngine()}
         versions={(document?.versions ?? []).map((v) => ({
           id: v.id,
           version: v.version,
           theme: v.theme,
+          format: v.format,
           pageCount: v.pageCount,
           fileBytes: v.fileBytes,
           hasFile: Boolean(v.filePath),

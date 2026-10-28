@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/db';
 import { resolveTokens, tokensToCssVars, type ThemeId } from '@/lib/design/tokens';
 import { ProposalDocument } from '@/components/proposal-doc';
+import { PrintToolbar } from '@/components/PrintToolbar';
+import { pdfEngine } from '@/lib/pdf-engine';
 import type { ProposalSpec } from '@/lib/proposal-spec';
 
 export const dynamic = 'force-dynamic';
@@ -20,8 +22,13 @@ export default async function PrintProposal({ params }: { params: Promise<{ vers
   const cssVars = tokensToCssVars(tokens);
 
   return (
-    <div data-print-ready="true" style={{ ...(cssVars as Record<string, string>), background: '#ffffff' }}>
-      <ProposalDocument spec={spec} />
-    </div>
+    <>
+      {pdfEngine() === 'browser' && (
+        <PrintToolbar label="Proposta comercial" hint="Use retrato A4 e desmarque cabeçalhos e rodapés do navegador." />
+      )}
+      <div data-print-ready="true" style={{ ...(cssVars as Record<string, string>), background: '#ffffff' }}>
+        <ProposalDocument spec={spec} />
+      </div>
+    </>
   );
 }

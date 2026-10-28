@@ -13,8 +13,11 @@
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:seed": "tsx prisma/seed.ts",
-    "db:reset": "rm -f prisma/dev.db && prisma db push && tsx prisma/seed.ts",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "db:sqlite:schema": "node scripts/schema-sqlite.mjs",
+    "db:push:sqlite": "npm run db:sqlite:schema && prisma db push --schema prisma/schema.sqlite.prisma",
+    "db:reset:sqlite": "rm -f prisma/dev.db && npm run db:push:sqlite && npm run db:seed",
+    "db:sql": "prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script"
   },
   "dependencies": {
     "@prisma/client": "6.3.1",

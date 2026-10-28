@@ -10,6 +10,7 @@ import { renderPresentationPdf } from '@/lib/pdf';
 import { resolveProvider } from '@/lib/ai/provider';
 import { checkTheme } from '@/lib/design/validate';
 import { THEMES } from '@/lib/design/tokens';
+import { pdfEngine } from '@/lib/pdf-engine';
 
 const body = z.object({
   themeId: z.enum(['instfy-light', 'instfy-dark', 'instfy-client']).default('instfy-light'),
@@ -74,6 +75,26 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     },
   });
 
+  // On hosts without Chromium or a writable disk, the viewer's browser prints
+  // the very same /print route. No job is queued because there is nothing to run.
+  if (pdfEngine() === 'browser') {
+    await prisma.document.update({ where: { id: document.id }, data: { status: 'ready' } });
+    await audit(org.id, 'generate_presentation', 'DocumentVersion', documentVersion.id, {
+      pages: pages.length, theme: parsed.data.themeId, engine: 'browser',
+    });
+    return NextResponse.json({
+      jobId: null,
+      engine: 'browser',
+      documentId: document.id,
+      documentVersionId: documentVersion.id,
+      version: documentVersion.version,
+      pages: pages.length,
+      printUrl: `/print/presentation/${documentVersion.id}`,
+      warnings: [...warnings, ...themeWarnings],
+      meta,
+    });
+  }
+
   const filePath = artifactPath(
     project.client.name,
     `apresentacao-${project.name}-v${documentVersion.version}.pdf`,
@@ -125,6 +146,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
 
   return NextResponse.json({
     jobId: job.id,
+    engine: 'server',
     documentId: document.id,
     documentVersionId: documentVersion.id,
     version: documentVersion.version,

@@ -26,6 +26,7 @@ export function PresentationStudio({
   pages,
   warnings,
   versions,
+  pdfEngine,
 }: {
   projectId: string;
   clientName: string;
@@ -34,7 +35,8 @@ export function PresentationStudio({
   currentTheme: ThemeId;
   pages: SlidePage[];
   warnings: Array<{ code: string; message: string }>;
-  versions: Array<{ id: string; version: number; theme: string; pageCount: number | null; fileBytes: number | null; hasFile: boolean; createdAt: string }>;
+  versions: Array<{ id: string; version: number; theme: string; format: string; pageCount: number | null; fileBytes: number | null; hasFile: boolean; createdAt: string }>;
+  pdfEngine: 'server' | 'browser';
 }) {
   const router = useRouter();
   const [theme, setTheme] = useState<ThemeId>(currentTheme);
@@ -67,6 +69,12 @@ export function PresentationStudio({
   }, [jobId, router]);
 
   async function exportPptx() {
+    const latestPdf = versions.find((v) => v.format === 'pdf');
+    if (pdfEngine === 'browser') {
+      if (!latestPdf) return;
+      window.open(`/api/documents/${latestPdf.id}/pptx`, '_blank', 'noopener');
+      return;
+    }
     setJob(null);
     const result = await run(() => api<{ jobId: string }>(`/api/projects/${projectId}/presentation/pptx`, { method: 'POST' }));
     if (result) setJobId(result.jobId);
@@ -75,12 +83,18 @@ export function PresentationStudio({
   async function generate(withScreenshots: boolean) {
     setJob(null);
     const result = await run(() =>
-      api<{ jobId: string; pages: number; warnings: Array<{ code: string; message: string }> }>(
+      api<{ jobId: string | null; engine: string; printUrl?: string; pages: number; warnings: Array<{ code: string; message: string }> }>(
         `/api/projects/${projectId}/presentation`,
         { method: 'POST', body: JSON.stringify({ themeId: theme, screenshots: withScreenshots }) },
       ),
     );
-    if (result) setJobId(result.jobId);
+    if (!result) return;
+    if (result.engine === 'browser' && result.printUrl) {
+      window.open(result.printUrl, '_blank', 'noopener');
+      router.refresh();
+      return;
+    }
+    if (result.jobId) setJobId(result.jobId);
   }
 
   const tokens = resolveTokens(theme);
@@ -88,6 +102,14 @@ export function PresentationStudio({
 
   return (
     <div className="space-y-8">
+      {pdfEngine === 'browser' && (
+        <Alert kind="info">
+          Nesta hospedagem o PDF é impresso pelo <strong>seu navegador</strong> a partir da mesma rota de impressão que o
+          renderizador usa — mesmos componentes, mesmo CSS. Ao clicar em montar, a apresentação abre em uma nova aba com o
+          botão de impressão. O que não existe aqui é o arquivo guardado no servidor e a medição automática de transbordo,
+          porque esta hospedagem não tem disco persistente nem Chromium.
+        </Alert>
+      )}
       {!approvedNarrative && (
         <Alert kind="warn">
           A narrativa ainda não foi aprovada ({narrativeStatus === 'none' ? 'nenhuma versão gerada' : narrativeStatus}). Aprove-a em{' '}
@@ -121,11 +143,13 @@ export function PresentationStudio({
           </div>
           <div className="flex flex-wrap gap-2">
             <button onClick={() => generate(false)} className="btn-primary" disabled={pending || !approvedNarrative}>
-              {pending ? <Spinner label="Montando…" /> : 'Gerar PDF'}
+              {pending ? <Spinner label="Montando…" /> : pdfEngine === 'browser' ? 'Montar e abrir para impressão' : 'Gerar PDF'}
             </button>
-            <button onClick={() => generate(true)} className="btn-ghost" disabled={pending || !approvedNarrative}>
-              Gerar com capturas de página
-            </button>
+            {pdfEngine === 'server' && (
+              <button onClick={() => generate(true)} className="btn-ghost" disabled={pending || !approvedNarrative}>
+                Gerar com capturas de página
+              </button>
+            )}
             <button onClick={exportPptx} className="btn-ghost" disabled={pending || pages.length === 0} title="Exporta as páginas já montadas como PPTX editável (fidelidade de texto, não cópia visual do PDF)">
               Exportar PPTX
             </button>

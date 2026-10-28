@@ -3,6 +3,8 @@ import { prisma } from '@/lib/db';
 import { slidePage, type SlidePage } from '@/lib/design/schema';
 import { resolveTokens, tokensToCssVars, type ThemeId } from '@/lib/design/tokens';
 import { SlideRenderer } from '@/components/slides';
+import { PrintToolbar } from '@/components/PrintToolbar';
+import { pdfEngine } from '@/lib/pdf-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,6 +29,13 @@ export default async function PrintPresentation({ params }: { params: Promise<{ 
   const clientName = spec.clientName ?? version.document.project?.client.name ?? 'Cliente';
 
   return (
+    <>
+      {pdfEngine() === 'browser' && (
+        <PrintToolbar
+          label={`Apresentação · ${pages.length} páginas`}
+          hint="Use paisagem e desmarque cabeçalhos e rodapés do navegador."
+        />
+      )}
     <div
       data-print-ready="true"
       style={{
@@ -52,5 +61,6 @@ export default async function PrintPresentation({ params }: { params: Promise<{ 
         </div>
       ))}
     </div>
+    </>
   );
 }

@@ -1,0 +1,33 @@
+---
+deployment:
+  tasks:
+    # Publicacao do site da Cadillac em cadillac.art.br, pelo Git Version
+    # Control do cPanel: o painel clona este repositorio e roda estas tarefas
+    # a cada clique em "Deploy HEAD Commit".
+    #
+    # Vai para o ar a pasta cadillac/ ja construida: HTML, assets, sitemap e
+    # robots. Ficam de fora o gerador (build.py), o modelo de conteudo, as
+    # ferramentas e a area reservada, que nao sao para o publico.
+    #
+    # Cada pasta e apagada antes de ser copiada, de proposito: sem isso, uma
+    # pagina que saiu do acervo continuaria no ar, porque o servidor nao apaga
+    # sozinho o que o deploy deixa de copiar.
+    - export RAIZ=/home/cadilla12321/public_html
+    # O cPanel roda as tarefas dentro do clone do repositorio, entao o caminho
+    # sai do proprio diretorio de trabalho: funciona com qualquer nome que o
+    # painel der ao repositorio.
+    - export FONTE=$PWD/cadillac
+    - /bin/mkdir -p $RAIZ
+    - /bin/rm -rf $RAIZ/projetos $RAIZ/assets $RAIZ/eventos $RAIZ/artistas $RAIZ/atletas
+    - /bin/rm -rf $RAIZ/equipe $RAIZ/governanca $RAIZ/agenda $RAIZ/atuacao $RAIZ/contato
+    - /bin/rm -rf $RAIZ/dados $RAIZ/en $RAIZ/imprensa $RAIZ/na-midia $RAIZ/parceiros
+    - /bin/rm -rf $RAIZ/produtora $RAIZ/relacionamento
+    - /bin/cp -a $FONTE/assets $FONTE/eventos $FONTE/artistas $FONTE/atletas $RAIZ/
+    - /bin/cp -a $FONTE/equipe $FONTE/governanca $FONTE/agenda $FONTE/atuacao $RAIZ/
+    - /bin/cp -a $FONTE/contato $FONTE/dados $FONTE/en $FONTE/imprensa $RAIZ/
+    - /bin/cp -a $FONTE/na-midia $FONTE/parceiros $FONTE/produtora $FONTE/relacionamento $RAIZ/
+    - /bin/cp -a $FONTE/index.html $FONTE/404.html $FONTE/sitemap.xml $FONTE/robots.txt $RAIZ/
+    # O .htaccess do repositorio e escrito para a previa, que mora em subpasta.
+    # Aqui o site esta na raiz: as regras perdem o prefixo /cadillac.
+    - /bin/sed -e 's#/cadillac/#/#g' -e 's#\^/cadillac#^#g' $FONTE/htaccess-producao.txt > $RAIZ/.htaccess
+    - /bin/chmod 644 $RAIZ/.htaccess

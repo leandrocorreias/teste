@@ -1354,14 +1354,14 @@
         "2026": {
           "period": "Turnê 2026, com shows até janeiro de 2027",
           "place": "Circuito nacional",
-          "note": "Dominguinho Vol. 2 · quatro shows de agosto com público auditado em inventário",
+          "note": "Dominguinho Vol. 2 · quatro shows de agosto com público documentado",
           "datas": {
             "inicio": "2026-08-08",
             "fim": "2026-12-19",
             "precisao": "dia",
             "status": "parcial",
             "fonte": [
-              "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+              "Documento de produção da Turnê Dominguinho 2026",
               null
             ]
           },
@@ -1450,7 +1450,7 @@
               "local": "Parque de Eventos CCA",
               "status": "confirmada",
               "fonte": [
-                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                "Documento de produção da Turnê Dominguinho 2026",
                 null
               ]
             },
@@ -1460,7 +1460,7 @@
               "local": "Santos Convention Center",
               "status": "confirmada",
               "fonte": [
-                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                "Documento de produção da Turnê Dominguinho 2026",
                 null
               ]
             },
@@ -1470,7 +1470,7 @@
               "local": "Estacionamento do Teatro Municipal",
               "status": "confirmada",
               "fonte": [
-                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                "Documento de produção da Turnê Dominguinho 2026",
                 null
               ]
             },
@@ -1480,7 +1480,7 @@
               "local": "Centro de Formação Olímpica",
               "status": "confirmada",
               "fonte": [
-                "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+                "Documento de produção da Turnê Dominguinho 2026",
                 null
               ]
             },
@@ -1561,8 +1561,8 @@
           "O show de um ano do projeto, no Allianz Parque, em 25 de abril de 2026, foi transmitido pelo Multishow e pelo Globoplay.",
           "O trio apresentou o especial do Dominguinho Vol. 2 no Altas Horas, da TV Globo.",
           "Os ingressos de 14 de novembro, na Cidade das Artes, no Rio, esgotaram e uma segunda data foi aberta para o dia 15.",
-          "O Banco do Brasil assina a turnê como patrocinador apresentador, conforme o inventário de emissões do projeto.",
-          "A imprensa atribui ao projeto mais de 300 milhões de streams — métrica das plataformas, não de evento."
+          "A imprensa atribui ao projeto mais de 300 milhões de streams — métrica das plataformas, não de evento.",
+          "O Banco do Brasil assina a turnê como patrocinador apresentador."
         ]
       },
       "sources": [
@@ -1598,7 +1598,7 @@
             "https://gshow.globo.com/cultura-pop/noticia/tv-globo-exibe-especial-dominguinho-com-joao-gomes-jotape-e-mestrinho.ghtml"
           ],
           [
-            "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+            "Documento de produção da Turnê Dominguinho 2026",
             null
           ],
           [
@@ -1648,7 +1648,7 @@
       "papel": {
         "rotulo": "Participação a documentar",
         "icone": "description",
-        "texto": "O inventário de emissões da turnê nomeia a JG Shows Ltda como organização inventariante e o Banco do Brasil como patrocinador apresentador. A participação da Cadillac no projeto foi informada pela direção e ainda não aparece em documento público.",
+        "texto": "A turnê é organizada pela JG Shows Ltda, com o Banco do Brasil como patrocinador apresentador. A participação da Cadillac no projeto foi informada pela direção e ainda não aparece em documento público.",
         "status": "a confirmar",
         "fonte_texto": "Informado pela direção da Cadillac; ficha técnica independente pendente",
         "nota": ""
@@ -2354,7 +2354,7 @@
       "festival-de-tribos-juruti": "Divulgação Festival das Tribos de Juruti",
       "arte-em-circuito": "Divulgação Arte em Circuito"
     },
-    "origem_arquivos": "As imagens de vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções. Duas fotos do Mr. Moo Festival — a vista do palco e a da tenda principal — chegaram depois, pela direção da Cadillac. A da tenda entra sob o crédito padrão da produção; a do palco traz a assinatura do fotógrafo na própria imagem e é creditada a ele. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção e, no caso assinado, do próprio fotógrafo. O crédito aparece sobre a imagem.",
+    "origem_arquivos": "As imagens de vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md.",
     "creditos_arquivo": {}
   },
@@ -2683,10 +2683,10 @@
         "family": "presencial",
         "value": 9783,
         "label": "Show de Americana, agosto de 2026",
-        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "basis": "Público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
         "counts": false,
         "source": [
-          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          "Documento de produção da Turnê Dominguinho 2026",
           null
         ],
         "tipo": "declarado",
@@ -2698,10 +2698,10 @@
         "family": "presencial",
         "value": 9390,
         "label": "Show de Fortaleza, agosto de 2026",
-        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "basis": "Público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
         "counts": false,
         "source": [
-          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          "Documento de produção da Turnê Dominguinho 2026",
           null
         ],
         "tipo": "declarado",
@@ -2713,10 +2713,10 @@
         "family": "presencial",
         "value": 8547,
         "label": "Show de Santos, agosto de 2026",
-        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "basis": "Público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
         "counts": false,
         "source": [
-          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          "Documento de produção da Turnê Dominguinho 2026",
           null
         ],
         "tipo": "declarado",
@@ -2728,10 +2728,10 @@
         "family": "presencial",
         "value": 7330,
         "label": "Show de Uberlândia, agosto de 2026",
-        "basis": "Público considerado no inventário de emissões, com público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
+        "basis": "Público pagante documentado. Público de show da turnê, organizada pela JG Shows. A participação da Cadillac ainda não tem documento público, então o número fica fora dos totais de alcance da empresa",
         "counts": false,
         "source": [
-          "Inventário de emissões de GEE da Turnê Dominguinho 2026 · certificado DMG26-7F4C",
+          "Documento de produção da Turnê Dominguinho 2026",
           null
         ],
         "tipo": "declarado",
@@ -4314,14 +4314,6 @@
         "bairro": null,
         "cep": null,
         "nota": "Endereço registrado da Cadillac Produções e Filmes Ltda."
-      },
-      {
-        "cidade": "Mogi das Cruzes, SP",
-        "papel": "Escritório",
-        "logradouro": null,
-        "bairro": null,
-        "cep": null,
-        "nota": "Base de atendimento para São Paulo e região."
       }
     ],
     "caixas": [
@@ -5942,7 +5934,7 @@
         [
           "2026",
           "O ano mais cheio do acervo",
-          "Itacoatiara Pro na 14ª edição, turnê Dominguinho, Connect Heroes na estreia, skate dentro do MAC Bahia e a entrada no Mr. Moo Festival.",
+          "Itacoatiara Pro na 14ª edição, turnê Dominguinho, skate dentro do MAC Bahia.",
           "eventos/"
         ]
       ],
@@ -5956,7 +5948,7 @@
         "O impossível não entra na planilha.",
         "Não é só o que acontece. É o que fica."
       ],
-      "texto": "Evento é uma coisa que termina. O que a gente faz, não. Fica nas pessoas que estiveram ali, nas imagens, na imprensa, na cidade que foi ocupada por alguns dias e não voltou a ser exatamente a mesma. Por isso a Cadillac não trata um projeto como uma data no calendário, e sim como uma história que continua sendo contada depois.\n\nTrabalhar com esporte e cultura no Brasil é articular gente que não se encontraria sozinha: atleta e museu, banco e skate, orquestra e praia, jiu-jítsu e televisão. Nosso trabalho é fazer esse encontro acontecer com estrutura, e fazer com que ele signifique alguma coisa para quem esteve lá e para quem pagou a conta.\n\nE é por isso que este site mostra a origem de cada número que publica. Quem produz experiência vive de confiança. Número sem fonte é adjetivo."
+      "texto": "Evento é uma coisa que termina. O que a gente faz, não. Fica nas pessoas que estiveram ali, nas imagens, na imprensa, na cidade que foi ocupada por alguns dias e não voltou a ser exatamente a mesma. Por isso a Cadillac não trata um projeto como uma data no calendário, e sim como uma história que continua sendo contada depois.\n\nTrabalhar com esporte e cultura no Brasil é articular gente que não se encontraria sozinha: atleta e museu, banco e skate, orquestra e praia, bodyboard e televisão. Nosso trabalho é fazer esse encontro acontecer com estrutura, e fazer com que ele signifique alguma coisa para quem esteve lá e para quem pagou a conta.\n\nE é por isso que este site mostra a origem de cada número que publica. Quem produz experiência vive de confiança. Número sem fonte é adjetivo."
     },
     "essencia": {
       "titulo": "Nossa essência",
@@ -6004,7 +5996,7 @@
         "id": "negocios",
         "titulo": "Novos negócios",
         "icone": "stacked_bar_chart",
-        "texto": "Para produtores, entidades e detentores de propriedade que procuram operação, captação ou coprodução. É a frente pela qual a Cadillac entrou na edição de 2027 do Mr. Moo Festival, como responsável pela captação de patrocínio.",
+        "texto": "Para produtores, entidades e detentores de propriedade que procuram operação, captação ou coprodução. É a frente pela qual a Cadillac entra em evento de terceiro como responsável pela execução, pela captação ou por uma parte da operação, com escopo definido em contrato.",
         "itens": [
           "Captação de patrocínio para propriedades de terceiros",
           "Coprodução e operação de eventos existentes",
@@ -6267,7 +6259,7 @@
               "so_se": {
                 "perfil": "Atleta"
               },
-              "dica": "Skate vertical, surfe, bodyboard, jiu-jítsu, canoagem e assim por diante."
+              "dica": "Skate vertical, surfe, bodyboard, canoagem e assim por diante."
             },
             {
               "nome": "ranking",
@@ -7223,7 +7215,7 @@
       [
         "Idade comum a três eventos",
         "25 a 35 anos",
-        "onde Tamo Junto BB, Connect Heroes e Itacoatiara Pro se sobrepõem"
+        "onde Tamo Junto BB e Itacoatiara Pro se sobrepõem"
       ]
     ],
     "nota": ""
@@ -7250,12 +7242,6 @@
         "groups"
       ],
       [
-        "308,3",
-        "tCO₂e inventariadas na turnê Dominguinho",
-        "Quatro shows de agosto de 2026, com 8,8 kg de CO₂e por pessoa presente.",
-        "insights"
-      ],
-      [
         "83,5%",
         "Aprovação do público em Natal",
         "E 92,5% declararam percepção positiva da marca do patrocinador.",
@@ -7274,12 +7260,6 @@
     "lede": "Documentos técnicos e balanços produzidos sobre os eventos do acervo.",
     "itens": [
       {
-        "titulo": "Inventário de emissões de GEE da Turnê Dominguinho",
-        "o_que": "GHG Protocol e ABNT NBR ISO 14064-1:2018, quatro shows, certificado DMG26-7F4C",
-        "quando": "Agosto de 2026",
-        "estado": "Recebido, não publicado aqui"
-      },
-      {
         "titulo": "Balanço da temporada 2025 do Vert Battle",
         "o_que": "Público, clipping, arrecadação de alimentos e desempenho digital",
         "quando": "Temporada 2025",
@@ -7289,12 +7269,6 @@
         "titulo": "Apresentação de resultados do Tamo Junto BB",
         "o_que": "Duas edições, valoração de mídia, engajamento e perfil de público",
         "quando": "2024 e 2025",
-        "estado": "Recebido, não publicado aqui"
-      },
-      {
-        "titulo": "Leitura de mercado do jiu-jítsu brasileiro",
-        "o_que": "Praticantes, movimentação anual, academias e capilaridade internacional",
-        "quando": "2026",
         "estado": "Recebido, não publicado aqui"
       },
       {
@@ -7309,15 +7283,6 @@
   "certificacoes": {
     "lede": "Reconhecimentos, homologações e chancelas que os eventos do acervo carregam.",
     "itens": [
-      [
-        "Guinness World Records",
-        "Maior volume de carne bovina churrasqueada servida em oito horas, certificado ao Mr. Moo Festival em 17 de maio de 2025, em São José dos Campos. A data e o reconhecimento constam de decreto municipal.",
-        "verified",
-        [
-          "Decreto municipal de São José dos Campos",
-          "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
-        ]
-      ],
       [
         "Homologação da CBSk",
         "O Campeonato Brasileiro de Skate Vertical, o Vert Battle, é homologado pela Confederação Brasileira de Skate e integra o Circuito BB de Skate Vertical.",
@@ -7342,15 +7307,6 @@
         "place",
         [
           "Projeto Itacoatiara Pro 10 anos",
-          null
-        ]
-      ],
-      [
-        "GHG Protocol e ISO 14064-1",
-        "O inventário de emissões da turnê Dominguinho segue o GHG Protocol, o Programa Brasileiro GHG Protocol e a ABNT NBR ISO 14064-1:2018, com GWP do IPCC AR5.",
-        "insights",
-        [
-          "Inventário de emissões da Turnê Dominguinho, certificado DMG26-7F4C",
           null
         ]
       ]

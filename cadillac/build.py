@@ -1034,6 +1034,9 @@ def page_project(pr):
 {video_block(pr["slug"], MODEL["video"]["por_projeto"][pr["slug"]].get("titulo") or pr["name"], depth)}</section>""")
     sections.append(contexto_block(pr))
     sections.append(frentes_block(pr))
+    sections.append(ativacoes_block(pr))
+    sections.append(esg_block(pr))
+    sections.append(pesquisa_block(pr))
     sections.append(antecedente_block(pr))
     sections.append(papel_block(pr))
     sections.append(jornada_block(pr))
@@ -1579,6 +1582,56 @@ def contexto_block(pr):
 {f'<div class="ctx-grade">{"".join(blocos)}</div>' if blocos else ''}
 {f'<h3 class="area-list-title">O que a marca leva</h3><div class="valor-grade">{valor}</div>' if valor else ''}
 </section>"""
+
+
+def pesquisa_block(pr, depth=2):
+    """Pesquisa de satisfação: o que o público respondeu, em percentuais."""
+    d = pr.get("pesquisa")
+    if not d:
+        return ""
+    itens = "".join(
+        f'<article class="pesq-card"><strong>{e(n)}</strong><p>{e(t)}</p></article>'
+        for n, t in d["itens"])
+    rotulo, url = d.get("fonte") or (None, None)
+    fonte = (f'<p class="tela-fonte">{icon("description")} {e(rotulo)}</p>' if rotulo else "")
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(d['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(d['lede'])}</p>
+<div class="pesq-grade">{itens}</div>
+{paragrafo_nota(d.get('nota'))}{fonte}</section>"""
+
+
+def ativacoes_block(pr, depth=2):
+    """O que o publico encontra entre uma competicao e um show."""
+    d = pr.get("ativacoes")
+    if not d:
+        return ""
+    itens = "".join(f'<li>{icon("arrow_forward")} {e(x)}</li>' for x in d["itens"])
+    rotulo, _ = d.get("fonte") or (None, None)
+    fonte = (f'<p class="tela-fonte">{icon("description")} {e(rotulo)}</p>' if rotulo else "")
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(d['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(d['lede'])}</p>
+<ul class="entrega entrega-duas">{itens}</ul>{fonte}</section>"""
+
+
+def esg_block(pr, depth=2):
+    """Responsabilidade socioambiental: o que o evento leva junto com a competição."""
+    d = pr.get("esg")
+    if not d:
+        return ""
+    itens = "".join(
+        f'<article class="regra"><h3>{e(t)}</h3><p>{e(x)}</p></article>' for t, x in d["itens"])
+    rotulo, url = d.get("fonte") or (None, None)
+    fonte = ""
+    if rotulo:
+        fonte = (f'<p class="tela-fonte">{icon("description")} '
+                 + (f'<a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(rotulo)}</a>'
+                    if url else e(rotulo)) + '</p>')
+    return f"""<section class="container reach-section"><hr class="rule">
+<h2 class="section-title">{e(d['titulo']).upper()}<span class="orange">.</span></h2>
+<p class="body-copy">{e(d['lede'])}</p>
+<div class="regra-grade">{itens}</div>{fonte}</section>"""
 
 
 def frentes_block(pr):
@@ -4020,6 +4073,24 @@ def main():
         written.append(page_project(pr))
         for y in pr["years"]:
             written.append(page_edition(pr, y))
+    # Pagina que deixou de existir no modelo continuava no disco e no ar: a
+    # ficha de um artista que so tocava num evento excluido, por exemplo.
+    gerados = {str((ROOT / w).resolve()) for w in written}
+    gerados.add(str((ROOT / "sitemap.xml").resolve()))
+    orfas = []
+    for caminho in ROOT.rglob("*.html"):
+        if any(p in caminho.parts for p in (".git", "tools", "__pycache__")):
+            continue
+        if str(caminho.resolve()) not in gerados:
+            orfas.append(caminho)
+    for caminho in orfas:
+        caminho.unlink()
+        if not any(caminho.parent.iterdir()):
+            caminho.parent.rmdir()
+    if orfas:
+        print(f"{len(orfas)} página(s) órfã(s) removida(s):",
+              ", ".join(str(o.relative_to(ROOT)) for o in orfas))
+
     n = page_sitemap()
     faltando = sorted(ICONES_PEDIDOS - ICONES)
     if faltando:

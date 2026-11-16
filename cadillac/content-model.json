@@ -308,1164 +308,6 @@
       "chamada": "Mar, montanha e competição em Niterói."
     },
     {
-      "slug": "mr-moo-festival",
-      "name": "Mr. Moo Festival",
-      "kind": "Festival gastronômico all inclusive",
-      "category": "festival",
-      "location": "São José dos Campos, SP",
-      "period": "2015—2027",
-      "theme": "fire",
-      "desc": "O festival que o Guinness World Records reconheceu como o maior churrasco do mundo, com 22 edições realizadas desde 2015.",
-      "intro": "O Mr. Moo Festival nasceu em São José dos Campos em 2015, com 400 pessoas, e chegou à 22ª edição reunindo 15 mil. É um festival gastronômico all inclusive premium: cortes Angus, open food e open bar, roda gigante, tirolesa, balões, palco de rock e lounge eletrônico no mesmo terreno. Em maio de 2025 o Guinness World Records certificou a marca de maior volume de carne bovina churrasqueada servida em oito horas. A 23ª edição está marcada para 22 de maio de 2027, e é nela que a Cadillac entra — na captação de patrocínio, não na produção.",
-      "image": null,
-      "years": [
-        2027,
-        2026,
-        2025
-      ],
-      "editions": {
-        "2027": {
-          "period": "22 de maio de 2027",
-          "place": "São José dos Campos, SP",
-          "note": "23ª edição · Moo Extraordinário",
-          "datas": {
-            "inicio": "2027-05-22",
-            "fim": "2027-05-22",
-            "precisao": "dia",
-            "status": "anunciada",
-            "fonte": [
-              "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-              null
-            ]
-          }
-        },
-        "2026": {
-          "period": "Maio de 2026",
-          "place": "São José dos Campos, SP",
-          "note": "22ª edição",
-          "datas": {
-            "inicio": "2026-05-01",
-            "fim": "2026-05-31",
-            "precisao": "mes",
-            "status": "reportada",
-            "fonte": [
-              "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-              null
-            ]
-          }
-        },
-        "2025": {
-          "period": "17 de maio de 2025",
-          "place": "São José dos Campos, SP",
-          "note": "20ª edição · recorde mundial certificado",
-          "datas": {
-            "inicio": "2025-05-17",
-            "fim": "2025-05-17",
-            "precisao": "dia",
-            "status": "confirmada",
-            "fonte": [
-              "Decreto municipal de São José dos Campos sobre o festival",
-              "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
-            ]
-          }
-        }
-      },
-      "facts": {
-        "2027": [
-          "A 23ª edição está marcada para 22 de maio de 2027, em São José dos Campos, sob o conceito Moo Extraordinário.",
-          "A expectativa de público divulgada pela produção é de 15 mil pessoas. É projeção anterior ao evento, não público realizado.",
-          "A Cadillac entra nesta edição na captação de patrocínio. A produção e a realização seguem com o Mr. Moo.",
-          "O material comercial prevê uma atração inédita de alcance nacional, ainda não anunciada.",
-          "O ticket médio informado é de R$ 1.100 por pessoa, com mesa VIP a R$ 27 mil.",
-          "O público-alvo declarado está entre 35 e 70 anos, com divisão equilibrada entre homens e mulheres."
-        ],
-        "2026": [
-          "A 22ª edição reuniu 15 mil pessoas em São José dos Campos, segundo o mídia kit da produção.",
-          "O festival opera no formato all inclusive premium: open food de cortes Angus e open bar incluídos no ingresso.",
-          "A estrutura reúne roda gigante, tirolesa, balões, letreiro do Mr. Moo e caixa d'água cenográfica como pontos de marca.",
-          "A programação musical se divide entre o palco principal, o Rock in Moo e o lounge eletrônico.",
-          "O Banco do Brasil assinou a edição como apresentador oficial, com presença em balão, tirolesa, roda gigante, telão e portais de entrada.",
-          "Marcas ativadas na edição incluem Estância 92 e Minerva Foods, Red Bull, Heineken, Chevrolet, Tramontina e Sapore."
-        ],
-        "2025": [
-          "Em 17 de maio de 2025 o festival recebeu certificado do Guinness World Records pelo maior volume de carne bovina churrasqueada servida em oito horas.",
-          "A 20ª edição reuniu 20 mil pessoas, o maior público registrado na série de edições.",
-          "O certificado nomeia o Mr. Moo Festival e a cidade de São José dos Campos, com a data exata do recorde.",
-          "A partir deste recorde o festival passou a se apresentar como o maior churrasco do mundo.",
-          "Decreto municipal de São José dos Campos registra a edição em 17 de maio de 2025, o reconhecimento do Guinness World Records e a marca de 20 edições do festival, com mais de 12 realizadas na cidade.",
-          "A cobertura de imprensa aponta a dupla Bruno e Marrone como show especial da edição.",
-          "Uma reportagem data a edição em 18 de maio; o decreto municipal, que é o registro oficial, diz 17 de maio."
-        ]
-      },
-      "papel": {
-        "rotulo": "Captação de patrocínio para a edição de 2027",
-        "icone": "campaign",
-        "texto": "O Mr. Moo Festival já existe e tem 22 edições realizadas por sua própria produção. A Cadillac entra agora, para a 23ª edição, na frente de captação: estruturar a oferta comercial, prospectar e negociar patrocínio e naming rights. Produção, realização e operação do festival permanecem com o Mr. Moo.",
-        "status": "anunciada",
-        "fonte_texto": "Informado pela direção da Cadillac e pelo mídia kit da produção",
-        "nota": ""
-      },
-      "historico": {
-        "titulo": "Vinte e duas edições",
-        "subtitulo": "De 400 a 20 mil pessoas.",
-        "lede": "A série completa divulgada pela produção, da mais recente para a mais antiga. É o histórico do festival, anterior à entrada da Cadillac.",
-        "periodo": "De setembro de 2015 a maio de 2026",
-        "recorde": "20ª edição, maio de 2025, a mesma do recorde do Guinness",
-        "linhas": [
-          [
-            23,
-            "22 de maio de 2027",
-            "São José dos Campos, SP",
-            15000,
-            "anunciada"
-          ],
-          [
-            22,
-            "Maio de 2026",
-            "São José dos Campos, SP",
-            15000,
-            "reportada"
-          ],
-          [
-            21,
-            "Dezembro de 2025",
-            "Autódromo de Interlagos, São Paulo, SP",
-            5000,
-            "reportada"
-          ],
-          [
-            20,
-            "17 de maio de 2025",
-            "São José dos Campos, SP",
-            20000,
-            "confirmada"
-          ],
-          [
-            19,
-            "Dezembro de 2024",
-            "Autódromo de Interlagos, São Paulo, SP",
-            7000,
-            "reportada"
-          ],
-          [
-            18,
-            "Setembro de 2024",
-            "Campinas e Valinhos, SP",
-            1800,
-            "reportada"
-          ],
-          [
-            17,
-            "Maio de 2024",
-            "São José dos Campos, SP",
-            12000,
-            "reportada"
-          ],
-          [
-            16,
-            "Maio de 2023",
-            "São José dos Campos, SP",
-            15000,
-            "reportada"
-          ],
-          [
-            15,
-            "Dezembro de 2022",
-            "Rio Claro, SP",
-            6000,
-            "reportada"
-          ],
-          [
-            14,
-            "Outubro de 2022",
-            "Hotel Transamérica, São Paulo, SP",
-            5000,
-            "reportada"
-          ],
-          [
-            13,
-            "Maio de 2022",
-            "São José dos Campos, SP",
-            14000,
-            "reportada"
-          ],
-          [
-            12,
-            "Dezembro de 2021",
-            "Estádio, Rio Claro, SP",
-            6000,
-            "reportada"
-          ],
-          [
-            11,
-            "Dezembro de 2019",
-            "Morada do Sol, São José dos Campos, SP",
-            2000,
-            "reportada"
-          ],
-          [
-            10,
-            "Novembro de 2019",
-            "Santa Gertrudes, São Paulo, SP",
-            4000,
-            "reportada"
-          ],
-          [
-            9,
-            "Agosto de 2019",
-            "Spot, Ribeirão Preto, SP",
-            3000,
-            "reportada"
-          ],
-          [
-            8,
-            "Junho de 2019",
-            "Univap, São José dos Campos, SP",
-            8000,
-            "reportada"
-          ],
-          [
-            7,
-            "Dezembro de 2018",
-            "Morada do Sol, São José dos Campos, SP",
-            2000,
-            "reportada"
-          ],
-          [
-            6,
-            "Junho de 2018",
-            "Univap, São José dos Campos, SP",
-            6500,
-            "reportada"
-          ],
-          [
-            5,
-            "Novembro de 2017",
-            "Hotel Transamérica, São Paulo, SP",
-            3000,
-            "reportada"
-          ],
-          [
-            4,
-            "Junho de 2017",
-            "Univap, São José dos Campos, SP",
-            4000,
-            "reportada"
-          ],
-          [
-            3,
-            "Setembro de 2016",
-            "Fazenda Urbanova, São José dos Campos, SP",
-            2500,
-            "reportada"
-          ],
-          [
-            2,
-            "Maio de 2016",
-            "Morada do Sol, São José dos Campos, SP",
-            800,
-            "reportada"
-          ],
-          [
-            1,
-            "Setembro de 2015",
-            "Morada do Sol, São José dos Campos, SP",
-            400,
-            "reportada"
-          ]
-        ],
-        "nota": ""
-      },
-      "mercado": {
-        "titulo": "O que o festival movimenta",
-        "lede": "Volume de operação e perfil de público declarados pela produção no material comercial.",
-        "items": [
-          [
-            "115 t",
-            "Carne Angus churrasqueada",
-            "Volume informado no mídia kit, sem recorte de edição especificado."
-          ],
-          [
-            "920 mil",
-            "Cervejas servidas",
-            "Declarado pela produção, sem recorte de edição especificado."
-          ],
-          [
-            "415 mil",
-            "Drinks servidos",
-            "Declarado pela produção, sem recorte de edição especificado."
-          ],
-          [
-            "+420",
-            "Cidades de origem do público",
-            "Todos os estados brasileiros e mais de seis países: EUA, Canadá, Argentina, Uruguai, Chile e Equador."
-          ],
-          [
-            "35 a 70",
-            "Faixa etária do público-alvo",
-            "Divisão declarada de 50% homens e 50% mulheres."
-          ],
-          [
-            "R$ 1.100",
-            "Ticket médio por pessoa",
-            "Mesa VIP a R$ 27 mil. Valores de tabela informados pela produção."
-          ]
-        ],
-        "nota": ""
-      },
-      "sources": [
-        [
-          "Decreto municipal de São José dos Campos sobre o festival",
-          "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
-        ],
-        [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        [
-          "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
-          null
-        ]
-      ],
-      "yearsources": {
-        "2027": [
-          [
-            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-            null
-          ]
-        ],
-        "2026": [
-          [
-            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-            null
-          ]
-        ],
-        "2025": [
-          [
-            "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
-            null
-          ],
-          [
-            "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-            null
-          ],
-          [
-            "Decreto municipal de São José dos Campos sobre o festival",
-            "https://servicos.sjc.sp.gov.br/Legislacao/Arquivos/Decretos/2025/DE_2025_00019960.pdf"
-          ],
-          [
-            "ABC do ABC, festival gastronômico em São José dos Campos",
-            "https://abcdoabc.com.br/festival-mr-moo-maior-evento-gastronomico-all-inclusive-acontece-em-sao-jose-dos-campos/"
-          ]
-        ]
-      },
-      "faq": [
-        [
-          "Qual é o papel da Cadillac no Mr. Moo Festival?",
-          "A Cadillac entra na 23ª edição, de 2027, na frente de captação de patrocínio. O festival já existe desde 2015 e a produção, a realização e a operação seguem com o Mr. Moo."
-        ],
-        [
-          "O recorde do Guinness é do quê, exatamente?",
-          "Do maior volume de carne bovina churrasqueada servida em oito horas, certificado em 17 de maio de 2025, em São José dos Campos. O certificado nomeia o Mr. Moo Festival."
-        ],
-        [
-          "Quantas edições o festival já teve?",
-          "Vinte e duas, de setembro de 2015 a maio de 2026, com público declarado entre 400 e 20 mil pessoas por edição. A 23ª está marcada para 22 de maio de 2027."
-        ],
-        [
-          "O público do Mr. Moo entra nos números da Cadillac?",
-          "Não. O histórico é anterior à entrada da empresa e aparece identificado como do festival. A página de dados mantém esses números fora dos totais de alcance da Cadillac."
-        ],
-        [
-          "O que o festival oferece ao público?",
-          "Formato all inclusive premium: open food de cortes Angus e open bar no ingresso, além de roda gigante, tirolesa, balões, palco principal, Rock in Moo e lounge eletrônico."
-        ]
-      ],
-      "frentes": {
-        "titulo": "O que tem dentro",
-        "subtitulo": "Do festival.",
-        "lede": "O ingresso é all inclusive, então a operação precisa entregar muito mais que comida: o terreno vira parque durante um dia inteiro.",
-        "itens": [
-          [
-            "Open food de cortes Angus",
-            "Churrasco servido ao longo de todo o evento, no formato que rendeu o reconhecimento do Guinness World Records pelo maior volume de carne bovina churrasqueada em oito horas.",
-            "festival"
-          ],
-          [
-            "Open bar",
-            "Bebida incluída no ingresso, com cerveja, drinks e destilados servidos nos bares montados no terreno.",
-            "groups"
-          ],
-          [
-            "Rock in Moo",
-            "Palco dedicado ao rock, separado do palco principal, com programação própria.",
-            "music_note"
-          ],
-          [
-            "Lounge eletrônico",
-            "Área de música eletrônica com ativação de marca, operando em paralelo aos outros palcos.",
-            "play_arrow"
-          ],
-          [
-            "Roda gigante, tirolesa e balões",
-            "Estruturas de parque que funcionam como ponto de marca e de foto, e que aparecem na comunicação do festival.",
-            "place"
-          ],
-          [
-            "Moo Experience",
-            "Área de experiência da marca dentro do evento, com a torre do Mr. Moo e a caixa d'água cenográfica como referências visuais.",
-            "campaign"
-          ]
-        ],
-        "nota": ""
-      },
-      "ordem": 7,
-      "chamada": "O maior churrasco do mundo, pelo Guinness."
-    },
-    {
-      "slug": "connect-heroes",
-      "name": "Connect Heroes",
-      "kind": "Campeonato de grappling e plataforma de mídia",
-      "category": "esporte",
-      "location": "Rio de Janeiro, RJ",
-      "period": "2026—2032",
-      "theme": "arena",
-      "desc": "Competição de grappling desenhada como produto de entretenimento: combates selecionados, fight week em hotel cinco estrelas e distribuição simultânea em TV, streaming e redes.",
-      "intro": "O Connect Heroes nasceu no Rio de Janeiro para ocupar um espaço vago no jiu-jítsu brasileiro: o de propriedade esportiva produzida como espetáculo. A técnica segue no centro, mas a competição passa a vir acompanhada de narrativa, hospitalidade e padrão de imagem compatível com marcas grandes. A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, com fight week dentro do próprio hotel e distribuição simultânea em TV, streaming e redes. A segunda edição acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói. Em volta do evento existe um plano de longo prazo, o World Connect Heroes, que organiza o esporte até 2032.",
-      "image": null,
-      "years": [
-        "2026-1",
-        "2026-2"
-      ],
-      "editions": {
-        "2026-1": {
-          "rotulo": "1ª edição",
-          "period": "11 de julho de 2026",
-          "place": "Grand Hyatt Rio de Janeiro, RJ",
-          "note": "Fight week no hotel, de quarta a domingo",
-          "datas": {
-            "inicio": "2026-07-11",
-            "fim": "2026-07-11",
-            "precisao": "dia",
-            "status": "confirmada",
-            "fonte": [
-              "Sportbuzz · resultados da estreia",
-              "https://sportbuzz.com.br/jiu-jitsu/2026/07/11/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-            ]
-          },
-          "etapas": [
-            {
-              "nome": "Fight week no Grand Hyatt Rio · atletas, equipe e imprensa no hotel",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": [
-                "Mídia kit oficial Connect Heroes V6 · documento da produção",
-                null
-              ]
-            },
-            {
-              "nome": "Pesagem e coletiva de imprensa",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": [
-                "Mídia kit oficial Connect Heroes V6 · documento da produção",
-                null
-              ]
-            },
-            {
-              "nome": "Competição · card principal e preliminar",
-              "inicio": "2026-07-11",
-              "fim": "2026-07-11",
-              "status": "confirmada",
-              "fonte": [
-                "Sportbuzz · Connect Heroes no Grand Hyatt Rio",
-                "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-              ]
-            },
-            {
-              "nome": "Transmissão ao vivo · Xsports, Combate e SporTV 3 e canal próprio",
-              "inicio": "2026-07-11",
-              "fim": "2026-07-11",
-              "status": "confirmada",
-              "fonte": [
-                "Mídia kit oficial Connect Heroes V6 · documento da produção",
-                null
-              ]
-            },
-            {
-              "nome": "Janela de reprises na emissora · 27 exibições",
-              "inicio": "2026-07-11",
-              "fim": "2026-08-09",
-              "status": "confirmada",
-              "fonte": [
-                "Portal do Vale Tudo · resultados da 1ª edição",
-                "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-              ]
-            }
-          ]
-        },
-        "2026-2": {
-          "rotulo": "2ª edição",
-          "period": "Dezembro de 2026",
-          "place": "Niterói, RJ",
-          "note": "Lançamento para a imprensa no MAC Niterói",
-          "datas": {
-            "inicio": "2026-12-12",
-            "fim": "2026-12-12",
-            "precisao": "dia",
-            "status": "anunciada",
-            "fonte": [
-              "Informado pela direção do projeto",
-              null
-            ]
-          },
-          "etapas": [
-            {
-              "nome": "Lançamento para a imprensa · MAC Niterói, para convidados especiais",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": [
-                "Informado pela direção do projeto",
-                null
-              ]
-            },
-            {
-              "nome": "Fight week · programação a divulgar",
-              "inicio": null,
-              "fim": null,
-              "status": "a confirmar",
-              "fonte": [
-                "Informado pela direção do projeto",
-                null
-              ]
-            },
-            {
-              "nome": "Competição · Niterói, RJ",
-              "inicio": "2026-12-12",
-              "fim": "2026-12-12",
-              "status": "anunciada",
-              "fonte": [
-                "Informado pela direção do projeto",
-                null
-              ]
-            }
-          ]
-        }
-      },
-      "facts": {
-        "2026-1": [
-          "A primeira edição foi realizada no Grand Hyatt Rio de Janeiro, hotel cinco estrelas, com a competição concentrada em um único dia.",
-          "A fight week acontece dentro do próprio hotel, de quarta a domingo: coletiva de imprensa, pesagem e atletas hospedados no local, gerando conteúdo antes, durante e depois do evento.",
-          "A transmissão ao vivo pela Xsports foi acompanhada por 240 mil televisores, segundo o mídia kit oficial do evento.",
-          "Entre 11 de julho e 9 de agosto de 2026 o evento foi reprisado 27 vezes nos canais da emissora — uma competição de um dia que seguiu no ar por semanas.",
-          "A transmissão também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay.",
-          "No YouTube o material registrou 149 mil visualizações, 63 mil horas de exibição e 87 mil aparelhos conectados, dos quais 54,9% eram televisores.",
-          "Os reels do projeto somaram 25 milhões de visualizações ao longo de julho, e o conjunto de transmissão e reprises passou de 2 milhões de visualizações.",
-          "Os números de audiência acima são declarados pela produção no mídia kit oficial (V6) e ainda não têm relatório de emissora nem print de painel anexado a esta página.",
-          "A segunda edição está anunciada para dezembro de 2026, em Niterói, mudando de cidade em relação à primeira.",
-          "O lançamento para a imprensa acontece no MAC Niterói, o Museu de Arte Contemporânea, para convidados especiais.",
-          "A primeira edição foi criada pelo apresentador Alexandre Lemos, do podcast Connect Cast, e montada para 300 convidados.",
-          "O evento não tem chave: cada combate é montado por rivalidade ou revanche, no modelo de superluta.",
-          "O card principal pagou R$ 10 mil de bônus por finalização, e o preliminar, R$ 5 mil — o prêmio existe para estimular a busca pelo acabamento.",
-          "Todos os atletas recebem bolsa independentemente do resultado, e a produção verifica os antecedentes criminais de cada participante.",
-          "Na luta principal, Fabrício Andrey venceu Meyram Maquiné por decisão unânime, em 70 kg, no primeiro duelo entre os dois sem kimono.",
-          "Diogo Reis venceu a revanche contra Rerisson Gabriel por decisão dividida, em 64 kg."
-        ]
-      },
-      "mercado": {
-        "titulo": "O mercado BJJ",
-        "lede": "O jiu-jítsu brasileiro deixou de ser nicho de academia e virou economia. Os números abaixo descrevem o setor, não o evento.",
-        "items": [
-          [
-            "3,7 milhões",
-            "Praticantes de jiu-jítsu no Brasil",
-            "Ponto médio de uma faixa de 3,2 a 4,6 milhões."
-          ],
-          [
-            "R$ 5,5 bi",
-            "Movimentação anual estimada do esporte",
-            "Faixa de R$ 3,5 a 8 bilhões, somando mensalidades, kimonos, No-Gi e lifestyle, eventos, seminários, mídia e patrocínio."
-          ],
-          [
-            "1,55 milhão",
-            "Alunos pagantes estimados",
-            "Faixa de 1,2 a 2 milhões, concentrados entre 25 e 54 anos."
-          ],
-          [
-            "+34%",
-            "Crescimento da penetração entre 2013 e 2026",
-            "De 1,30% para 1,74% da população praticante."
-          ],
-          [
-            "10 a 18 mil",
-            "Academias no país",
-            "Cerca de 14 mil pontos no ponto médio da estimativa."
-          ],
-          [
-            "130 a 150",
-            "Países com prática organizada",
-            "Gracie Barra com mais de mil escolas, Checkmat com 405 filiais e Alliance em 29 países."
-          ]
-        ],
-        "nota": ""
-      },
-      "plano": {
-        "titulo": "World Connect Heroes",
-        "proposito": "Contribuir para criar as condições esportivas, institucionais, culturais e globais para que o jiu-jítsu brasileiro alcance o movimento olímpico e se torne um dos grandes esportes globais.",
-        "conceito": "O desenho parte de propriedades esportivas consolidadas: a competição é o núcleo do produto, mas o valor econômico se constrói no que acontece em volta dela. Na NFL, contratos de distribuição com Amazon, CBS, ESPN/ABC, FOX e NBC vão até 2033, e os 32 clubes operam o Global Markets Program com direitos em 22 mercados internacionais. Na Fórmula 1, em 2025 só 31,3% da receita veio de direitos de mídia: 26,7% vieram de promoção de corridas, 21,7% de patrocínios e 20,3% de hospitalidade, logística e licenciamento. No UFC, US$ 1,50 bilhão de receita em 2025 se dividiu entre mídia e conteúdo, parcerias, eventos e hospitalidade, e licenciamento. O ciclo é o mesmo: a competição revela atletas e rivalidades, as histórias geram audiência, a audiência forma comunidade, e a comunidade sustenta experiências, consumo e valor para marcas.",
-        "nucleos": [
-          [
-            "Sport",
-            "Define como a competição funciona: regras, categorias, rankings, arbitragem, títulos e calendário, da base amadora ao alto rendimento.",
-            "skateboarding"
-          ],
-          [
-            "Athletes",
-            "Descoberta de talentos, performance, carreira, imagem e desenvolvimento comercial dos atletas.",
-            "groups"
-          ],
-          [
-            "Teams & Academies",
-            "Rede de academias, equipes, professores e centros de treinamento, com programas de formação, certificação e competição.",
-            "verified"
-          ],
-          [
-            "Media",
-            "Transmissões, programas, documentários, bastidores, highlights e redes — manter atletas e rivalidades relevantes o ano inteiro.",
-            "movie"
-          ],
-          [
-            "Fan & Experience",
-            "Comunidade, cadastro de fãs, benefícios, hospitalidade, encontros com atletas, festivais e premiações.",
-            "public"
-          ],
-          [
-            "Commercial",
-            "Direitos de mídia, patrocínios, naming rights, publicidade, licenciamento e parcerias de longo prazo.",
-            "campaign"
-          ],
-          [
-            "Commerce",
-            "Ingressos, produtos oficiais, vestuário, equipamentos, colecionáveis, experiências e marketplace.",
-            "stacked_bar_chart"
-          ],
-          [
-            "Tech & Data",
-            "Identidade digital de atletas, fãs e academias, aplicativos, CRM, rankings, inscrições, resultados e analytics.",
-            "insights"
-          ]
-        ],
-        "verticais": [
-          [
-            "Global",
-            "Mercados prioritários, calendário internacional, parceiros locais, cidades-sede e adaptação cultural — começando por Brasil, Estados Unidos, Emirados Árabes Unidos, Japão e Europa.",
-            "place"
-          ],
-          [
-            "Development",
-            "Base e futuro do esporte: novos praticantes, crianças e jovens, programas em escolas, formação de professores, projetos sociais e inclusão.",
-            "engineering"
-          ],
-          [
-            "Corporate",
-            "Estratégia, governança, finanças, jurídico, compliance, propriedade intelectual, marcas, operações e relações institucionais.",
-            "description"
-          ]
-        ],
-        "fases_titulo": "Road to the game",
-        "fases": [
-          [
-            2026,
-            "Fundação",
-            "Estruturar antes de escalar: governança, propriedade intelectual, conselho esportivo, regras, modelo competitivo, ranking, arbitragem, proteção do atleta e integridade. Em paralelo, mapear formalmente IOC, federações internacionais e comitês olímpicos nacionais. O objetivo do ano é deixar de ser promotora de evento e virar propriedade esportiva."
-          ],
-          [
-            2027,
-            "Brasil como base",
-            "Temporada consistente no Brasil — profissional, amador e kids — com ranking, academias, atletas e calendário. Começa a medição de tudo: atletas, países, academias, mulheres, jovens, audiência, transmissão, segurança, arbitragem e impacto econômico. Aqui nasce o programa Road to Brisbane 2032."
-          ],
-          [
-            2028,
-            "Los Angeles como palco global",
-            "Los Angeles estará no centro da atenção esportiva mundial entre 14 e 30 de julho de 2028. A ideia é construir ambiente proprietário do jiu-jítsu na cidade — World Jiu-Jitsu Festival, com Fan Festival e exibição de jiu-jítsu brasileiro — colocando o esporte perto dessa conversa sem sugerir qualquer vínculo oficial com os Jogos."
-          ],
-          [
-            2029,
-            "World Series",
-            "Internacionalizar em poucos territórios, mas estratégicos: Estados Unidos, Emirados Árabes Unidos, Japão, Austrália e Europa, com circuitos regionais, rankings integrados e classificação mundial."
-          ],
-          [
-            2030,
-            "Prova global",
-            "Chegar ao mercado e às instituições com números relevantes. É o ano de provar a dimensão internacional do esporte."
-          ],
-          [
-            2031,
-            "Brisbane campaign",
-            "Virada para o trabalho institucional, acompanhando a construção do programa esportivo de Brisbane 2032 junto a IOC e federações internacionais."
-          ],
-          [
-            2032,
-            "Brisbane",
-            "Com o caminho institucional construído desde 2026, trabalhar com as entidades globais competentes a validação da inclusão."
-          ]
-        ],
-        "nota": ""
-      },
-      "sources": [
-        [
-          "Connect Heroes no Instagram",
-          "https://www.instagram.com/connectheroes/"
-        ],
-        [
-          "Connect Cast no YouTube",
-          "https://www.youtube.com/@PodcastConnectCast"
-        ],
-        [
-          "Globoplay, canais Combate e SporTV",
-          "https://globoplay.globo.com/"
-        ],
-        [
-          "Grand Hyatt Rio de Janeiro",
-          "https://www.hyatt.com/pt-BR/hotel/brazil/grand-hyatt-rio-de-janeiro/riogh"
-        ],
-        [
-          "Portal do Vale Tudo · resultados da 1ª edição",
-          "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-        ],
-        [
-          "Portal do Vale Tudo · prévia da estreia",
-          "https://www.portaldovaletudo.com.br/connect-heroes-estreia-neste-sabado-com-rivalidades-revanche-e-incentivo-a-busca-pela-finalizacao/"
-        ],
-        [
-          "Sportbuzz · o projeto e o card",
-          "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-        ],
-        [
-          "Diário do Rio · o projeto no Rio de Janeiro",
-          "https://diariodorio.com/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-de-janeiro/"
-        ],
-        [
-          "Jits Magazine · headliners da edição inaugural",
-          "https://jitsmagazine.com/connect-heroes-announces-superb-headliners-for-inaugural-event/"
-        ],
-        [
-          "Psicóticos por Vale Tudo · o projeto e o card",
-          "https://psicoticosporvaletudo.com.br/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-        ]
-      ],
-      "yearsources": {
-        "2026-1": [
-          [
-            "Connect Heroes no Instagram",
-            "https://www.instagram.com/connectheroes/"
-          ],
-          [
-            "Connect Cast no YouTube",
-            "https://www.youtube.com/@PodcastConnectCast"
-          ],
-          [
-            "Globoplay, canais Combate e SporTV",
-            "https://globoplay.globo.com/"
-          ]
-        ]
-      },
-      "faq": [
-        [
-          "Onde acontece a segunda edição?",
-          "Em Niterói, em dezembro de 2026. O lançamento para a imprensa acontece no MAC Niterói, para convidados especiais. A primeira edição foi no Grand Hyatt Rio de Janeiro."
-        ],
-        [
-          "Quem transmitiu a primeira edição?",
-          "A Xsports levou a transmissão ao vivo e reprisou o evento 27 vezes entre 11 de julho e 9 de agosto de 2026. O conteúdo também esteve nos canais Combate e SporTV 3, acessíveis pelo Globoplay, além do canal próprio no YouTube."
-        ],
-        [
-          "Os números de audiência são auditados?",
-          "Não. São declarados pela produção no mídia kit oficial (V6). Esta página indica a origem de cada número e aguarda relatório de emissora ou captura de painel para mudar o selo."
-        ],
-        [
-          "O que é o World Connect Heroes?",
-          "É o plano de longo prazo em volta do evento, de 2026 a 2032, que organiza o esporte em núcleos e verticais. É projeção estratégica, sem vínculo oficial com os Jogos."
-        ],
-        [
-          "Onde foi a primeira edição?",
-          "No Grand Hyatt Rio de Janeiro. A competição ocupou um dia, e a fight week — coletiva de imprensa, pesagem e hospedagem dos atletas — aconteceu dentro do próprio hotel, de quarta a domingo."
-        ]
-      ],
-      "dossie": {
-        "resumo": "O Connect Heroes trata o jiu-jítsu como produto de entretenimento, não como torneio: poucos combates, atletas com narrativa, rivalidades claras e uma semana inteira de conteúdo produzida dentro de um hotel cinco estrelas. É o único evento da modalidade no Brasil que reúne TV, streaming e experiência presencial premium no mesmo pacote comercial. A primeira edição foi ao ar em julho de 2026; a segunda acontece em dezembro, em Niterói, com lançamento para a imprensa no MAC Niterói.",
-        "destaques": [
-          [
-            "240 mil",
-            "Televisores na transmissão ao vivo pela Xsports"
-          ],
-          [
-            "27",
-            "Reprises entre 11 de julho e 9 de agosto"
-          ],
-          [
-            "25 mi",
-            "Visualizações em reels ao longo de julho"
-          ],
-          [
-            "3",
-            "Telas ao mesmo tempo: TV, streaming e redes"
-          ]
-        ],
-        "contexto": {
-          "necessidade": "O jiu-jítsu brasileiro é uma economia de bilhões com presença mínima em televisão aberta. São milhões de praticantes que treinam, compram kimono e pagam mensalidade todo mês, e quase nenhuma ocasião em que a modalidade aparece produzida como espetáculo — com narrativa, hospitalidade e padrão de imagem à altura de uma marca grande ao lado.",
-          "oportunidade": "Duas propriedades lideram o mercado e a terceira posição está em disputa aberta. O espaço pertence a quem juntar distribuição em TV e streaming com experiência presencial de alto padrão, e juntar antes que ele se feche. É o desenho do Connect Heroes, e é por isso que a primeira edição já nasceu em três telas e em hotel cinco estrelas."
-        },
-        "valor": [
-          [
-            "Multitransmissão simultânea",
-            "A mesma noite entra ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio do projeto. Um sinal, três janelas de distribuição, um contrato só para a marca."
-          ],
-          [
-            "Uma noite para mudar toda uma história",
-            "O card é montado por rivalidade e revanche, não por sorteio. Cada combate carrega uma história que o público já acompanha, e é essa história que a transmissão conta — dentro e fora do tatame."
-          ],
-          [
-            "Unindo as maiores marcas do mundo",
-            "Hotel cinco estrelas, público sentado, hospitalidade e atletas hospedados no mesmo endereço. É o contexto que uma marca global reconhece como seu, e que o ginásio não entrega."
-          ],
-          [
-            "Foco em 2032",
-            "Cada edição alimenta o World Connect Heroes, o plano que organiza o esporte até os Jogos de 2032. Quem entra agora entra num calendário de longo prazo, não em um patrocínio de uma noite."
-          ]
-        ],
-        "kpis_lede": "Os indicadores que o projeto acompanha. A coluna de leitura traz o número declarado pela produção; o selo muda quando chegar relatório de emissora ou captura de painel.",
-        "kpis": [
-          [
-            "Televisores na transmissão ao vivo",
-            "Xsports",
-            "240 mil",
-            [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ]
-          ],
-          [
-            "Reprises na emissora",
-            "janela de 30 dias",
-            "27",
-            [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ]
-          ],
-          [
-            "Visualizações no YouTube",
-            "canal próprio",
-            "149 mil",
-            [
-              "Connect Cast no YouTube",
-              "https://www.youtube.com/@PodcastConnectCast"
-            ]
-          ],
-          [
-            "Horas de exibição no YouTube",
-            "canal próprio",
-            "63 mil",
-            [
-              "Connect Cast no YouTube",
-              "https://www.youtube.com/@PodcastConnectCast"
-            ]
-          ],
-          [
-            "Aparelhos conectados no YouTube",
-            "54,9% televisores",
-            "87 mil",
-            [
-              "Connect Cast no YouTube",
-              "https://www.youtube.com/@PodcastConnectCast"
-            ]
-          ],
-          [
-            "Visualizações em reels",
-            "mês do evento",
-            "25 milhões",
-            [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ]
-          ],
-          [
-            "Público presente",
-            "Grand Hyatt Rio",
-            null,
-            null
-          ],
-          [
-            "Atletas inscritos",
-            "chave completa",
-            null,
-            null
-          ],
-          [
-            "Audiência nos canais Combate e SporTV 3",
-            "relatório da emissora",
-            null,
-            null
-          ]
-        ],
-        "parceiros": [
-          [
-            "Xsports",
-            "Transmissão ao vivo e reprises"
-          ],
-          [
-            "Globoplay",
-            "Distribuição pelos canais Combate e SporTV 3"
-          ],
-          [
-            "Grand Hyatt Rio de Janeiro",
-            "Sede da 1ª edição e da fight week"
-          ],
-          [
-            "MAC Niterói",
-            "Lançamento da 2ª edição para a imprensa"
-          ],
-          [
-            "Connect Cast",
-            "Canal e produção de conteúdo do projeto"
-          ]
-        ],
-        "parceiros_nota": "",
-        "contexto_titulo": [
-          "CHEGAMOS PARA TRANSFORMAR",
-          "O JIU-JÍTSU NO MUNDO."
-        ]
-      },
-      "ordem": 6,
-      "chamada": "Jiu-jítsu tratado como espetáculo.",
-      "jornada": {
-        "titulo": "Como uma edição acontece",
-        "lede": "Uma edição não é uma noite: é uma semana de operação que começa na chegada dos atletas e segue no ar por mais um mês.",
-        "etapas": [
-          [
-            "Fight week",
-            "De quarta a domingo",
-            "Atletas, equipe e imprensa ficam hospedados no mesmo hotel em que a competição acontece. A semana inteira em um só endereço concentra produção, bastidores e acesso da imprensa, e transforma cinco dias em material de conteúdo.",
-            "hotel"
-          ],
-          [
-            "Pesagem e coletiva",
-            "Primeiro dia público",
-            "A pesagem e a coletiva de imprensa abrem a semana para fora: é quando as rivalidades ganham nome, a pauta chega às redações e o público entende quem enfrenta quem.",
-            "imprensa"
-          ],
-          [
-            "Noite de combates",
-            "Um único dia",
-            "A competição ocupa um dia, com combates selecionados e público sentado. A mesma noite vai ao ar ao vivo na Xsports, nos canais Combate e SporTV 3 pelo Globoplay e no canal próprio do projeto.",
-            "arena"
-          ],
-          [
-            "Vida depois do apito",
-            "Trinta dias seguintes",
-            "A entrega não termina no resultado. A primeira edição foi reprisada 27 vezes entre 11 de julho e 9 de agosto, e os cortes em redes somaram 25 milhões de visualizações no mês.",
-            "depois"
-          ]
-        ]
-      },
-      "telas": {
-        "titulo": "Multitransmissão",
-        "lede": "A mesma noite vai ao ar em quatro frentes ao mesmo tempo. Cada uma entrega uma coisa diferente para quem patrocina: alcance ao vivo em TV aberta, distribuição em canal pago, conteúdo sob demanda e repercussão em rede.",
-        "itens": [
-          {
-            "nome": "TV aberta",
-            "canal": "Xsports",
-            "destaque": "240 mil",
-            "unidade": "televisores na transmissão ao vivo",
-            "peso": 240000,
-            "linhas": [
-              [
-                "Reprises em 30 dias",
-                "27"
-              ],
-              [
-                "Janela",
-                "11 de julho a 9 de agosto de 2026"
-              ]
-            ],
-            "fonte": [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ],
-            "papel": "Alcance ao vivo"
-          },
-          {
-            "nome": "TV por assinatura",
-            "canal": "Combate e SporTV 3",
-            "destaque": "2 canais",
-            "unidade": "no pacote do Globoplay",
-            "peso": 0,
-            "linhas": [
-              [
-                "Audiência",
-                "a medir, aguardando relatório da emissora"
-              ]
-            ],
-            "fonte": [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ],
-            "papel": "Distribuição premium"
-          },
-          {
-            "nome": "YouTube",
-            "canal": "Canal próprio",
-            "destaque": "149 mil",
-            "unidade": "visualizações no canal do projeto",
-            "peso": 149000,
-            "linhas": [
-              [
-                "Horas de exibição",
-                "63 mil"
-              ],
-              [
-                "Aparelhos conectados",
-                "87 mil"
-              ],
-              [
-                "Em televisores",
-                "54,9%"
-              ]
-            ],
-            "fonte": [
-              "Connect Cast no YouTube",
-              "https://www.youtube.com/@PodcastConnectCast"
-            ],
-            "papel": "Sob demanda"
-          },
-          {
-            "nome": "Redes",
-            "canal": "Reels",
-            "destaque": "25 milhões",
-            "unidade": "visualizações no mês do evento",
-            "peso": 25000000,
-            "linhas": [
-              [
-                "Transmissão e reprises somadas",
-                "mais de 2 milhões de visualizações"
-              ]
-            ],
-            "fonte": [
-              "Mídia kit oficial Connect Heroes V6 · documento da produção",
-              null
-            ],
-            "papel": "Repercussão"
-          }
-        ]
-      },
-      "card": {
-        "titulo": "O card da estreia",
-        "lede": "Sem chave e sem sorteio: cada combate foi montado por rivalidade ou revanche. Os resultados abaixo são os publicados pela imprensa especializada.",
-        "linhas": [
-          [
-            "Fabrício Andrey x Meyram Maquiné",
-            "70 kg · sem kimono",
-            "Fabrício Andrey venceu por decisão unânime",
-            [
-              "Portal do Vale Tudo · resultados da 1ª edição",
-              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-            ]
-          ],
-          [
-            "Diogo Reis x Rerisson Gabriel",
-            "64 kg",
-            "Diogo Reis venceu por decisão dividida",
-            [
-              "Portal do Vale Tudo · resultados da 1ª edição",
-              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-            ]
-          ],
-          [
-            "Piter Frank",
-            "85 kg",
-            "Piter Frank venceu por chave de braço",
-            [
-              "Portal do Vale Tudo · resultados da 1ª edição",
-              "https://www.portaldovaletudo.com.br/connect-heroes-fabricio-andrey-bate-meyram-e-baby-shark-vence-revanche-contra-rerisson/"
-            ]
-          ],
-          [
-            "Pedro Machado x Felipe Assis",
-            "Card principal",
-            "Combate anunciado no card divulgado antes do evento",
-            [
-              "Sportbuzz · o projeto e o card",
-              "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-            ]
-          ]
-        ],
-        "regras": [
-          [
-            "Sem chave",
-            "Os combates são montados por rivalidade e revanche, não por sorteio de chaveamento."
-          ],
-          [
-            "Bônus por finalização",
-            "R$ 10 mil por finalização no card principal e R$ 5 mil no preliminar, para estimular a busca pelo acabamento."
-          ],
-          [
-            "Bolsa independente do resultado",
-            "Todos os atletas recebem, vencendo ou perdendo."
-          ],
-          [
-            "Checagem de antecedentes",
-            "A produção verifica os antecedentes criminais de cada participante."
-          ],
-          [
-            "Trezentos lugares",
-            "A primeira edição foi montada para 300 convidados, não para arquibancada aberta."
-          ]
-        ],
-        "regras_fonte": [
-          [
-            "Portal do Vale Tudo · prévia da estreia",
-            "https://www.portaldovaletudo.com.br/connect-heroes-estreia-neste-sabado-com-rivalidades-revanche-e-incentivo-a-busca-pela-finalizacao/"
-          ],
-          [
-            "Sportbuzz · o projeto e o card",
-            "https://sportbuzz.com.br/jiu-jitsu/2026/04/29/connect-heroes-projeto-quer-devolver-o-protagonismo-do-jiu-jitsu-ao-rio-e-criar-novos-herois/"
-          ]
-        ]
-      },
-      "fotos_secao": {
-        "card": [
-          "connect-heroes-2026-09.jpg",
-          "Dois atletas de kimono se encaram antes do combate",
-          "28%"
-        ],
-        "telas": [
-          "connect-heroes-2026-10.jpg",
-          "Combate sem kimono registrado pela transmissão",
-          "40%"
-        ],
-        "plano": [
-          "connect-heroes-2026-11.jpg",
-          "Luta de kimono no tatame do Connect Heroes",
-          "45%"
-        ]
-      },
-      "abertura_titulo": [
-        "O INÍCIO DE UMA",
-        "JORNADA."
-      ],
-      "abertura_lede": "Evento global com início no Rio de Janeiro. O Connect Heroes nasceu para ser global: a primeira edição aconteceu no Brasil, e o desenho do projeto aponta para Estados Unidos, Emirados Árabes Unidos, Japão, Austrália e Europa.",
-      "op_ordem": [
-        "paises",
-        "nucleos",
-        "modalidades",
-        "transmissao"
-      ]
-    },
-    {
       "slug": "vert-battle",
       "name": "Vert Battle",
       "kind": "Circuito de skate vertical",
@@ -1484,46 +326,46 @@
         "2026": {
           "period": "Setembro a outubro de 2026",
           "place": "Belo Horizonte, São Paulo e Maceió",
-          "note": "Temporada em São Paulo, Rio de Janeiro, Paraná e Pernambuco",
+          "note": "Três etapas anunciadas no mídia kit 2026",
           "datas": {
-            "inicio": "2026-09-12",
+            "inicio": "2026-09-11",
             "fim": "2026-10-31",
             "precisao": "dia",
             "status": "confirmada",
             "fonte": [
-              "CBSk, calendário",
-              "https://cbsk.com.br/eventos/2168"
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
             ]
           },
           "etapas": [
             {
               "nome": "Belo Horizonte, MG",
-              "inicio": "2026-09-12",
+              "inicio": "2026-09-11",
               "fim": "2026-09-13",
               "status": "confirmada",
               "fonte": [
-                "CBSk, etapa de Belo Horizonte",
-                "https://cbsk.com.br/noticia/vert-battle-encerra-etapa-inedita-em-belo-horizonte-com-thomas-augusto-e-maria-luiza-santiago-no-topo-do-podio"
+                "Mídia kit Vert Battle 2026 · documento da produção",
+                null
               ]
             },
             {
-              "nome": "São Paulo, SP — Centro Esportivo Tietê",
-              "inicio": "2026-10-17",
+              "nome": "São Paulo, SP",
+              "inicio": "2026-10-16",
               "fim": "2026-10-18",
-              "status": "anunciada",
+              "status": "confirmada",
               "fonte": [
-                "CBSk, etapa de São Paulo",
-                "https://cbsk.com.br/noticia/sao-paulo-sp-recebe-segunda-etapa-do-vert-battle-2026-dias-17-e-18-de-outubro"
+                "Mídia kit Vert Battle 2026 · documento da produção",
+                null
               ]
             },
             {
               "nome": "Maceió, AL",
               "inicio": "2026-10-30",
               "fim": "2026-10-31",
-              "status": "anunciada",
+              "status": "confirmada",
               "fonte": [
-                "CBSk, calendário",
-                "https://cbsk.com.br/eventos/2168"
+                "Mídia kit Vert Battle 2026 · documento da produção",
+                null
               ]
             }
           ]
@@ -1588,12 +430,11 @@
       },
       "facts": {
         "2026": [
-          "A primeira etapa foi realizada em Belo Horizonte, em 12 e 13 de setembro.",
-          "A CBSk informou cerca de 6 mil espectadores na etapa e premiação total anunciada de R$ 100 mil.",
-          "Thomas Augusto e Maria Luiza Santiago venceram as categorias principais em Belo Horizonte.",
-          "A etapa de São Paulo foi anunciada para 17 e 18 de outubro, no Centro Esportivo Tietê, e a de Maceió para 30 e 31 de outubro.",
-          "As finais de Belo Horizonte foram transmitidas pelo canal oficial da CBSk.",
-          "O cronograma de 2026 divulgado pela produção prevê etapas em São Paulo, Rio de Janeiro, Paraná e Pernambuco."
+          "A temporada de 2026 tem três etapas: Belo Horizonte, de 11 a 13 de setembro, São Paulo, de 16 a 18 de outubro, e Maceió, em 30 e 31 de outubro.",
+          "A competição é disputada em duas categorias, masculino pro e feminino pro, com premiação igualitária.",
+          "O campeonato é homologado pela Confederação Brasileira de Skate e integra o Circuito BB de Skate Vertical.",
+          "As etapas vão ao ar pela Globo e pelo SporTV, como em 2025.",
+          "Cada etapa recebe uma demo session de paraskate com skatistas PCD convidados na própria cidade."
         ],
         "2025": [
           "A temporada teve quatro etapas: Goiânia em 3 e 4 de maio, Niterói em 31 de maio e 1º de junho, Curitiba em 11 e 12 de outubro e a final em Fortaleza, em 13 e 14 de dezembro.",
@@ -1706,10 +547,186 @@
             "SESC Mesa Brasil",
             "Destino dos alimentos arrecadados"
           ]
+        ],
+        "resumo": "O Vert Battle é o Campeonato Brasileiro de Skate Vertical: homologado pela Confederação Brasileira de Skate, integra o Circuito BB de Skate Vertical e é a competição mais prestigiada da modalidade no país. Cada etapa junta a disputa no half com palco de música, ativações e uma demo de paraskate, e vai ao ar pela Globo e pelo SporTV.",
+        "destaques": [
+          [
+            "+100 mil",
+            "Pessoas no evento"
+          ],
+          [
+            "400",
+            "Matérias publicadas"
+          ],
+          [
+            "+40 mi",
+            "Pessoas impactadas"
+          ],
+          [
+            "15%",
+            "Taxa de engajamento"
+          ]
+        ],
+        "contexto": {
+          "necessidade": "O skate vertical forma campeões olímpicos no Brasil e tem pouca vitrine recorrente. Sem circuito fixo, o atleta de alto rendimento compete pouco em casa e a modalidade aparece na televisão só a cada quatro anos.",
+          "oportunidade": "Um campeonato homologado, itinerante e transmitido ao vivo resolve as duas pontas: dá calendário ao atleta e entrega à marca um produto de esporte com público presente, palco de música e audiência nacional em TV aberta e fechada."
+        },
+        "valor": [
+          [
+            "Chancela da CBSk",
+            "Etapas homologadas pela Confederação Brasileira de Skate, com formatos de competição validados e pontuação que vale para o ranking nacional."
+          ],
+          [
+            "Globo e SporTV ao vivo",
+            "A disputa vai ao ar em TV aberta e fechada, apresentando a modalidade a quem não acompanha skate e revelando nomes como Augusto Akio, Raicca Ventura e Luigi Cini."
+          ],
+          [
+            "Palco Vert Battle",
+            "O ponto de encontro do esporte com a cultura urbana: artistas locais dividem o palco com grandes nomes da música nacional, enquanto a competição acontece no half."
+          ],
+          [
+            "Paraskate em toda etapa",
+            "Cada cidade recebe uma demo session com paraskatistas locais convidados pelo evento, o que faz da inclusão parte do formato, não uma ação avulsa."
+          ]
+        ],
+        "kpis_lede": "Os números que o circuito declara no mídia kit 2026. A coluna de referência traz o documento de origem de cada leitura.",
+        "kpis": [
+          [
+            "Pessoas no evento",
+            "mídia kit 2026",
+            "Mais de 100 mil",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Matérias publicadas",
+            "mídia kit 2026",
+            "Cerca de 400",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Pessoas impactadas",
+            "mídia kit 2026",
+            "Mais de 40 milhões",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Taxa de engajamento",
+            "mídia kit 2026",
+            "15%",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Crescimento de interações no perfil",
+            "em um mês",
+            "30%",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Alimentos arrecadados",
+            "mídia kit 2026",
+            "Cerca de 100 toneladas",
+            [
+              "Mídia kit Vert Battle 2026 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Público presente por etapa",
+            "contagem da produção",
+            null,
+            null
+          ],
+          [
+            "Audiência da transmissão",
+            "relatório de emissora",
+            null,
+            null
+          ]
         ]
       },
       "ordem": 1,
-      "chamada": "Skate vertical, de cidade em cidade."
+      "chamada": "Skate vertical, de cidade em cidade.",
+      "frentes": {
+        "titulo": "Dentro de cada etapa",
+        "subtitulo": "Competição, palco e cidade.",
+        "lede": "Uma etapa do Vert Battle não é só a competição: são três dias de operação que ocupam a cidade.",
+        "itens": [
+          [
+            "Campeonato Brasileiro de Vert",
+            "Disputa homologada pela CBSk em duas categorias, masculino pro e feminino pro, com transmissão ao vivo pela Globo e pelo SporTV.",
+            "skateboarding"
+          ],
+          [
+            "Palco Vert Battle",
+            "Shows de grandes nomes da música nacional ao lado de artistas da cena local de cada cidade, no mesmo espaço da competição.",
+            "music_note"
+          ],
+          [
+            "Paraskate",
+            "Demo session com paraskatistas locais convidados pelo evento, em todas as etapas.",
+            "groups"
+          ],
+          [
+            "Ativações",
+            "Mini ramp aberta ao público, loja do circuito, realidade virtual e experiências de marca no entorno do half.",
+            "festival"
+          ]
+        ],
+        "nota": ""
+      },
+      "esg": {
+        "titulo": "Responsabilidade socioambiental",
+        "lede": "O que cada etapa leva junto com a competição, conforme o mídia kit do circuito.",
+        "itens": [
+          [
+            "Arrecadação de alimentos",
+            "Alimentos arrecadados no evento e doados a instituições locais."
+          ],
+          [
+            "Doação de equipamento",
+            "Skates e equipamentos doados a projetos sociais apoiados pela federação de skate de cada estado."
+          ],
+          [
+            "Vagas afirmativas",
+            "Vagas afirmativas na equipe de produção do evento."
+          ],
+          [
+            "Protocolo Não é Não",
+            "Protocolo de enfrentamento ao assédio em operação durante o evento."
+          ],
+          [
+            "Acessibilidade",
+            "Área exclusiva para PCD e atrações com intérpretes de LIBRAS."
+          ],
+          [
+            "Resíduos",
+            "Tratamento e gestão de resíduos, reciclagem e eco-copos."
+          ],
+          [
+            "Emissões",
+            "Levantamento de emissões de gases de efeito estufa do evento."
+          ]
+        ],
+        "fonte": [
+          "Mídia kit Vert Battle 2026 · documento da produção",
+          null
+        ]
+      }
     },
     {
       "slug": "tamo-junto-bb",
@@ -1730,8 +747,8 @@
       "editions": {
         "2025": {
           "period": "10 a 14 de dezembro de 2025",
-          "place": "Fortaleza, CE",
-          "note": "Recebeu a final do Vert Battle e o encerramento do Circuito BB de Surfe",
+          "place": "Marina Park Hotel, Fortaleza, CE",
+          "note": "Marina Park Hotel · final do Vert Battle e encerramento do Circuito BB de Surfe",
           "datas": {
             "inicio": "2025-12-10",
             "fim": "2025-12-14",
@@ -1777,6 +794,10 @@
       "facts": {
         "2025": [
           "A edição de Fortaleza ocorreu de 10 a 14 de dezembro.",
+          "O Squad BB reuniu no festival os atletas apoiados pelo Banco do Brasil nas diferentes modalidades.",
+          "A competição de skate foi disputada em categorias profissional masculino e feminino open, com premiação igualitária.",
+          "O surfe entrou como a última etapa do Circuito Banco do Brasil de Surfe, evento QS 2000 da World Surf League.",
+          "A edição de Fortaleza aconteceu no Marina Park Hotel, de 10 a 14 de dezembro.",
           "A programação esportiva reuniu skate, surfe, vôlei de praia, corrida e games.",
           "Entre os artistas divulgados estavam João Gomes, BaianaSystem, Nação Zumbi, L7nnon, Rachel Reis, Jota.pê, Os Garotin e Grupo Revelação.",
           "A última etapa do Vert Battle 2025 e o encerramento do Circuito BB de Surfe aconteceram dentro do festival.",
@@ -1982,7 +1003,138 @@
               "https://www.meioemensagem.com.br/marketing/banco-do-brasil-promove-festival-de-esportes-em-salvador"
             ]
           ]
-        }
+        },
+        "resumo": "O Tamo Junto BB é o festival de esportes e música do Banco do Brasil: reúne num só lugar as modalidades que o banco patrocina — skate, surfe, vôlei de praia, corrida de rua e games — com palcos de música, ativações e entrada aberta. Em 2024, na Arena das Dunas, em Natal, passaram mais de 100 mil pessoas; em 2025 o festival foi para Fortaleza, no Marina Park Hotel, de 10 a 14 de dezembro.",
+        "destaques": [
+          [
+            "+100 mil",
+            "Pessoas na edição de Natal"
+          ],
+          [
+            "R$ 102 mi",
+            "Em valoração de mídia"
+          ],
+          [
+            "560",
+            "Inserções na imprensa"
+          ],
+          [
+            "5",
+            "Modalidades esportivas"
+          ]
+        ],
+        "contexto": {
+          "necessidade": "Um banco que patrocina cinco esportes diferentes fala com cinco públicos separados, em cinco calendários que não se encontram. O investimento aparece diluído, e o torcedor de uma modalidade nunca vê as outras.",
+          "oportunidade": "Juntar tudo em uma praça e cinco dias transforma patrocínio em festival: o público que veio pelo skate assiste ao vôlei, o corredor leva a família ao show, e a marca aparece uma vez só, no lugar onde tudo acontece."
+        },
+        "valor": [
+          [
+            "Cinco esportes, uma praça",
+            "Skate, surfe, vôlei de praia, corrida de rua e games acontecem nos mesmos dias e no mesmo endereço, cada um com entidade e calendário próprios."
+          ],
+          [
+            "Palco com a música do país",
+            "Os palcos do festival celebram ritmos e gêneros brasileiros com artistas consagrados e locais, e são o que sustenta o público depois que a competição termina."
+          ],
+          [
+            "Squad BB",
+            "O festival é a única ocasião do ano que reúne os atletas apoiados pelo banco nas cinco modalidades, no mesmo lugar e ao alcance do público."
+          ],
+          [
+            "Mídia espontânea",
+            "A edição rendeu R$ 102 milhões em valoração de mídia, com 560 inserções na imprensa, 140 jornalistas credenciados e 45 veículos presentes."
+          ]
+        ],
+        "kpis_lede": "Os números declarados no mídia kit do festival. A coluna de referência traz o documento de origem de cada leitura.",
+        "kpis": [
+          [
+            "Público na edição de Natal",
+            "Arena das Dunas, 2024",
+            "Mais de 100 mil",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Valoração de mídia",
+            "mídia kit 2025",
+            "R$ 102 milhões",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Inserções na imprensa",
+            "mídia kit 2025",
+            "560",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Jornalistas no evento",
+            "mídia kit 2025",
+            "140",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Veículos presentes",
+            "mídia kit 2025",
+            "45",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Entrevistas concedidas",
+            "mídia kit 2025",
+            "Mais de 50",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Alcance em redes sociais",
+            "estimativa, mídia kit 2025",
+            "20 milhões de usuários",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Impressões em redes sociais",
+            "mídia kit 2025",
+            "Mais de 880 mil",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Engajamento em redes sociais",
+            "mídia kit 2025",
+            "31%",
+            [
+              "Mídia kit Tamo Junto BB 2025 · documento da produção",
+              null
+            ]
+          ],
+          [
+            "Público por edição",
+            "contagem da produção",
+            null,
+            null
+          ]
+        ]
       },
       "frentes": {
         "titulo": "Os eventos dentro",
@@ -2028,7 +1180,96 @@
         "nota": ""
       },
       "ordem": 4,
-      "chamada": "Esporte e música no mesmo lugar."
+      "chamada": "Esporte e música no mesmo lugar.",
+      "pesquisa": {
+        "titulo": "O que o público respondeu",
+        "lede": "Pesquisa de satisfação aplicada no festival, conforme o mídia kit.",
+        "itens": [
+          [
+            "95,25%",
+            "consideram que o BB coloca em destaque o esporte brasileiro com eventos, ações e campanhas"
+          ],
+          [
+            "94,25%",
+            "concordam que o banco incentiva o desenvolvimento de modalidades com grande potencial e deixa o esporte mais acessível"
+          ],
+          [
+            "94,25%",
+            "consideraram o evento relevante e conectado com o universo esportivo"
+          ],
+          [
+            "83,5%",
+            "consideraram o evento muito interessante"
+          ]
+        ],
+        "nota": "Shows, esportes e organização foram os aspectos que mais agradaram o público.",
+        "fonte": [
+          "Mídia kit Tamo Junto BB 2025 · documento da produção",
+          null
+        ]
+      },
+      "esg": {
+        "titulo": "Responsabilidade socioambiental",
+        "lede": "O que o festival mediu e entregou fora da competição, conforme o mídia kit.",
+        "itens": [
+          [
+            "77% de material reciclado",
+            "Do material usado na montagem foi reciclado ou reutilizado."
+          ],
+          [
+            "103 mil copos retornáveis",
+            "Distribuídos no festival, no lugar do descartável."
+          ],
+          [
+            "30 toneladas de alimentos",
+            "Alimentos não perecíveis arrecadados e doados ao Sesc Mesa Brasil."
+          ],
+          [
+            "Mais de 230 atendimentos",
+            "Feitos pelo time BB Cuida de VC durante o evento."
+          ],
+          [
+            "Acessibilidade 360º",
+            "Estrutura, circulação e atrações pensadas para o público com deficiência."
+          ],
+          [
+            "Protocolo Não é Não",
+            "Equipe treinada e canal ativo de enfrentamento ao assédio."
+          ],
+          [
+            "Doação de equipamento",
+            "Equipamento de skate doado a projetos sociais."
+          ],
+          [
+            "72,3 toneladas de CO₂",
+            "Neutralizadas no inventário de emissões do festival."
+          ]
+        ],
+        "fonte": [
+          "Mídia kit Tamo Junto BB 2025 · documento da produção",
+          null
+        ]
+      },
+      "ativacoes": {
+        "titulo": "Ativações",
+        "lede": "O que o público encontra entre uma competição e um show.",
+        "itens": [
+          "Simulador de surfe",
+          "Painéis de grafite",
+          "Futmesa",
+          "Aulas de skate",
+          "Educação financeira com jogos de tabuleiro",
+          "Tirolesa",
+          "Parede de escalada",
+          "Área de massagem",
+          "Máquina de brindes",
+          "Arena de games"
+        ],
+        "fonte": [
+          "Mídia kit Tamo Junto BB 2025 · documento da produção",
+          null
+        ]
+      }
     },
     {
       "slug": "festival-de-tribos-juruti",
@@ -3082,36 +2323,6 @@
         "CCBB, ficha técnica institucional."
       ],
       [
-        "connect-heroes",
-        "2026",
-        "Tatame e premiação da 1ª edição",
-        "Produção do evento, perfil oficial @connectheroes."
-      ],
-      [
-        "connect-heroes",
-        "2026",
-        "Fight week no Grand Hyatt: coletiva e pesagem",
-        "Produção do evento, perfil oficial @connectheroes."
-      ],
-      [
-        "mr-moo-festival",
-        "2026",
-        "Tenda principal cheia, vista aérea do festival",
-        "Produção do festival. O mídia kit já traz a imagem em alta: pedir o arquivo solto e a autorização."
-      ],
-      [
-        "mr-moo-festival",
-        "2025",
-        "Entrega do certificado Guinness no palco",
-        "Produção do festival. O mídia kit já traz a imagem em alta: pedir o arquivo solto e a autorização."
-      ],
-      [
-        "mr-moo-festival",
-        "2027",
-        "Balões e roda gigante ao pôr do sol",
-        "Produção do festival."
-      ],
-      [
         "atletas",
         "",
         "Retrato de cada atleta em assets/fotos/<slug-do-atleta>.jpg",
@@ -3136,8 +2347,6 @@
       }
     ],
     "creditos": {
-      "mr-moo-festival": "Divulgação Mr. Moo Festival",
-      "connect-heroes": "",
       "vert-battle": "Divulgação Vert Battle",
       "tamo-junto-bb": "Divulgação Festival Tamo Junto BB",
       "dominguinho": "Divulgação Turnê Dominguinho",
@@ -3145,12 +2354,9 @@
       "festival-de-tribos-juruti": "Divulgação Festival das Tribos de Juruti",
       "arte-em-circuito": "Divulgação Arte em Circuito"
     },
-    "origem_arquivos": "As imagens de mr-moo-festival, connect-heroes, vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções. Duas fotos do Mr. Moo Festival — a vista do palco e a da tenda principal — chegaram depois, pela direção da Cadillac. A da tenda entra sob o crédito padrão da produção; a do palco traz a assinatura do fotógrafo na própria imagem e é creditada a ele. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção e, no caso assinado, do próprio fotógrafo. O crédito aparece sobre a imagem.",
+    "origem_arquivos": "As imagens de vert-battle, tamo-junto-bb e dominguinho foram extraídas dos mídia kits e dos relatórios oficiais enviados pelas respectivas produções. Duas fotos do Mr. Moo Festival — a vista do palco e a da tenda principal — chegaram depois, pela direção da Cadillac. A da tenda entra sob o crédito padrão da produção; a do palco traz a assinatura do fotógrafo na própria imagem e é creditada a ele. São fotografias de terceiro: antes de o site ir ao ar é preciso a autorização escrita de uso de cada produção e, no caso assinado, do próprio fotógrafo. O crédito aparece sobre a imagem.",
     "como_pedir": "Nenhuma imagem de veículo de imprensa entra neste site: a foto que ilustra uma reportagem é do veículo ou do fotógrafo, e citar a fonte não transfere direito de uso. Vale acervo próprio, material cedido por produtor ou patrocinador com autorização escrita, e órgão público que publique sob licença aberta. Peça sempre o crédito por escrito junto com o arquivo. O passo a passo e o texto do pedido estão em FOTOS.md.",
-    "creditos_arquivo": {
-      "mr-moo-festival-palco.jpg": "Lucas Nascimento · @fotografialucasnascimento",
-      "mr-moo-festival.jpg": "Lucas Nascimento · @fotografialucasnascimento"
-    }
+    "creditos_arquivo": {}
   },
   "audiencia": {
     "lede": "Quanta gente a Cadillac alcança. Esta página soma apenas números com origem identificada e nunca mistura grandezas diferentes: quem esteve presente, quem competiu e quem ouviu são contagens distintas.",
@@ -3472,105 +2678,6 @@
         "source": null
       },
       {
-        "project": "connect-heroes",
-        "year": 2026,
-        "family": "transmissao",
-        "value": 240000,
-        "label": "Televisores na transmissão ao vivo pela Xsports",
-        "basis": "Declarado pela produção no mídia kit oficial (V6). Televisor ligado não é pessoa única",
-        "counts": true,
-        "source": null,
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "family": "transmissao",
-        "value": 149000,
-        "label": "Visualizações no YouTube",
-        "basis": "Declarado pela produção no mídia kit oficial (V6), sem captura de painel anexada",
-        "counts": true,
-        "source": [
-          "Connect Cast no YouTube",
-          "https://www.youtube.com/@PodcastConnectCast"
-        ],
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "family": "transmissao",
-        "value": 2000000,
-        "label": "Visualizações somando ao vivo e reprises",
-        "basis": "Declarado pela produção. Engloba as duas linhas acima e por isso não entra em nenhum total",
-        "counts": false,
-        "source": null,
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "family": "digital",
-        "value": 25000000,
-        "label": "Visualizações em reels durante julho",
-        "basis": "Declarado pela produção no mídia kit oficial (V6). Visualização de reel não é pessoa única",
-        "counts": true,
-        "source": [
-          "Connect Heroes no Instagram",
-          "https://www.instagram.com/connectheroes/"
-        ],
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
-        "project": "mr-moo-festival",
-        "year": 2027,
-        "family": "presencial",
-        "value": 15000,
-        "label": "Expectativa de público da 23ª edição",
-        "basis": "Projeção divulgada antes do evento. Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
-        "counts": false,
-        "source": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "tipo": "projecao",
-        "conta": ""
-      },
-      {
-        "project": "mr-moo-festival",
-        "year": 2026,
-        "family": "presencial",
-        "value": 15000,
-        "label": "22ª edição, São José dos Campos",
-        "basis": "Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
-        "counts": false,
-        "source": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
-        "project": "mr-moo-festival",
-        "year": 2025,
-        "family": "presencial",
-        "value": 20000,
-        "label": "20ª edição, a do recorde do Guinness",
-        "basis": "Público do festival, anterior à entrada da Cadillac, que atua apenas na captação da edição de 2027. Declarado pela produção e mantido fora de qualquer total da empresa",
-        "counts": false,
-        "source": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "tipo": "declarado",
-        "conta": ""
-      },
-      {
         "project": "dominguinho",
         "year": 2026,
         "family": "presencial",
@@ -3757,34 +2864,6 @@
           1,
           "Salvador, BA"
         ]
-      },
-      "connect-heroes": {
-        "modalidades": [
-          2,
-          "Jiu-jítsu com kimono e grappling sem kimono"
-        ],
-        "transmissao": [
-          "Xsports, Combate e SporTV 3",
-          "Ao vivo e reprises, com distribuição pelo Globoplay"
-        ],
-        "paises": [
-          5,
-          "Brasil, Estados Unidos, Emirados Árabes Unidos, Japão e Europa"
-        ],
-        "nucleos": [
-          8,
-          "Sport, Athletes, Teams & Academies, Media, Fan & Experience, Commercial, Commerce e Tech & Data"
-        ]
-      },
-      "mr-moo-festival": {
-        "cidades": [
-          7,
-          "São José dos Campos, São Paulo, Rio Claro, Ribeirão Preto, Campinas, Valinhos e Santa Gertrudes, nas edições catalogadas"
-        ],
-        "modalidades": [
-          1,
-          "Gastronomia, com programação musical em três frentes"
-        ]
       }
     },
     "fichas": {
@@ -3873,54 +2952,6 @@
         ]
       },
       "itacoatiara-pro-2024": {},
-      "connect-heroes-2026": {
-        "dias_evento": [
-          1,
-          "Competição concentrada em um único dia, dentro de uma fight week de quarta a domingo"
-        ],
-        "modalidades": [
-          1,
-          "Jiu-jítsu e grappling"
-        ],
-        "transmissao": [
-          "Xsports, Combate e SporTV 3",
-          "Ao vivo pela Xsports, distribuição pelo Globoplay e canal próprio no YouTube"
-        ]
-      },
-      "mr-moo-festival-2027": {
-        "dias_evento": [
-          1,
-          "22 de maio de 2027, edição de um dia"
-        ],
-        "palcos": [
-          3,
-          "Palco principal, Rock in Moo e lounge eletrônico"
-        ]
-      },
-      "mr-moo-festival-2026": {
-        "publico": [
-          15000,
-          "Declarado pela produção no mídia kit oficial"
-        ],
-        "dias_evento": [
-          1,
-          "Edição de um dia"
-        ],
-        "palcos": [
-          3,
-          "Palco principal, Rock in Moo e lounge eletrônico"
-        ]
-      },
-      "mr-moo-festival-2025": {
-        "publico": [
-          20000,
-          "Declarado pela produção no mídia kit oficial"
-        ],
-        "dias_evento": [
-          1,
-          "17 de maio de 2025, edição de um dia"
-        ]
-      },
       "tamo-junto-bb-2026": {
         "dias_evento": [
           5,
@@ -4069,45 +3100,6 @@
         "metrica": null,
         "capturado_em": null,
         "fonte": null
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "parceiro": "Xsports",
-        "canal": "Xsports, na TV e no Disney+",
-        "o_que": "Transmissão ao vivo da 1ª edição e 27 reprises entre 11 de julho e 9 de agosto de 2026",
-        "url": null,
-        "metrica": "240 mil televisores, declarado pela produção",
-        "capturado_em": null,
-        "fonte": null
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "parceiro": "Globoplay",
-        "canal": "Canais Combate e SporTV 3",
-        "o_que": "Distribuição da transmissão do evento",
-        "url": null,
-        "metrica": null,
-        "capturado_em": null,
-        "fonte": [
-          "Globoplay, canais Combate e SporTV",
-          "https://globoplay.globo.com/"
-        ]
-      },
-      {
-        "project": "connect-heroes",
-        "year": 2026,
-        "parceiro": "Canal próprio",
-        "canal": "YouTube @PodcastConnectCast",
-        "o_que": "Transmissão e reprises no canal do projeto",
-        "url": null,
-        "metrica": "149 mil visualizações, 63 mil horas de exibição e 87 mil aparelhos conectados, declarados",
-        "capturado_em": null,
-        "fonte": [
-          "Connect Cast no YouTube",
-          "https://www.youtube.com/@PodcastConnectCast"
-        ]
       }
     ],
     "note": ""
@@ -4395,40 +3387,6 @@
         "fonte": [
           "Contrato e ficha do TCM-PA",
           "https://www.tcm.pa.gov.br/mural-de-licitacoes/licitacoes/ficha/3289036"
-        ]
-      },
-      "connect-heroes-2026": {
-        "atletas": [
-          [
-            "Fabrício Andrey",
-            "main event divulgado no material oficial da edição"
-          ],
-          [
-            "Meyram",
-            "main event divulgado no material oficial da edição"
-          ]
-        ],
-        "fonte": [
-          "Connect Heroes no Instagram",
-          "https://www.instagram.com/connectheroes/"
-        ]
-      },
-      "mr-moo-festival-2025": {
-        "personalidades": [
-          [
-            "Guinness World Records",
-            "certificou o recorde de carne bovina churrasqueada em oito horas, em 17 de maio de 2025"
-          ]
-        ],
-        "artistas": [
-          [
-            "Bruno e Marrone",
-            "show especial da edição, conforme a cobertura de imprensa"
-          ]
-        ],
-        "fonte": [
-          "Certificado Guinness World Records de 17 de maio de 2025, reproduzido no mídia kit oficial",
-          null
         ]
       },
       "tamo-junto-bb-2024": {
@@ -4820,114 +3778,6 @@
         "uso": "Nunca publicado. Mesma razão"
       },
       {
-        "projeto": "Connect Heroes",
-        "slug": "connect-heroes",
-        "registro": "Custo total do evento informado como referência de naming right",
-        "valor": 1400000,
-        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Connect Heroes V6 · documento da produção",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Connect Heroes",
-        "slug": "connect-heroes",
-        "registro": "Cota Black Belt",
-        "valor": 500000,
-        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Connect Heroes V6 · documento da produção",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Connect Heroes",
-        "slug": "connect-heroes",
-        "registro": "Cota Brown Belt",
-        "valor": 250000,
-        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Connect Heroes V6 · documento da produção",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Connect Heroes",
-        "slug": "connect-heroes",
-        "registro": "Cota Purple Belt",
-        "valor": 100000,
-        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Connect Heroes V6 · documento da produção",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Connect Heroes",
-        "slug": "connect-heroes",
-        "registro": "Cota Blue Belt",
-        "valor": 50000,
-        "natureza": "Valor comercial apresentado na proposta de patrocínio da 2ª edição. É preço de tabela, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Connect Heroes V6 · documento da produção",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Mr. Moo Festival",
-        "slug": "mr-moo-festival",
-        "registro": "Naming rights 2027: investimento proposto ao Banco do Brasil",
-        "valor": 950000,
-        "natureza": "Valor de investimento apresentado na proposta de naming rights da 23ª edição. É preço de tabela da produção, não receita contratada nem captação realizada.",
-        "fonte": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Mr. Moo Festival",
-        "slug": "mr-moo-festival",
-        "registro": "Faturamento total do festival projetado na proposta",
-        "valor": 20000000,
-        "natureza": "Projeção de faturamento do evento apresentada como argumento comercial ao banco. Não é receita da Cadillac nem resultado auditado.",
-        "fonte": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Mr. Moo Festival",
-        "slug": "mr-moo-festival",
-        "registro": "Faturamento anual projetado da conta Mr.Moo Steakhouse",
-        "valor": 3500000,
-        "natureza": "Projeção de faturamento de negócio de terceiro, citada na proposta comercial. Não é receita da Cadillac.",
-        "fonte": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
-        "projeto": "Mr. Moo Festival",
-        "slug": "mr-moo-festival",
-        "registro": "Mesa VIP, valor de tabela",
-        "valor": 27000,
-        "natureza": "Preço de tabela por mesa informado no mídia kit. Não é receita nem volume vendido.",
-        "fonte": [
-          "Mídia kit oficial Mr. Moo Festival · Moo Extraordinário (documento da produção, outubro de 2026)",
-          null
-        ],
-        "uso": "Fora das páginas públicas a pedido"
-      },
-      {
         "projeto": "Itacoatiara Pro",
         "slug": "itacoatiara-pro",
         "registro": "Itacoatiara Pro 10 anos: cota diamante proposta",
@@ -5308,13 +4158,6 @@
         "titulo": "Itacoatiara Pro, final do skate",
         "arquivo": "assets/video/itacoatiara-pro.mp4",
         "poster": "assets/fotos/itacoatiara-pro.jpg",
-        "nota": ""
-      },
-      "connect-heroes": {
-        "url": "https://youtu.be/xI54Nm7kzuk",
-        "titulo": "Connect Heroes, teaser da 1ª edição",
-        "arquivo": "assets/video/connect-heroes.mp4",
-        "poster": "assets/fotos/connect-heroes.jpg",
         "nota": ""
       }
     },
@@ -7150,200 +5993,6 @@
     "lede": "Os caminhos para trabalhar com a Cadillac, de patrocínio a fornecimento.",
     "blocos": [
       {
-        "id": "patrocinios",
-        "titulo": "Patrocínios",
-        "icone": "campaign",
-        "texto": "As propriedades do acervo oferecem exposição em TV aberta e streaming, presença em arena e em estrutura de alto impacto, ativação de produto no evento e conteúdo produzido durante a operação. A cada projeto corresponde um público diferente, e a página de cada evento mostra o que se mede e o que ainda está em aberto antes de qualquer conversa comercial.",
-        "itens": [
-          "Cotas por projeto e por edição, com contrapartidas descritas",
-          "Naming rights em propriedades próprias e de parceiros",
-          "Ativação de marca em arena, palco e áreas de experiência",
-          "Projetos inscritos em leis de incentivo à cultura e ao esporte"
-        ],
-        "pendencia": "",
-        "propriedades": [
-          [
-            "vert-battle",
-            "Vert Battle",
-            "Circuito de skate vertical, etapas em várias cidades"
-          ],
-          [
-            "itacoatiara-pro",
-            "Itacoatiara Pro",
-            "Festival multiesportivo em Niterói, com etapa de circuito mundial"
-          ],
-          [
-            "connect-heroes",
-            "Connect Heroes",
-            "Jiu-jítsu como espetáculo, com transmissão em TV e streaming"
-          ],
-          [
-            "mr-moo-festival",
-            "Mr. Moo Festival",
-            "Festival gastronômico all inclusive, recorde no Guinness"
-          ],
-          [
-            "dominguinho",
-            "Dominguinho",
-            "Turnê nacional com João Gomes, Mestrinho e Jota.pê"
-          ]
-        ],
-        "propriedades_nota": "",
-        "form": {
-          "titulo": "Quero patrocinar",
-          "intro": "Diga qual propriedade interessa e o que a marca precisa alcançar. Respondemos com as cotas disponíveis para o período.",
-          "campos": [
-            {
-              "nome": "propriedade",
-              "rotulo": "Propriedade de interesse",
-              "tipo": "select",
-              "obrig": true,
-              "opcoes": [
-                "Vert Battle",
-                "Itacoatiara Pro",
-                "Connect Heroes",
-                "Mr. Moo Festival",
-                "Dominguinho",
-                "Mais de uma",
-                "Ainda não sei, quero uma recomendação"
-              ]
-            },
-            {
-              "nome": "quais",
-              "rotulo": "Quais propriedades",
-              "tipo": "text",
-              "obrig": false,
-              "so_se": {
-                "propriedade": "Mais de uma"
-              }
-            },
-            {
-              "nome": "perfil",
-              "rotulo": "Perfil de quem patrocina",
-              "tipo": "select",
-              "obrig": true,
-              "opcoes": [
-                "Marca ou anunciante",
-                "Agência representando uma marca",
-                "Estatal ou órgão público",
-                "Instituição ou fundação",
-                "Lei de incentivo à cultura ou ao esporte"
-              ]
-            },
-            {
-              "nome": "marca",
-              "rotulo": "Marca ou instituição",
-              "tipo": "text",
-              "obrig": true
-            },
-            {
-              "nome": "cliente",
-              "rotulo": "Marca representada",
-              "tipo": "text",
-              "obrig": false,
-              "so_se": {
-                "perfil": "Agência representando uma marca"
-              }
-            },
-            {
-              "nome": "incentivo",
-              "rotulo": "Lei pretendida",
-              "tipo": "select",
-              "obrig": false,
-              "so_se": {
-                "perfil": "Lei de incentivo à cultura ou ao esporte"
-              },
-              "opcoes": [
-                "Lei Rouanet",
-                "Lei de Incentivo ao Esporte",
-                "Lei estadual ou municipal",
-                "A definir"
-              ]
-            },
-            {
-              "nome": "objetivo",
-              "rotulo": "O que a marca busca",
-              "tipo": "select",
-              "obrig": true,
-              "opcoes": [
-                "Exposição em TV e streaming",
-                "Ativação de produto no evento",
-                "Naming rights",
-                "Conteúdo produzido na operação",
-                "Relacionamento com convidados",
-                "Território de marca em um segmento"
-              ]
-            },
-            {
-              "nome": "segmento",
-              "rotulo": "Território pretendido",
-              "tipo": "text",
-              "obrig": false,
-              "so_se": {
-                "objetivo": "Território de marca em um segmento"
-              },
-              "dica": "Esporte, música, cultura, sustentabilidade, tecnologia."
-            },
-            {
-              "nome": "periodo",
-              "rotulo": "Período pretendido",
-              "tipo": "select",
-              "obrig": true,
-              "opcoes": [
-                "Próxima edição",
-                "Temporada inteira",
-                "Contrato de mais de um ano",
-                "A combinar"
-              ]
-            },
-            {
-              "nome": "verba",
-              "rotulo": "Faixa de investimento",
-              "tipo": "select",
-              "obrig": false,
-              "opcoes": [
-                "Até R$ 100 mil",
-                "De R$ 100 mil a R$ 500 mil",
-                "De R$ 500 mil a R$ 1 milhão",
-                "Acima de R$ 1 milhão",
-                "Prefiro conversar antes"
-              ],
-              "dica": "Ajuda a chegar com a cota certa na primeira resposta."
-            },
-            {
-              "nome": "nome",
-              "rotulo": "Seu nome",
-              "tipo": "text",
-              "obrig": true
-            },
-            {
-              "nome": "cargo",
-              "rotulo": "Cargo",
-              "tipo": "text",
-              "obrig": false
-            },
-            {
-              "nome": "email",
-              "rotulo": "E-mail",
-              "tipo": "email",
-              "obrig": true
-            },
-            {
-              "nome": "telefone",
-              "rotulo": "Telefone ou WhatsApp",
-              "tipo": "tel",
-              "obrig": false
-            },
-            {
-              "nome": "mensagem",
-              "rotulo": "O que mais devemos saber",
-              "tipo": "textarea",
-              "obrig": false
-            }
-          ]
-        }
-      },
-      {
         "id": "marcas",
         "titulo": "Marcas e ativações",
         "icone": "verified",
@@ -8542,36 +7191,6 @@
         ]
       },
       {
-        "projeto": "mr-moo-festival",
-        "faixa": "35 a 70 anos",
-        "de": 35,
-        "ate": 70,
-        "recorte": "Público adulto, com origem espalhada pelo país e fora dele",
-        "genero": {
-          "mulheres": 50,
-          "homens": 50
-        },
-        "classes": [],
-        "geografia": [
-          [
-            "420",
-            "cidades de origem"
-          ],
-          [
-            "27",
-            "estados"
-          ],
-          [
-            "6",
-            "países"
-          ]
-        ],
-        "fonte": [
-          "Mídia kit oficial Mr. Moo Festival",
-          null
-        ]
-      },
-      {
         "projeto": "itacoatiara-pro",
         "faixa": "10 a 60 anos",
         "de": 10,
@@ -8586,20 +7205,6 @@
         "geografia": [],
         "fonte": [
           "Projeto Itacoatiara Pro 10 anos",
-          null
-        ]
-      },
-      {
-        "projeto": "connect-heroes",
-        "faixa": "25 a 54 anos",
-        "de": 25,
-        "ate": 54,
-        "recorte": "Faixa predominante dos praticantes de jiu-jítsu no Brasil, segundo a leitura de mercado do pitch",
-        "genero": null,
-        "classes": [],
-        "geografia": [],
-        "fonte": [
-          "Pitch de patrocínio Connect Heroes, 2ª edição",
           null
         ]
       }
